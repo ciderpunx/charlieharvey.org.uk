@@ -1,0 +1,9 @@
+<!--t:page/view-->
+[% INCLUDE page/breadcrumbs.tt %]
+
+[% INCLUDE page/article.tt %]
+
+[% INCLUDE page/comment.tt %]
+
+[% INCLUDE page/sidebar.tt %]
+<!--/page/view-->

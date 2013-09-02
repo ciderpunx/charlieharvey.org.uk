@@ -1,0 +1,29 @@
+<!--t:search-->
+<h1>Search Results</h1>
+<div id="st-results-container">
+	<h2 class="centre">Loading &hellip;<br /></h2>
+	<p class="img200ctr"><img alt="Loading ..." src="/img/spinner.gif" /></p>
+	<p class="centre">It sometimes takes a while to find shit on the internets</p>
+</div>
+<script type="text/javascript">
+	/* <![CDATA[ */
+  var Swiftype = window.Swiftype || {};
+  (function() {
+    Swiftype.key = 'vnRipZn9z6DwLaHGeqr9';
+    Swiftype.inputElement = '#st-search-input';
+    Swiftype.resultContainingElement = '#st-results-container';
+    Swiftype.attachElement = '#st-search-input';
+    Swiftype.renderStyle = 'inline';
+    Swiftype.resultPageURL = '/search.pl';
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = '//swiftype.com/embed.js';
+    var entry = document.getElementsByTagName('script')[0];
+    entry.parentNode.insertBefore(script, entry);
+  }());
+	/* ]] >*/
+</script>
+</div>
+<!--/search-->

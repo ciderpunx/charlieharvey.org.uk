@@ -1,0 +1,9 @@
+<header>
+		<h2>Here is a copy of the email that was sent</h2>
+</header>
+
+<article>
+	<pre>From: [% sender %]</pre>
+	<pre>To: charlie</pre>
+	<pre>[% body %]</pre>
+</article>

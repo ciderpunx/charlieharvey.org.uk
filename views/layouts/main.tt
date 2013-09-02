@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8[% settings.charset %]" />
+	<meta name="viewport" content="width=device-width" />
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />--><!--TODO: send in headers-->
+
+	<meta name="description" content="[% description %]" />
+	<meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
+	<meta name="author"      content="Charlie Harvey" />
+	<meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. And Vim: text editor." />
+
+	<!--TODO: local copies of fonts-->
+	<link href="http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,700,700italic|PT+Serif:400,400italic,700|PT+Mono" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="[% request.uri_base %]/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="[% request.uri_base %]/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="[% request.uri_base %]/css/solarized_dark.css" />
+	<link rel="stylesheet" href="[% request.uri_base %]/css/style.css" />
+
+	<script src="[% request.uri_base %]/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>/* <![CDATA[ */ !window.jQuery && document.write('<script type="text/javascript" src="[% request.uri_base %]/js/jquery.js"><\/script>') /* ]]> */</script>
+
+	<title>[% title %] -- Charlie Harvey</title>
+</head>
+
+<body>
+[% INCLUDE includes/header.tt %]
+
+	<div id="page">
+		
+		[% IF success || info || errors%]
+		<div id="messages">
+		[% END %]
+		[% IF success %]
+			<div class="alert alert-success alert-block">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<p>[% success %]</p>
+			</div>
+		[% END %]
+		[% IF info %]
+			<div class="alert alert-info alert-block">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<p>[% info %]</p>
+			</div>
+		[% END %]
+		[% IF errors %]
+			<div class="alert alert-error alert-block">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<h2>Uh-oh! I found errors</h2>
+				<ul class="error">
+					[% FOR err IN errors %]
+					<li>[% err %]</li>
+					[% END %]
+				</ul>
+			</div>
+		[% END %]
+		[% IF success || info || errors%]
+		</div> <!--messages-->
+		[% END %]
+
+[% content %]
+	</div>
+
+[% INCLUDE includes/footer.tt %]
+</body>
+</html>

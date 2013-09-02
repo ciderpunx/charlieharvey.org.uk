@@ -1,0 +1,28 @@
+<!--t:page/list-->
+<p>
+<form action="/list">
+Search query: <input type="text" name="query" />
+</form>
+</p>
+<br>  
+  
+[% IF query.length %]
+  <p>Search query was : [% query %].</p>
+  [% IF results.size %]
+    Results:
+      <ul>
+      [% FOREACH page IN results %]
+			<li>Page: [% page.title %]
+				[% IF page.parent.id != 0 %]
+					(Parent: [% page.parent.title %])
+				[% ELSE %]
+					(No parent)
+				[% END %]
+			</li>
+      [% END %]
+      </ul>
+  [% ELSE %]
+    No results
+  [% END %]
+[% END %]
+<!--/page/list-->

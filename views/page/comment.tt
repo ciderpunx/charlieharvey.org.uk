@@ -1,0 +1,83 @@
+<!--t:comment-->
+<h3>Comments</h3>
+
+<div id="comment-form" class="comment">
+	
+	<form method="post" action="/comment/create" enctype="multipart/form-data">
+		<div class="comment-detail tinytext">
+				<ul>
+					<li>You can use strong, em, code, pre, q and a <a href="http://www.webmonkey.com/2010/02/html_cheatsheet/#Text_Tags">HTML tags</a>.</li>
+					<li>Comment and email are the only required fields.</li>
+					<li>Be respectful. You may want to read the <a href="/page/comment_guidelines">comment guidelines</a> before posting.</li>
+				</ul>
+				<p>
+					<strong>Privacy note</strong>: This form will forward your IP address, user agent and referrer to the <a href="http://akismet.com/">Akismet</a>, <a href="http://stopforumspam.com">StopForumSpam</a> and <a href="http://www.botscout.com/">Botscout</a> spam filtering services. I don&#8217;t log these details. Those services will. I <em>do</em> log everything you type into the form. Full <a href="/page/privacy">privacy statement</a>.
+				</p>
+		</div>
+
+		<p>
+			<label for="body" class="required">Leave a reply:</label>
+			<textarea required name="body" rows="5" cols="52" id="body" placeholder="Type your comment here"></textarea>
+		</p>
+
+		<p class="comment-detail">
+				<input type="hidden" name="page_id" value="292"  />  
+
+				<label for="nick">Name:</label>
+				<input type="text" name="nick" value="" size="45" maxlength="140" id="nick" placeholder="Optional nickname" />
+				<br />
+
+				<label class="required" for="email">Email:</label>
+				<input type="email" placeholder="email@example.com" required name="email" value="" size="45" maxlength="140" id="email" />
+				<br />
+
+				<label for="url">URL:</label>
+				<input type="url" name="url" value="" placeholder="http://example.com" size="45" maxlength="140" id="url" />
+				<br />
+
+				<label for="ctitle">Title:</label>
+				<input type="text" name="ctitle" value="" size="45" maxlength="100" id="ctitle" placeholder="Optional title" />
+				<br /> 
+		</p>
+
+		<p>
+			<label class="hidden" for="submit">Submit comment: </label>
+			<input type="submit" name="submit" value=" Comment &raquo;" class="btn btn-dark btn-large" id="submit" /> 
+		</p>
+	</form>
+
+	<script>
+		$('.comment-detail').hide();
+		$('#body').focus(
+			function(){  
+				$('.comment-detail').slideDown();
+				$('#name').focus();
+				$('#body').attr('rows',10);
+			});
+	</script>
+
+</div>
+
+[% IF page.comments %]
+  [% FOREACH cmt IN page.comments %]
+	<!--TODO: Markup needs tidying up here-->
+	<li class="unstyled-list hreview hentry comment top-bordered">
+		<article>
+			<header>
+				<p class="cid rightfloat"><a href="/comment/[% cmt.id %]">#[% cmt.id %]</a></p>
+				<h5 class="item reviewer vcard author">
+					[% IF cmt.url %]<a href="[% cmt.url %]" class="fn url" rel="nofollow">[% END %][% IF cmt.nick%][% cmt.nick %][% END %] [% IF cmt.url %]</a>[% END %]
+				</h5>
+				[% IF cmt.title %]<h4 class="item entry-title">[% cmt.title %]</h4>[% END %]
+			</header>
+			<p class="description entry-content cmt-bdy">
+				[% cmt.body %]
+			</p>
+			<p class="dtreviewed updated published tinytext auth">
+				<time class="value-title" title="[% cmt.updated_at %]Z" datetime="[% cmt.updated_at %]Z">[% cmt.nice_updated %]</time>
+			</p>
+		</article>
+	</li>
+	[% END %] 
+[% END %]
+<!--/comment-->

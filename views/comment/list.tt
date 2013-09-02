@@ -1,0 +1,38 @@
+<!--t:comment/list-->
+[% INCLUDE comment/pager.tt %]
+
+[% IF comments.length > 0 %]
+<h1>All comments on all articles</h1>
+<ul class="unstyled-list hfeed">
+  [% FOREACH cmt IN comments %]
+	<!--TODO: Markup needs tidying up here-->
+	<li class="unstyled-list hreview hentry comment top-bordered">
+		<article>
+			<header>
+				<p class="cid rightfloat"><a href="/comment/[% cmt.id %]">#[% cmt.id %]</a></p>
+				<h5 class="item reviewer vcard author">
+					[% IF cmt.url %]<a href="[% cmt.url %]" class="fn url" rel="nofollow">[% END %][% IF cmt.nick%][% cmt.nick %][% END %] [% IF cmt.url %]</a>[% END %]
+				</h5>
+				[% IF cmt.title %]<h4 class="item entry-title">[% cmt.title %]</h4>[% END %]
+			</header>
+			<p class="description entry-content cmt-bdy">
+				[% cmt.body %]
+			</p>
+			<p class="dtreviewed updated published tinytext auth">
+				<time class="value-title" title="[% cmt.updated_at %]Z" datetime="[% cmt.updated_at %]Z">[% cmt.nice_updated %]</time>
+			</p>
+		</article>
+	</li>
+	[% END %]
+</ul>
+[% ELSE %]
+	<h1>Nothing for you to see here.</h1>
+	<p>Maybe you tried changing the number in the URL to see what would happen. Its pretty dull isn&#8217;t it? 
+	You might want to head back to the familiar territory of the <a href="/comment/archive/1">comment archive front page</a>. 
+	Or if you really want to do some exploring, may I suggest <a href="http://superbad.com">superbad</a>.</p>
+[% END %]
+
+
+
+[% INCLUDE comment/pager.tt %]
+<!--/comment/list-->

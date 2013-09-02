@@ -1,0 +1,10 @@
+<h1>Shit. Can&#8217;t find it. 404</h1>
+
+<p>
+What were you thinking? [% request.uri_base %][% request.path %] isn&#8217;t a page on this site. Maybe you can&#8217;t type? 
+Or maybe I broke something. Either way that page isn&#8217;t there.  
+</p>
+
+<p>I suppose you could <a href="/contact">Contact me</a> to let me know about it. If you must.</p> 
+
+<p>Otherwise, you could use the search or go to the <a href="/">front page</a>. That might work.</p>

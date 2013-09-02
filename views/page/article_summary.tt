@@ -1,0 +1,22 @@
+<!--t:page/article_summary-->
+	<li>
+			<article class="hentry drop-cap">
+				<header>
+					<h3 class="entry-title"><a href="/page/[% child.slug %]">[% child.title %]</a></h3>
+				</header>
+				<p class="entry-summary">
+				[% child.auto_summary %] <a href="/page/[% child.slug %]">&hellip;</a>
+				</p>
+				<div class="leftfloat">
+					<ul class="horizontal-list tinytext">
+						<li class="author vcard">Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></li>                    
+						<li class="updated published">Published: <time class="value-title" title="[% child.updated_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_updated %]</time></li>
+					</ul>
+				</div>
+				<div class="righttfloat rightalign">
+					<a class="" href="/page/[% child.slug %]">Read on &raquo;</a>
+				</div>
+				<div class="clear"> </div>
+			</article>
+  </li>
+<!--/page/article_summary-->

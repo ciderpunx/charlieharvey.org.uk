@@ -1,0 +1,40 @@
+<!--t:page/root-->
+[% INCLUDE page/article.tt %]
+
+<!--Go through each child section, pulling five recent children from each and building sections like that-->
+
+<!--Maybe use the fluid row layout from bootstrap, and no sidebar here. Or slideshow. Or something.-->
+[% FOREACH section IN page.children %]
+	[% IF loop.first %]
+	<div class="row-fluid">
+	[% END %]
+
+	[% IF loop.index % 3 == 0 %]
+	</div>
+	<div class="row-fluid">
+	[% END %]
+
+	<section class="span4 tinytext">
+		<header>
+			<h2><a href="/page/[% section.slug %]">[% section.title %]</a></h2>
+		</header>
+	[% IF section.children %]
+		<ul>
+		[% FOREACH pg IN section.recent_children %]
+		<li><a href="/page/[% pg.slug %]">[% pg.title %]</a></li>
+		[% END %]
+		</ul>
+	[% END %]
+	</section>
+
+	[% IF loop.last %]
+		</div>
+	[% END %]
+[% END %]
+
+[% INCLUDE page/comment.tt %]
+
+[% INCLUDE page/tags.tt %]
+
+[% INCLUDE page/tweet.tt %]
+<!--/page/root-->

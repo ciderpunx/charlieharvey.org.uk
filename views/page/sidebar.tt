@@ -1,0 +1,36 @@
+<aside class="what-next">
+<h2>What next?</h2>
+<ul class="row-fluid tinytext">
+  <li class="span4">
+	  <h4>Related links</h4>
+		[% IF page.related %]
+			<ul>
+			[% FOR ln IN page.related.split("\n") %]
+				<li>[% bits = ln.split("\\|") %] 
+						[% title = bits.shift %] 
+						[% href = bits.shift %]
+						<a href="[% href %]">[% title %]</a></li>
+			[% END %]
+			</ul>
+		[% END %]
+	</li>
+	<li class="span4">
+		<h4>Recently in [% page.parent.title %]</h4>
+		[% IF page.parent.recent_children %]
+		<ul>
+			[% FOR pg IN page.parent.recent_children.slice(0,3) %]
+			<li><a href="/page/[% pg.slug %]">[% pg.title %]</a></li>
+			[% END %]
+		</ul>
+		<p><a class="btn btn-dark" href="/page/[% page.parent.slug %]/archive/1">More &raquo;</a></p>
+		[% END %]
+	</li>
+  <li class="span4">
+	  <h4>Where am I?</h4>
+		<p>TODO: Navigation tree</p>
+	  <h4>Tags</h4>
+		[% INCLUDE page/tags.tt %]
+	</li>
+
+</ul>
+</aside>

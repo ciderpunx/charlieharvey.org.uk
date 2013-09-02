@@ -1,0 +1,33 @@
+<!--t:page/cover-->
+[% IF page.parent_id %]
+	[% INCLUDE page/breadcrumbs.tt %]
+[% END %]
+
+
+[% INCLUDE page/article.tt %]
+
+
+[% IF page.children %]
+	<div class="top-bordered"> </div>
+	<h2 class="leftfloat ">Recently in [% page.title %]</h2>
+	<p class="rightfloat">
+		<a href="/page/[% page.slug %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
+	</p>
+	<div class="clear"> </div>
+	<ul class="hfeed unstyled-list">
+	[% FOREACH child IN page.recent_children %]
+		[% INCLUDE page/article_summary.tt %]
+	[% END %]
+	</ul>
+[% END %]
+
+<p class="centre">
+	<a href="/page/[% page.slug %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
+</p>
+
+[% INCLUDE page/comment.tt %]
+
+[% INCLUDE page/tags.tt %]
+
+[% INCLUDE page/tweet.tt %]
+<!--/page/cover-->

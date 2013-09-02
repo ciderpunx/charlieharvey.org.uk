@@ -1,0 +1,94 @@
+/*
+
+Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>
+
+*/
+
+code {
+  display: block; padding: 0.5em;
+  background: #002b36; color: #839496;
+  font-size:1em;
+  white-space: pre-line;
+	word-wrap: break-word;
+  overflow-wrap: break-word; 
+  font: normal 1em freemono, courier, monospace;
+	margin-bottom:1.2em
+}
+
+code .comment,
+code .template_comment,
+code .diff .header,
+code .doctype,
+code .pi,
+code .lisp .string,
+code .javadoc {
+  color: #586e75;
+  font-style: italic;
+}
+
+code .keyword,
+code .winutils,
+code .method,
+code .addition,
+code .css .tag,
+code .request,
+code .status,
+code .nginx .title {
+  color: #859900;
+}
+
+code .number,
+code .command,
+code .string,
+code .tag .value,
+code .phpdoc,
+code .tex .formula,
+code .regexp,
+code .hexcolor {
+  color: #2aa198;
+}
+
+code .title,
+code .localvars,
+code .chunk,
+code .decorator,
+code .built_in,
+code .identifier,
+code .vhdl .literal,
+code .id {
+  color: #268bd2;
+}
+
+code .attribute,
+code .variable,
+code .lisp .body,
+code .smalltalk .number,
+code .constant,
+code .class .title,
+code .parent,
+code .haskell .type {
+  color: #b58900;
+}
+
+code .codeprocessor,
+code .codeprocessor .keyword,
+code .shebang,
+code .symbol,
+code .symbol .string,
+code .diff .change,
+code .special,
+code .attr_selector,
+code .important,
+code .subst,
+code .cdata,
+code .clojure .title {
+  color: #cb4b16;
+}
+
+code .deletion {
+  color: #dc322f;
+}
+
+code .tex .formula {
+  background: #073642;
+}

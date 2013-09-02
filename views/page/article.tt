@@ -1,0 +1,20 @@
+[% IF page %]
+<!--t:page/article-->
+	<article id="[% page.slug %]" class="entry-content drop-cap">
+		<header>
+				<h1>[% page.title %]</h1>
+				<a class="hidden" rel="bookmark" href="[% request.uri_base %]/page/[% page.slug %]">Permalink</a>
+		</header>
+	[% page.body %]	
+	[% INCLUDE page/tweet.tt %]
+	</article>
+[% ELSE %]
+	<article>
+		<header>
+			<hgroup>
+				<h1>OMG! You asked for a page that doesn&#8217;t exist. Or I fucked up some code.</h1>
+			</hgroup>
+		</header>
+	</article>
+<!--/page/article-->
+[% END %]

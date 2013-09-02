@@ -1,0 +1,9 @@
+<!--t:external_link_ul-->
+<ul class="xoxo">
+   <li><a href="http://charlie.ox4.org" rel="me">Charlie's Drupal Life Aggregator</a></li>
+   <li><a href="https://gitorious.org/~ciderpunx" rel="me">Charlie&#8217;s repositories on gitorious</a></li>
+   <li><a href="http://perlmonks.org/?node_id=373188" rel="me">Perlmonks page</a></li>
+   <li><a href="http://slashdot.org/~ciderpunk" rel="me">Slashdot page</a></li>
+	 <li><a href="https://github.com/ciderpunx">Charlie&#8217;s repositories on github</a></li>
+</ul>
+<!--/external_link_ul-->

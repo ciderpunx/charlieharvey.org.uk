@@ -1,0 +1,12 @@
+[% IF page %]
+	<!--t:breadcrumbs-->
+	<ul class="breadcrumbs horizontal-list tinytext xoxo">
+  [% IF ancestors %]
+		[% FOR pg IN ancestors.reverse %]
+			<li><a href="/page/[% pg.slug %]">[% pg.title %]</a> /</li>
+		[% END %]
+			<li>[% page.title %]</li>
+	[% END %]
+  </ul>
+	<!--/breadcrumbs-->
+[% END %]

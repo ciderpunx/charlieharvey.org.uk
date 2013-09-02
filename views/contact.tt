@@ -1,0 +1,25 @@
+<header><hgroup><h1>Contact Charlie Harvey</h1></hrgroup></header>
+<div id="contact">
+<form method="post" action="/contact" enctype="multipart/form-data">
+  <p>
+  All fields are required.<br /><br />
+  <label class="required" for="sender">Your email: </label>
+  <input required placeholder="email@example.com" type="email" name="sender" value="[% sender %]" size="40" maxlength="40" id="sender" />
+  <br /> <br />
+  <label class="required" for="body">Your message: </label>
+  <textarea placeholder="Your message" required name="body" rows="10" cols="65" id="body">[% body %]</textarea>
+  <br /> <br />
+  <label class="hidden" for='submit'> &nbsp; </label>
+  <input class="btn btn-dark btn-large" type="submit" name="submit" value=" Contact Me &raquo; " id="submit" /> 
+  <input type="hidden" name="remote" value=""  />  
+  </p>
+</form>
+<p>
+<strong>Privacy note: </strong> 
+The following details about you will be forwarded to me, if you would rather not reveal this data, please don&#8217;t use this form. Full <a href="/page/privacy">privacy stataement</a>.</p>
+<p>
+Host:  [% remote_host %]<br />
+Agent: [% useragent %]<br /> 
+Referred by: [% referer %]
+</p>
+</div>
