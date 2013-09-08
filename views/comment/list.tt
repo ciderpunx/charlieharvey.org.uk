@@ -1,7 +1,7 @@
 <!--t:comment/list-->
 [% INCLUDE comment/pager.tt %]
 
-[% IF comments.length > 0 %]
+[% IF comments.size %]
 <h1>All comments on all articles</h1>
 <ul class="unstyled-list hfeed">
   [% FOREACH cmt IN comments %]
@@ -31,8 +31,6 @@
 	You might want to head back to the familiar territory of the <a href="/comment/archive/1">comment archive front page</a>. 
 	Or if you really want to do some exploring, may I suggest <a href="http://superbad.com">superbad</a>.</p>
 [% END %]
-
-
 
 [% INCLUDE comment/pager.tt %]
 <!--/comment/list-->

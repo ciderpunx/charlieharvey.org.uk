@@ -34,8 +34,7 @@ ol li {margin-top:1em}
 .tinytext {font-size:0.75em}
 .clear {clear:both}
 .unstyled-list,.no-decoration {list-style-type:none;margin:0;padding:0}
-.horizontal-list, .horizontal-list li {display: inline; list-style-type: none; text-transform: capitalize}
-
+.horizontal-list, .horizontal-list li {display: inline; list-style-type: none}
 
 .alert .close {font-size:2em}
 

@@ -7,7 +7,7 @@
 		<h3 class="item reviewer vcard author">
 			[% IF comment.url %]<a href="[% comment.url %]" class="fn url" rel="nofollow">[% END %][% IF comment.nick%][% comment.nick %][% END %] [% IF comment.url %]</a>[% END %]
 		</h3>
-		[% IF cmt.title %]<h2 class="item entry-title">[% comment.title %]</h2>[% END %]
+		[% IF cmt.title %]<h2 class="item entry-title">[% comment.title %]</h:2>[% END %]
 	</header>
 	<div class="description entry-content cmt-bdy">
 		[% comment.body %]
