@@ -11,7 +11,7 @@
 	<div class="top-bordered"> </div>
 	<h2 class="leftfloat ">Recently in [% page.title %]</h2>
 	<p class="rightfloat">
-		<a href="/page/[% page.slug %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
+		<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
 	</p>
 	<div class="clear"> </div>
 	<ul class="hfeed unstyled-list">
@@ -22,7 +22,7 @@
 [% END %]
 
 <p class="centre">
-	<a href="/page/[% page.slug %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
+	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
 </p>
 
 [% INCLUDE page/comment.tt %]

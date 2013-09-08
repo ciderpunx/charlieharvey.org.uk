@@ -4,6 +4,7 @@ use Dancer ':syntax';
 use Email::Send; #TODO: use the proper dancer plugin.
 
 use frontend::page;
+use frontend::tag;
 use frontend::comment;
 
 our $VERSION = '0.1';
@@ -16,7 +17,6 @@ get '/' => sub {
 			description => "The lair of the ciderpunx",
 		};
 };
-
 
 ## TODO: need a better search tool than swifttype for search.
 get '/search/?' => sub {

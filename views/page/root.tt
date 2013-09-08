@@ -16,12 +16,12 @@
 
 	<section class="span4 tinytext">
 		<header>
-			<h2><a href="/page/[% section.slug %]">[% section.title %]</a></h2>
+			<h2><a href="[% section.link %]">[% section.title %]</a></h2>
 		</header>
 	[% IF section.children %]
 		<ul>
 		[% FOREACH pg IN section.recent_children %]
-		<li><a href="/page/[% pg.slug %]">[% pg.title %]</a></li>
+		<li><a href="[% pg.link %]">[% pg.title %]</a></li>
 		[% END %]
 		</ul>
 	[% END %]

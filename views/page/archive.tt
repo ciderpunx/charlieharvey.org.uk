@@ -17,7 +17,7 @@
 	<h1>[% page.title %] articles</h1>
 	<h2>No more articles here, sorry</h2>
 	[% IF page_offset > 0 %]
-		<p>Try the front page of the <a href="/page/[% page.slug %]">[% page.title %] section</a>.</p>
+		<p>Try the front page of the <a href="[% page.link %]">[% page.title %] section</a>.</p>
 	[% END %]
 [% END %]
 <!--/page/archive-->

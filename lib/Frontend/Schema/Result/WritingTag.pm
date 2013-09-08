@@ -74,6 +74,9 @@ __PACKAGE__->set_primary_key("tag_id", "writing_id");
 # Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-08-25 16:58:56
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MXQu0wrhDSQURyFPpnTQiA
 
+__PACKAGE__->belongs_to(writing => 'Frontend::Schema::Result::Writing', 'writing_id');
+__PACKAGE__->belongs_to(tag => 'Frontend::Schema::Result::Tag', 'tag_id');
+
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

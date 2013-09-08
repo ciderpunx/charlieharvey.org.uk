@@ -19,10 +19,10 @@
 		[% IF page.parent.recent_children %]
 		<ul>
 			[% FOR pg IN page.parent.recent_children.slice(0,3) %]
-			<li><a href="/page/[% pg.slug %]">[% pg.title %]</a></li>
+			<li><a href="[% pg.link %]">[% pg.title %]</a></li>
 			[% END %]
 		</ul>
-		<p><a class="btn btn-dark" href="/page/[% page.parent.slug %]/archive/1">More &raquo;</a></p>
+		<p><a class="btn btn-dark" href="[% parent_url %]/archive/1">More &raquo;</a></p>
 		[% END %]
 	</li>
   <li class="span4">

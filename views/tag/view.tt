@@ -1,0 +1,49 @@
+<!--t:tag/view-->
+[% IF results.size %]
+		<header>
+			<h1>Stuff tagged: [% tag.title %]</h1>
+			<p>[% entry_count %] things in total. This is page [% pager.current_page %] of [% pager.last_page %]</p>
+		</header>
+
+[% INCLUDE tag/pager.tt %]
+
+	<article class="hfeed">
+		<ul class="unstyled-list">
+		[% FOREACH result IN results.keys.sort.reverse %]
+		  [% p = results.$result %]
+			<li class="hentry">
+				<header>
+					<h3 class="entry-title"><a rel="bookmark" href="[% p.link %]">[% p.title %]</a></h3>
+				</header>
+				<article>
+					<p class="entry-summary">[% p.auto_summary %] <a href="[% p.link %]">&hellip;</a></p>
+					<div class="leftfloat">
+						<ul class="horizontal-list tinytext unstyled-list">
+							<li class="author vcard"><em>Posted by: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>
+							<li class="updated published hid"><em>On: <time class="value-title" title="[% p.updated_at %]">[% p.updated_at.ymd %]</time></em></li>
+						</ul>
+					</div>
+					<div class="rightfloat rightalign">
+						<a href="[% p.link %]">Read on &raquo;</a>
+					</div>
+					<div class="clear"> </div>
+				</article>
+			</li>
+		[% END %]
+		</ul>
+	</article>
+
+[% INCLUDE tag/pager.tt %]
+
+[% ELSE %]
+	<header>
+		<h1>Stuff tagged [% tag.title %]</h1>
+		<h2>No more stuff here, sorry</h2>
+	</header>
+	[% IF page_offset > 0 %]
+	<article>
+		<p>Try the front page of the <a href="[% page.link %]">[% page.title %] section</a>.</p>
+	</article>
+	[% END %]
+[% END %]
+<!--/tag/view-->

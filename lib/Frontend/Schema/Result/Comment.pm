@@ -132,4 +132,8 @@ sub nice_updated {
 	$date =~ s/T.*//;
 	return $date;
 }
+sub link {
+	my $self = shift; 
+	return '/comment/' . $self->id;
+}
 1;

@@ -11,7 +11,9 @@ use URI::Escape;
 
 prefix '/comment';
 
-# TODO investigate mutable views.
+get '/' => sub {
+	redirect uri_for('comment/archive/1');
+};
 
 get '/archive/:page' => sub {
 	my $page = params->{page} || 1;
@@ -36,6 +38,7 @@ get '/api/recent' => sub {
 	my @comments = map {
 			title => $_->title,
 			url => $_->url,
+			link => uri_for($_->link)->as_string,
 			id  => $_->id,
 			nick => $_->nick,
 			body => $_->body,
@@ -58,6 +61,7 @@ get '/api/:id' => sub {
 		created_at => $comment->updated_at->ymd,
 		title => $comment->title,
 		url => $comment->url,
+		link => uri_for($comment->link)->as_string,
 	}}
 };
 
@@ -67,13 +71,14 @@ get '/feed/:format' => sub {
 	my $format = params->{format};
 	if(uc $format ne 'RSS' && uc $format ne 'ATOM') {
 		send_error("Bad feed format. RSS or Atom.");
+		return
 	}
 	my $feed = create_feed( 
     format => params->{format}, #Feed format (RSS or Atom) 
     title => 'Recent comments on charlieharvey.org.uk',
 		description => "You can find out the random things that people say on the internets",
 		image => {
-			title => "charlieharvey.org.uk rss feed", 
+			title => "charlieharvey.org.uk comments feed", 
 			width => 240,
 			height => 45,
 			url    => "/graphics/minilogo.png",
@@ -81,14 +86,13 @@ get '/feed/:format' => sub {
 		},
     entries => [ map { 
 			title   => $_->title || "Untitled", 
-			link    => uri_for('/comment/'.$_->id),
+			link    => uri_for($_->link)->as_string,
 			author  => $_->nick,
 			content => $_->body,
 			issued  => $_->updated_at,
 		}, @cs ], #makes collection of feed entries
   );
   return $feed;
-		
 };
 
 get '/create' => sub {
@@ -197,7 +201,6 @@ sub _get_comment_archive {
 
 sub _char_clean {
 	my ($str,$maxlen) = @_;
-	#, '^\n\x20-\x25\x27-\x7e');
 	return substr(encode_entities($str),0,$maxlen);
 }
 
@@ -221,7 +224,6 @@ sub _stopforumspam_lookup {
   $stopforumspam_result =~ s/.*<appears>(yes|no)<\/appears>.*/$1/ig;
   return 1 if ('yes' eq $stopforumspam_result); 
 }
-
 
 sub _akismet_lookup {
     my ($email, $remote, $user_agent, $referrer, $body, $nick, $url) = @_;

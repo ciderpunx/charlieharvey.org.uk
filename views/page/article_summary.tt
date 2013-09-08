@@ -2,19 +2,19 @@
 	<li>
 			<article class="hentry drop-cap">
 				<header>
-					<h3 class="entry-title"><a href="/page/[% child.slug %]">[% child.title %]</a></h3>
+					<h3 class="entry-title"><a href="[% child.link %]">[% child.title %]</a></h3>
 				</header>
 				<p class="entry-summary">
-				[% child.auto_summary %] <a href="/page/[% child.slug %]">&hellip;</a>
+				[% child.auto_summary %] <a href="[% child.link %]">&hellip;</a>
 				</p>
 				<div class="leftfloat">
-					<ul class="horizontal-list tinytext">
-						<li class="author vcard">Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></li>                    
-						<li class="updated published">Published: <time class="value-title" title="[% child.updated_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_updated %]</time></li>
+					<ul class="horizontal-list unstyled-list tinytext">
+						<li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
+						<li class="updated published"><em>Published: <time class="value-title" title="[% child.updated_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_updated %]</time></em></li>
 					</ul>
 				</div>
 				<div class="righttfloat rightalign">
-					<a class="" href="/page/[% child.slug %]">Read on &raquo;</a>
+					<a class="" href="[% child.link %]">Read on &raquo;</a>
 				</div>
 				<div class="clear"> </div>
 			</article>

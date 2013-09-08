@@ -121,6 +121,25 @@ __PACKAGE__->set_primary_key("uid");
 # Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-08-25 16:58:57
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:giEp4PvYP9ORIeg5WWH0FA
 
+__PACKAGE__->has_many('writing_tags', 'Frontend::Schema::Result::WritingTag', 'writing_id');
+__PACKAGE__->many_to_many(tags => 'writing_tags', 'tag');
+# TODO WritingComments
+# __PACKAGE__->has_many('writing_comments', 'Frontend::Schema::Result::WritingComment', 'writing_id');
+# __PACKAGE__->many_to_many(comments => 'writing_comments', 'comment');
+
+sub link {
+	my $self = shift; 
+	return '/file/' . $self->id;
+}
+#TODO: strip html and stuff
+sub auto_summary {
+	my $self = shift;
+	return substr($self->details, 0, 300);
+}
+sub updated_at {
+	my $self=shift;
+	$self->updated;
+}
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

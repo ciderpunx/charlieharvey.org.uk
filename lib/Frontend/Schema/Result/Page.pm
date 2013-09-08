@@ -181,13 +181,19 @@ sub auto_summary {
 	my $summary = $self->body;
   $summary =~ s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
   $summary = substr($summary,0,300);
-  $summary =~ s/&\w*$//;	 # remove trailing broken entities &am and such
-  $summary =~ s/[\r\n]+//; # remove newlines
-  $summary =~ s/\s+/ /;		 # squeeze whitespace
-  $summary =~ s/^\s+//;		 # chop leading whitespace
-  $summary =~ s/\s+$//;		 # chop trailing whitespace
+  $summary =~ s/&\w*$//;	  # remove trailing broken entities &am and such
+  $summary =~ s/[\r\n]+//g; # remove newlines
+  $summary =~ s/\s+/ /g;	  # squeeze whitespace
+  $summary =~ s/^\s+//;		  # chop leading whitespace
+  $summary =~ s/\s+$//;		  # chop trailing whitespace
 	return $summary;
 }
+
+sub link {
+	my $self = shift; 
+	return '/page/' . $self->slug;
+}
+
 sub nice_updated {
 	my $self = shift;
 	my $date = $self->updated_at;
