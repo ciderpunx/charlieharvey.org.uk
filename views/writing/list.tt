@@ -1,0 +1,34 @@
+<!--t:writing/list-->
+<h1>[% IF category %][% category %] f[% ELSE %] F[% END %]iles and writings</h1>
+
+[% INCLUDE writing/pager.tt %]
+
+[% IF files.size %]
+<ul class="hfeed unstyled-list top-bordered">
+[% FOREACH file IN files%]
+	<li>
+		<article class="hentry drop-cap">
+			<header>
+				<h3 class="entry-title"><a href="[% file.link %]">[% file.title %]</a></h3>
+			</header>
+			<p class="entry-summary">
+				[% file.details %] 
+			</p>
+			<div class="leftfloat">
+				<ul class="horizontal-list unstyled-list tinytext">
+					<li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
+					<li class="updated published"><em>Published: <time class="value-title" title="[% file.updated %]Z" datetime="[% file.updated %]Z">[% file.updated.ymd %]</time></em></li>
+				</ul>
+			</div>
+			<div class="righttfloat rightalign">
+				<a class="" href="[% file.link %]">Read on &raquo;</a>
+			</div>
+			<div class="clear"> </div>
+		</article>
+	</li>
+[% END %]
+</ul>
+[% END %]
+
+[% INCLUDE writing/pager.tt %]
+<!--/writing/list-->

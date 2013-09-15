@@ -1,4 +1,5 @@
 package frontend::tag;
+use utf8;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC qw(schema resultset rset);
 use Dancer::Plugin::Feed;
@@ -8,19 +9,31 @@ prefix '/tag';
 get '/' => sub {
 	my $tags_rs  = _all_tags();
 	my @tags     = $tags_rs->all;
+	my %sects    = ();
+	for (@tags) {
+	  my $letter = substr(ucfirst $_->title,0,1); 
+		$letter = "0-9" if($letter =~ /\d/);
+		next unless ($letter =~ /^[\w\d]/); # skip non-alphanums
+		if ($sects{$letter}) {
+			push $sects{$letter}, $_; 
+		}
+		else {
+			$sects{$letter} = [$_];
+		}
+	}
 	template 'tag/list', {
 		title => "All tags on website",
 		description => "A collection of all the tags on charlieharvey.org.uk.",
-		tags => \@tags,
+		sects => \%sects,
 	}
 };
 
 get '/cloud' => sub {
 	my $tags_rs  = _all_tags();
 	my @tags     = $tags_rs->all;
-	template 'tag/list', {
-		title => "A tagcloud of stuff on Charlie&#8217;s site",
-		description => "A collection of all the tags on charlieharvey.org.uk, but represented as a tag cloud.",
+	template 'tag/cloud', {
+		title => "A tag cloud of stuff on Charlie&#8217;s site",
+		description => "A collection of all the tags on charlieharvey.org.uk, represented as a tag cloud.",
 		tags => \@tags,
 	}
 };
@@ -71,8 +84,10 @@ get '/api/:id' => sub {
 		writings => \@tag_writings,
 	}}
 };
+get '/:title/feed/?' => sub {
+	redirect uri_for '/tag/' . params->{title} . '/feed/rss';
+};
 
-# stuff tagged: feed
 get '/:title/feed/:format' => sub {
 	my $tag = _tag_by_title(params->{title});
 	if (!$tag) {

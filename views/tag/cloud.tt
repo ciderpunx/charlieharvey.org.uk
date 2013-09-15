@@ -1,0 +1,21 @@
+<!--t:tag/list-->
+[% IF tags.size %]
+<header>
+	<h1>Tag cloud</h1>
+</header>
+<article>
+<ul class="unstyled-list horizontal-list xoxo">
+	[% FOREACH tag IN tags %]
+		[% pc = tag.get_column('page_count'); 
+			 wc = tag.get_column('writing_count');
+			 entries = pc+wc;
+			 entry_size = 0.5+((entries) / 8);
+		   entry_size = entry_size > 5 ? 5 : entry_size %]
+		<li><a href="[% tag.link %]" rel="tag"><span style="font-size:[% entry_size %]em">[% tag.title %]</span></a></li>
+	[% END %]
+</ul>
+</article>
+[% ELSE %]
+	<h1>No tags. Apparently.</h1>
+[% END %]
+<!--/tag/list-->

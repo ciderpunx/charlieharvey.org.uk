@@ -1,0 +1,15 @@
+<header>
+	<h1><a href="[% file.href %]">[% file.title %]</a></h1>
+</header>
+
+<article>
+[% file.details %]
+</article>
+
+<p>Download/view <a href="[% file.href %]">[% file.title %]</a></p>
+<ul class="horizontal-list unstyled-list tinytext">
+	<li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
+	<li class="updated published"><em>Published: <time class="value-title" title="[% file.updated %]Z" datetime="[% file.updated %]Z">[% file.updated.ymd %]</time></em></li>
+	<li>Category: <a href="/file/category/[% file.category %]" >[% file.category %]</a></li>
+</ul>
+

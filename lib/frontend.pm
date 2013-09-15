@@ -1,11 +1,14 @@
 package frontend;
 use utf8;
 use Dancer ':syntax';
-use Email::Send; #TODO: use the proper dancer plugin.
+use Dancer::Plugin::Email;
+use Try::Tiny;
+#use Email::Send; #TODO: use the proper dancer plugin.
 
 use frontend::page;
 use frontend::tag;
 use frontend::comment;
+use frontend::writing;
 
 our $VERSION = '0.1';
 
@@ -85,21 +88,32 @@ post '/contact' => sub {
 		}
 	}
 };
+
 sub _email_charlie {
 	my ($sender,$body) = @_;
-	my $charlie = 'charlie@newint.org';
-		my $msg = <<"__MESSAGE__";
-From: $sender
-To: $charlie
-Subject: charlieharvey.org.uk-contact.pl	
-
-$body
-
-__MESSAGE__
-;
-	my $mail_sender = Email::Send->new({mailer => 'SMTP'});
-  $mail_sender->mailer_args([Host => 'charlieharvey.dns-systems.net']);        
-	return $mail_sender->send($msg);
+	 try {
+        email {
+					from    => $sender,
+					to      => config->{'DEFAULT_EMAIL'},
+					subject => 'charlieharvey.org.uk-contact.pl',
+					body    => $body, 
+				}
+	 }
+	 catch {
+		error "Something went wrong when sending email"
+	 }
+#		my $msg = <<"__MESSAGE__";
+#From: $sender
+#To: $charlie
+#Subject: charlieharvey.org.uk-contact.pl	
+#
+#$body
+#
+#__MESSAGE__
+#;
+#	my $mail_sender = Email::Send->new({mailer => 'SMTP'});
+#  $mail_sender->mailer_args([Host => 'charlieharvey.dns-systems.net']);        
+#	return $mail_sender->send($msg);
 }
 
 # this takes care of 404s and should be the last route.

@@ -27,6 +27,7 @@ ol li {margin-top:1em}
 .rightalign {text-align:right}
 .bordered { border:1px solid #689; margin:1em; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}
+.col4 {word-wrap:break-word; -moz-column-count: 4; -webkit-column-count: 4; -column-count: 4; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
 
 .quarter {width:25%}
 .third  {width:33%}
@@ -106,7 +107,7 @@ ol li {margin-top:1em}
 #messages h2,
 #messages p {margin-top: 0.3em;}
 #content {padding-top:1.8em}
-#footer {font: 0.65em/1.48 cabin,  dejavu sans, verdana, tahoma, sans-serif; background-color:#023; background-image: linear-gradient(to bottom, #023, #112); color: #feb; padding:0; margin:0; text-align:left}
+#footer {font: 0.65em/1.48 cabin,  dejavu sans, verdana, tahoma, sans-serif; background-color:#023; background-image: linear-gradient(to bottom, #023, #112); color: #feb; padding:0; margin:2.5em 0 0; text-align:left}
 #footer h3, #footer a {color:#feb}
 #footer .row li ,
 #footer .row ul {list-style-type: none;padding:0;padding-right:10px;margin:0;margin-bottom:0.6em}
@@ -138,4 +139,5 @@ ol li {margin-top:1em}
 @media (max-width: 300px) {
 	.titlebar {height:75px}
   .titlebar h1 a {height:35px}
+	.col4 {-moz-column-count: 2; -webkit-column-count: 2; -column-count: 2;  padding: 5px}
 }

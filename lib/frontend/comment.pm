@@ -65,6 +65,10 @@ get '/api/:id' => sub {
 	}}
 };
 
+get '/feed/?' => sub {
+	redirect uri_for "/comment/feed/rss"
+};
+
 get '/feed/:format' => sub {
 	my $comments_rs  = _get_comment_archive();
 	my @cs = $comments_rs->page(1)->all;

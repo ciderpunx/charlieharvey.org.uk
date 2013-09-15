@@ -1,17 +1,20 @@
 <!--t:tag/list-->
-[% IF tags.size %]
+[% IF sects %]
 <header>
 	<h1>All Tags</h1>
 </header>
 <article>
-<ul>
-	[% FOREACH tag IN tags %]
+[% FOREACH sect IN sects.keys.sort %]
+	<h3>[% sect %]</h3>
+	<ul class="col4 unstyled-list tags-sect-[% sect %] xoxo">
+	[% FOREACH tag IN sects.$sect %]
 		[% pc = tag.get_column('page_count') %]
 		[% wc = tag.get_column('writing_count') %]
 		[% entries = pc+wc %]
-		<li>[% tag.title %]: [% entries %]</li>
+		<li><a href="[% tag.link %]" rel="tag">[% tag.title %]</a> ([% entries %])</li>
 	[% END %]
-</ul>
+	</ul>
+[% END %]
 </article>
 [% ELSE %]
 	<h1>No tags. Apparently.</h1>
