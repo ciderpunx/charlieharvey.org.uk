@@ -3,7 +3,6 @@ use utf8;
 use Dancer ':syntax';
 use Dancer::Plugin::Email;
 use Try::Tiny;
-#use Email::Send; #TODO: use the proper dancer plugin.
 
 use frontend::page;
 use frontend::tag;
@@ -27,6 +26,14 @@ get '/search/?' => sub {
 			title => "Search Results",
 			description => "Search results page on charlieharvey.org.uk",
 		};
+};
+
+get '/writings/?' => sub {
+	redirect uri_for '/file/'
+};
+
+get '/writings.pl' => sub {
+	redirect uri_for '/file/'
 };
 
 get '/contact/?' => sub {
@@ -88,6 +95,10 @@ post '/contact' => sub {
 		}
 	}
 };
+
+
+
+##
 
 sub _email_charlie {
 	my ($sender,$body) = @_;

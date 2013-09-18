@@ -129,7 +129,7 @@ __PACKAGE__->many_to_many(tags => 'writing_tags', 'tag');
 
 sub link {
 	my $self = shift; 
-	return '/file/node/' . $self->id;
+	return '/file/uid/' . $self->id;
 }
 #TODO: strip html and stuff
 sub auto_summary {

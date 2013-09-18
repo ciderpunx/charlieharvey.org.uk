@@ -11,8 +11,8 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li><a class="active tag me" href="/" >Home</a></li>
-					<li><a class="nav tag me" href="/page/index" accesskey="B">Blog</a></li>
-					<li><a class="nav tag me" href="/writings.pl" accesskey="W">Files</a></li>
+					<li><a class="nav tag me" href="/page/" accesskey="B">Blog</a></li>
+					<li><a class="nav tag me" href="/file/" accesskey="W">Files</a></li>
 					<li><a class="nav tag me" href="/rss.pl" accesskey="N">Newsfeeds</a></li>
 					<li><a class="nav tag me" href="/flick.pl" accesskey="I">Images</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>

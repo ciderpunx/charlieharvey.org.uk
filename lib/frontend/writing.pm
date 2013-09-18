@@ -28,6 +28,30 @@ get '/api/recent' => sub {
 	return {files => \@files}
 };
 
+## recently published writings for a category
+get '/api/:category/recent' => sub {
+	set serializer => 'mutable';
+	my $category = params->{category};
+	my $file_rs  = _category_archive($category);
+	my @fs       = $file_rs->page(1)->all;
+	if (!@fs) {
+		send_error("Couldn't find files for category '$category'");
+		return
+	}
+	
+	my @files    = map {
+		title => $_->title,
+		link  => uri_for($_->link)->as_string,
+		id    => $_->uid,
+		body  => $_->details,
+		category => $category,
+		created_at => $_->updated->ymd,
+		author     => config->{SITE_AUTHOR},
+	}, @fs;
+	
+	return {files => \@files}
+};
+
 get '/api/:id' => sub {
 	set serializer => 'mutable';
 	my $file = _file(params->{id});
@@ -83,7 +107,7 @@ get '/feed/:format' => sub {
 };
 
 ## single writing
-get '/node/:id' => sub {
+get '/uid/:id' => sub {
 	my $file = _file(params->{id});
 	template 'writing/view' => {
 		title => "Files, " . $file->title,
