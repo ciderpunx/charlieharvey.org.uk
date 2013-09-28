@@ -1,0 +1,106 @@
+<!--t:about-->
+	<article class="entry-content drop-cap">
+		<h1>About charlieharvey.org.uk</h1>
+		<p>This site has been running since 2004, believe it or not. It has been through a lot of changes on the way, including
+		   the latest which involved porting it to <a href="http://perldancer.org">Dancer</a> in 2013. You can check out my 
+			 series of <a href="/page/redesigning_charlieharvey_org_uk_dancer_bootstrap/">video blogs about the redesign process</a> if you enjoy that sort of thing. </p>
+		<h3>Why? <a id="_why"> </a></h3>
+		<p>A combination of things really... </p>
+		<ul>	
+		 <li>I wanted to build a site that was as <a href="http://www.w3.org/WAI/">accessible</a> 
+				 as possible, and met the <a href="http://w3c.org"> w3c</a> standards for 
+				 <a href="http://www.w3.org/TR/xhtml1/">xhtml</a> and 
+				 <a href="http://www.w3.org/Style/CSS/">css</a></li>
+		 <li>I wanted a <a href="http://charlieharvey.org.uk/flick.pl">place to keep my photos</a></li>
+		 <li>As an excuse to practice <a href="http://perl.com">perl</a>&#8217;s 
+				 <a href="http://stein.cshl.org/WWW/software/CGI/cgi_docs.html">CGI.pm</a>,
+				 <a href="http://search.cpan.org/dist/HTML-Template/Template.pm">HTML Template</a>
+				 and <a href="http://search.cpan.org/~timb/DBI/DBI.pm">DBI</a>modules. At the time that 
+				 was pretty high tech and it still makes a decently maintainable and fairly efficient codebase. 
+				 Since 2013, I&#8217;ve ported the code to Perl#8217;s <a href="http://perldancer.org">Dancer</a> web framework. 
+				 Which is great. </li>
+		 <li>As a place to store various solutions to tech problems I&#8217;ve come across</li>
+		 <li>I needed access to my do-list and email remotely. I don&#8217;t use it for that any more.</li>
+		</ul>
+
+		<h3>Standards <a id="_standards"> </a></h3>
+		<p>Web standards are <em>a good thing&reg;</em> in my opinion. 
+			They mean that the content of the page is the same in any browser. They 
+			further mean that in any standards compliant browser, the page will look 
+			the same.
+		</p>
+
+		<p>I&#8217;ve set out to make the site conform to the HTML5 spec and used 
+			<a href="http://www.w3.org/TR/2011/WD-css3-text-20110215/">CSS 3</a> for the presentational side. 
+			Because my <a href="/newsfeed/">newsfeeds</a> page grabs its information 
+			from different places, it isn&#8217;t guaranteed to be standards compliant &mdash; it works most 
+			of the time though.
+		</p>
+
+		<h3>Accessibility <a id="_accessibility"></a></h3>
+		<p>One of the things that I wanted to learn about with this project was 
+			accessibility. This means that people with visual or auditory impairments (and web 
+			spiders) can read the content of my pages as easily as anyone else, which seems only 
+			fair, really. 
+		</p>
+
+		<p>Pages on the site have been scanned using online tools to ensure 
+			their compliance with the 
+			<a href="http://www.w3.org/WAI/">w3c Web Accessibility Initiative</a> guidelines for 
+			online "content". <br />
+			There&#8217;s three levels of accessibility: A,AA, and AAA. Most of the public pages on this 
+			site should meet the AAA standard, exceptions include 
+			<a href="/html_static/real_ultimate_perlgeeks.html">Real Ultimate Perl geeks</a>
+			where I felt the idoim justified breaking my accessibility policy.
+		</p>
+
+		<h3>Privacy <a id="_privacy"></a></h3>
+		<p>I (finally) published a proper <a href="/page/privacy">Privacy Statement</a> for the site in early 2011. 
+		   It is possible to use the site almost anonymously. I don&#8217;t log IPs but I do use third parties to 
+			 scan IPs for spamminess and I get a copy of your IP if you send me email. 
+		</p>
+
+		<h3>Tools<a id="_tools"></a></h3>
+		 <p>I&#8217;ve been extremely lucky to have access to some great editors and other tools when building this site</p>
+		 <ul>
+			<li><a href="http://www.vim.org/">vim</a> is an updated and incredibly powerful version of
+					<a href="http://thomer.com/vi/vi.html">vi</a>, the classic unix text editor, and my 
+					constant companion</li>
+			<li>I occasionally use the GNOME editor <a href="http://projects.gnome.org/gedit/">gedit</a> for quick updates.</li>
+			<li>The <a href="http://w3c.org">w3c</a> provide comprehensive references on 
+					<a href="http://www.w3.org/MarkUp/">html</a> and 
+					<a href="http://www.w3.org/Style/CSS/">CSS</a>, and a free 
+					<a href="http://validator.w3.org">HTML validator</a> and 
+					<a href="http://jigsaw.w3.org/css-validator">CSS validator</a> have 
+					proved invaluable.</li>
+			<li>Bobby online&#8217;s accessibility checker helped me get my arse in 
+					gear over accessibility, but it&#8217;s no longer there :-(</li>
+			<li><a href="http://www.mozilla.com/en-US/firefox/">Firefox</a> with the 
+					<a href="https://addons.mozilla.org/en-us/firefox/addon/firebug/">Firebug plugin</a> 
+					and <a href="https://addons.mozilla.org/en-us/firefox/addon/web-developer/">web developer toolbar</a> 
+					is my browser setup of choice, but I often use 
+					<a href="http://www.gnome.org/projects/epiphany/">Epiphany</a> and the text-only 
+					<a href="http://lynx.isc.org/">Lynx</a> during development.</li>
+			 <li>The admin interface and stuff are hosted on <a href="http://ox4.org/">OX4, web hosting for Oxford activism</a>. 
+					 I make them with the <a href="http://www.modernperlbooks.com/mt/index.html">"modern perl"</a> framework, <a href="http://catlystframework.org">Catalyst</a>.</li>
+		</ul>
+
+		<h3>Code<a id="_code"></a></h3>
+		<p>Should be released on gitorious at some point soon.
+			There are various downloads of some of the code though and if you want to use any of the code in it&#8217;s raw, undocumented state, 
+			please feel free to <a href="/contact">contact me</a>.  Some code is already available in <a href="/writings/">writings</a>.
+		</p>
+
+		<h3>Graphics <a id="_graphics"></a> </h3>
+		<p>
+			I aim to keep the graphics to a minimum, except for places where 
+			that would be silly like the <a href="/flick.pl">gallery</a>. There used to be no 
+			graphics on the site at all! After the 2006 redesign a <a href="/graphics/logo.png">logo</a> appeared 
+			for the first time on the site. In January 2007 I added lots of 
+			gradient fills. By 2011, there were web fonts to download, but the gradient fills had disappeared. 
+			The principle still holds that I avoid unnecessary graphics. I originally started writing my site when I had a 56k 
+			modem, so performance and a light page weight were important requirements. 
+		</p>
+
+	</article>
+<!--/about-site-->

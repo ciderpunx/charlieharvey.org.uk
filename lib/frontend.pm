@@ -20,6 +20,37 @@ get '/' => sub {
 		};
 };
 
+get '/about.pl' => sub {
+	redirect uri_for '/about/'
+};
+
+get '/about/?' => sub {
+    template 'about', {
+			title => "About",
+			description => "About Charlie Harvey and about charlieharvey.org.uk. Blah, blah, blah.",
+		};
+};
+
+
+get '/about/charlie-harvey/?' => sub {
+    template 'about-charlie', {
+			title => "About Charlie",
+			description => "About Charlie Harvey. Cider, geekery, perl and navel gazing",
+		};
+};
+
+get '/about/this-site/?' => sub {
+    template 'about-site', {
+			title => "About charlieharvey.org.uk",
+			description => "About Charlie Harvey's website, charlieharvey.org.uk. Standards-compliant, fully responsive navel 
+			                gazing. ",
+		};
+};
+
+get '/rss.pl' => sub {
+	redirect uri_for '/newsfeed/'
+};
+
 ## TODO: need a better search tool than swifttype for search.
 get '/search/?' => sub {
     template 'search', {

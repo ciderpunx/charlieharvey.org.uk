@@ -17,7 +17,7 @@
 					<li><a class="nav tag me" href="/flick.pl" accesskey="I">Images</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
-						<li><a class="nav tag me" href="/about.pl" accesskey="?">About</a></li>
+						<li><a class="nav tag me" href="/about" accesskey="?">About</a></li>
 						<li><a class="nav tag me" href="/cv.pl" accesskey="R">CV</a></li>
 						<li><a class="nav tag me" href="/page/privacy">Privacy statement</a></li>
 						<li><a class="nav tag me" href="/contact" accesskey="@">Contact</a></li>
