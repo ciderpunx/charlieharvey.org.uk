@@ -27,6 +27,8 @@ ol li {margin-top:1em}
 .rightalign {text-align:right}
 .bordered { border:1px solid #689; margin:1em; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}
+.right-rotated { transform: rotate(5deg)}
+.left-rotated { transform: rotate(-5deg)}
 .col4 {word-wrap:break-word; -moz-column-count: 4; -webkit-column-count: 4; -column-count: 4; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
 
 .quarter {width:25%}

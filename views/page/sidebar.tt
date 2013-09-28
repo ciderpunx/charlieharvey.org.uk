@@ -13,13 +13,17 @@
 			[% END %]
 			</ul>
 		[% END %]
+	  <h4>Tags</h4>
+		[% INCLUDE page/tags.tt %]
 	</li>
 	<li class="span4">
 		<h4>Recently in [% page.parent.title %]</h4>
 		[% IF page.parent.recent_children %]
 		<ul>
-			[% FOR pg IN page.parent.recent_children.slice(0,3) %]
-			<li><a href="[% pg.link %]">[% pg.title %]</a></li>
+			[% FOR pg IN page.parent.recent_children.slice(0,4) %]
+			  [% IF pg %]
+					<li><a href="[% pg.link %]">[% pg.title %]</a></li>
+				[% END %]
 			[% END %]
 		</ul>
 		<p><a class="btn btn-dark" href="[% parent_url %]/archive/1">More &raquo;</a></p>
@@ -27,9 +31,7 @@
 	</li>
   <li class="span4">
 	  <h4>Where am I?</h4>
-		<p>TODO: Navigation tree</p>
-	  <h4>Tags</h4>
-		[% INCLUDE page/tags.tt %]
+		[% INCLUDE page/navtree.tt %]
 	</li>
 
 </ul>

@@ -104,6 +104,7 @@ get '/:slug/?' => sub {
 	
 	my @ancestors = $page->ancestors;
 	my @recent_children = $page->recent_children;
+	my @top_categories = $page->top_categories;
 
 	if ($page->is_root) {
 		template 'page/root', { 
@@ -124,6 +125,7 @@ get '/:slug/?' => sub {
 			parent_url => uri_for($page->parent->link)->as_string,
 			ancestors => \@ancestors,
 			recent_children => \@recent_children,
+			top_categories => \@top_categories,
 			description => $page->auto_summary,
 		}; # cover page
 	}
@@ -134,6 +136,7 @@ get '/:slug/?' => sub {
 			own_url => uri_for($page->link)->as_string,
 			parent_url => uri_for($page->parent->link)->as_string,
 			ancestors => \@ancestors,
+			top_categories => \@top_categories,
 			description => $page->auto_summary,
 		}; # normal page view
 	}

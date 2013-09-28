@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xml:base="http://libcom.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+    <channel>
+        <title>The headlines from the internets</title>
+        <link>http://charlieharvey.org.uk/headlines.rss</link>
+        <atom:link rel="self" type="application/rss+xml" href="https://network23.org/activity/feed/" />
+        <copyright>The individual feeds have various licences. This feed is public domain</copyright>
+        <generator>http://buddypress.org/?v=1.8.1</generator>
+        <language>en-GB</language>
+        <lastBuildDate>Fri, 27 Sep 2013 11:32:38 +0000</lastBuildDate>
+        <pubDate>Fri, 27 Sep 2013 20:04:44 +0100</pubDate>
+        <sy:updateFrequency>2</sy:updateFrequency>
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <ttl>30</ttl>
+        <description>A collection of aggregated headlines from various places on the internets that I find interesting</description>
+        <image>
+            <url> </url>
+            <title> </title>
+            <link> </link>
+            <height> </height>
+            <width> </width>
+            <description> </description>
+        </image>
+        <item>
+            <title>Webpages Charlie Updated Recently: September 2013 Reading</title>
+            <link>http://charlieharvey.org.uk/page/2013_09_reading/</link>
+            <guid isPermaLink="true">http://charlieharvey.org.uk/page/2013_09_reading/</guid>
+            <pubDate>Fri, 27 Sep 2013 19:54:18 +0100</pubDate>
+            <description>An Atheist Manifesto by Joseph Lewis Old
+fashioned but passionate rant against the idiocy of (especially
+Christian) religion and the enormous harm it has done. The rhetoric
+is quite grating …Charlie Harveyhttp://charlieharvey.org.uk/</description>
+        </item>
+        <item>
+            <title>bristolnoborders wrote a new post, Total Policing comes to Bristol, on the site Bristol No Borders</title>
+            <link>http://network23.org/bristolnoborders/2013/09/27/total-policing-comes-to-bristol/</link>
+            <content:encoded>&lt;p&gt;Avon &amp;amp; Somerset Police have been left looking for a justification for doubling the use of &#8216;Stop and Search&#8217; powers since 2007, which was was reported by the BBC this week. I wonder how they explain the 67% [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/bristolnoborders/2013/09/27/total-policing-comes-to-bristol/</guid>
+            <pubDate>Fri, 27 Sep 2013 11:32:38 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>3D-Printed Robot to Break Android PINs</title>
+            <link>https://www.schneier.com/blog/archives/2013/09/3d-printed_robo.html</link>
+            <author>Bruce Schneier</author>
+            <category>android</category>
+            <category>cellphones</category>
+            <category>google</category>
+            <category>hacking</category>
+            <category>passwords</category>
+            <guid isPermaLink="true">tag:www.schneier.com,2013:/blog//2.5021</guid>
+            <pubDate>Fri, 27 Sep 2013 11:21:59 GMT</pubDate>
+            <description>&lt;p&gt;&lt;a href=&quot;http://mashable.com/2013/07/25/3d-printed-robot-pin/&quot;&gt;Neat project&lt;/a&gt;.  The reason it works is that the Android system doesn&apos;t start putting in very long delays between PIN attempts after a whole bunch of unsuccessful attempts.  The iPhone does.&lt;/p&gt;</description>
+        </item>
+        <item>
+            <title>capitalsend wrote a new post, July 7: Civil Rights - Jobs and Freedom, on the site Capital&apos;s End</title>
+            <link>http://network23.org/capitalsend/2013/07/07/july-7-civil-rights-jobs-and-freedom/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/capitalsend/2013/07/07/july-7-civil-rights-jobs-and-freedom/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/capitalsend/files/2013/09/Capitals-End-CIVIL-RIGHTS-FORUM-2-300x377.jpg&quot; width=&quot;79.575596816976&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://network23.org/capitalsend/files/2013/09/Capitals-End-CIVIL-RIGHTS-FORUM-2.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/capitalsend/2013/07/07/july-7-civil-rights-jobs-and-freedom/</guid>
+            <pubDate>Thu, 26 Sep 2013 23:25:32 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>capitalsend wrote a new post, September 1: Buses Are Bridges, on the site Capital&apos;s End</title>
+            <link>http://network23.org/capitalsend/2013/09/26/september-1-buses-are-bridges/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/capitalsend/2013/09/26/september-1-buses-are-bridges/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/capitalsend/files/2013/09/Buses-are-bridges-flyer-300x383.jpg&quot; width=&quot;78.328981723238&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://network23.org/capitalsend/files/2013/09/Buses-are-bridges-flyer.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/capitalsend/2013/09/26/september-1-buses-are-bridges/</guid>
+            <pubDate>Thu, 26 Sep 2013 23:12:06 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>capitalsend wrote a new post, June 2: Haiti Solidarity, on the site Capital&apos;s End</title>
+            <link>http://network23.org/capitalsend/2013/06/02/june-2-haiti-solidarity/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/capitalsend/2013/06/02/june-2-haiti-solidarity/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/capitalsend/files/2013/09/June-2-Haiti-Solidarity-Capitals-End-300x400.jpg&quot; width=&quot;75&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://network23.org/capitalsend/files/2013/09/June-2-Haiti-Solidarity-Capitals-End.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/capitalsend/2013/06/02/june-2-haiti-solidarity/</guid>
+            <pubDate>Thu, 26 Sep 2013 23:08:56 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>capitalsend wrote a new post, August 4: Homophilia Queer Justice Brainstorm, on the site Capital&apos;s End</title>
+            <link>http://network23.org/capitalsend/2013/08/04/august-4-homophilia-queer-justice-brainstorm/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/capitalsend/2013/08/04/august-4-homophilia-queer-justice-brainstorm/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/capitalsend/files/2013/09/august-4-homophilia-flyer-300x393.jpg&quot; width=&quot;76.335877862595&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://network23.org/capitalsend/files/2013/09/august-4-homophilia-flyer.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/capitalsend/2013/08/04/august-4-homophilia-queer-justice-brainstorm/</guid>
+            <pubDate>Thu, 26 Sep 2013 23:05:31 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>mautau79 wrote a new post, EC135 Fix for FlightGear 2.12 - (Arch Linux Fix), on the site @mautau79</title>
+            <link>http://network23.org/mautau79/2013/09/26/ec135-fix-for-flightgear-2-12-arch-linux-fix/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/mautau79/2013/09/26/ec135-fix-for-flightgear-2-12-arch-linux-fix/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/mautau79/files/2013/09/fgfs-screen-002-300x187.png&quot; width=&quot;160.42780748663&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;Ich habe festgestellt, dass es zwei Versionen der EC-135 gibt:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gitorious.org/ec135/mainline/archive-tarball/EC135P2&quot; rel=&quot;nofollow&quot;&gt;https://gitorious.org/ec135/mainline/archive-tarball/EC135P2&lt;/a&gt; (neue Version)&lt;br /&gt;
+&lt;a href=&quot;ftp://ftp.de.flightgear.org/pub/fgfs/Aircraft-2.12/ec135_0.6.zip&quot; rel=&quot;nofollow&quot;&gt;ftp://ftp.de.flightgear.org/pub/fgfs/Aircraft-2.12/ec135_0.6.zip&lt;/a&gt; (alte [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/mautau79/2013/09/26/ec135-fix-for-flightgear-2-12-arch-linux-fix/</guid>
+            <pubDate>Thu, 26 Sep 2013 22:01:43 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Queering anarchism: Addressing and undressing power and desire - C.B. Daring, J. Rogue, Deric Shannon, and Abbey Volcano</title>
+            <link>http://libcom.org/library/queering-anarchism-addressing-undressing-power-desire-cb-daring-j-rogue-deric-shannon-ab</link>
+            <category domain="http://libcom.org/tags/abbey-volcano">Abbey Volcano</category>
+            <category domain="http://libcom.org/tags/cb-daring">C.B. Daring</category>
+            <category domain="http://libcom.org/tags/deric-shannon">Deric Shannon</category>
+            <category domain="http://libcom.org/tags/j-rogue">J. Rogue</category>
+            <category domain="http://libcom.org/tags/anarchism">anarchism</category>
+            <category domain="http://libcom.org/tags/feminism">feminism</category>
+            <category domain="http://libcom.org/tags/lgbtq">LGBTQ</category>
+            <category domain="http://libcom.org/tags/mobi">mobi</category>
+            <category domain="http://libcom.org/tags/sex-sexuality">sex and sexuality</category>
+            <category domain="http://libcom.org/tags/women">women</category>
+            <comments>http://libcom.org/library/queering-anarchism-addressing-undressing-power-desire-cb-daring-j-rogue-deric-shannon-ab#comments</comments>
+            <dc:creator>Tyrion</dc:creator>
+            <enclosure type="application/octet-stream" length="3301716" url="http://libcom.org/files/Queering Anarchism_ Addressing and Undre - Volcano, C.B. Daring; J. Rogue; Deric Sh.mobi" />
+            <guid isPermaLink="true">http://libcom.org/library/queering-anarchism-addressing-undressing-power-desire-cb-daring-j-rogue-deric-shannon-ab</guid>
+            <pubDate>Thu, 26 Sep 2013 18:04:49 +0000</pubDate>
+            <description>&lt;div class=&quot;field field-type-filefield field-field-photo&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;div class=&quot;filefield-file&quot;&gt;&lt;img class=&quot;filefield-icon field-icon-image-jpeg&quot;  alt=&quot;image/jpeg icon&quot; src=&quot;http://libcom.org/sites/libcom.org/modules/contrib/filefield/icons/image-x-generic.png&quot; /&gt;&lt;a href=&quot;http://libcom.org/files/images/library/cover_28.jpg&quot; type=&quot;image/jpeg; length=68380&quot;&gt;cover.jpg&lt;/a&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-introduction&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;p&gt; What does it mean to &amp;quot;queer&amp;quot; the world around us? How does the radical refusal of the mainstream codification of GLBT identity as a new gender norm come into focus in the context of anarchist theory and practice? &lt;/p&gt;
+
+
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://libcom.org/library/queering-anarchism-addressing-undressing-power-desire-cb-daring-j-rogue-deric-shannon-ab&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        <item>
+            <title>son300 wrote a new post, CENADOR POPULAR CONTRA EL APARTHEID, on the site </title>
+            <link>http://network23.org/son300/2013/09/26/cenador-popular-contra-el-apartheid/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/son300/2013/09/26/cenador-popular-contra-el-apartheid/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;https://ia601903.us.archive.org/7/items/Cenador279/cenador_27_9.jpg?w=650&quot; width=&quot;141.41414141414&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;https://ia601903.us.archive.org/7/items/Cenador279/cenador_27_9.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/son300/2013/09/26/cenador-popular-contra-el-apartheid/</guid>
+            <pubDate>Thu, 26 Sep 2013 15:56:55 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Bury my heart at Wounded Knee: An Indian history of the American West - Dee Brown</title>
+            <link>http://libcom.org/library/bury-my-heart-wounded-knee-indian-history-american-west-dee-brown</link>
+            <category domain="http://libcom.org/tags/dee-brown">Dee Brown</category>
+            <category domain="http://libcom.org/tags/epub">epub</category>
+            <category domain="http://libcom.org/tags/mobi">mobi</category>
+            <category domain="http://libcom.org/tags/native-american">Native American</category>
+            <category domain="http://libcom.org/tags/usa-1">USA</category>
+            <comments>http://libcom.org/library/bury-my-heart-wounded-knee-indian-history-american-west-dee-brown#comments</comments>
+            <dc:creator>Tyrion</dc:creator>
+            <enclosure type="application/octet-stream" length="3685089" url="http://libcom.org/files/Bury My Heart at Wounded Knee - Brown, Dee.epub" />
+            <guid isPermaLink="true">http://libcom.org/library/bury-my-heart-wounded-knee-indian-history-american-west-dee-brown</guid>
+            <pubDate>Thu, 26 Sep 2013 14:58:03 +0000</pubDate>
+            <description>&lt;div class=&quot;field field-type-filefield field-field-photo&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;div class=&quot;filefield-file&quot;&gt;&lt;img class=&quot;filefield-icon field-icon-image-jpeg&quot;  alt=&quot;image/jpeg icon&quot; src=&quot;http://libcom.org/sites/libcom.org/modules/contrib/filefield/icons/image-x-generic.png&quot; /&gt;&lt;a href=&quot;http://libcom.org/files/images/library/cover_16.jpg&quot; type=&quot;image/jpeg; length=78909&quot;&gt;cover.jpg&lt;/a&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-introduction&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;p&gt; Bury My Heart at Wounded Knee is Dee Brown&#039;s eloquent, fully documented account of the systematic destruction of the American Indian during the second half of the nineteenth century. &lt;/p&gt;
+
+
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://libcom.org/library/bury-my-heart-wounded-knee-indian-history-american-west-dee-brown&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        <item>
+            <title>libcom.org: 10 years of class struggle online</title>
+            <link>http://libcom.org/blog/libcomorg-10-years-class-struggle-online-26092013</link>
+            <category domain="http://libcom.org/regions/uk">UK</category>
+            <category domain="http://libcom.org/tags/libcom-org">libcom.org</category>
+            <comments>http://libcom.org/blog/libcomorg-10-years-class-struggle-online-26092013#comments</comments>
+            <dc:creator>libcom</dc:creator>
+            <georss:point>51.516294 -0.070478</georss:point>
+            <guid isPermaLink="true">http://libcom.org/blog/libcomorg-10-years-class-struggle-online-26092013</guid>
+            <pubDate>Thu, 26 Sep 2013 13:11:17 +0000</pubDate>
+            <description>&lt;div class=&quot;field field-type-filefield field-field-photo&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;div class=&quot;filefield-file&quot;&gt;&lt;img class=&quot;filefield-icon field-icon-image-jpeg&quot;  alt=&quot;image/jpeg icon&quot; src=&quot;http://libcom.org/sites/libcom.org/modules/contrib/filefield/icons/image-x-generic.png&quot; /&gt;&lt;a href=&quot;http://libcom.org/files/images/blog/Happy-Birthday_0.jpg&quot; type=&quot;image/jpeg; length=67577&quot;&gt;Happy-Birthday.jpg&lt;/a&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-introduction&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;p&gt;Today, Thursday, 26 September 2013, libcom.org turns 10. In this blog post we look back at the evolution of the site over the last decade, pick out some highlights and look to the future.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://libcom.org/blog/libcomorg-10-years-class-struggle-online-26092013&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        <item>
+            <title>Paradoxes of Big Data</title>
+            <link>https://www.schneier.com/blog/archives/2013/09/paradoxes_of_bi.html</link>
+            <author>Bruce Schneier</author>
+            <category>academicpapers</category>
+            <category>courts</category>
+            <category>databases</category>
+            <category>internet</category>
+            <category>power</category>
+            <category>privacy</category>
+            <guid isPermaLink="true">tag:www.schneier.com,2013:/blog//2.5022</guid>
+            <pubDate>Thu, 26 Sep 2013 11:58:35 GMT</pubDate>
+            <description>&lt;p&gt;Interesting paper:  &quot;&lt;a href=&quot;http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2325537&quot;&gt;Three Paradoxes of Big Data&lt;/a&gt;,&quot; by Neil M. Richards and Jonathan H. King, Stanford Law Review Online, 2013.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;b&gt;Abstract&lt;/b&gt;: Big data is all the rage. Its proponents tout the use of sophisticated analytics to mine large data sets for insight as the solution to many of our society&apos;s problems. These big data evangelists insist that data-driven decisionmaking can now give us better predictions in areas ranging from college admissions to dating to hiring to medicine to national security and crime prevention. But much of the rhetoric of big data contains no meaningful analysis of its potential perils, only the promise. We don&apos;t deny that big data holds substantial potential for the future, and that large dataset analysis has important uses today. But we would like to sound a cautionary note and pause to consider big data&apos;s potential more critically. In particular, we want to highlight three paradoxes in the current rhetoric about big data to help move us toward a more complete understanding of the big data picture. First, while big data pervasively collects all manner of private information, the operations of big data itself are almost entirely shrouded in legal and commercial secrecy. We call this the Transparency Paradox. Second, though big data evangelists talk in terms of miraculous outcomes, this rhetoric ignores the fact that big data seeks to identify at the expense of individual and collective identity. We call this the Identity Paradox. And third, the rhetoric of big data is characterized by its power to transform society, but big data has power effects of its own, which privilege large government and corporate entities at the expense of ordinary individuals. We call this the Power Paradox. Recognizing the paradoxes of big data, which show its perils alongside its potential, will help us to better understand this revolution. It may also allow us to craft solutions to produce a revolution that will be as good as its evangelists predict.&lt;/blockquote&gt;</description>
+        </item>
+        <item>
+            <title>theintegrityreport wrote a new post, Review of the so called “ASU Police Department Pay Program Update For Police Officers FY13/14” (Raise Stunt, Not My Fault, Diversion Program AKA The Indeed Raises), on the site The Integrity Report</title>
+            <link>http://network23.org/theintegrityreport/2013/09/26/review-of-the-so-called-asu-police-department-pay-program-update-for-police-officers-fy1314-raise-stunt-not-my-fault-diversion-program-aka-the-indeed-raises/</link>
+            <content:encoded>&lt;p&gt;Review of the so called “ASU Police Department Pay Program Update For Police Officers FY13/14” (Raise Stunt, Not My Fault, Diversion Program AKA The Indeed Raises)&lt;/p&gt;
+&lt;p&gt;The ASUPD chief put together a presentation [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/theintegrityreport/2013/09/26/review-of-the-so-called-asu-police-department-pay-program-update-for-police-officers-fy1314-raise-stunt-not-my-fault-diversion-program-aka-the-indeed-raises/</guid>
+            <pubDate>Thu, 26 Sep 2013 06:30:58 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>network22 wrote a new post, really frustrated, on the site josh&apos;s site</title>
+            <link>http://network23.org/network22/2013/09/26/really-frustrated/</link>
+            <content:encoded>&lt;p&gt;I would be about 5minutes from launching my company completely setup the way it should be but fucking Incoming email issue so we can&#8217;t get  a fucking SSL certificate and install it for stupid HTTPS :/ [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/network22/2013/09/26/really-frustrated/</guid>
+            <pubDate>Thu, 26 Sep 2013 04:58:57 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Kus wrote a new post, SteamOS&apos;un Düşündürdükleri, on the site Kame</title>
+            <link>http://network23.org/kame/2013/09/26/steamosun-dusundurdukleri/</link>
+            <content:encoded>&lt;blockquote&gt;&lt;p&gt;&#8220;Gnu/Linux&#8217;ta oyun oynamak ya da oynayamamak, işte bütün mesele bu!&#8221; peki gerçekten bu mu? 12 yıllık bir Gnu/Linux kullanıcısı olarak o kadar çok oyun oynadım ki bu işletim sisteminde, bazen kendimi zorla [&amp;hellip;]&lt;/p&gt;&lt;/blockquote&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/kame/2013/09/26/steamosun-dusundurdukleri/</guid>
+            <pubDate>Wed, 25 Sep 2013 22:45:53 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>manchesterneighbourhoodforum wrote a new post, Report back from recent activites, on the site South Central Manchester Neighbourhood Forum</title>
+            <link>http://network23.org/manchesterneighbourhoodforum/2013/09/25/report-back-from-recent-activites/</link>
+            <content:encoded>&lt;p&gt;We had a very productive meeting last Thursday, with 13 people attending on a full moon.&lt;/p&gt;
+&lt;p&gt;The minutes are now online from all previous meetings, bar one where there were only 5 of us looking at a map.&lt;/p&gt;
+&lt;p&gt;We also [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/manchesterneighbourhoodforum/2013/09/25/report-back-from-recent-activites/</guid>
+            <pubDate>Wed, 25 Sep 2013 20:50:27 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>theintegrityreport wrote a new post, Worst party apartments featured in OFFICIAL ASU off-campus housing guide!, on the site The Integrity Report</title>
+            <link>http://network23.org/theintegrityreport/2013/09/25/worst-party-apartments-featured-in-official-asu-off-campus-housing-guide/</link>
+            <content:encoded>&lt;p&gt;From myfoxphoenix.com:&lt;br /&gt;
+&lt;span&gt;TEMPE, Ariz. &#8211; &lt;/span&gt;Tempe police say they are some of the biggest trouble spots for loud and raucous parties. Off campus apartment complexes that cater to students are among the most visited by [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/theintegrityreport/2013/09/25/worst-party-apartments-featured-in-official-asu-off-campus-housing-guide/</guid>
+            <pubDate>Wed, 25 Sep 2013 20:43:20 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>mautau79 wrote a new post, , on the site @mautau79</title>
+            <link>http://network23.org/mautau79/2013/09/25/81/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/mautau79/2013/09/25/81/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/mautau79/files/2013/09/archey-300x187.png&quot; width=&quot;160.42780748663&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;Eigentlich wollte ich erzählen, dass ich von Debian Wheezy auf Fedora 19 und von Fedora 19 wieder zu Debian Testing (Jessie) gewechselt habe. Weiterhin hatte ich&lt;a href=&quot;http://wiki.debianforum.de/AptPinning&quot; rel=&quot;nofollow&quot;&gt; APT- Pinning&lt;/a&gt; eingesetzt, um aktuelle Software zu [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/mautau79/2013/09/25/81/</guid>
+            <pubDate>Wed, 25 Sep 2013 14:42:59 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Good Summary of Potential NSA Involvement in a NIST RNG Standard</title>
+            <link>https://www.schneier.com/blog/archives/2013/09/good_summary_of.html</link>
+            <author>Bruce Schneier</author>
+            <category>backdoors</category>
+            <category>cryptography</category>
+            <category>nist</category>
+            <category>nsa</category>
+            <category>randomnumbers</category>
+            <category>securitystandards</category>
+            <category>sp80090</category>
+            <guid isPermaLink="true">tag:www.schneier.com,2013:/blog//2.5026</guid>
+            <pubDate>Wed, 25 Sep 2013 12:17:01 GMT</pubDate>
+            <description>&lt;p&gt;Kim Zetter has written &lt;a href=&quot;http://www.wired.com/threatlevel/2013/09/nsa-backdoor/all/&quot;&gt;the definitive story&lt;/a&gt; -- at least so far -- of the possible backdoor in the Dual_EC_DRBG random number generator that&apos;s part of the NIST SP800-90 standard.&lt;/p&gt;</description>
+        </item>
+        <item>
+            <title>theintegrityreport wrote a new post, DoJ&apos;s recommendations for a safe college campus and how ASU is doing the opposite!, on the site The Integrity Report</title>
+            <link>http://network23.org/theintegrityreport/2013/09/25/dojs-recommendations-for-a-safe-college-campus-and-how-asu-is-doing-the-opposite/</link>
+            <content:encoded>&lt;p&gt;In 2004, the US Department of Justice (DoJ) and Office of Community Oriented Policing (COPS) held a national summit to discuss public safety and security issues pertaining to universities and colleges.&lt;br /&gt;
+ The [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/theintegrityreport/2013/09/25/dojs-recommendations-for-a-safe-college-campus-and-how-asu-is-doing-the-opposite/</guid>
+            <pubDate>Wed, 25 Sep 2013 05:31:21 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>rockfeatherrust wrote a new post, CrimethInc.: the best thing since wheatpaste., on the site rock feather rust</title>
+            <link>http://network23.org/rockfeatherrust/2013/09/24/crimethinc-the-best-thing-since-wheatpaste/</link>
+            <content:encoded>&lt;p&gt;&lt;a href=&quot;http://network23.org/rockfeatherrust/2013/09/24/crimethinc-the-best-thing-since-wheatpaste/&quot; rel=&quot;nofollow&quot;&gt;&lt;img src=&quot;http://network23.org/rockfeatherrust/files/2013/09/Crimethinc._boat_logo-300x115.jpg&quot; width=&quot;260.86956521739&quot; height=&quot;100&quot; alt=&quot;Thumbnail&quot; class=&quot;align-left thumbnail&quot; /&gt;&lt;/a&gt;&amp;nbsp;&lt;br /&gt;
+&lt;a href=&quot;http://network23.org/rockfeatherrust/files/2013/09/Crimethinc._boat_logo.jpg&quot; rel=&quot;nofollow&quot;&gt;&lt;/a&gt;&lt;br /&gt;
+CrimethInc. Ex-Workers&#8217; Collective are my favorite thing at the moment.  You like &lt;a href=&quot;http://www.crimethinc.com/tools/downloads/stickers.html&quot; rel=&quot;nofollow&quot;&gt;stickers&lt;/a&gt;?  They&#8217;ve got &#8216;em.  You want &lt;a href=&quot;http://www.crimethinc.com/tools/downloads/posters.html&quot; rel=&quot;nofollow&quot;&gt;posters&lt;/a&gt;?  Well, they&#8217;ve got those too.  &lt;a href=&quot;http://www.crimethinc.com/tools/downloads/zines.html&quot; rel=&quot;nofollow&quot;&gt;Zines&lt;/a&gt;?  Well you&#8217;ve come to the right place.  [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/rockfeatherrust/2013/09/24/crimethinc-the-best-thing-since-wheatpaste/</guid>
+            <pubDate>Tue, 24 Sep 2013 23:10:18 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>theintegrityreport wrote a new post, ASU&apos;s Michael Crow receives a pay raise, while his Police Officers haven&apos;t had an ACTUAL raise since 2008., on the site The Integrity Report</title>
+            <link>http://network23.org/theintegrityreport/2013/09/24/asus-michael-crow-receives-a-pay-raise-while-his-police-officers-havent-had-an-actual-raise-since-2008/</link>
+            <content:encoded>&lt;p&gt;&lt;strong&gt;In &lt;a href=&quot;http://network23.org/theintegrityreport/?p=60&quot; rel=&quot;nofollow&quot;&gt;this post &lt;/a&gt;we touched on the&lt;/strong&gt; &lt;strong&gt;discrepancies in pay between ASUPD&#8217;s Police Chief, Command staff, and its line-level Police Officers. What we &lt;em&gt;didn&#8217;t &lt;/em&gt;touch on is how much money ASU&#8217;s President Michael Crow receives [&amp;hellip;]&lt;/strong&gt;&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/theintegrityreport/2013/09/24/asus-michael-crow-receives-a-pay-raise-while-his-police-officers-havent-had-an-actual-raise-since-2008/</guid>
+            <pubDate>Tue, 24 Sep 2013 21:40:08 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>deepintheskinnerbox wrote a new post, Lapdances in a sandbox, on the site  Gaming considered harmful</title>
+            <link>http://network23.org/harmfulgaming/2013/09/24/lapdances-in-a-sandbox/</link>
+            <content:encoded>&lt;p&gt;Give a man a sandbox and he will run to the first strip club. At least that is the impression one gets following the GTA V astroturfed mega campaign. While &lt;a href=&quot;http://www.ign.com/articles/2013/09/16/grand-theft-auto-v-review&quot; rel=&quot;nofollow&quot;&gt;every&lt;/a&gt; &lt;a href=&quot;http://kotaku.com/grand-theft-auto-v-the-kotaku-review-1324730770&quot; rel=&quot;nofollow&quot;&gt;review&lt;/a&gt; &lt;a href=&quot;http://www.gamespot.com/grand-theft-auto-v/reviews/grand-theft-auto-v-review-6414475/&quot; rel=&quot;nofollow&quot;&gt;so far&lt;/a&gt; lauds the breathtakingly huge [&amp;hellip;]&lt;/p&gt;
+            </content:encoded>
+            <guid isPermaLink="true">http://network23.org/harmfulgaming/2013/09/24/lapdances-in-a-sandbox/</guid>
+            <pubDate>Tue, 24 Sep 2013 19:40:00 +0000</pubDate>
+            <slash:comments>0</slash:comments>
+        </item>
+        <item>
+            <title>Unpatriotic history of the Second World War - James Heartfield</title>
+            <link>http://libcom.org/library/unpatriotic-history-second-world-war</link>
+            <category domain="http://libcom.org/tags/james-heartfield">James Heartfield</category>
+            <category domain="http://libcom.org/tags/fascism">fascism</category>
+            <category domain="http://libcom.org/tags/mobi">mobi</category>
+            <category domain="http://libcom.org/tags/nazism">Nazism</category>
+            <category domain="http://libcom.org/tags/world-war-2">World War II</category>
+            <comments>http://libcom.org/library/unpatriotic-history-second-world-war#comments</comments>
+            <dc:creator>Tyrion</dc:creator>
+            <enclosure type="application/octet-stream" length="3456444" url="http://libcom.org/files/Unpatriotic History of the Seco - Heartfield, James.mobi" />
+            <guid isPermaLink="true">http://libcom.org/library/unpatriotic-history-second-world-war</guid>
+            <pubDate>Tue, 24 Sep 2013 16:57:12 +0000</pubDate>
+            <description>&lt;div class=&quot;field field-type-filefield field-field-photo&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;div class=&quot;filefield-file&quot;&gt;&lt;img class=&quot;filefield-icon field-icon-image-jpeg&quot;  alt=&quot;image/jpeg icon&quot; src=&quot;http://libcom.org/sites/libcom.org/modules/contrib/filefield/icons/image-x-generic.png&quot; /&gt;&lt;a href=&quot;http://libcom.org/files/images/library/cover_19.jpg&quot; type=&quot;image/jpeg; length=71079&quot;&gt;cover.jpg&lt;/a&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-introduction&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;p&gt; Sixty million people died in the Second World War, and still they tell us it was the Peoples War. James Heartfield demolishes myths about World War II. &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://libcom.org/library/unpatriotic-history-second-world-war&quot; target=&quot;_blank&quot;&gt;read more&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+    </channel>
+</rss>

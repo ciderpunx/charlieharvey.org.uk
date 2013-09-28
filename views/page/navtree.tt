@@ -1,0 +1,27 @@
+<!--t:page/navtree-->
+<ul id="navtree" class="xoxo">
+[% IF ancestors %]
+		[% pages = ancestors.reverse %]
+		[% index = pages.shift %]
+		[% root_ancestor = pages.shift %]
+		
+		<li><a href="[% index.link %]">Blog</a>
+		<ul>
+	  [% FOR cat IN top_categories %]
+			[% IF cat.link == root_ancestor.link %]
+				<li><a href="[% root_ancestor.link %]">[% root_ancestor.title %]</a></li>
+				[% FOR pg IN pages %]
+					<ul><li><a href="[% pg.link %]">[% pg.title %]</a></li>
+				[% END %]
+				<ul><li>[% page.title %]</li></ul>
+				[% FOREACH i = [1..pages.size] %]
+					</ul>
+				[% END %]
+			[% ELSE %]
+				<li><a href="[% cat.link %]">[% cat.title %]</a></li>
+			[% END %]
+		[% END %]
+    </ul></li>
+[% END %]
+</ul>
+<!--/page/navtree-->

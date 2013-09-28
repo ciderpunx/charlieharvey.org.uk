@@ -176,6 +176,18 @@ sub recent_children {
     );
     return $rs->all;
 }
+sub top_categories {
+    my $self = shift;
+    my $rs   = $self->result_source->resultset->search(
+        { parent_id => { '=', 1} ,
+					is_live => {'=', 1},
+				},
+        { 
+					order_by => {-desc => 'created_at'},
+				}
+    );
+    return $rs->all;
+}
 sub auto_summary {
 	my $self = shift; 
 	my $summary = $self->body;
