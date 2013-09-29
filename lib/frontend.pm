@@ -22,7 +22,7 @@ get '/' => sub {
 };
 
 get '/about.pl' => sub {
-	redirect uri_for '/about/'
+	redirect uri_for '/about'
 };
 
 get '/about/?' => sub {
@@ -48,11 +48,11 @@ get '/about/this-site/?' => sub {
 };
 
 get '/most_popular.pl' => sub {
-	redirect uri_for '/popular/week/'
+	redirect uri_for '/popular/week'
 };
 
 get '/rot13.pl' => sub {
-	redirect uri_for '/rot13/'
+	redirect uri_for '/rot13'
 };
 
 get '/rot13' => sub {
@@ -70,7 +70,7 @@ get '/rot13/api/:to_rot' => sub {
 }; 
 
 get '/rss.pl' => sub {
-	redirect uri_for '/newsfeed/'
+	redirect uri_for '/newsfeed'
 };
 
 ## TODO: need a better search tool than swifttype for search.
@@ -82,11 +82,11 @@ get '/search/?' => sub {
 };
 
 get '/writings/?' => sub {
-	redirect uri_for '/file/'
+	redirect uri_for '/file'
 };
 
 get '/writings.pl' => sub {
-	redirect uri_for '/file/'
+	redirect uri_for '/file'
 };
 
 get '/contact/?' => sub {
