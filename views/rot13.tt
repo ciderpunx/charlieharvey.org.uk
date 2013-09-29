@@ -1,0 +1,49 @@
+<!--t:rot13-->
+<h1>ROT13 tools</h1>
+
+<p>This tool lets you <a href="">ROT13</a> (and unROT13) strings of text. There is a <a href="/rot13/api/">ROT13 api</a> for programmers.</p>
+
+
+<form>
+	<p>
+		<label for "rot13">ROT13 this:</label>
+		<textarea id="rot13" name="rot13" rows="5">[% rot13 %]</textarea>
+		<br />
+		<br />
+		<input name="submit" value="Go" type="submit" />
+		<br />
+		<br />
+	</p>
+</form>
+
+<h2>About ROT13</h2>
+
+<img alt="illustration of ROT13 process" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/ROT13_table_with_example.svg/400px-ROT13_table_with_example.svg.png" class="rightfloat bordered" />
+<p>ROT13 is a variant of the simplest crypto imaginable &mdash; a substitution cipher. It ROTates the 
+letters of your plain text message 13 places through the alphabet. Unlike other ROT-n ciphers (where n is 
+a number other than 13) ROT13ing a message twice gives the original plain text of the message.</p>
+
+
+<p>A lot of people used to use ROT13 on usenet to hide potentially offensive material or for spolier-type
+material where they didn&#8217;t want to give away the ending. My implementation just uses the tr function
+to run the rotation thus <code>$msg =~ tr |A-Za-z|N-ZA-Mn-za-m|;</code></p>
+
+<h2>Using the API</h2>
+
+<p>The API is as straightforward at it gets and provides only a single endpoint &mdash; [% request.uri_base %]/rot13/api. 
+   You include the message to be ROT13ed in the URL string. By default you get back a JSON object with a single 
+	 field, msg which is your ROT13ed message. You can provide an accept-type header to get back YAML or XML 
+	 versions. Here are some examples using curl.<code class="bash">$ curl [% request.uri_base %]/rot13/api/hello
+{
+   "msg" : "uryyb"
+}
+$ curl -H'Accept-type:text/xml' [% request.uri_base %]/rot13/api/hello
+&lt;data msg="uryyb" /&gt;
+$ curl -H'Accept-type:text/x-yaml' [% request.uri_base %]/rot13/api/hello
+---
+msg: uryyb
+$ curl -H'Accept-type:application/json' [% request.uri_base %]/rot13/api/hello
+{
+   "msg" : "uryyb"
+}</code></p>
+<!--/rot13-->
