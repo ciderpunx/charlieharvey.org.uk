@@ -9,13 +9,13 @@
 		<ul>
 	  [% FOR cat IN top_categories %]
 			[% IF cat.link == root_ancestor.link %]
-				<li><a href="[% root_ancestor.link %]">[% root_ancestor.title %]</a></li>
+				<li><a href="[% root_ancestor.link %]">[% root_ancestor.title %]</a>
 				[% FOR pg IN pages %]
-					<ul><li><a href="[% pg.link %]">[% pg.title %]</a></li>
+					<ul><li><a href="[% pg.link %]">[% pg.title %]</a>
 				[% END %]
 				<ul><li>[% page.title %]</li></ul>
 				[% FOREACH i = [1..pages.size] %]
-					</ul>
+					</li></ul>
 				[% END %]
 			[% ELSE %]
 				<li><a href="[% cat.link %]">[% cat.title %]</a></li>

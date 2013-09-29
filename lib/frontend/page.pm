@@ -2,8 +2,11 @@ package frontend::page;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC qw(schema resultset rset);
 use Dancer::Plugin::Feed;
+use Dancer::Plugin::Cache::CHI;
 
 prefix '/page';
+
+check_page_cache;
 
 get '/' => sub {
 	redirect '/page/id/' 
@@ -107,7 +110,7 @@ get '/:slug/?' => sub {
 	my @top_categories = $page->top_categories;
 
 	if ($page->is_root) {
-		template 'page/root', { 
+		cache_page template 'page/root', { 
 			page => $page, 
 			title => $page->title,
 			own_url => uri_for($page->link)->as_string,
@@ -118,7 +121,7 @@ get '/:slug/?' => sub {
 		}; # index page, use index teplate
 	}
 	elsif ($page->is_cover) {
-		template 'page/cover', { 
+		cache_page template 'page/cover', { 
 			page => $page, 
 			title => $page->title,
 			own_url => uri_for($page->link)->as_string,
@@ -130,7 +133,7 @@ get '/:slug/?' => sub {
 		}; # cover page
 	}
 	else {
-		template 'page/view', { 
+		cache_page template 'page/view', { 
 			page => $page, 
 			title => $page->title,
 			own_url => uri_for($page->link)->as_string,
@@ -141,7 +144,6 @@ get '/:slug/?' => sub {
 		}; # normal page view
 	}
 };
-
 
 get '/:slug/archive/?' => sub {
 	redirect '/page/' . params->{slug} . '/archive/1'

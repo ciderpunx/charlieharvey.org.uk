@@ -2,6 +2,7 @@ package frontend;
 use utf8;
 use Dancer ':syntax';
 use Dancer::Plugin::Email;
+use Dancer::Plugin::Cache::CHI;
 use Try::Tiny;
 
 use frontend::page;
@@ -14,8 +15,10 @@ our $VERSION = '0.1';
 
 prefix undef;
 
+check_page_cache;
+
 get '/' => sub {
-    template 'index', {
+    cache_page template 'index', {
 			title => "127.0.0.1",
 			description => "The lair of the ciderpunx",
 		};
