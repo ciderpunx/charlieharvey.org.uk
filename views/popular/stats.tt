@@ -1,0 +1,46 @@
+<!--t:popular/stats-->
+[% USE Dumper %]
+<header>
+<h1>[% title %]</h1>
+</header>
+
+<article>
+<p>These pages are the most popular ones, according to a 
+rather complex <a href="http://charlieharvey.org.uk/page/piwik_popular_pages">Piwik popular pages query</a>. 
+You can also get <a href="#other-periods">popular page stats for other periods and in other formats</a>.
+</p>
+	<ul class="xoxo">
+		[% FOR pg IN order %]
+			<li><a href="[% pages.$pg.url %]">[% pg %]</a> &mdash; [% pages.$pg.unique_visits %] unique visits</li>
+		[% END %]
+	</ul>
+</article>
+
+<h2>Other time periods [% period %]<a id="other-periods"> </a></h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Period</th>
+			<th>Page</th>
+			<th>API</th>
+			<th>Feed</th>
+		</tr>
+	</thead>
+	<tbody>
+	[% FOR p IN ["week", "month", "year", "all-time"] %]
+		[% pnice = p.ucfirst %]
+		[% IF p == 'all-time' %] [% pnice = "All Time" %][% END %]
+		<tr>
+			<td>[% pnice %]</td>
+			[% IF p == period %]
+				<td><em>Most popular: [% pnice %] (This Page)</em></td>
+			[% ELSE %]
+				<td><a href="[% p %]">Most popular: [% pnice %]</a></td>
+			[% END %]
+			<td><a href="[% p %]/api">Most popular API: [% pnice %]</a></td>
+			<td><a href="[% p %]/feed/rss">Most popular RSS: [% pnice %]</a></td>
+		</tr>
+	[% END %]
+	</tbody>
+</table>
+<!--/popular/stats-->

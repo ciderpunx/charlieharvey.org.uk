@@ -8,6 +8,7 @@ use frontend::page;
 use frontend::tag;
 use frontend::comment;
 use frontend::writing;
+use frontend::popular;
 
 our $VERSION = '0.1';
 
@@ -44,6 +45,10 @@ get '/about/this-site/?' => sub {
 			description => "About Charlie Harvey's website, charlieharvey.org.uk. Standards-compliant, fully responsive navel 
 			                gazing. ",
 		};
+};
+
+get '/most_popular.pl' => sub {
+	redirect uri_for '/popular/week/'
 };
 
 get '/rot13.pl' => sub {
