@@ -31,7 +31,6 @@ get '/about/?' => sub {
 		};
 };
 
-
 get '/about/charlie-harvey/?' => sub {
     template 'about-charlie', {
 			title => "About Charlie",
@@ -46,6 +45,24 @@ get '/about/this-site/?' => sub {
 			                gazing. ",
 		};
 };
+
+get '/rot13.pl' => sub {
+	redirect uri_for '/rot13/'
+};
+
+get '/rot13' => sub {
+	my $rot13ed = _rot13(params->{rot13}) || '';
+	template 'rot13', {
+			title => "ROT13 tool",
+			description => "Lets you ROT13 or unROT13 arbitrary text strings.",
+			rot13 => $rot13ed,
+	}
+};
+
+get '/rot13/api/:to_rot' => sub { 
+	set serializer => 'mutable';
+	return {msg => _rot13(params->{to_rot}) || ''};
+}; 
 
 get '/rss.pl' => sub {
 	redirect uri_for '/newsfeed/'
@@ -116,7 +133,6 @@ post '/contact' => sub {
 		};
 	}
 	else {
-		# send the email
 		_email_charlie($sender,$body);
 		template 'contact_success', { 
 			title => "Thanks for your email",
@@ -127,9 +143,16 @@ post '/contact' => sub {
 	}
 };
 
+# this takes care of 404s and should be the last route.
+any qr{.*}  => sub {
+  status 'not_found';
+	template '404', {
+		title => 'Not Found -- Error 404',
+		description => 'Seriously, this is a 404 page. Why are you even indexing this?'
+	};
+};
 
-
-##
+### Helper functions
 
 sub _email_charlie {
 	my ($sender,$body) = @_;
@@ -144,27 +167,12 @@ sub _email_charlie {
 	 catch {
 		error "Something went wrong when sending email"
 	 }
-#		my $msg = <<"__MESSAGE__";
-#From: $sender
-#To: $charlie
-#Subject: charlieharvey.org.uk-contact.pl	
-#
-#$body
-#
-#__MESSAGE__
-#;
-#	my $mail_sender = Email::Send->new({mailer => 'SMTP'});
-#  $mail_sender->mailer_args([Host => 'charlieharvey.dns-systems.net']);        
-#	return $mail_sender->send($msg);
 }
 
-# this takes care of 404s and should be the last route.
-any qr{.*}  => sub {
-  status 'not_found';
-	template '404', {
-		title => 'Not Found -- Error 404',
-		description => 'Seriously, this is a 404 page. Why are you even indexing this?'
-	};
-};
+sub _rot13($){
+	my $to_return=shift || '';
+	$to_return =~ tr |A-Za-z|N-ZA-Mn-za-m|;
+	return $to_return;
+}
 
 true;
