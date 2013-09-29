@@ -1,17 +1,43 @@
 <!--t:about-->
 	<article class="entry-content drop-cap">
-    <!--div class="hero-unit">
-			<h1> What&#8217;s all this then? </h1>
-			<img class="bordered rightfloat right-rotated" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
-			<p>
-				<span class="drop-cap">T</span>his is the homepage for <a href="/cgi-bin/about.pl">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
-				I use it as a sort of blog, for checking the 
-				<a href="/rss.pl">news</a> and for publishing 
-				<a href="/writings.pl">files</a> and <a href="/page/">pages</a> that I&#8217;ve written. 
-			</p>
-      <p><a class="btn btn-primary btn-large">More about me &raquo;</a></p>
-    </div-->
-		<h1>About</h1>
+   	<h1>About</h1>
+		
+		<div id="about-carousel" class="carousel slide bordered">
+			<div class="carousel-inner">
+				<div class="item active">
+					<a href="/about/charlie-harvey">
+						<img src="/img/navel-gazer.png" alt="Navel gazing baby" />
+					</a>
+					<div class="carousel-caption">
+						<p>There is a big long load of navel gazing on the <a href="/about/charlie-harvey">About Charlie Harvey</a> page.</p>
+					</div>
+				</div>
+				<div class="item">
+					<a href="/cv">
+						<img src="/img/cv-persp.png" alt="Picture of my cv" />
+					</a>
+					<div class="carousel-caption">
+							<p>Check out <a href="/cv">my CV</a></p>
+					</div>
+				</div>
+				<div class="item">
+					<a href="/about/this-site">
+						<img src="/img/through-the-ages.png" alt="Screengrabs of this site through the ages" />
+					</a>
+					<div class="carousel-caption">
+						<p>Learn <a href="/about/this-site">about charlieharvey.org.uk</a>.</p>
+					</div>
+				</div>
+				<!--div class="item">
+					<img src="http://placehold.it/1200x480" alt="" />
+					<div class="carousel-caption">
+						<p>Caption text here</p>
+					</div>
+				</div-->
+			</div><!-- /.carousel-inner -->
+				<a class="carousel-control left" href="#about-carousel" data-slide="prev">&lsaquo;</a>
+				<a class="carousel-control right" href="#about-carousel" data-slide="next">&rsaquo;</a>
+		</div><!-- /.carousel -->
 
 		<div class="row-fluid">
 			<div class="span6">
@@ -27,4 +53,11 @@
 			</div>
 		</div>
 	</article>
+<script>
+  $(document).ready(function(){
+		$('.carousel').carousel({
+			interval: 10000
+		});
+  });
+</script>
 <!--/about-->

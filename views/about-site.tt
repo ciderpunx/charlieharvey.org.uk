@@ -4,6 +4,7 @@
 		<p>This site has been running since 2004, believe it or not. It has been through a lot of changes on the way, including
 		   the latest which involved porting it to <a href="http://perldancer.org">Dancer</a> in 2013. You can check out my 
 			 series of <a href="/page/redesigning_charlieharvey_org_uk_dancer_bootstrap/">video blogs about the redesign process</a> if you enjoy that sort of thing. </p>
+		<img src="/img/through-the-ages.png" alt="Screengrabs of this site through the ages" class="no-side-margin-bordered"/>
 		<h3>Why? <a id="_why"> </a></h3>
 		<p>A combination of things really... </p>
 		<ul>	
@@ -12,12 +13,12 @@
 				 <a href="http://www.w3.org/TR/xhtml1/">xhtml</a> and 
 				 <a href="http://www.w3.org/Style/CSS/">css</a></li>
 		 <li>I wanted a <a href="http://charlieharvey.org.uk/flick.pl">place to keep my photos</a></li>
-		 <li>As an excuse to practice <a href="http://perl.com">perl</a>&#8217;s 
+		 <li>As an excuse to practice <a href="http://perl.com">Perl</a>&#8217;s 
 				 <a href="http://stein.cshl.org/WWW/software/CGI/cgi_docs.html">CGI.pm</a>,
 				 <a href="http://search.cpan.org/dist/HTML-Template/Template.pm">HTML Template</a>
-				 and <a href="http://search.cpan.org/~timb/DBI/DBI.pm">DBI</a>modules. At the time that 
+				 and <a href="http://search.cpan.org/~timb/DBI/DBI.pm">DBI</a> modules. At the time that 
 				 was pretty high tech and it still makes a decently maintainable and fairly efficient codebase. 
-				 Since 2013, I&#8217;ve ported the code to Perl#8217;s <a href="http://perldancer.org">Dancer</a> web framework. 
+				 Since 2013, I&#8217;ve ported the code to Perl&#8217;s <a href="http://perldancer.org">Dancer</a> web framework. 
 				 Which is great. </li>
 		 <li>As a place to store various solutions to tech problems I&#8217;ve come across</li>
 		 <li>I needed access to my do-list and email remotely. I don&#8217;t use it for that any more.</li>
