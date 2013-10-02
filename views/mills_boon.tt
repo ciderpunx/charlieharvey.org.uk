@@ -1,0 +1,11 @@
+<!--t:mills_boon-->
+[% UNLESS errors %]
+<h1>Throbbing Manhood</h1>
+<p>
+[% story %]
+</p>
+
+<p><em>This page first of all grabs Mills and Boon&#8217;s <a href="http://www.millsandboon.co.uk/rss/onlineread.xml">online read rss</a>. 
+	Then it uses a simple <a href=\"http://en.wikipedia.org/wiki/Markov_chain\">markov chain</a> to build a statistically probable Mills and Boon story.</em></p>
+[% END %]
+<!--/mills_boon-->

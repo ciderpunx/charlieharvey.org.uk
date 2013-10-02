@@ -51,6 +51,7 @@ ol li {margin-top:1em}
 .unstyled-list,.no-decoration {list-style-type:none;margin:0;padding:0}
 .horizontal-list, .horizontal-list li {display: inline; list-style-type: none}
 
+.alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
 .titlebar {background: url("/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 205px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
@@ -151,7 +152,7 @@ ol li {margin-top:1em}
 	.navbar-inverse .nav-collapse .nav > li > a, 
 	.navbar-inverse .nav-collapse .dropdown-menu a {color:#feb}
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	.titlebar {height:150px}
   .titlebar h1 a {height:85px;top:20px}
 	#footer .quarter {float:none;width:100%}
@@ -164,7 +165,7 @@ ol li {margin-top:1em}
 	.titlebar {height:115px}
   .titlebar h1 a {height:55px;top:10px}
 }
-@media (max-width: 300px) {
+@media (max-width: 360px) {
 	.titlebar {height:75px}
   .titlebar h1 a {height:35px}
 	.col4 {-moz-column-count: 2; -webkit-column-count: 2; -column-count: 2;  padding: 5px}

@@ -4,6 +4,8 @@ use Dancer ':syntax';
 use Dancer::Plugin::Email;
 use Dancer::Plugin::Cache::CHI;
 use Try::Tiny;
+use XML::RSS;
+use LWP::Simple ();
 
 use frontend::page;
 use frontend::tag;
@@ -50,6 +52,61 @@ get '/about/this-site/?' => sub {
 		};
 };
 
+get '/mills_boon.pl' => sub {
+	redirect uri_for '/mills_and_boon'
+};
+
+get '/mills_and_boon/?' => sub {
+	my @errors = ();
+	my $rss = new XML::RSS;
+	my $feed ='';
+ 
+	my $content = LWP::Simple::get('http://www.millsandboon.co.uk/rss/onlineread.xml');
+	unless ($content) { 
+		push @errors, "Could not retrieve feed";
+	}	
+	unless ($rss->parse($content)) {
+		push @errors, "Could not parse feed"; 
+	}
+ 
+	# get last 7 channel items, skip chapter names and concat together
+	my $i=0;
+	my $last = $#{$rss->{items}};
+	$last = 7 if $last>7; 
+	foreach my $item (@{$rss->{'items'}}) {
+		$i++;
+		next unless (defined($item->{'description'}));
+		next if($item->{'title'} =~ /^ADV: /); #ad filter
+		last if($i>$last); # no more than $last stories please.
+		$feed.=$item->{'description'};
+	}
+
+	$feed =~ s{<(/?p)>}{[$1]}g;	  # keep p tags
+	$feed =~ s{</?[^>]+>}{}g;     # lose the rest
+	$feed =~ s{\[(/?p)\]}{<$1>}g;	# put ps back
+	# Converts chrs beyond 127 to html entities
+	$feed =~ s{([^\x20-\x7F])}{'&#' . ord($1) . ';'}gse;
+	$feed =~ s{&#8217;}{'}g; # fucking "smart" quotes
+
+	if ($feed && !@errors) {
+		my $story = _to_markov($feed);
+		template 'mills_boon', {
+			title => 'Throbbing manhood',
+			description => 'This page first of all grabs Mills and Boon&#8217;s online read rss. 
+											Then it uses a simple markov chain to build a statistically probable 
+											Mills and Boon story.',
+			story => $story,
+		}	
+	}
+	else {
+		template 'mills_boon', {
+			title => "Fuck. Something went wrong",
+			errors => \@errors,
+			description => "Afraid something broke",
+		};
+	}
+};
+
 get '/most_popular.pl' => sub {
 	redirect uri_for '/popular/week'
 };
@@ -82,6 +139,15 @@ get '/search/?' => sub {
 			title => "Search Results",
 			description => "Search results page on charlieharvey.org.uk",
 		};
+};
+
+get '/twitterhaiku.pl' => sub {
+	template 'twitterhaiku', {
+		title => 'MOTHBALLED: Twitter haiku',
+		desctiption => 'Twitter Haiku was  
+										Wonderous. Twitter axed their feed.
+										Poetry no more.'
+	}
 };
 
 get '/writings/?' => sub {
@@ -177,10 +243,39 @@ sub _email_charlie {
 	 }
 }
 
-sub _rot13($){
+sub _rot13 {
 	my $to_return=shift || '';
 	$to_return =~ tr |A-Za-z|N-ZA-Mn-za-m|;
 	return $to_return;
 }
+
+sub _get_mills_boon_feed {
+}
+
+sub _to_markov {
+	my $MAX = 300; # max number of words in story.
+	my $feed_content = shift;
+	my %table;
+	my @result;
+	my $w1 = my $w2 = my $NL = "<br />";
+	foreach(split /\s+/,$feed_content) {
+		push (@{$table{$w1}{$w2}},$_);
+		($w1,$w2)=($w2,$_);
+	}
+	$w1=$w2=$NL;
+	for(my $i=0;$i<$MAX;$i++) {
+		my $suf=$table{$w1}{$w2};
+		if($suf) {
+			my $r=int(rand @$suf);
+			last if((my $t=$suf->[$r]) eq $NL);
+			push @result,$t;
+			($w1,$w2)=($w2,$t);
+		}
+	}
+	push @result, $NL;
+	return join ' ', @result;
+}
+
+
 
 true;
