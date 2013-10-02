@@ -2,7 +2,7 @@
 	<article class="entry-content drop-cap">
    	<h1>About</h1>
 		
-		<div id="about-carousel" class="carousel slide bordered">
+		<div id="about-carousel" class="carousel slide no-side-margin-bordered">
 			<div class="carousel-inner">
 				<div class="item active">
 					<a href="/about/charlie-harvey">
