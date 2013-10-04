@@ -144,6 +144,7 @@ ol li {margin-top:1em}
 
 #footwrap {max-width:950px;margin:auto} 
 
+#daily-mail {padding:1em; padding-right: 2.2em; min-height: 640px; width: 85%; margin:auto}
 
 /* @media rules */
 @media (max-width: 979px) {

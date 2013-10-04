@@ -8,6 +8,7 @@ use XML::RSS;
 use LWP::Simple ();
 
 use frontend::page;
+use frontend::daily_mail;
 use frontend::tag;
 use frontend::comment;
 use frontend::writing;
