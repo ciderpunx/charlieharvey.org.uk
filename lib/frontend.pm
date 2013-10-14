@@ -7,12 +7,13 @@ use Try::Tiny;
 use XML::RSS;
 use LWP::Simple ();
 
-use frontend::page;
-use frontend::daily_mail;
-use frontend::tag;
 use frontend::comment;
-use frontend::writing;
+use frontend::daily_mail;
+use frontend::flick;
+use frontend::page;
 use frontend::popular;
+use frontend::tag;
+use frontend::writing;
 
 our $VERSION = '0.1';
 
@@ -51,6 +52,14 @@ get '/about/this-site/?' => sub {
 			description => "About Charlie Harvey's website, charlieharvey.org.uk. Standards-compliant, fully responsive navel 
 			                gazing. ",
 		};
+};
+
+get '/daily_mail.pl' => sub {
+		redirect uri_for('/daily_mail/');
+};
+
+get '/flick.pl' => sub {
+		redirect uri_for('/flick/');
 };
 
 get '/mills_boon.pl' => sub {

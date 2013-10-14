@@ -64,10 +64,6 @@ get '/api/:id' => sub {
 	return {page => $page};
 };
 
-get '/daily_mail.pl' => sub {
-		redirect uri_for('/daily_mail/');
-};
-
 get '/feed/:format' => sub {
 	my $page_rs = _page_recent();
 	my @ps			= $page_rs->all;

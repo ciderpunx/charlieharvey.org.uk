@@ -1,13 +1,13 @@
 <!--t:index-->
 	<article class="entry-content drop-cap">
-    <div class="hero-unit">
+    <div class="hero-unit" style="height:450px">
 			<h1> What&#8217;s all this then? </h1>
-			<img class="bordered rightfloat right-rotated" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
+			<img class="bordered rightfloat" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
 			<p>
 				<span class="drop-cap">T</span>his is the homepage for <a href="/about/charlie-harvey">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
 				I use it as a sort of blog, for checking the 
 				<a href="/rss.pl">news</a> and for publishing 
-				<a href="/writings.pl">files</a> and <a href="/page/">pages</a> that I&#8217;ve written. 
+				<a href="/file/archive/1">files</a> and <a href="/page/index">pages</a> that I&#8217;ve written. 
 			</p>
       <p><a class="btn btn-primary btn-large">More about me &raquo;</a></p>
     </div>

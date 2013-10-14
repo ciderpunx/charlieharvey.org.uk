@@ -1,0 +1,30 @@
+<!--t:flickr/list-->
+<h1>Photos from flickr</h1>
+
+[% IF photos %]
+	<article>
+		<p>[% total %] photos in total, showing page [% page %] of [% lst %]</p>
+
+		[% INCLUDE flick/pager.tt %]
+	
+		<ul class="unstyled-list">
+			[% FOREACH photo IN photos %]
+				<li class="leftfloat flick-pic">
+					<a class="tinytext" href="[% photo.href %]"><img src="[% photo.img %]" alt="[% photo.title %]" title="[% photo.title %]" /></a>
+				</li>
+			[% END %]
+		</ul>
+
+		<div class="clear"></div>
+
+		[% INCLUDE flick/pager.tt %]
+		
+		<p class="centred top-bordered">
+		I&#8217;ve got [% total %] photos on <a href="http://flickr.com/photos/charlie_harvey/">Flickr</a> altogether. 
+		This is page [% page %] of [% lst %]. <!--TODO--> You can also view my older <a href="/photos.pl">photo gallery</a>.
+		</p>
+	</article>
+[% ELSE %]
+	<h1>Shit. Flickr must be broken. Come back later?</h1>
+[% END %]
+<!--/flickr/list-->

@@ -1,0 +1,10 @@
+<!--t:flick/pager-->
+	<div style="padding:1em 0" class="centre">
+		<ul class="horizontal-list pager">
+			[% IF frst %]<li><a class="btn-dark" href="/flick/list/1">First</a></li>[% END %] 
+			[% IF prv %]<li><a class="btn-dark" href="/flick/list/[% prv %]">Prev</a></li>[% END %]
+			[% IF nxt %]<li><a class="btn-dark" href="/flick/list/[% nxt %]">Next</a></li>[% END %]
+			[% IF lst %]<li><a class="btn-dark" href="/flick/list/[% lst %]">Last</a></li>[% END %]
+		</ul>
+	</div>
+<!--/flick/pager-->
