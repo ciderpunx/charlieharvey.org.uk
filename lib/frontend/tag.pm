@@ -28,7 +28,7 @@ get '/' => sub {
 	}
 };
 
-get '/cloud' => sub {
+get '/cloud/?' => sub {
 	my $tags_rs  = _all_tags();
 	my @tags     = $tags_rs->all;
 	template 'tag/cloud', {
@@ -49,7 +49,7 @@ get '/api/?' => sub {
 };
 
 # single tag, all entries, paged
-get '/api/:id' => sub {
+get '/api/:id/?' => sub {
 	set serializer => 'mutable';
 
 	my $t = _tag(params->{id});
@@ -88,7 +88,7 @@ get '/:title/feed/?' => sub {
 	redirect uri_for '/tag/' . params->{title} . '/feed/rss';
 };
 
-get '/:title/feed/:format' => sub {
+get '/:title/feed/:format/?' => sub {
 	my $tag = _tag_by_title(params->{title});
 	if (!$tag) {
 		send_error "Cannot find tag called " . params->{title};
@@ -131,7 +131,7 @@ get '/:title/?' => sub {
 	redirect uri_for('/tag/' . params->{title} . '/1');
 };
 
-get '/:title/:page' => sub {
+get '/:title/:page/?' => sub {
 	my $page = params->{page} || 1;
 	my $tag = _tag_by_title(params->{title});
 	if (!$tag) {
