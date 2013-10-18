@@ -32,5 +32,4 @@
 
 [% INCLUDE page/tags.tt %]
 
-[% INCLUDE page/tweet.tt %]
 <!--/page/cover-->

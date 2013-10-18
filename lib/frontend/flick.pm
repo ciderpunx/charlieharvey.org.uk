@@ -54,6 +54,27 @@ get '/list/:page/?' => sub {
 
 };
 
+get '/view/:id/page/:page/?' => sub {
+	my $page = params->{page};
+	my $id   = params->{id};
+
+	my $ref   = _get_photo_info($id);
+	my $photo = _get_photo_detail($ref);
+	my $exif  = _get_photo_exif($id);
+
+  template 'flick/view', {
+			active_nav  => 'Images',
+			title				=> $photo->{title} . " &mdash; from Charlie&#8217;s flickr photos page $page",
+			description => $photo->{title} . ". A photograph by Charlie Harvey (aka Ludwig Van Standard Lamp).",
+			exif				=> $exif,
+			page				=> $page,
+			photo				=> $photo,
+	 };
+};
+
+
+
+
 ## 
 
 sub _get_flickr_photo_collection {
@@ -89,4 +110,72 @@ sub _get_photos {
 sub _get_meta {
   my $collection_ref = shift;
   return $collection_ref->{attributes};
+}
+
+sub _get_photo_detail {
+  my $ref = shift;
+  my $child = $ref->{children};
+  my %photo;
+  my $owner = $child->[1]{attributes}{username};
+  my $title = $child->[3]{children}[0]{content} || 'Untitled';
+  my $descr = $child->[5]{children}[0]{content};
+	if($descr) {
+		$descr =~ s/&gt;/>/gi;
+		$descr =~ s/&lt;/</gi;
+		$descr =~ s/rel=&quot;nofollow&quot;//gi; 
+		$descr =~ s/&quot;/"/gi;
+		$descr =~ s/\n/<br \/>/g;
+	}
+  my $taken = $child->[9]{attributes}{taken};
+  my $attr = $ref->{attributes};
+  my $img = "http://farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_b.jpg";
+  my $original =   "http://farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{originalsecret} . "_o.jpg";
+  my $exif_href = "http://flickr.com/photo_exif.gne?id=" . $attr->{id}; 
+  
+  %photo = ( 
+    'owner' => $owner,
+    'title' => $title,
+    'taken' => $taken,
+    'description' => $descr,
+    'original' => $original, 
+    'img' => $img, 
+    'exif_href' => $exif_href,
+  ); 
+  return \%photo;
+}
+
+sub _get_photo_info {
+  my $id = shift;
+  my $api = new Flickr::API({'key' => 'fbcb61dd948f59db78012dc958b5e112'});
+  my $response = $api->execute_method(
+      'flickr.photos.getInfo', {
+      'photo_id' => $id,
+    }
+  );
+  return $response->{tree}{children}[1]; 
+}
+
+sub _get_photo_exif {
+  my $id = shift;
+  my $api = new Flickr::API({'key' => 'fbcb61dd948f59db78012dc958b5e112'});
+  my $response = $api->execute_method(
+      'flickr.photos.getExif', {
+      'photo_id' => $id,
+    }
+  );
+
+  my %exif;
+
+  for(@{$response->{tree}{children}[1]{children}}) {
+    next unless exists $_->{name} && $_->{name} eq 'exif';
+    next if $exif{lc($_->{attributes}{label})};
+    if($_->{children}[3]{children}[0]{content})  {
+      $exif{lc($_->{attributes}{label})} = $_->{children}[3]{children}[0]{content}; 
+    }
+    else {
+      $exif{lc($_->{attributes}{label})} = $_->{children}[1]{children}[0]{content};
+    }
+  }
+
+  return \%exif;
 }
