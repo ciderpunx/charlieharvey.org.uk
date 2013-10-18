@@ -165,14 +165,25 @@ get '/:slug/archive/:page/?' => sub {
 		return;
 	}
 
-	my $page_rs	 = _page_archive($page->id);
-	my $page_obj = $page_rs->page($page_offset);
-	my @pages		 = $page_obj->all;
+	my ($page_rs,$parent_url,$page_obj,@pages); 
+
+	if ($page->parent) {
+	  $page_rs	  = _page_archive($page->id);
+	  $page_obj   = $page_rs->page($page_offset);
+	  @pages		  = $page_obj->all;
+		$parent_url = uri_for($page->parent->link)->as_string;
+	}
+	else {
+		$page_rs	 = _full_archive($page->id);
+	  $page_obj   = $page_rs->page($page_offset);
+	  @pages		  = $page_obj->all;
+		$parent_url = uri_for('page/0')->as_string;
+	}
 	template 'page/archive', { 
 			active_nav      => 'Blog',
 			page				=> $page, 
 			own_url			=> uri_for($page->link)->as_string,
-			parent_url	=> uri_for($page->parent->link)->as_string,
+			parent_url	=> $parent_url,
 			pages				=> \@pages,
 			pager				=> $page_obj->pager, 
 			page_offset => $page_offset,
@@ -193,6 +204,18 @@ sub _page_archive {
     my $schema	= schema 'frontend';
     my $results = $schema->resultset('Page')->search({ 
 				parent_id => { '=', $id } ,
+				is_live		=> {'=', 1},
+			},
+      { 
+				order_by => { -desc => 'id' },
+    });
+    return $results;
+}
+
+sub _full_archive {
+    my ($id)		= @_;
+    my $schema	= schema 'frontend';
+    my $results = $schema->resultset('Page')->search({ 
 				is_live		=> {'=', 1},
 			},
       { 

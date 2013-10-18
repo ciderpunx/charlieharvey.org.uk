@@ -58,6 +58,10 @@ get '/about/this-site/?' => sub {
 		};
 };
 
+get '/archive/?' => sub {
+		redirect uri_for('/page/index/archive/1');
+};
+
 get '/daily_mail.pl' => sub {
 		redirect uri_for('/daily_mail/');
 };
@@ -153,6 +157,10 @@ get '/search/?' => sub {
 			title => "Search Results",
 			description => "Search results page on charlieharvey.org.uk",
 		};
+};
+
+get '/tagcloud/?' => sub {
+	redirect uri_for '/tag/cloud'
 };
 
 get '/twitterhaiku.pl' => sub {
