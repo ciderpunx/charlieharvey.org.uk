@@ -101,6 +101,7 @@ get '/feed/:format' => sub {
 get '/uid/:id' => sub {
 	my $file = _file(params->{id});
 	template 'writing/view' => {
+		active_nav => "Files",
 		title => "Files, " . $file->title,
 		description => "Metadata and info about the file " . $file->title . ".",
 		file        => $file,
@@ -121,6 +122,7 @@ get '/category/:cat/page/:page' => sub {
 	my $pager    = $file_obj->pager;
 	my @files    = $file_obj->all;
 	template 'writing/list', {
+		active_nav => "Files",
 		title => "All $category files, page $page",
 		description => "$category files and writings that Charlie Harvey has posted. Page $page",
 		files       => \@files,
@@ -138,6 +140,7 @@ get '/archive/:page' => sub {
 	my $pager    = $file_obj->pager;
 	my @files    = $file_obj->all;
 	template 'writing/list', {
+		active_nav => "Files",
 		title => "Charlie&#8217;s files, page $page",
 		description => "A list of all of Charlie Harvey&#8217;s philes and scripts and writings. Page $page",
 		files       => \@files,

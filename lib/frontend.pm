@@ -23,6 +23,7 @@ check_page_cache;
 
 get '/' => sub {
     cache_page template 'index', {
+      active_nav => 'Home',
 			title => "127.0.0.1",
 			description => "The lair of the ciderpunx",
 		};
@@ -34,6 +35,7 @@ get '/about.pl' => sub {
 
 get '/about/?' => sub {
     template 'about', {
+      active_nav => 'About',
 			title => "About",
 			description => "About Charlie Harvey and about charlieharvey.org.uk. Blah, blah, blah.",
 		};
@@ -41,6 +43,7 @@ get '/about/?' => sub {
 
 get '/about/charlie-harvey/?' => sub {
     template 'about-charlie', {
+      active_nav => 'About',
 			title => "About Charlie",
 			description => "About Charlie Harvey. Cider, geekery, perl and navel gazing",
 		};
@@ -48,6 +51,7 @@ get '/about/charlie-harvey/?' => sub {
 
 get '/about/this-site/?' => sub {
     template 'about-site', {
+      active_nav => 'About',
 			title => "About charlieharvey.org.uk",
 			description => "About Charlie Harvey's website, charlieharvey.org.uk. Standards-compliant, fully responsive navel 
 			                gazing. ",
@@ -170,6 +174,7 @@ get '/writings.pl' => sub {
 
 get '/contact/?' => sub {
     template 'contact', {
+      active_nav => 'About',
 			title => "Contact me",
 			description => "Contact Charlie Harvey",
 			referer => request->referer,
@@ -207,6 +212,7 @@ post '/contact' => sub {
 		
 	if(@errors) {
 		template 'contact', {
+      active_nav => 'About',
 			title => "Contact me",
 			errors => \@errors,
 			body => $body,
@@ -219,6 +225,7 @@ post '/contact' => sub {
 	else {
 		_email_charlie($sender,$body);
 		template 'contact_success', { 
+      active_nav => 'About',
 			title => "Thanks for your email",
 			body => $body,
 			sender => $sender,

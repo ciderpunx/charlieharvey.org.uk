@@ -113,6 +113,7 @@ get '/:slug/?' => sub {
 	  # TODO: There are a lot of unnecessary queries going on here. 
 		#       Good place to optimize. Cache sorts it for now.
 		cache_page template 'page/root', { 
+			active_nav      => 'Blog',
 			page						=> $page, 
 			title						=> $page->title,
 			own_url					=> uri_for($page->link)->as_string,
@@ -124,6 +125,7 @@ get '/:slug/?' => sub {
 	}
 	elsif ($page->is_cover) {
 		cache_page template 'page/cover', { 
+			active_nav      => 'Blog',
 			page						=> $page, 
 			title						=> $page->title,
 			own_url					=> uri_for($page->link)->as_string,
@@ -136,6 +138,7 @@ get '/:slug/?' => sub {
 	}
 	else {
 		cache_page template 'page/view', { 
+			active_nav      => 'Blog',
 			page						=> $page, 
 			title						=> $page->title,
 			own_url					=> uri_for($page->link)->as_string,
@@ -166,6 +169,7 @@ get '/:slug/archive/:page/?' => sub {
 	my $page_obj = $page_rs->page($page_offset);
 	my @pages		 = $page_obj->all;
 	template 'page/archive', { 
+			active_nav      => 'Blog',
 			page				=> $page, 
 			own_url			=> uri_for($page->link)->as_string,
 			parent_url	=> uri_for($page->parent->link)->as_string,

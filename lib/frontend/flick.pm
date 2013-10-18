@@ -38,6 +38,7 @@ get '/list/:page/?' => sub {
 							: 1
 	;
   template 'flick/list', {
+			active_nav  => 'Images',
 			title				=> "Charlie&#8217;s flickr photos $page",
 			description => "Gallery of Charlie Harvey(aka Ludwig Van Standard Lamp)&#8217;s photography from flickr.",
 			page				=> $meta->{page},

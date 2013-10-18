@@ -61,6 +61,8 @@ ol li {margin-top:1em}
 
 .navbar {font-family: cabin, sans-serif; background-color: #0a2637; background-image: linear-gradient(to bottom,  #134, #0a2637); background-repeat: repeat-x}
 .navbar .container {width:inherit}
+.navbar .nav .active {background-color:#356; color:#feb}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {box-shadow:none}
 .navbar-inverse .navbar-inner {background-color: #0a2637; max-width:950px; margin:auto; background:none; border:0}
 .navbar-inverse .nav > li > a {color:#feb}
 .navbar-inverse .btn-navbar {background-image: linear-gradient(to bottom, #356, #578)}

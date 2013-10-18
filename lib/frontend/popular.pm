@@ -7,7 +7,7 @@ use POSIX qw(strftime);
 
 prefix '/popular';
 
-get '/' => sub { redirect uri_for('week') };
+get '/' => sub { redirect uri_for('/popular/week') };
 
 # popular this week
 get '/:period/?' => sub {
@@ -17,6 +17,7 @@ get '/:period/?' => sub {
 		my $pstr = "this $period";
 		$pstr = "over all time" if ($period eq 'all-time');
 		template 'popular/stats', {
+			active_nav      => 'About',
 			title => "Most popular pages $pstr",
 			description => "Most popular pages on charlieharvey.org.uk $pstr",
 			pages	=> $pages,
@@ -70,8 +71,6 @@ get '/:period/feed/:format/?' => sub {
 };
 
 ## Helpers
-
-
 
 sub _popular_for {
 	my $period = shift;
