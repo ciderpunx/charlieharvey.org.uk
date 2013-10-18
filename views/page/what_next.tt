@@ -1,0 +1,15 @@
+<aside class="what-next">
+<ul class="row-fluid tinytext">
+  <li class="span4">
+		[% INCLUDE page/related_links.tt %]
+	</li>
+	<li class="span4">
+		[% INCLUDE page/recently_in.tt %]
+	</li>
+  <li class="span4">
+	  <h4>Navigation tree</h4>
+		[% INCLUDE page/navtree.tt %]
+	</li>
+
+</ul>
+</aside>

@@ -16,9 +16,6 @@
 [% IF page.children %]
 	<div class="top-bordered"> </div>
 	<h2 class="leftfloat">Recently in <em>[% page.title %]</em></h2>
-	<!--p class="rightfloat">
-	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">More <em>[% page.title %]</em> articles &raquo;</a>
-	</p-->
 	<div class="clear"> </div>
 	<ul class="hfeed unstyled-list" >
 	[% FOREACH child IN page.recent_children %]

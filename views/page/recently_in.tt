@@ -1,0 +1,13 @@
+<!--t:page/recently_in-->
+<h4>Recently in <a href="[% page.parent.link%]"><em>[% page.parent.title %]</em></a></h4>
+		[% IF page.parent.recent_children %]
+		<ul class="no-decoration">
+			[% FOR pg IN page.parent.recent_children.slice(0,2) %]
+			  [% IF pg %]
+					<li><a href="[% pg.link %]">[% pg.title %]</a></li>
+				[% END %]
+			[% END %]
+		</ul>
+		<p><a class="btn btn-dark" href="[% parent_url %]/archive/1">More &raquo;</a></p>
+		[% END %]
+<!--/page/recently_in-->

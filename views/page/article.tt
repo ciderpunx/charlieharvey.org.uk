@@ -5,10 +5,23 @@
 				<h1>[% page.title %]</h1>
 				<a class="hidden" rel="bookmark" href="[% own_url %]">Permalink</a>
 		</header>
-	[% IF page.is_cover %]<div class="blog-info-box tinytext">[% END %]
+		[% IF page.is_cover %]
+			<div class="blog-info-box tinytext">
+		[% ELSE %]
+		<div class="tinytext pull-right quarter" id="sidebar">
+			[% INCLUDE page/related_links.tt %]
+			<h4>Navigation</h4>
+			[% INCLUDE page/navtree.tt %]
+		</div>	
+	 [% END %]
+		
+		
 	[% page.body %]	
 	[% INCLUDE page/tweet.tt %]
-	[% IF page.is_cover %]</div>[% END %]
+	[% IF page.is_cover %]
+		</div>
+	[% ELSE %]
+	[% END %]
 	</article>
 [% ELSE %]
 	<article>

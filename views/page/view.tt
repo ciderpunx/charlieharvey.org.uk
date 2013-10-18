@@ -5,5 +5,7 @@
 
 [% INCLUDE page/comment.tt %]
 
-[% INCLUDE page/sidebar.tt %]
+[% INCLUDE page/what_next.tt %]
+
+[% INCLUDE page/tags.tt %]
 <!--/page/view-->

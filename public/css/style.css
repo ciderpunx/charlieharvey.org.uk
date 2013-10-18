@@ -12,7 +12,7 @@
 /* Core elements */
 body {margin: 0;padding: 0;font: 1.4em/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
 p  {margin: 0.6em 0}
-h1, h2, h3, h4, h5 {font-family: Cabin, "Dejavu Sans", Verdana, Tahoma, sans-serif;  margin: 1.2em 0 0.6em 0; color: #444}
+h1, h2, h3, h4, h5 {font-family: Cabin, "Dejavu Sans", Verdana, Tahoma, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444}
 h1 {font-size: 1.85em}
 h2 {font-size: 1.65em}
 h3 {font-size: 1.45em}
@@ -36,6 +36,7 @@ ol li {margin-top:1em}
 .rightfloat {float:right}
 .leftfloat {float:left}
 .rightalign {text-align:right}
+.leftalign {text-align:left}
 .bordered { border:1px solid #135; margin:1em; box-shadow: 2px 8px 12px -6px #689}
 .no-side-margin-bordered { border:1px solid #135; margin: 1em 0; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}
@@ -103,6 +104,7 @@ ol li {margin-top:1em}
 .hentry {margin-top:3em}
 .hentry ul {text-align:right;}
 .hreview blockquote, .hreview q {border-left: none; margin: 0; padding: 0; color:inherit; font-style:inherit; font-size:inherit; font-weight:inherit; line-height:inherit}
+.hreview {list-style-type:none}
 
 .comment q{display:block; margin-top:1em; margin-bottom:0.6em}
 .cmt-bdy q, .cmt-bdy blockquote {border-left: 5px solid #356; margin: 1em 0; padding: 0 0 0 15px; color:#666; font-style:italic}
@@ -130,9 +132,12 @@ ol li {margin-top:1em}
 
 #page {max-width:930px;margin:auto;padding-top:1em}
 #page ul {margin: 0 0 10px -0.55em}
-#page li {padding-left: 0.5em;padding-right:0.2em}
+#page li {padding-left: 0.5em;padding-right:0.2em; margin-bottom:0.5em}
 
+#navtree li {margin-bottom:0.2em}
 #navtree ul {margin: 0 0 10px 0.95em}
+
+#sidebar {background: #fff; padding-left: 1.5em;}
 
 #messages {margin-top:1.7em}
 #messages h2,
@@ -158,6 +163,8 @@ ol li {margin-top:1em}
 	.titlebar {margin-top:0}
 	.navbar-inverse .nav-collapse .nav > li > a, 
 	.navbar-inverse .nav-collapse .dropdown-menu a {color:#feb}
+	#page {padding-left:0.3em;padding-right:0.3em}
+	#sidebar {display:none;}
 }
 @media (max-width: 768px) {
 	.titlebar {height:150px}
