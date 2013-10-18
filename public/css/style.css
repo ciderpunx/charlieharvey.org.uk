@@ -81,6 +81,8 @@ ol li {margin-top:1em}
 .hero-unit {font:inherit; line-height:inherit; background-color: rgba(255, 238, 187, 0.6);box-shadow: 4px 4px 43px -24px #689;padding:1px 60px 60px}
 .hero-unit h1 {font-size:2.25em; line-height:inherit}
 
+.blog-info-box {width:75%; margin:auto; margin-bottom:1.4em; background-color:#feb; min-height:5em; padding:1.85em; border-radius:5px; box-shadow: 4px 4px 43px -24px #689}
+
 .btn-primary,.btn-dark {font-family: cabin, dejavu sans, verdana, tahoma, sans-serif;background-color: #023; background-image: linear-gradient(to bottom, #356, #023); background-repeat: repeat-x; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); color: #feb; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)}
 .btn-primary:hover,
 .btn-primary:focus,

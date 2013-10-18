@@ -9,7 +9,7 @@
 						<img src="/img/navel-gazer.png" alt="Navel gazing baby" />
 					</a>
 					<div class="carousel-caption">
-						<p>There is a big long load of navel gazing on the <a href="/about/charlie-harvey">About Charlie Harvey</a> page.</p>
+						<p>Navel gazing: <a href="/about/charlie-harvey">About Charlie Harvey</a></p>
 					</div>
 				</div>
 				<div class="item">
@@ -17,7 +17,7 @@
 						<img src="/img/cv-persp.png" alt="Picture of my cv" />
 					</a>
 					<div class="carousel-caption">
-							<p>Check out <a href="/cv">my CV</a></p>
+							<p>Gissa job: <a href="/cv">my CV</a></p>
 					</div>
 				</div>
 				<div class="item">
@@ -25,7 +25,7 @@
 						<img src="/img/through-the-ages.png" alt="Screengrabs of this site through the ages" />
 					</a>
 					<div class="carousel-caption">
-						<p>Learn <a href="/about/this-site">about charlieharvey.org.uk</a>.</p>
+						<p>Colophon: <a href="/about/this-site">About this site</a></p>
 					</div>
 				</div>
 				<!--div class="item">
@@ -56,7 +56,7 @@
 <script>
   $(document).ready(function(){
 		$('.carousel').carousel({
-			interval: 10000
+			interval: 6000
 		});
   });
 </script>

@@ -2,8 +2,8 @@
 [% INCLUDE page/breadcrumbs.tt %]
 
 [% IF pages %]
-	<h1>[% page.title %] articles</h1>
-	<p>[% pager.total_entries %] [% page.title %] articles in total, showing [% pager.first %] to [% pager.last %]</p>
+	<h1><em>[% page.title %]</em> articles</h1>
+	<p>[% pager.total_entries %] <em><a href="[% page.link %]">[% page.title %]</a></em> articles in total, showing [% pager.first %] to [% pager.last %]</p>
 
 	[% INCLUDE page/pager.tt %]
 	<ul class="hfeed unstyled-list top-bordered">
@@ -14,10 +14,10 @@
 	[% INCLUDE page/pager.tt %]
 
 [% ELSE %]
-	<h1>[% page.title %] articles</h1>
-	<h2>No more articles here, sorry</h2>
+	<h1><em>[% page.title %]</em> articles</h1>
+	<h2>No more <em><a href="[% page.link %]">[% page.title %]</a></em>articles here, sorry</h2>
 	[% IF page_offset > 0 %]
-		<p>Try the front page of the <a href="[% page.link %]">[% page.title %] section</a>.</p>
+		<p>Try the front page of the <a href="[% page.link %]">[% page.title %]</a> section.</p>
 	[% END %]
 [% END %]
 <!--/page/archive-->

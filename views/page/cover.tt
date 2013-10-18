@@ -3,18 +3,24 @@
 	[% INCLUDE page/breadcrumbs.tt %]
 [% END %]
 
+[% IF page.body.length > 1000 %]
+<p>
+	<a href="#[% page.slug %]-btm">Skip to recent <em>[% page.title %]</em> articles &raquo;</a>
+</p>
+[% END %]
 
 [% INCLUDE page/article.tt %]
+<p id="[% page.slug %]-btm"> &nbsp; </p>
 
 
 [% IF page.children %]
 	<div class="top-bordered"> </div>
-	<h2 class="leftfloat ">Recently in [% page.title %]</h2>
-	<p class="rightfloat">
-		<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
-	</p>
+	<h2 class="leftfloat">Recently in <em>[% page.title %]</em></h2>
+	<!--p class="rightfloat">
+	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">More <em>[% page.title %]</em> articles &raquo;</a>
+	</p-->
 	<div class="clear"> </div>
-	<ul class="hfeed unstyled-list">
+	<ul class="hfeed unstyled-list" >
 	[% FOREACH child IN page.recent_children %]
 		[% INCLUDE page/article_summary.tt %]
 	[% END %]
@@ -22,7 +28,7 @@
 [% END %]
 
 <p class="centre">
-	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">[% page.title %] archive &raquo;</a>
+	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">More <em>[% page.title %]</em> articles &raquo;</a>
 </p>
 
 [% INCLUDE page/comment.tt %]
