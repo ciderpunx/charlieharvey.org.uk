@@ -29,6 +29,9 @@
 		</ul>
 	</div>
 </footer>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>/* <![CDATA[ */ !window.jQuery && document.write('<script type="text/javascript" src="[% request.uri_base %]/js/jquery.js"><\/script>') /* ]]> */</script>
+<script src="[% request.uri_base %]/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script src="[% request.uri_base %]/js/vendor/bootstrap.min.js"></script>
 <script src="[% request.uri_base %]/js/main.js"></script>
 <script src="[% request.uri_base %]/js/highlight.pack.js"></script>

@@ -20,9 +20,6 @@
 	<link rel="stylesheet" href="[% request.uri_base %]/css/solarized_dark.css" />
 	<link rel="stylesheet" href="[% request.uri_base %]/css/style.css" />
 
-	<script src="[% request.uri_base %]/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script>/* <![CDATA[ */ !window.jQuery && document.write('<script type="text/javascript" src="[% request.uri_base %]/js/jquery.js"><\/script>') /* ]]> */</script>
 
 	<title>[% title %] -- Charlie Harvey</title>
 </head>

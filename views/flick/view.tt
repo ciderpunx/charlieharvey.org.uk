@@ -1,0 +1,39 @@
+<!--t:flick/view-->
+<!-- [% photo.title %] was taken by [% photo.owner %] on [% photo.taken %] -->
+
+<header>
+	<h1>[% photo.title %]</h1>
+</header>	
+
+<article class="flick-img-single">
+	<p><a href="/flick/list/[% page %]">&laquo; Back (more photos)</a></p>
+[% IF photo.description %]
+	<p>[% photo.description %]<br />&nbsp;</p>
+[% END %]
+	<a href="[% photo.original %]"><img src="[% photo.img %]" alt="[% photo.title %]" /></a>
+</article>
+
+<div class="row-fluid">
+	<div class="span6">
+		<h2>Other stuff</h2>
+		<ul class="xoxo no-decoration">
+			<li><a href="/flick/list/[% page %]">&laquo; Back (more photos)</a></li>
+			<li>Full size version of <a href="[% photo.original %]">[% photo.title %]</a></li>
+			<li><a href="https://secure.flickr.com/photos/charlie_harvey/">Ludwig Van Standard Lamp</a> on flickr</li>
+		</ul>
+	</div>
+
+	<div class="span6 flick-img-details">
+		<h2>Photo Information</h2>
+		<ul class="no-decoration">
+			<li><strong>Date:</strong> [% photo.taken %]</li> 
+			<li><strong>Camera:</strong> [% exif.model %]</li>
+			<li><strong>Exposure:</strong> [% exif.exposure %]</li>
+			<li><strong>Aperture:</strong> [% exif.aperture %]</li>
+			<li><strong>Film Speed (ISO):</strong> [% exif.iso_speed %]</li>
+			<li><strong>Focal Length:</strong> [% exif.focal_length %]</li>
+			<li><em>More <a href="[% photo.exif_href %]">photo information</a> on Flickr</em></li>
+		</ul>
+	</div>
+</div>
+<!--/flick/view-->
