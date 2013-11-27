@@ -6,8 +6,7 @@
 <head>
 	<meta charset="utf-8[% settings.charset %]" />
 	<meta name="viewport" content="width=device-width" />
-	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />--><!--TODO: send in headers-->
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!--TODO: send in headers-->
 	<meta name="description" content="[% description %]" />
 	<meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
 	<meta name="author"      content="Charlie Harvey" />
