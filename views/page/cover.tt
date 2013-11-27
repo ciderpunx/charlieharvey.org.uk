@@ -25,7 +25,7 @@
 [% END %]
 
 <p class="centre">
-	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-large">More <em>[% page.title %]</em> articles &raquo;</a>
+	<a href="[% own_url %]/archive/1" class="btn btn-dark btn-lg">More <em>[% page.title %]</em> articles &raquo;</a>
 </p>
 
 [% INCLUDE page/comment.tt %]

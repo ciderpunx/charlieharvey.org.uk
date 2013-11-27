@@ -36,7 +36,7 @@
 
 		<p>
 			<label class="hidden" for="submit">Submit comment: </label>
-			<input type="submit" name="submit" value=" Comment &raquo;" class="btn btn-dark btn-large" id="submit" /> 
+			<input type="submit" name="submit" value=" Comment &raquo;" class="btn btn-dark btn-lg" id="submit" /> 
 		</p>
 	</form>
 

@@ -1,33 +1,39 @@
 <!--t:index-->
-	<article class="entry-content drop-cap">
-    <div class="hero-unit" style="height:450px">
-			<h1> What&#8217;s all this then? </h1>
-			<img class="bordered rightfloat" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
+<article class="entry-content drop-cap">
+    <div class="jumbotron">
+	<h1> What&#8217;s all this then? </h1>
+	<div class="row">
+		<div class="col-lg-9 col-sm-12">
 			<p>
 				<span class="drop-cap">T</span>his is the homepage for <a href="/about/charlie-harvey">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
 				I use it as a sort of blog, for checking the 
 				<a href="/rss.pl">news</a> and for publishing 
 				<a href="/file/archive/1">files</a> and <a href="/page/index">pages</a> that I&#8217;ve written. 
 			</p>
-      <p><a class="btn btn-primary btn-large">More about me &raquo;</a></p>
+		</div>
+		<div class="col-lg-3 col-sm-12">
+			<img class="bordered" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
+      			<p><a class="btn btn-primary btn-lg" href="/about/">More about me &raquo;</a></p>
+		</div>
+    	</div>
     </div>
 
-		<div class="row-fluid">
-			<div class="span4">
-				<h3>Headlines</h3>
-				<p>I put an aggregated list of blogs and writings here</p>
-				<p><a class="btn btn-dark" href="#">More &raquo;</a></p>
-			</div>
-			<div class="span4">
-				<h3>Popular</h3>
-				<p>Content from most popular this week</p>
-				<p><a class="btn btn-dark" href="#">More &raquo;</a></p>
-			</div>
-			<div class="span4">
-				<h3>Social Media</h3>
-				<p>Tweets and lastfm</p>
-				<p><a class="btn btn-dark" href="#">More &raquo;</a></p>
-			</div>
-		</div>
-	</article>
+    <div class="row">
+    	<div class="col-lg-4">
+    		<h3>Headlines</h3>
+    		<p>I put an aggregated list of blogs and writings here</p>
+    		<p><a class="btn btn-dark" href="/blog/">More &raquo;</a></p>
+    	</div>
+    	<div class="col-lg-4">
+    		<h3>Popular</h3>
+    		<p>Content from most popular this week</p>
+    		<p><a class="btn btn-dark" href="/most_popular/">More &raquo;</a></p>
+    	</div>
+    	<div class="col-lg-4">
+    		<h3>Social Media</h3>
+    		<p>Tweets and lastfm</p>
+    		<p><a class="btn btn-dark" href="/about">More &raquo;</a></p>
+    	</div>
+    </div>
+</article>
 <!--/index-->

@@ -3,6 +3,11 @@
    	<h1>About</h1>
 		
 		<div id="about-carousel" class="carousel slide no-side-margin-bordered">
+			 <ol class="carousel-indicators">
+    				<li data-target="#about-carousel" data-slide-to="0" class="active"></li>
+    				<li data-target="#about-carousel" data-slide-to="1"></li>
+    				<li data-target="#about-carousel" data-slide-to="2"></li>
+  			</ol>
 			<div class="carousel-inner">
 				<div class="item active">
 					<a href="/about/charlie-harvey">
@@ -35,17 +40,17 @@
 					</div>
 				</div-->
 			</div><!-- /.carousel-inner -->
-				<a class="carousel-control left" href="#about-carousel" data-slide="prev">&lsaquo;</a>
-				<a class="carousel-control right" href="#about-carousel" data-slide="next">&rsaquo;</a>
+				<a class="carousel-control left" href="#about-carousel" data-slide="prev"><span class="icon-prev" /><a>
+				<a class="carousel-control right" href="#about-carousel" data-slide="next"><span class="icon-next" /></a>
 		</div><!-- /.carousel -->
 
-		<div class="row-fluid">
-			<div class="span6">
+		<div class="row">
+			<div class="col-lg-6">
 				<h3>About me</h3>
 				<p>There is a big long load of navel gazing on the <a href="/about/charlie-harvey">About Charlie Harvey</a> page.</p>
 				<p>If that doesn&#8217;t float your boat you can always look at <a href="/cv">my CV</a></p>
 			</div>
-			<div class="span6">
+			<div class="col-lg-6">
 				<h3>About this site</h3>
 				<p>There is a writeup of my objectives with this website at <a href="/about/this-site">About charlieharvey.org.uk</a>. 
 				   You can also check out the <a href="/page/redesigning_charlieharvey_org_uk_dancer_bootstrap/">site redesign blog series</a>, which 

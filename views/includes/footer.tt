@@ -1,26 +1,26 @@
 <!--t:footer-->
 <footer id="footer" class="footer">
 	<div id="footwrap">
-		<ul class="row-fluid">
-			<li class="span3 rightfloat">
+		<ul class="row">
+			<li class="col-lg-3">
 			  <section>
 					<h3>Onsite Links</h3>
 					[% INCLUDE includes/onsite_link_ul.tt %]            
 				</section>
 			</li>
-			<li class="span3 rightfloat">
+			<li class="col-lg-3">
 			  <section>
 					<h3>External Links</h3>
 					[% INCLUDE includes/external_link_ul.tt %]            
 				</section>
 			</li>
-			<li class="span3 rightfloat">
+			<li class="col-lg-3">
 			  <section>
 					<h3>Friends</h3>
 					[% INCLUDE includes/friend_site_ul.tt %]            
 				</section>
 			</li>
-			<li class="span3 rightfloat">
+			<li class="col-lg-3">
 			  <section>
 					<h3>Social Media</h3>
 					[% INCLUDE includes/social_media_ul.tt %]            
@@ -32,7 +32,7 @@
 <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script>/* <![CDATA[ */ !window.jQuery && document.write('<script type="text/javascript" src="[% request.uri_base %]/js/jquery.js"><\/script>') /* ]]> */</script>
 <script src="[% request.uri_base %]/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script src="[% request.uri_base %]/js/vendor/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 <script src="[% request.uri_base %]/js/main.js"></script>
 <script src="[% request.uri_base %]/js/highlight.pack.js"></script>
 <script>/* <![CDATA[ */ $('code').each(function(i, e) {hljs.highlightBlock(e)}) /* ]]> */</script>

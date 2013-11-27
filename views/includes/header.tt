@@ -5,11 +5,12 @@
 	</header>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
 		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">Menu</a>
-			<div class="nav-collapse collapse">
-				<ul class="nav">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
 					<li [% IF active_nav == "Home" %]class="active"[% END %]><a class="tag me" href="/" >Home</a></li>
 					<li class="dropdown [% IF active_nav == 'Blog' %]active[% END %]">
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown">Blog<strong class="caret"></strong></a>
@@ -41,7 +42,7 @@
 						</ul>
 					</li>
 				</ul>
-				<div class="searchbox right">
+				<div class="searchbox right nav navbar-right">
 					<form id="search">
 						<p class="box" style="margin:0">
 						<label class="search-label hidden" for="st-search-input">Search:</label>
@@ -71,6 +72,5 @@
 				</div> 
 			</div><!--/.nav-collapse -->
 		</div>
-	</div>
 	</nav>
 <!--/header-->

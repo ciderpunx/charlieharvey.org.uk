@@ -10,9 +10,9 @@
 */
 
 /* Core elements */
-body {margin: 0;padding: 0;font: 1.4em/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
+body {margin: 0;padding: 0;font: 22px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
 p  {margin: 0.6em 0}
-h1, h2, h3, h4, h5 {font-family: Cabin, "Dejavu Sans", Verdana, Tahoma, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444}
+h1, h2, h3, h4, h5 {font-family: Cabin, "Dejavu Sans", Verdana, Tahoma, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444;font-weight:700}
 h1 {font-size: 1.85em}
 h2 {font-size: 1.65em}
 h3 {font-size: 1.45em}
@@ -26,7 +26,7 @@ q {color:#666; font-style:italic;}
 q:before {content: " “"}
 q:after  {content: "” "}
 blockquote p {font-size:inherit;line-height:inherit}
-input, textarea {width: 90%;font-size:inherit}
+input, textarea {font-size:inherit}
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {font-size:inherit;height:inherit;line-height:inherit}
 label, input, button, select, textarea {font-size:inherit; font-family: cabin, sans-serif;line-height:inherit}
 dt {font-weight:normal;padding-bottom:0.2em;padding-top:0.5em;}
@@ -58,33 +58,42 @@ ol li {margin-top:1em}
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background: url("/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 205px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
+.titlebar {background: url("/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 75px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:60px}
 .titlebar h1 a {height: 111px; left: 50%; margin-left: -475px; position: absolute; text-decoration: underline; top: 27px; width: 950px}
 
 .navbar {font-family: cabin, sans-serif; background-color: #0a2637; background-image: linear-gradient(to bottom,  #134, #0a2637); background-repeat: repeat-x}
-.navbar .container {width:inherit}
 .navbar .nav .active {background-color:#356; color:#feb}
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {box-shadow:none}
+.navbar-inverse {border:0}
 .navbar-inverse .navbar-inner {background-color: #0a2637; max-width:950px; margin:auto; background:none; border:0}
 .navbar-inverse .nav > li > a {color:#feb}
-.navbar-inverse .btn-navbar {background-image: linear-gradient(to bottom, #356, #578)}
-.navbar-inverse .btn-navbar:active,
-.navbar-inverse .btn-navbar:hover {background-image: linear-gradient(to bottom, #578, #79a); background-color:#578}
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {background-color:#356}
 .navbar-inverse .nav-collapse .nav > li > a, 
 .navbar-inverse .nav-collapse .dropdown-menu a {background:transparent}
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle, 
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle, 
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {background-color:#356}
+.navbar-inverse .navbar-nav > li > a:hover, 
+.navbar-inverse .navbar-nav > li > a:focus {color:#feb}
+.navbar-inverse .navbar-nav > li > a:hover {background-color:#356}
+.navbar-inverse .navbar-toggle{background-image:linear-gradient(to bottom, #356, #023);color:#feb}
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-toggle:hover {background-image: linear-gradient(to bottom, #578, #356)}
+
+.dropdown-menu > li > a:hover {color:#feb; background-color:#356}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#feb}
+
+.nav > li > a {padding:12px 11px}
+
+.jumbotron {font:inherit; line-height:inherit; background-color: rgba(255, 238, 187, 0.6);box-shadow: 4px 4px 43px -24px #689}
+.jumbotron h1 {font-size:2.25em; line-height:inherit}
+
+.blog-info-box {width:75%; margin:auto; margin-bottom:1.4em; background-color:#feb; min-height:5em; padding:1.85em; border-radius:5px; box-shadow: 4px 4px 43px -24px #689}
 .navbar-inverse .nav-collapse .dropdown-menu a:focus, 
 .navbar-inverse .nav-collapse .nav > li > a:focus, 
 .navbar-inverse .nav-collapse .nav > li > a:hover, 
-.navbar-inverse .nav-collapse .dropdown-menu a:hover {color:#feb; background-color:#356}
-.navbar-inverse .nav li.dropdown.open > .dropdown-toggle, 
-.navbar-inverse .nav li.dropdown.active > .dropdown-toggle, 
-.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {color:#feb; background-color:#356}
-
-.hero-unit {font:inherit; line-height:inherit; background-color: rgba(255, 238, 187, 0.6);box-shadow: 4px 4px 43px -24px #689;padding:1px 60px 60px}
-.hero-unit h1 {font-size:2.25em; line-height:inherit}
-
-.blog-info-box {width:75%; margin:auto; margin-bottom:1.4em; background-color:#feb; min-height:5em; padding:1.85em; border-radius:5px; box-shadow: 4px 4px 43px -24px #689}
-
 .btn-primary,.btn-dark {font-family: cabin, dejavu sans, verdana, tahoma, sans-serif;background-color: #023; background-image: linear-gradient(to bottom, #356, #023); background-repeat: repeat-x; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); color: #feb; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)}
 .btn-primary:hover,
 .btn-primary:focus,
@@ -98,8 +107,9 @@ ol li {margin-top:1em}
 .breadcrumbs, .breadcrumbs li {margin:0;padding:0}
 .breadcrumbs li {margin-left:-0.2em}
 
-.carousel-caption {background: none repeat scroll 0 0 rgba(10, 38, 55, 0.9)}
+.carousel-caption {background: none repeat scroll 0 0 rgba(10, 38, 55, 0.9);font-size:12px;margin-bottom:0.5em}
 .carousel-caption a {color:#aa8; text-decoration:underline;}
+.carousel-control .glyphicons-chevron-left, .carousel-control .glyphicons-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {font-size:40px}
 
 .hfeed {margin-top:1em;}
 .hentry {margin-top:3em}
@@ -126,12 +136,13 @@ ol li {margin-top:1em}
 #search {margin: 0; padding-top: 10px; padding-bottom: 10px}
 #search .box {margin: 0}
 #search input {margin: 2px}
-#st-search-input {height:16px; width:180px; margin-left:5em}
-#search #go {background-color: #356; background-image: linear-gradient(to bottom, #356, #245); border: 1px solid #023; border-radius: 5px; color: #FEB; cursor: pointer; font-size: 0.8em; padding: 3px; margin:0}
+#st-search-input {border:1px solid #023; border-radius:5px;width:7em}
+
+#search #go {background-color: #356; background-image: linear-gradient(to bottom, #356, #245); border: 1px solid #023; border-radius: 5px; color: #FEB; cursor: pointer; font-size: 0.8em; padding: 3px; margin:0;min-width:4em}
 #search #go:hover {background-image: linear-gradient(to bottom, #356, #134); box-shadow: 0 1px 1px rgba(82, 168, 236 , 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6)}
 #search-text {width: 170px}
 
-#page {max-width:930px;margin:auto;padding-top:1em}
+#page {max-width:870px;margin:auto;padding-top:1em;padding-left:0.3em;padding-right:0.3em}
 #page ul {margin: 0 0 10px -0.55em}
 #page li {padding-left: 0.5em;padding-right:0.2em; margin-bottom:0.5em}
 
@@ -158,10 +169,29 @@ ol li {margin-top:1em}
 
 #daily-mail {padding:1em; padding-right: 2.2em; min-height: 640px; width: 85%; margin:auto}
 
-/* @media rules */
+
+@media (min-width:979px) {
+	.jumbotron img {width:100%}
+	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
+	#page {padding-left:0.3em;padding-right:0.3em}
+	#sidebar {display:none;}
+}
+@media (min-width: 768px) {
+	.jumbotron {padding:0 60px 60px}
+	.titlebar {margin-top:50px;height:205px}
+	.navbar .container {min-width:815px;margin-right:auto;margin-left:auto}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#023}
+	.carousel-caption {font-size:22px}
+	.carousel-control .glyphicons-chevron-left, .carousel-control .glyphicons-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {font-size:140px}
+}
+@media (min-width: 500px) {
+	.titlebar {margin-top:50px;height:180px}
+}
+
+/* old @media rules 
 @media (max-width: 979px) {
 	body{font-size:1.1em}
-	.titlebar {margin-top:0}
+	.titlebar {margin-top:50px}
 	.navbar-inverse .nav-collapse .nav > li > a, 
 	.navbar-inverse .nav-collapse .dropdown-menu a {color:#feb}
 	#page {padding-left:0.3em;padding-right:0.3em}
@@ -169,7 +199,7 @@ ol li {margin-top:1em}
 }
 @media (max-width: 768px) {
 	.titlebar {height:150px}
-  .titlebar h1 a {height:85px;top:20px}
+  	.titlebar h1 a {height:85px;top:20px}
 	#footer .quarter {float:none;width:100%}
 	#footer .row li, 
 	#footer .row ul {padding:0;font-size:1.1em}
@@ -184,4 +214,4 @@ ol li {margin-top:1em}
 	.titlebar {height:75px}
   .titlebar h1 a {height:35px}
 	.col4 {-moz-column-count: 2; -webkit-column-count: 2; -column-count: 2;  padding: 5px}
-}
+}*/

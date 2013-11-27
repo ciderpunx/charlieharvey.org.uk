@@ -5,13 +5,13 @@
 			<li><a class="btn-dark" href="[% url_base %]/[% pager.first_page %]">First</a></li>
 		[% END %]
 		[% IF pager.previous_page %]
-			<li><a class="btn btn-dark" href="[% url_base %]/[% pager.previous_page %]">Prev</a></li>
+			<li><a class="btn-dark" href="[% url_base %]/[% pager.previous_page %]">Prev</a></li>
 		[% END %]
 		[% IF pager.next_page %]
-			<li><a class="btn btn-dark" href="[% url_base %]/[% pager.next_page %]">Next</a></li>
+			<li><a class="btn-dark" href="[% url_base %]/[% pager.next_page %]">Next</a></li>
 		[% END %]
 		[% IF pager.current_page != pager.last_page %]
-			<li><a class="btn btn-dark" href="[% url_base %]/[% pager.last_page %]">Last</a></li>
+			<li><a class="btn-dark" href="[% url_base %]/[% pager.last_page %]">Last</a></li>
 		[% END %]
 		</ul>
 	</div>

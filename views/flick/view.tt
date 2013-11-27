@@ -13,8 +13,8 @@
 	<a href="[% photo.original %]"><img src="[% photo.img %]" alt="[% photo.title %]" /></a>
 </article>
 
-<div class="row-fluid">
-	<div class="span6">
+<div class="row">
+	<div class="col-lg-6">
 		<h2>Other stuff</h2>
 		<ul class="xoxo no-decoration">
 			<li><a href="/flick/list/[% page %]">&laquo; Back (more photos)</a></li>
@@ -23,7 +23,7 @@
 		</ul>
 	</div>
 
-	<div class="span6 flick-img-details">
+	<div class="col-lg-6 flick-img-details">
 		<h2>Photo Information</h2>
 		<ul class="no-decoration">
 			<li><strong>Date:</strong> [% photo.taken %]</li> 
