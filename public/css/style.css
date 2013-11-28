@@ -34,8 +34,8 @@ ol li {margin-top:1em}
 img {max-width:100%}
 
 /* Classes */
-.rightfloat {float:right}
-.leftfloat {float:left}
+.rightfloat {float:right;margin-left:1em}
+.leftfloat {float:left;margin-right:1em}
 .rightalign {text-align:right}
 .leftalign {text-align:left}
 .bordered { border:1px solid #135; box-shadow: 2px 8px 12px -6px #689}
@@ -45,6 +45,7 @@ img {max-width:100%}
 .entry-content ol {margin: 0 0 10px -2em}
 .entry-content li {padding-left: 0.5em}
 
+.article-detail {text-align:right;color:#ccc;font-weight:bold}
 
 .no-side-margin-bordered { border:1px solid #135; margin: 1em 0; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}

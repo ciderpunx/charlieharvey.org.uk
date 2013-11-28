@@ -212,4 +212,11 @@ sub nice_updated {
 	$date =~ s/T.*//;
 	return $date;
 }
-	1;
+sub nice_created {
+	my $self = shift;
+	my $date = $self->created_at;
+	$date =~ s/T.*//;
+	return $date;
+}
+
+1;

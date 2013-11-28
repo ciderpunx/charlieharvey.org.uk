@@ -10,7 +10,7 @@
 				<div class="leftfloat">
 					<ul class="horizontal-list unstyled-list tinytext">
 						<li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
-						<li class="updated published"><em>Published: <time class="value-title" title="[% child.updated_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_updated %]</time></em></li>
+						<li class="updated published"><em>Published: <time class="value-title" title="[% child.created_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_created %]</time></em></li>
 					</ul>
 				</div>
 				<div class="righttfloat rightalign">
