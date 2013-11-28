@@ -19,14 +19,14 @@
 
     <div class="row">
     	<div class="col-lg-4">
-    		<h3>Headlines</h3>
-    		<p>I put an aggregated list of blogs and writings here</p>
-    		<p><a class="btn btn-dark" href="/blog/">More &raquo;</a></p>
+    		<h3>Recent blogs</h3>
+    		<div id="blogs"></div>
+    		<p><a class="btn btn-dark" href="/page/">More &raquo;</a></p>
     	</div>
     	<div class="col-lg-4">
     		<h3>Popular</h3>
-    		<p>Content from most popular this week</p>
-    		<p><a class="btn btn-dark" href="/most_popular/">More &raquo;</a></p>
+    		<div id="popular"></div>
+    		<p><a class="btn btn-dark" href="/popular/week">More &raquo;</a></p>
     	</div>
     	<div class="col-lg-4">
     		<h3>Social Media</h3>
@@ -35,4 +35,37 @@
     	</div>
     </div>
 </article>
+
+<script>
+(function() {
+	var popularAPI = "/popular/week/api";
+	var the_things = [];
+	$.getJSON( popularAPI, {})
+		.done(function( data ) {
+			$.each( data.page_titles_ordered, function( i, item ) {
+				var detail = data.pages[item]
+				the_things.push( "<li><a href='" + detail.url + "'>"+ detail.title +"</a></li>" );
+				if ( i > 3 ) {
+					return false;
+				}
+			});
+			$( "<ul/>", { "class": "no-decoration", html: the_things.join( "" ) }).appendTo( "#popular" );
+		});
+	})();
+(function() {
+	var blogsAPI = "/page/api/recent";
+	var the_things = [];
+	$.getJSON( blogsAPI, {})
+		.done(function( data ) {
+			$.each( data.pages, function( i, page ) {
+				the_things.push( "<li><a href='" + page.link + "'>"+ page.title +"</a></li>" );
+				if ( i > 3 ) {
+					return false;
+				}
+			});
+			$( "<ul/>", { "class": "no-decoration", html: the_things.join( "" ) }).appendTo( "#blogs" );
+		});
+	})();
+</script>
+
 <!--/index-->

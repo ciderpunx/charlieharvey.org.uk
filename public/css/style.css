@@ -63,6 +63,7 @@ ol li {margin-top:1em}
 .entry-content .no-decoration,
 .unstyled-list, 
 .no-decoration  {list-style-type:none;margin:0;padding:0}
+.no-decoration li {padding:0;margin:0}
 .horizontal-list, .horizontal-list li {display: inline; list-style-type: none}
 .flick-pic {background-color: #111; line-height:280px; margin:0.2em; min-width: 280px; height: 280px; text-align:center}
 .flick-pic img {vertical-align:middle}
