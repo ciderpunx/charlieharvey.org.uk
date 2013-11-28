@@ -13,7 +13,7 @@
         <div class="row">
         [% END %]
 
-	<section class="col-lg-4 tinytext">
+	<section class="col-sm-4 tinytext">
 		<header>
 			<h2><a href="[% section.link %]">[% section.title %]</a></h2>
 		</header>
