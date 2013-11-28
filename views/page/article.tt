@@ -8,7 +8,7 @@
 		[% IF page.is_cover %]
 			<div class="blog-info-box tinytext">
 		[% ELSE %]
-		<div class="tinytext pull-right quarter" id="sidebar">
+		<div class="tinytext pull-right quarter visible-lg" id="sidebar">
 			[% INCLUDE page/related_links.tt %]
 			<h4>Navigation</h4>
 			[% INCLUDE page/navtree.tt %]

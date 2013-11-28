@@ -3,7 +3,7 @@
     <div class="jumbotron">
 	<h1> What&#8217;s all this then? </h1>
 	<div class="row">
-		<div class="col-lg-9 col-sm-12">
+		<div class="col-sm-9">
 			<p>
 				<span class="drop-cap">T</span>his is the homepage for <a href="/about/charlie-harvey">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
 				I use it as a sort of blog, for checking the 
@@ -11,9 +11,8 @@
 				<a href="/file/archive/1">files</a> and <a href="/page/index">pages</a> that I&#8217;ve written. 
 			</p>
 		</div>
-		<div class="col-lg-3 col-sm-12">
+		<div class="col-sm-3">
 			<img class="bordered" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
-      			<p><a class="btn btn-primary btn-lg" href="/about/">More about me &raquo;</a></p>
 		</div>
     	</div>
     </div>

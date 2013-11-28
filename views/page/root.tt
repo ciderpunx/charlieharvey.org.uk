@@ -18,7 +18,7 @@
 			<h2><a href="[% section.link %]">[% section.title %]</a></h2>
 		</header>
 	[% IF section.children %]
-		<ul>
+		<ul class="no-decoration">
 		[% FOREACH pg IN section.recent_children %]
 		<li><a href="[% pg.link %]">[% pg.title %]</a></li>
 		[% END %]

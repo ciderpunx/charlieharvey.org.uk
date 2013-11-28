@@ -1,5 +1,5 @@
 <aside class="what-next">
-<ul class="row tinytext">
+<ul class="row tinytext no-decoration">
   <li class="col-lg-4">
 		[% INCLUDE page/related_links.tt %]
 	</li>

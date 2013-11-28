@@ -1,5 +1,7 @@
 <!--t:page/archive-->
-[% INCLUDE page/breadcrumbs.tt %]
+[% IF page.parent_id %]
+	[% INCLUDE page/breadcrumbs.tt %]
+[% END %]
 
 [% IF pages %]
 	<h1><em>[% page.title %]</em> articles</h1>
@@ -8,6 +10,7 @@
 	[% INCLUDE page/pager.tt %]
 	<ul class="hfeed unstyled-list top-bordered">
 	[% FOR child IN pages %]
+		[% IF loop.index == 5%]<a name="afterrecent"><br /></a>[% END %]
 		[% INCLUDE page/article_summary.tt %]
 	[% END %]
 	</ul>

@@ -182,6 +182,7 @@ get '/:slug/archive/:page/?' => sub {
 	template 'page/archive', { 
 			active_nav      => 'Blog',
 			page				=> $page, 
+			ancestors	=> $page->ancestors,
 			own_url			=> uri_for($page->link)->as_string,
 			parent_url	=> $parent_url,
 			pages				=> \@pages,

@@ -10,7 +10,7 @@
 */
 
 /* Core elements */
-body {margin: 0;padding: 0;font: 22px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
+body {margin: 0;padding: 0;font: 12px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
 p  {margin: 0.6em 0}
 h1, h2, h3, h4, h5 {font-family: Cabin, "Dejavu Sans", Verdana, Tahoma, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444;font-weight:700}
 h1 {font-size: 1.85em}
@@ -21,14 +21,14 @@ h5 {font-size: 1em}
 li {line-height: inherit}
 a  {color: #468}
 a:hover {color: #468; text-decoration: underline}
-blockquote {border-left: 5px solid #356; margin: 1em 0; padding: 0 0 0 15px; color:#666; font-style:italic}
+blockquote {border-left: 5px solid #356; margin: 1em 0 1em 0.55em; padding: 0 0 0 15px; color:#666; font-style:italic}
 q {color:#666; font-style:italic;}
 q:before {content: " “"}
 q:after  {content: "” "}
 blockquote p {font-size:inherit;line-height:inherit}
 input, textarea {font-size:inherit}
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {font-size:inherit;height:inherit;line-height:inherit}
-label, input, button, select, textarea {font-size:inherit; font-family: cabin, sans-serif;line-height:inherit}
+label, input, button, select, textarea {font-size:inherit; font-family: cabin, sans-serif;line-height:inherit;max-width:99%}
 dt {font-weight:normal;padding-bottom:0.2em;padding-top:0.5em;}
 ol li {margin-top:1em}
 
@@ -37,11 +37,21 @@ ol li {margin-top:1em}
 .leftfloat {float:left}
 .rightalign {text-align:right}
 .leftalign {text-align:left}
-.bordered { border:1px solid #135; margin:1em; box-shadow: 2px 8px 12px -6px #689}
+.bordered { border:1px solid #135; box-shadow: 2px 8px 12px -6px #689}
+
+.entry-content img {max-width:95%}
+.entry-content ul, 
+.entry-content ol {margin: 0 0 10px -2em}
+.entry-content li {padding-left: 0.5em}
+
+.blog-info ul,
+.blog-info ol {margin: 0 0 10px 25px}
+
 .no-side-margin-bordered { border:1px solid #135; margin: 1em 0; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}
 .right-rotated { transform: rotate(5deg)}
 .left-rotated { transform: rotate(-5deg)}
+/*TODO: used? */
 .col4 {word-wrap:break-word; -moz-column-count: 4; -webkit-column-count: 4; -column-count: 4; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
 
 .quarter {width:25%}
@@ -49,17 +59,19 @@ ol li {margin-top:1em}
 .centre {text-align:center}
 .tinytext {font-size:0.75em}
 .clear {clear:both}
-.unstyled-list,.no-decoration {list-style-type:none;margin:0;padding:0}
+.entry-content .unstyled-list,
+.entry-content .no-decoration,
+.unstyled-list, 
+.no-decoration  {list-style-type:none;margin:0;padding:0}
 .horizontal-list, .horizontal-list li {display: inline; list-style-type: none}
 .flick-pic {background-color: #111; line-height:280px; margin:0.2em; min-width: 280px; height: 280px; text-align:center}
 .flick-pic img {vertical-align:middle}
 
-
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background: url("/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 75px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:60px}
-.titlebar h1 a {height: 111px; left: 50%; margin-left: -475px; position: absolute; text-decoration: underline; top: 27px; width: 950px}
+.titlebar {background: url("/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 95px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
+.titlebar h1 a {height:80px;position: absolute; left:0; top: 10px; width:100%}
 
 .navbar {font-family: cabin, sans-serif; background-color: #0a2637; background-image: linear-gradient(to bottom,  #134, #0a2637); background-repeat: repeat-x}
 .navbar .nav .active {background-color:#356; color:#feb}
@@ -130,7 +142,10 @@ ol li {margin-top:1em}
 
 .what-next {border-top:5px solid #134}
 
+.comment-detail label {width:4.5em;line-height:2.2em}
 
+.right-pullquote {float: right; font-size: 1.42em; font-weight:400; margin: 0 0.5em 0.3em; text-align: right; width: 32%; color:#444}
+.left-pullquote  {float: left; font-size: 1.42em; font-weight:400; margin: 0 1.2em 0.3em 0; padding-right:0.4em; text-align: right; width: 31%;border-left:none; border-right:5px solid #356;color:#444}
 
 /* ID elements */
 #search {margin: 0; padding-top: 10px; padding-bottom: 10px}
@@ -143,8 +158,7 @@ ol li {margin-top:1em}
 #search-text {width: 170px}
 
 #page {max-width:870px;margin:auto;padding-top:1em;padding-left:0.3em;padding-right:0.3em}
-#page ul {margin: 0 0 10px -0.55em}
-#page li {padding-left: 0.5em;padding-right:0.2em; margin-bottom:0.5em}
+#page li {margin-bottom:0.5em}
 
 #navtree li {margin-bottom:0.2em}
 #navtree ul {margin: 0 0 10px 0.95em}
@@ -169,49 +183,35 @@ ol li {margin-top:1em}
 
 #daily-mail {padding:1em; padding-right: 2.2em; min-height: 640px; width: 85%; margin:auto}
 
-
+@media (min-width: 400px) {
+	.titlebar {margin-top:50px;height:110px}
+	.titlebar h1 a {height: 90px;top: 12px}
+}
+@media (min-width: 500px) {
+	body {margin: 0;padding: 0;font: 16px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
+	.titlebar {margin-top:50px;height:150px}
+	.entry-content ol,
+	.entry-content ul {margin: 0 0 10px -1.5em}
+}
+@media (min-width: 768px) {
+	body {margin: 0;padding: 0;font: 18px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
+	.jumbotron {padding:0 60px 60px}
+	.titlebar {margin-top:50px;height:180px}
+	.titlebar h1 a {height: 100px}
+	.navbar .container {min-width:815px;margin-right:auto;margin-left:auto}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#023}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {color:#feb}
+	.carousel-caption {font-size:22px}
+	.carousel-control .glyphicons-chevron-left, .carousel-control .glyphicons-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {font-size:140px}
+}
 @media (min-width:979px) {
+	body {margin: 0;padding: 0;font: 22px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
+	.entry-content ol, 
+	.entry-content ul {margin: 0 0 10px -2.35em}
 	.jumbotron img {width:100%}
+	.titlebar {height:205px}
+	.titlebar h1 a {height: 102px;top:24px;left:50%;width:870px;margin-left:-435px}
 	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
 	#page {padding-left:0.3em;padding-right:0.3em}
 	#sidebar {display:none;}
 }
-@media (min-width: 768px) {
-	.jumbotron {padding:0 60px 60px}
-	.titlebar {margin-top:50px;height:205px}
-	.navbar .container {min-width:815px;margin-right:auto;margin-left:auto}
-	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#023}
-	.carousel-caption {font-size:22px}
-	.carousel-control .glyphicons-chevron-left, .carousel-control .glyphicons-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {font-size:140px}
-}
-@media (min-width: 500px) {
-	.titlebar {margin-top:50px;height:180px}
-}
-
-/* old @media rules 
-@media (max-width: 979px) {
-	body{font-size:1.1em}
-	.titlebar {margin-top:50px}
-	.navbar-inverse .nav-collapse .nav > li > a, 
-	.navbar-inverse .nav-collapse .dropdown-menu a {color:#feb}
-	#page {padding-left:0.3em;padding-right:0.3em}
-	#sidebar {display:none;}
-}
-@media (max-width: 768px) {
-	.titlebar {height:150px}
-  	.titlebar h1 a {height:85px;top:20px}
-	#footer .quarter {float:none;width:100%}
-	#footer .row li, 
-	#footer .row ul {padding:0;font-size:1.1em}
-	#footer .xoxo {margin-left:55px}
-}
-@media (max-width: 600px) {
-	body{font-size:0.75em}
-	.titlebar {height:115px}
-  .titlebar h1 a {height:55px;top:10px}
-}
-@media (max-width: 360px) {
-	.titlebar {height:75px}
-  .titlebar h1 a {height:35px}
-	.col4 {-moz-column-count: 2; -webkit-column-count: 2; -column-count: 2;  padding: 5px}
-}*/

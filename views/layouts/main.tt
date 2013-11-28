@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="[% request.uri_base %]/css/solarized_dark.css" />
 	<link rel="stylesheet" href="[% request.uri_base %]/css/style.css" />
 
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script><!--has to be at the top so we can put scripts in middle of page-->
+
 	<title>[% title %] -- Charlie Harvey</title>
 </head>
 
