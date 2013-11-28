@@ -2,25 +2,25 @@
 <footer id="footer" class="footer">
 	<div id="footwrap">
 		<ul class="row">
-			<li class="col-lg-3">
+			<li class="col-sm-3">
 			  <section>
 					<h3>Onsite Links</h3>
 					[% INCLUDE includes/onsite_link_ul.tt %]            
 				</section>
 			</li>
-			<li class="col-lg-3">
+			<li class="col-sm-3">
 			  <section>
 					<h3>External Links</h3>
 					[% INCLUDE includes/external_link_ul.tt %]            
 				</section>
 			</li>
-			<li class="col-lg-3">
+			<li class="col-sm-3">
 			  <section>
 					<h3>Friends</h3>
 					[% INCLUDE includes/friend_site_ul.tt %]            
 				</section>
 			</li>
-			<li class="col-lg-3">
+			<li class="col-sm-3">
 			  <section>
 					<h3>Social Media</h3>
 					[% INCLUDE includes/social_media_ul.tt %]            
