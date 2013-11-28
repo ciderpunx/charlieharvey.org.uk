@@ -31,6 +31,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 label, input, button, select, textarea {font-size:inherit; font-family: cabin, sans-serif;line-height:inherit;max-width:99%}
 dt {font-weight:normal;padding-bottom:0.2em;padding-top:0.5em;}
 ol li {margin-top:1em}
+img {max-width:100%}
 
 /* Classes */
 .rightfloat {float:right}
@@ -44,8 +45,6 @@ ol li {margin-top:1em}
 .entry-content ol {margin: 0 0 10px -2em}
 .entry-content li {padding-left: 0.5em}
 
-.blog-info ul,
-.blog-info ol {margin: 0 0 10px 25px}
 
 .no-side-margin-bordered { border:1px solid #135; margin: 1em 0; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}
@@ -67,6 +66,8 @@ ol li {margin-top:1em}
 .horizontal-list, .horizontal-list li {display: inline; list-style-type: none}
 .flick-pic {background-color: #111; line-height:280px; margin:0.1em; min-width: 280px; height: 280px; text-align:center}
 .flick-pic img {vertical-align:middle}
+.flick-img-single img {max-width:100%}
+
 
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
@@ -216,3 +217,6 @@ ol li {margin-top:1em}
 	#page {padding-left:0.3em;padding-right:0.3em}
 	#sidebar {display:none;}
 }
+
+.blog-info-box ul,
+.blog-info-box ol {margin: 0 0 10px -25px}
