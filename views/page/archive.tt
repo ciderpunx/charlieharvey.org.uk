@@ -3,7 +3,7 @@
 	[% INCLUDE page/breadcrumbs.tt %]
 [% END %]
 
-[% IF pages %]
+[% IF pages.size  %]
 	<h1><em>[% page.title %]</em> articles</h1>
 	<p>[% pager.total_entries %] <em><a href="[% page.link %]">[% page.title %]</a></em> articles in total, showing [% pager.first %] to [% pager.last %]</p>
 
@@ -18,8 +18,9 @@
 
 [% ELSE %]
 	<h1><em>[% page.title %]</em> articles</h1>
+         
 	<h2>No more <em><a href="[% page.link %]">[% page.title %]</a></em>articles here, sorry</h2>
-	[% IF page_offset > 0 %]
+	[% IF page_offset %]
 		<p>Try the front page of the <a href="[% page.link %]">[% page.title %]</a> section.</p>
 	[% END %]
 [% END %]

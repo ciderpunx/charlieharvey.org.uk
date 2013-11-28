@@ -167,33 +167,36 @@ get '/:slug/archive/:page/?' => sub {
 
 	my ($page_rs,$parent_url,$page_obj,@pages); 
 
-	if ($page->parent) {
-	  $page_rs	  = _page_archive($page->id);
+	if (! $page->is_root) {
+	  $page_rs    = _page_archive($page->id);
 	  $page_obj   = $page_rs->page($page_offset);
-	  @pages		  = $page_obj->all;
-		$parent_url = uri_for($page->parent->link)->as_string;
+	  @pages      = $page_obj->all;
+	  $parent_url = uri_for($page->parent->link)->as_string;
 	}
 	else {
-		$page_rs	 = _full_archive($page->id);
+	  $page_rs    = _full_archive();
 	  $page_obj   = $page_rs->page($page_offset);
-	  @pages		  = $page_obj->all;
-		$parent_url = uri_for('page/0')->as_string;
+	  @pages      = $page_obj->all;
+	  $parent_url = uri_for('/page/index')->as_string;
 	}
+
+	my $ancestors = $page->ancestors ? $page->ancestors : {};
+
 	template 'page/archive', { 
 			active_nav      => 'Blog',
-			page				=> $page, 
-			ancestors	=> $page->ancestors,
-			own_url			=> uri_for($page->link)->as_string,
+			page		=> $page, 
+			ancestors       => $ancestors,
+			own_url		=> uri_for($page->link)->as_string,
 			parent_url	=> $parent_url,
-			pages				=> \@pages,
-			pager				=> $page_obj->pager, 
-			page_offset => $page_offset,
-			title				=> $page->title 
-										 . " archive, page " 
-										 . $page_offset,
+			pages		=> \@pages,
+			pager		=> $page_obj->pager, 
+			page_offset 	=> $page_offset,
+			title		=> $page->title 
+					   . " archive, page " 
+					   . $page_offset,
 			description => "Archive of posts about " 
-										 . $page->title
-										 . " (page $page_offset)"
+					. $page->title
+					. " (page $page_offset)"
 										
 	}; # archive view
 };
@@ -214,14 +217,8 @@ sub _page_archive {
 }
 
 sub _full_archive {
-    my ($id)		= @_;
     my $schema	= schema 'frontend';
-    my $results = $schema->resultset('Page')->search({ 
-				is_live		=> {'=', 1},
-			},
-      { 
-				order_by => { -desc => 'id' },
-    });
+    my $results = $schema->resultset('Page')->search({is_live => {'=', 1}, parent_id => {'>' => 1} }, { order_by => { -desc => 'id' }, });
     return $results;
 }
 
