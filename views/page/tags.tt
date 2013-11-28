@@ -1,6 +1,6 @@
 <!--t:tags-->
 	[% IF page.tags %]
-	<ul class="horizontal-list xoxo">
+	<ul class="horizontal-list no-decoration xoxo">
 		[% FOREACH tag IN page.tags %]
 			<li class="xfolkentry">
 				<a rel="tag bookmark" class="taggedlink" href="/tag/[% tag.title %]">[% tag.title %]</a>
