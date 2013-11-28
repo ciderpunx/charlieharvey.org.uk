@@ -4,14 +4,14 @@
 <h1>[% title %]</h1>
 </header>
 
-<article>
+<article class="entry-content">
 <p>These pages are the most popular ones, according to a 
-rather complex <a href="http://charlieharvey.org.uk/page/piwik_popular_pages">Piwik popular pages query</a>. 
+rather complex <a href="/page/piwik_popular_pages">Piwik popular pages query</a>. 
 You can also get <a href="#other-periods">popular page stats for other periods and in other formats</a>.
 </p>
 	<ul class="xoxo">
 		[% FOR pg IN order %]
-			<li><a href="[% pages.$pg.url %]">[% pg %]</a> &mdash; [% pages.$pg.unique_visits %] unique visits</li>
+			<li><a href="//[% pages.$pg.url %]">[% pg %]</a> &mdash; [% pages.$pg.unique_visits %] unique visits</li>
 		[% END %]
 	</ul>
 </article>

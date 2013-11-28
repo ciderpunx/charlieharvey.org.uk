@@ -8,6 +8,6 @@
 				[% END %]
 			[% END %]
 		</ul>
-		<p><a class="btn btn-dark" href="[% parent_url %]/archive/1">More &raquo;</a></p>
+		<p class="visible-lg"><a class="btn btn-dark" href="[% parent_url %]/archive/1">More &raquo;</a></p>
 		[% END %]
 <!--/page/recently_in-->

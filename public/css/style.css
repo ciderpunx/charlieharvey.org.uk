@@ -21,7 +21,7 @@ h5 {font-size: 1em}
 li {line-height: inherit}
 a  {color: #468}
 a:hover {color: #468; text-decoration: underline}
-blockquote {border-left: 5px solid #356; margin: 1em 0 1em 0.55em; padding: 0 0 0 15px; color:#666; font-style:italic}
+blockquote {border-left: 5px solid #356; margin: 1em 0; padding: 0 0 0 15px; color:#666; font-style:italic}
 q {color:#666; font-style:italic;}
 q:before {content: " “"}
 q:after  {content: "” "}
