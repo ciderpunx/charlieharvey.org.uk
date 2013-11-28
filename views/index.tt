@@ -49,7 +49,7 @@
 					return false;
 				}
 			});
-			$( "<ul/>", { "class": "no-decoration", html: the_things.join( "" ) }).appendTo( "#popular" );
+			$( "<ul/>", { "class": "no-decoration tinytext", html: the_things.join( "" ) }).appendTo( "#popular" );
 		});
 	})();
 (function() {
@@ -63,7 +63,7 @@
 					return false;
 				}
 			});
-			$( "<ul/>", { "class": "no-decoration", html: the_things.join( "" ) }).appendTo( "#blogs" );
+			$( "<ul/>", { "class": "no-decoration tinytext", html: the_things.join( "" ) }).appendTo( "#blogs" );
 		});
 	})();
 </script>
