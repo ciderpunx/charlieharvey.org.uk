@@ -13,10 +13,10 @@
 	<meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. And Vim: text editor." />
 
 	<!--TODO: local copies of fonts-->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,700,700italic|PT+Serif:400,400italic,700|PT+Mono" type="text/css" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,700,700italic|PT+Serif:400,400italic,700|PT+Mono" type="text/css" />
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="[% request.uri_base %]/css/solarized_dark.css" />
-	<link rel="stylesheet" href="[% request.uri_base %]/css/style.css" />
+	<link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
+	<link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
 
 	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script><!--has to be at the top so we can put scripts in middle of page-->
 

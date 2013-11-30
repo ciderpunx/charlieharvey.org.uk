@@ -31,9 +31,24 @@
 		<p id="copyright" class="centre">&copy; Charlie Harvey 2003-[% date.format(date.now, '%Y') %]. You can use the content under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">BY-NC-SA licence</a>. The code is under the <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero licence</a>. Get it from <a href="https://gitorious.org/charlieharvey-org-uk_-_dancer_frontend/charlieharvey-org-uk_-_dancer_frontend/">Gitorious</a>.</p>
 	</div>
 </footer>
-<script src="[% request.uri_base %]/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="//static.charlieharvey.org.uk/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-<script src="[% request.uri_base %]/js/main.js"></script>
-<script src="[% request.uri_base %]/js/highlight.pack.js"></script>
+<script src="//static.charlieharvey.org.uk/js/main.js"></script>
+<script src="//static.charlieharvey.org.uk/js/highlight.pack.js"></script>
 <script>/* <![CDATA[ */ $('code').each(function(i, e) {hljs.highlightBlock(e)}) /* ]]> */</script>
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.charlieharvey.org.uk"]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.charlieharvey.org.uk/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
 <!--/footer-->

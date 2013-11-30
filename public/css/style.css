@@ -70,7 +70,7 @@ img {max-width:100%}
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background: url("/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 95px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
+.titlebar {background: url("//static.charlieharvey.org.uk/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 95px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
 .titlebar h1 a {height:80px;position: absolute; left:0; top: 10px; width:100%}
 
 .navbar {font-family: cabin, sans-serif; background-color: #0a2637; background-image: linear-gradient(to bottom,  #134, #0a2637); background-repeat: repeat-x}
@@ -114,7 +114,7 @@ img {max-width:100%}
 .btn-dark:focus,
 .btn-dark:disabled {background-color: #023;color:#feb}
 
-.taggedlink {background: url("/img/tag.png") no-repeat scroll left top transparent; padding-left: 17px; padding-right: 7px}
+.taggedlink {background: url("//static.charlieharvey.org.uk/img/tag.png") no-repeat scroll left top transparent; padding-left: 17px; padding-right: 7px}
 
 .breadcrumbs, .breadcrumbs li {margin:0;padding:0}
 .breadcrumbs li {margin-left:-0.2em}
@@ -134,7 +134,7 @@ img {max-width:100%}
 
 .drop-cap > p:first-of-type:first-letter {display: block; float: left; font-size: 3.15em; font-style: normal; font-weight: 700; line-height: 0.67em; margin: 0 0.1em 0 0.02em}
 
-.required {background: url("/img/required.png") no-repeat scroll left center transparent; font-weight:bold; padding-left: 17px; padding-right: 7px}
+.required {background: url("//static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent; font-weight:bold; padding-left: 17px; padding-right: 7px}
 
 .st-result em {background: none repeat scroll 0 0 #224455; color: #FFEEBB; padding: 3px}
 
