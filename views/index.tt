@@ -44,7 +44,7 @@
 		.done(function( data ) {
 			$.each( data.page_titles_ordered, function( i, item ) {
 				var detail = data.pages[item]
-				the_things.push( "<li><a href='" + detail.url + "'>"+ detail.title +"</a></li>" );
+				the_things.push( "<li><a href='http://" + detail.url + "'>"+ detail.title +"</a></li>" );
 				if ( i > 3 ) {
 					return false;
 				}
@@ -58,7 +58,7 @@
 	$.getJSON( blogsAPI, {})
 		.done(function( data ) {
 			$.each( data.pages, function( i, page ) {
-				the_things.push( "<li><a href='http://" + page.link + "'>"+ page.title +"</a></li>" );
+				the_things.push( "<li><a href='" + page.link + "'>"+ page.title +"</a></li>" );
 				if ( i > 3 ) {
 					return false;
 				}
