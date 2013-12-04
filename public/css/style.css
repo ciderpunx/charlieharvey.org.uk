@@ -37,7 +37,7 @@ img {max-width:100%}
 .leftalign {text-align:left}
 .bordered { border:1px solid #135; box-shadow: 2px 8px 12px -6px #689}
 
-.entry-content img {max-width:95%}
+.entry-content img {width:100%;max-width:95%}
 .entry-content ul, 
 .entry-content ol {margin: 0 0 10px -2em}
 .entry-content li {padding-left: 0.5em}
@@ -193,6 +193,7 @@ img {max-width:100%}
 	.titlebar {margin-top:50px;height:150px}
 	.entry-content ol,
 	.entry-content ul {margin: 0 0 10px -1.5em}
+	.entry-content img {width:auto}
 }
 @media (min-width: 768px) {
 	body {margin: 0;padding: 0;font: 18px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}

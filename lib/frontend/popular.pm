@@ -86,12 +86,14 @@ sub _popular_for {
 	my $query = "SELECT COUNT( DISTINCT `idvisit` ) AS unique_visits,  
  							   		  COUNT( DISTINCT `idlink_va` ) AS hits, 
   										(SELECT `name` FROM piwik_log_action WHERE idaction_url=idaction) AS url,  
- 										  REPLACE ( (SELECT `name` FROM piwik_log_action WHERE idaction_name=idaction),'Charlie Harvey : ','') AS title
+ 										  REPLACE( (SELECT `name` FROM piwik_log_action WHERE idaction_name=idaction),
+																'Charlie Harvey : ','' ) AS title
  								 FROM `piwik_log_link_visit_action`
  							  WHERE `server_time` >= '$back_time'
  							 	  AND `server_time` <= '$today'
  								  AND `idsite`=1
  								  AND `idaction_name` IS NOT NULL
+									AND `idaction_name` > 0
  						 GROUP BY `idaction_name`
  						 ORDER BY `unique_visits` DESC
  							  LIMIT 10;"
