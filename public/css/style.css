@@ -43,7 +43,9 @@ img {max-width:100%}
 .entry-content li {padding-left: 0.5em}
 
 .article-byline {text-align:center;color:#ccc;font-weight:bold}
-.feed-article {border-right:1px solid #689; padding:0.2em; height:30em}
+.feed-article {border-right:1px solid #689; height:30em}
+.feed-article article {padding:0 0.4em}
+.feed-article h4 {margin:0 0.4em 0.4em 0}
 
 .no-side-margin-bordered { border:1px solid #135; margin: 1em 0; box-shadow: 2px 8px 12px -6px #689}
 .top-bordered { border-top:1px dashed #689}
