@@ -2,12 +2,15 @@ package frontend::comment;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC qw(schema resultset rset);
 use Dancer::Plugin::Feed;
+use Dancer::Plugin::Email;
+use Dancer::Plugin::Cache::CHI;
 use Net::Akismet;
 use HTML::Entities;
 use HTML::Parser; ## needed for TagFilter, which calls SUPER on it.
 use HTML::TagFilter;
 use LWP::UserAgent;
 use URI::Escape;
+use Try::Tiny;
 
 prefix '/comment';
 
@@ -262,7 +265,29 @@ sub _create_comment {
 	});
 	my $page = $schema->resultset('Page')->find({ id => $argref->{page_id}});
   $new_comment->add_to_page($page);
+	error $page->link;
+	cache_remove $page->link;
 	$new_comment->insert;
+	_email_comment($new_comment);
+}
+
+sub _email_comment {
+	my ($cmt) = @_;
+	 try {
+        email {
+					from    => config->{'DEFAULT_EMAIL'},
+					to      => config->{'DEFAULT_EMAIL'},
+					subject => 'charlieharvey.org.uk: New Comment',
+					body    => $cmt->nick 
+											. "(" 
+											. $cmt->email 
+											. ") said:\n" 
+											. $cmt->body, 
+				}
+	 }
+	 catch {
+		error "Something went wrong when sending email."
+	 }
 }
 
 sub _retrieve {
