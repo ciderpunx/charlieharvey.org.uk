@@ -242,6 +242,10 @@ post '/contact' => sub {
 	}
 };
 
+# Flush the CHI cache. 
+get '/flush' => sub { cache_clear };
+
+
 # this takes care of 404s and should be the last route.
 any qr{.*}  => sub {
   status 'not_found';
