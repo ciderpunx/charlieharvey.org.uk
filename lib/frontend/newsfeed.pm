@@ -13,7 +13,6 @@ get '/' => sub {
 	my @feeds = split/\s*,\s*/, config->{'FEEDS'};			
 	my @contents = map { _get_feed( $_) } @feeds;	
   cache_page template 'newsfeed/view', { 
-			active_nav => 'Newsfeeds',
 			title => "News Headlines from Charlie Harvey&#8217;s favourite RSSes",
 			description => "News Headlines from Charlie Harvey&#8217;s favourite RSS feeds",
 			feeds => \@contents, 

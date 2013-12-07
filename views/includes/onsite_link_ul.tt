@@ -3,12 +3,11 @@
    <li><a href="/popular/week">Most popular this week</a></li>
    <li><a href="/page/cider">Cider reviews</a></li>
    <li><a href="/daily_mail.pl">Daily Mail story generator</a></li>
-   <li><a href="/twitterhaiku.pl">TwitterHaiku</a></li>
+   <li><a href="/twitterhaiku.pl">Newsfeeds</a></li>
    <li><a href="/page/space_invaders">Space Invaders</a></li>
    <li><a href="/mills_boon.pl">Statistically probable Mills and Boon stories</a></li>
    <li><a href="/html_static/real_ultimate_perlgeeks.html">Real Ultimate Perl Geeks</a></li>
    <li><a href="/rot13">ROT13 Tool</a></li>
    <li><a href="/boozeulator.pl">Boozeulator</a></li>
-   <li><a href="http://fusion.dns-systems.net/webstats/charlieharvey/charlieharvey.org.uk/">Site Stats</a></li>
 </ul>
 <!--/onsite_link_ul-->

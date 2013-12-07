@@ -29,7 +29,6 @@
 						</ul>
 					</li>
 					<li [% IF active_nav == "Files" %]class="active"[% END %]><a class="nav tag me" href="/file/archive/1" accesskey="W">Files</a></li>
-					<li [% IF active_nav == "Newsfeeds" %]class="active"[% END %]><a class="nav tag me" href="/rss.pl" accesskey="N">Newsfeeds</a></li>
 					<li [% IF active_nav == "Images" %]class="active"[% END %]><a class="nav tag me" href="/flick/list/1" accesskey="I">Images</a></li>
 					<li class="dropdown [% IF active_nav == 'About' %]active[% END %]">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
