@@ -1,28 +1,43 @@
-package frontend::newsfeeds;
+package frontend::newsfeed;
 use utf8;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC qw(schema resultset rset);
 use Dancer::Plugin::Feed;
+use Dancer::Plugin::XML::RSS;
+use Dancer::Plugin::Cache::CHI;
+use LWP::Simple ();
 
-prefix '/newsfeeds';
+prefix '/newsfeed';
 
-# view of all our feeds kind of smushed together
 get '/' => sub {
-# redirect  uri_for('');
-};
-
-# recent shit from the feeds I read
-get '/api/recent' => sub {
-
-};
-
-# recent shit from feeds as a feed itself. Meta.
-get '/rss' => sub {
-
+	my @feeds = split/\s*,\s*/, config->{'FEEDS'};			
+	my @contents = map { _get_feed( $_) } @feeds;	
+  cache_page template 'newsfeed/view', { 
+			active_nav => 'Newsfeeds',
+			title => "News Headlines from Charlie Harvey&#8217;s favourite RSSes",
+			description => "News Headlines from Charlie Harvey&#8217;s favourite RSS feeds",
+			feeds => \@contents, 
+	};
 };
 
 ## 
-# Occasionally fetch our various feeds with an external script and merge them
-# into one massiv one
-# We pull them out using, maybe http://search.cpan.org/~lcarmich/Dancer-Plugin-XML-RSS-0.01/lib/Dancer/Plugin/XML/RSS.pm
-# and then pull them into the various functions.
+
+sub _get_feed {
+	my $feed = shift;	
+
+	rss->parse( LWP::Simple::get($feed) );
+
+	my @stories;
+	my $display_max = config->{'FEED_MAX'};
+
+	for ( my $i = 0; $i < $display_max; $i++ ) {
+		next unless exists rss->{items}->[$i] and ref rss->{items};
+		push @stories, rss->{items}->[$i];
+	}
+
+	return { 
+		title   => rss->{channel}{title} =>
+		link    => rss->{channel}{link}, 
+		stories => \@stories,					
+	};
+}

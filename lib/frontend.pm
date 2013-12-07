@@ -10,6 +10,7 @@ use LWP::Simple ();
 use frontend::comment;
 use frontend::daily_mail;
 use frontend::flick;
+use frontend::newsfeed;
 use frontend::page;
 use frontend::popular;
 use frontend::tag;

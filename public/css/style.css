@@ -48,8 +48,8 @@ img {max-width:100%}
 .top-bordered { border-top:1px dashed #689}
 .right-rotated { transform: rotate(5deg)}
 .left-rotated { transform: rotate(-5deg)}
-/*TODO: used? */
 .col4 {word-wrap:break-word; -moz-column-count: 4; -webkit-column-count: 4; -column-count: 4; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
+.col3 {word-wrap:break-word; -moz-column-count: 3; -webkit-column-count: 3; -column-count: 3; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
 
 .quarter {width:25%}
 .third  {width:33%}

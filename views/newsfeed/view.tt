@@ -1,2 +1,30 @@
 <!--t:newsfeeds/view-->
+<article>
+	<header><h1>Newsfeeds</h1></header>
+	<p>Here are the headlines from my current favourite RSS feeds.</p>
+</article>
+
+<ul class="no-decoration">
+[% FOREACH feed IN feeds %]
+	<li>
+		<section>
+			<header>
+				<h2><a href="[% feed.link %]">[% feed.title %]</a></h2>
+			<header>
+			<ul class="row no-decoration">
+				[% FOREACH story IN feed.stories %]
+					<li class="col-sm-6 col-md-4" style="border-right:1px solid #134; padding:0.2em; height:20em">
+						<article>
+							<header>
+								<h4><a href="[% story.link %]">[% story.title %]</a></h4>
+							</header>
+							<div class="tinytext"> [% story.description %] </div>
+						</article>
+					</li>
+				[% END %]
+			</ul>
+		</section>
+	</li>
+[% END %]
+</ul>
 <!--/newsfeeds/view-->
