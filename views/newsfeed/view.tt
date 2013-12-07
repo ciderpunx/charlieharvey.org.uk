@@ -13,7 +13,7 @@
 			<header>
 			<ul class="row no-decoration">
 				[% FOREACH story IN feed.stories %]
-					<li class="col-sm-6 col-md-4" style="border-right:1px solid #134; padding:0.2em; height:20em">
+					<li class="col-sm-6 col-md-4 feed-article">
 						<article>
 							<header>
 								<h4><a href="[% story.link %]">[% story.title %]</a></h4>
