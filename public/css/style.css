@@ -9,12 +9,12 @@
 /* Core elements */
 body {margin: 0;padding: 0;font: 12px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
 p  {margin: 0.6em 0}
-h1, h2, h3, h4, h5 {font-family: Cabin, "Dejavu Sans", Verdana, Tahoma, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444;font-weight:700}
-h1 {font-size: 1.85em}
-h2 {font-size: 1.65em}
-h3 {font-size: 1.45em}
-h4 {font-size: 1.25em}
-h5 {font-size: 1em}
+h1, h2, h3, h4, h5 {font-family: cabin, "Dejavu Sans", Verdana, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444;font-weight:400}
+h1 {font-size: 1.90em;font-weight:700}
+h2 {font-size: 1.75em}
+h3 {font-size: 1.65em}
+h4 {font-size: 1.45em}
+h5 {font-size: 1.35em}
 li {line-height: inherit}
 a  {color: #468}
 a:hover {color: #468; text-decoration: underline}
@@ -42,7 +42,7 @@ img {max-width:100%}
 .entry-content ol {margin: 0 0 10px -2em}
 .entry-content li {padding-left: 0.5em}
 
-.article-byline {text-align:center;color:#ccc;font-weight:bold}
+.article-byline {text-align:center;color:#ccc;font-weight:700}
 .feed-article {border-right:1px solid #689; height:30em;word-wrap:break-word}
 .feed-article article {padding:0 0.4em}
 .feed-article h4 {margin:0 0.4em 0.4em 0}
@@ -73,7 +73,7 @@ img {max-width:100%}
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background: url("//static.charlieharvey.org.uk/img/dotorg-2011-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 95px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
+.titlebar {background: url("//static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 95px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
 .titlebar h1 a {height:80px;position: absolute; left:0; top: 10px; width:100%}
 
 .navbar {font-family: cabin, sans-serif; background-color: #0a2637; background-image: linear-gradient(to bottom,  #134, #0a2637); background-repeat: repeat-x}
@@ -137,7 +137,7 @@ img {max-width:100%}
 
 .drop-cap > p:first-of-type:first-letter {display: block; float: left; font-size: 3.15em; font-style: normal; font-weight: 700; line-height: 0.67em; margin: 0 0.1em 0 0.02em}
 
-.required {background: url("//static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent; font-weight:bold; padding-left: 17px; padding-right: 7px}
+.required {background: url("//static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent; font-weight:700; padding-left: 17px; padding-right: 7px}
 
 .st-result em {background: none repeat scroll 0 0 #224455; color: #FFEEBB; padding: 3px}
 
