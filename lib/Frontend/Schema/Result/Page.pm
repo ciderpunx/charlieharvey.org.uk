@@ -157,21 +157,22 @@ __PACKAGE__->many_to_many(comments => 'page_comments', 'comment');
 
 sub is_root {
     my ($self) = @_;
-    return $self->parent_id == 0;
+    return !$self->parent_id;
 }
 sub tag_str {
     my $self = shift;
     return join ', ', sort map { lc $_->title} $self->tags;
 }
 sub recent_children {
-    my $self = shift;
+    my ($self,$max) = (shift,shift);
+		$max = 5 if(!$max);
     my $rs   = $self->result_source->resultset->search(
         { parent_id => { '=', $self->id } ,
 					is_live => {'=', 1},
 				},
         { 
 					order_by => {-desc => 'created_at'},
-          rows    => 5, 
+          rows    => $max, 
 				}
     );
     return $rs->all;

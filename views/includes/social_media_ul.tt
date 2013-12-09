@@ -1,8 +1,9 @@
 <!--t:social_media_ul-->
 <ul class="xoxo"> 
-   <li><a href="http://twitter.com/ciderpunx" rel="me">Twitter: @ciderpunx</a></li>
-   <li><a href="http://flickr.com/photos/charlie_harvey" rel="me">Flickr page</a></li>
-   <li><a href="http://last.fm/user/ciderpunx" rel="me">last.fm page</a></li>
-   <li><a href="http://uk.linkedin.com/in/charlieharvey">LinkedIn page</a></li> 
+   <li><a href="http://twitter.com/ciderpunx" rel="me"><img alt="Twitter: @ciderpunx" src="/img/social-icons/32/twitter.png"/> @ciderpunx</a></li>
+   <li><a href="http://flickr.com/photos/charlie_harvey" rel="me"><img alt="Flickr page" src="/img/social-icons/32/flickr.png"/> flickr</a></li>
+   <li><a href="http://uk.linkedin.com/in/charlieharvey"><img alt="Linked in" src="/img/social-icons/32/linkedin.png"> LinkedIn</a></li> 
+   <li><a href="http://last.fm/user/ciderpunx" rel="me"><img alt="Last fm" src="/img/social-icons/32/lastfm.png"> last.fm</a></li>
+   <li><a href="/page/feed/rss" rel="me"><img alt="RSS" src="/img/social-icons/32/rss.png"> RSS</a></li>
 </ul>
 <!--/social_media_ul-->

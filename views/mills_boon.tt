@@ -1,6 +1,9 @@
 <!--t:mills_boon-->
 [% UNLESS errors %]
 <h1>Throbbing Manhood</h1>
+
+[% INCLUDE includes/social_block.tt %]
+
 <p>
 [% story %]
 </p>

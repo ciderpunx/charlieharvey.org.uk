@@ -1,9 +1,16 @@
 <!--t:writing/list-->
-<h1>[% IF category %][% category %] f[% ELSE %] F[% END %]iles and writings</h1>
+[% INCLUDE includes/social_block.tt %]
+
+<header>
+	<h1>[% IF category %][% category %] f[% ELSE %] F[% END %]iles and writings</h1>
+</header>
+
 
 [% INCLUDE writing/pager.tt %]
 
+
 [% IF files.size %]
+<section>
 <ul class="hfeed unstyled-list top-bordered">
 [% FOREACH file IN files%]
 	<li>
@@ -29,7 +36,11 @@
 	</li>
 [% END %]
 </ul>
+</section>
+[% ELSE %]
+
 [% END %]
+
 
 [% INCLUDE writing/pager.tt %]
 <!--/writing/list-->

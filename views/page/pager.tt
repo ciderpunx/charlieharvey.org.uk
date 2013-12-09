@@ -2,7 +2,7 @@
 	<div class="centre" style="padding:1em 0">
 		<ul class="horizontal-list pager">
 		[% IF pager.current_page != pager.first_page %]
-			<li><a class="btn-dark" href="[% own_url %]/archive/[% pager.first_page %]">First</a></li>
+			<li><a class="btn-dark" href="[% own_url %]">First</a></li>
 		[% END %]
 		[% IF pager.previous_page %]
 			<li><a class="btn-dark" href="[% own_url %]/archive/[% pager.previous_page %]">Prev</a></li>

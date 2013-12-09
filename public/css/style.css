@@ -4,13 +4,15 @@
   bright: #234, #998, #edb, #feb, #bb9
   dull:	#135, #aa8, #fd9, #ffa, #cb8
   also: #234, #689
+	greys: #ccc
+	body-text: #444, #333
 */
 
 /* Core elements */
 body {margin: 0;padding: 0;font: 12px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
 p  {margin: 0.6em 0}
 h1, h2, h3, h4, h5 {font-family: cabin, "Dejavu Sans", Verdana, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444;font-weight:400}
-h1 {font-size: 1.90em;font-weight:700}
+h1 {font-size: 2em;font-weight:700}
 h2 {font-size: 1.75em}
 h3 {font-size: 1.65em}
 h4 {font-size: 1.45em}
@@ -69,7 +71,6 @@ img {max-width:100%}
 .flick-pic img {vertical-align:middle}
 .flick-img-single img {max-width:100%}
 
-
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
@@ -96,9 +97,9 @@ img {max-width:100%}
 .navbar-inverse .navbar-toggle{background-image:linear-gradient(to bottom, #356, #023);color:#feb}
 .navbar-inverse .navbar-toggle:focus,
 .navbar-inverse .navbar-toggle:hover {background-image: linear-gradient(to bottom, #578, #356)}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#feb}
 
 .dropdown-menu > li > a:hover {color:#feb; background-color:#356}
-.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#feb}
 
 .nav > li > a {padding:12px 15px}
 
@@ -116,6 +117,7 @@ img {max-width:100%}
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:disabled {background-color: #023;color:#feb}
+.pager li > a, .pager li > span {background-color: #023; color:#feb}
 
 .taggedlink {background: url("//static.charlieharvey.org.uk/img/tag.png") no-repeat scroll left top transparent; padding-left: 17px; padding-right: 7px}
 
@@ -136,6 +138,7 @@ img {max-width:100%}
 .cmt-bdy q, .cmt-bdy blockquote {border-left: 5px solid #356; margin: 1em 0; padding: 0 0 0 15px; color:#666; font-style:italic}
 
 .drop-cap > p:first-of-type:first-letter {display: block; float: left; font-size: 3.15em; font-style: normal; font-weight: 700; line-height: 0.67em; margin: 0 0.1em 0 0.02em}
+.no-drop-cap:first-letter {display: inline !important;font-size: 100% !important; font-weight: 400 !important; margin:0 !important;float:none !important}
 
 .required {background: url("//static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent; font-weight:700; padding-left: 17px; padding-right: 7px}
 
@@ -165,6 +168,16 @@ img {max-width:100%}
 
 #navtree li {margin-bottom:0.2em}
 #navtree ul {margin: 0 0 10px 0.95em}
+#navtree .glyphicon {color:#689}
+
+#social-block {float:right;margin:0 0 1em 1em}
+#social-block a, #after-article-shares a  {width:32px;height:32px;display:block;float:left}
+.twitter {background: url(/img/social-icons/32/twitter.png); font-size:0;}
+.facebook {background: url(/img/social-icons/32/facebook.png); font-size:0}
+.gplus {background: url(/img/social-icons/32/google+.png); font-size:0}
+.pinterest {background: url(/img/social-icons/32/pinterest.png); font-size:0}
+.comment-icon {background: url(/img/social-icons/32/comment.png); font-size:10px;text-align:center;padding-top:9px;}
+
 
 #sidebar {background: #fff; padding-left: 1.5em;}
 
@@ -208,6 +221,7 @@ img {max-width:100%}
 	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {color:#feb}
 	.carousel-caption {font-size:22px}
 	.carousel-control .glyphicons-chevron-left, .carousel-control .glyphicons-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {font-size:140px}
+	.modal-dialog{width:670px}
 }
 @media (min-width:979px) {
 	body {margin: 0;padding: 0;font: 22px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
@@ -219,7 +233,17 @@ img {max-width:100%}
 	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
 	#page {padding-left:0.3em;padding-right:0.3em}
 	#sidebar {display:none;}
+	#social-block {position:fixed;right:0;top:40%}
+	#social-block a, #after-article-shares a {width:64px;height:64px;display:block;float:left}
+	#after-article-shares {display:none}
+	.twitter {background: url(/img/social-icons/64/twitter.png); font-size:0;}
+	.facebook {background: url(/img/social-icons/64/facebook.png); font-size:0}
+	.gplus {background: url(/img/social-icons/64/google+.png); font-size:0}
+	.pinterest {background: url(/img/social-icons/64/pinterest.png); font-size:0}
+	.comment-icon {background: url(/img/social-icons/64/comment.png); font-size:20px;text-align:center;padding-top:19px;}
+
 }
 
 .blog-info-box ul,
 .blog-info-box ol {margin: 0 0 10px -25px}
+

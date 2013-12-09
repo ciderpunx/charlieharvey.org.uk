@@ -1,0 +1,9 @@
+<!--t:social_block-->
+[% url = request.uri_base _ request.uri %]
+<ul class="no-decoration" id="social-block">
+	<li><a href="http://twitter.com/?status=I&#8217;m%20reading%20[% title %]%20[% url %]" class="twitter">Share on Twitter</a></li>
+	<li><a href="http://www.facebook.com/share.php?u=[% url %]&amp;t=I&#8217;m%20reading%20[% title %]" class="facebook">Share on Facebook</a></li>
+	<li><a href="https://plus.google.com/share?url=[% url %]" class="gplus">Share on Google+</a></li>
+	<li><a href="http://pinterest.com/pin/create/button/?url=[% url %]" class="pinterest">Share on Pinterest</a></li>
+</ul>
+<!--/social_block-->

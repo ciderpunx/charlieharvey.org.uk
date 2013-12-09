@@ -1,5 +1,5 @@
 <!--t:tweet-->
-<p class="rightalign">
-	<a class="btn btn-dark" href="http://twitter.com/?status=I'm%20reading%20[% own_url %]%20&mdash;%20[% page.title.replace('\s','%20') %]">Tweet this<span class="hidden">[% page.id %]</span> &raquo;</a>
-</p>
+<ul class="no-decoration" id="after-article-shares">
+	[% INCLUDE page/share_this_list.tt %]
+</ul>
 <!--/tweet-->

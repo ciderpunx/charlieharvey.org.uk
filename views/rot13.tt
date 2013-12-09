@@ -1,6 +1,7 @@
 <!--t:rot13-->
 <h1>ROT13 tools</h1>
 
+[% INCLUDE includes/social_block.tt %]
 <p>This tool lets you <a href="">ROT13</a> (and unROT13) strings of text. There is a <a href="/rot13/api/">ROT13 api</a> for programmers.</p>
 
 

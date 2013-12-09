@@ -1,5 +1,7 @@
 <h1>Daily Mail story generator</h1>
 
+[% INCLUDE includes/social_block.tt %]
+
 <div style="float:right; padding-top:150px; width: 180px">
 	<a href="/daily_mail/">Another? &raquo;</a>
 </div>

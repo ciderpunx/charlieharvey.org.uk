@@ -3,25 +3,37 @@
 	[% INCLUDE page/breadcrumbs.tt %]
 [% END %]
 
+<article>
 [% IF pages.size  %]
-	<h1><em>[% page.title %]</em> articles</h1>
-	<p>[% pager.total_entries %] <em><a href="[% page.link %]">[% page.title %]</a></em> articles in total, showing [% pager.first %] to [% pager.last %]</p>
+	<header>
+		<h1>[% page.title %]</h1>
+	</header>
+	<aside>
+		<ul class="no-decoration" id="social-block">
+				[% INCLUDE page/share_this_list.tt %]
+		</ul>
+	</aside>
+	<section>
+		<p>[% pager.total_entries %] <em><a href="[% page.link %]">[% page.title %]</a></em> articles in total, showing [% pager.first %] to [% pager.last %]</p>
 
-	[% INCLUDE page/pager.tt %]
-	<ul class="hfeed unstyled-list top-bordered">
-	[% FOR child IN pages %]
-		[% IF loop.index == 5%]<a name="afterrecent"><br /></a>[% END %]
-		[% INCLUDE page/article_summary.tt %]
-	[% END %]
+		[% INCLUDE page/pager.tt %]
+		<ul class="hfeed unstyled-list top-bordered">
+		[% FOR child IN pages %]
+			[% IF loop.index == 5%]<a name="afterrecent"><br /></a>[% END %]
+			[% INCLUDE page/article_summary.tt %]
+		[% END %]
 	</ul>
 	[% INCLUDE page/pager.tt %]
-
+	</section>
 [% ELSE %]
-	<h1><em>[% page.title %]</em> articles</h1>
+	<header>
+		<h1>[% page.title %]</h1>
+		<h2>No more <em><a href="[% page.link %]">[% page.title %]</a></em> articles here, sorry</h2>
+	<header>
          
-	<h2>No more <em><a href="[% page.link %]">[% page.title %]</a></em>articles here, sorry</h2>
 	[% IF page_offset %]
 		<p>Try the front page of the <a href="[% page.link %]">[% page.title %]</a> section.</p>
 	[% END %]
 [% END %]
+</article>
 <!--/page/archive-->

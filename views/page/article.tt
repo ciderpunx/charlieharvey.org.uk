@@ -8,27 +8,44 @@
 				<p class="article-byline"><em>Written by Charlie on [% page.nice_created %] </em></p>				
 				[% END %]
 		</header>
+
+		<ul class="no-decoration" id="social-block">
+			[% INCLUDE page/share_this_list.tt %]
+		</ul>
+
 		[% IF page.is_cover %]
-			<div class="blog-info-box tinytext">
+			<p class="tinytext no-drop-cap">This is the <em>[% page.title %]</em> section. <a href="#blog-info-popup" data-toggle="modal" data-target="#blog-info-popup">Learn more &raquo;</a></p>
+			<div id="blog-info-popup" class="tinytext modal fade in">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+						<a class="close" data-dismiss="modal">×</a> 
+						<h2 class="modal-title">More about [% page.title %]</h2>
+					</div>
+					<div class="modal-body">
 		[% ELSE %]
-		<div class="tinytext pull-right quarter visible-lg" id="sidebar">
-			[% INCLUDE page/related_links.tt %]
-			<h4>Navigation</h4>
-			[% INCLUDE page/navtree.tt %]
-		</div>	
+			<div class="tinytext pull-right quarter visible-lg" id="sidebar">
+				[% INCLUDE page/related_links.tt %]
+				<h4>Navigation</h4>
+				[% INCLUDE page/navtree.tt %]
+			</div>	
 	 [% END %]
 		
-		
 	[% page.body %]	
+
 	[% INCLUDE page/tweet.tt %]
+
 	[% IF page.is_cover %]
-		</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/blog info modal-->
 	[% END %]
 	</article>
 [% ELSE %]
 	<article>
 		<header>
-				<h1>OMG! You asked for a page that doesn&#8217;t exist. Or I fucked up some code.</h1>
+				<h1>OMG! You asked for a page that doesn&#8217;t exist. Or I messed up some code.</h1>
 		</header>
 	</article>
 <!--/page/article-->

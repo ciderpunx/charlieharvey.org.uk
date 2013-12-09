@@ -1,9 +1,12 @@
 <!--t:flick/view-->
 <!-- [% photo.title %] was taken by [% photo.owner %] on [% photo.taken %] -->
 
+[% INCLUDE includes/social_block.tt %]
+
 <header>
 	<h1>[% photo.title %]</h1>
 </header>	
+
 
 <article class="flick-img-single">
 	<p><a href="/flick/list/[% page %]">&laquo; Back (more photos)</a></p>

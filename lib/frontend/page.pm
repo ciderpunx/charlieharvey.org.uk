@@ -106,12 +106,12 @@ get '/:slug/?' => sub {
 	}
 	
 	my @ancestors = $page->ancestors;
-	my @recent_children = $page->recent_children;
 	my @top_categories = $page->top_categories;
 
 	if ($page->is_root) {
 	  # TODO: There are a lot of unnecessary queries going on here. 
 		#       Good place to optimize. Cache sorts it for now.
+		my @recent_children = $page->recent_children(5);
 		cache_page template 'page/root', { 
 			active_nav      => 'Blog',
 			page						=> $page, 
@@ -124,6 +124,7 @@ get '/:slug/?' => sub {
 		}; # index page, use index teplate
 	}
 	elsif ($page->is_cover) {
+		my @recent_children = $page->recent_children(10);
 		cache_page template 'page/cover', { 
 			active_nav      => 'Blog',
 			page						=> $page, 
@@ -151,7 +152,7 @@ get '/:slug/?' => sub {
 };
 
 get '/:slug/archive/?' => sub {
-	redirect '/page/' . params->{slug} . '/archive/1'
+	redirect '/page/' . params->{slug} # i.e. to the cover page
 };
 
 get '/:slug/archive/:page/?' => sub {
@@ -180,12 +181,12 @@ get '/:slug/archive/:page/?' => sub {
 	  $parent_url = uri_for('/page/index')->as_string;
 	}
 
-	my $ancestors = $page->ancestors ? $page->ancestors : {};
+	my @ancestors = $page->ancestors;
 
 	template 'page/archive', { 
 			active_nav      => 'Blog',
 			page		=> $page, 
-			ancestors       => $ancestors,
+			ancestors       => \@ancestors,
 			own_url		=> uri_for($page->link)->as_string,
 			parent_url	=> $parent_url,
 			pages		=> \@pages,

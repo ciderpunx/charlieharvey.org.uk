@@ -4,13 +4,13 @@
 		<ul class="row">
 			<li class="col-sm-3">
 			  <section>
-					<h3>Onsite Links</h3>
+					<h3>Onsite links</h3>
 					[% INCLUDE includes/onsite_link_ul.tt %]            
 				</section>
 			</li>
 			<li class="col-sm-3">
 			  <section>
-					<h3>External Links</h3>
+					<h3>External links</h3>
 					[% INCLUDE includes/external_link_ul.tt %]            
 				</section>
 			</li>
@@ -22,7 +22,7 @@
 			</li>
 			<li class="col-sm-3">
 			  <section>
-					<h3>Social Media</h3>
+					<h3>Follow me</h3>
 					[% INCLUDE includes/social_media_ul.tt %]            
 				</section>
 			</li>

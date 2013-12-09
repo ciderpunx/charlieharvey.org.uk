@@ -3,30 +3,21 @@
 	[% INCLUDE page/breadcrumbs.tt %]
 [% END %]
 
-[% IF page.body.length > 1000 %]
-<p>
-	<a href="#[% page.slug %]-btm">Skip to recent <em>[% page.title %]</em> articles &raquo;</a>
-</p>
-[% END %]
-
 [% INCLUDE page/article.tt %]
-<p id="[% page.slug %]-btm"> &nbsp; </p>
-
 
 [% IF page.children %]
-	<div class="top-bordered"> </div>
-	<h2 class="leftfloat">Recently in <em>[% page.title %]</em></h2>
-	<div class="clear"> </div>
 	<ul class="hfeed unstyled-list" >
-	[% FOREACH child IN page.recent_children %]
+	[% FOREACH child IN recent_children %]
 		[% INCLUDE page/article_summary.tt %]
 	[% END %]
 	</ul>
 [% END %]
 
+[% IF recent_children.size > 9 %]
 <p class="centre">
-	<a href="[% own_url %]/archive/1#afterrecent" class="btn btn-dark btn-lg">More <em>[% page.title %]</em> articles &raquo;</a>
+	<a href="[% own_url %]/archive/2" class="btn btn-dark btn-lg">More <em>[% page.title %]</em> articles &raquo;</a>
 </p>
+[% END %]
 
 [% INCLUDE page/comment.tt %]
 

@@ -1,9 +1,11 @@
 <!--t:comment-->
+<section>
+<p><a name="comments" href="#"></a><br /></p>
 <h3>Comments</h3>
 
 [% INCLUDE comment/form.tt %]
 
-[% IF page.comments %]
+[% IF page.comments.size %]
   [% FOREACH cmt IN page.comments %]
 	<!--TODO: Markup needs tidying up here-->
 	<li class="unstyled-list hreview hentry comment top-bordered">
@@ -25,4 +27,5 @@
 	</li>
 	[% END %] 
 [% END %]
+</section>
 <!--/comment-->

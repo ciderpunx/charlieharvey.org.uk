@@ -1,6 +1,8 @@
 <!--t:flickr/list-->
 <h1>Photos from flickr</h1>
 
+[% INCLUDE includes/social_block.tt %]
+
 [% IF photos %]
 	<article>
 		<p>[% total %] photos in total, showing page [% page %] of [% lst %]</p>
