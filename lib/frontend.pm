@@ -2,9 +2,11 @@ package frontend;
 use utf8;
 use Dancer ':syntax';
 use Dancer::Plugin::Email;
+use Dancer::Plugin::Feed;
 use Dancer::Plugin::Cache::CHI;
 use Try::Tiny;
 use XML::RSS;
+use XML::Simple;
 use LWP::Simple ();
 
 use frontend::comment;
@@ -124,6 +126,41 @@ get '/mills_and_boon/?' => sub {
 			description => "Afraid something broke",
 		};
 	}
+};
+
+get '/monk_feed.pl' => sub {
+	redirect uri_for '/monk_feed/ciderpunx'
+};
+
+get '/monk_feed/:monk/?' => sub {
+	my $monk = lc params->{monk} || 'ciderpunx';
+	my $base_url = "http://perlmonks.org";
+	my $src_url = "http://www.perlmonks.org/?node_id=32704&foruser=$monk&order=desc&limit=10";
+	my $data = LWP::Simple::get($src_url);
+	my $ref = XMLin($data);
+	my $user = $ref->{INFO}->{foruser};
+
+	my $feed = create_feed( 
+    format			=> 'RSS', #Feed format (RSS or Atom) 
+    title				=> "charlieharvey.org.uk: Perlmonks user RSS feed for $user",
+		description => "A feed of nodes posted by the perlmonks user $user. That's it.",
+		image				=> {
+						title	 => "charlieharvey.org.uk: Perlmonks RSS feed for $user", 
+						width	 => 120,
+						height => 23,
+						url    => "http://perlmonks.org/favicon.ico",
+						link   => "http://perlmonks.org",
+		},
+
+    entries => [ map { 
+				title   => '<![CDATA[' . $ref->{NODE}{$_}{content} . ']]>', 
+				link    => $base_url   . "/?node_id=$_",
+				author  => '<![CDATA[' . $user . ']]>',
+				summary => '<![CDATA[' . $ref->{NODE}{$_}{content} . ']]>',
+				# issued  => $ref->{NODE}{$_}{lastedit},
+		}, keys $ref->{NODE} ], #makes collection of feed entries
+  );
+  return $feed;
 };
 
 get '/most_popular.pl' => sub {
