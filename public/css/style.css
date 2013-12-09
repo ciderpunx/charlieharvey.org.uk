@@ -171,12 +171,12 @@ img {max-width:100%}
 #navtree .glyphicon {color:#689}
 
 #social-block {float:right;margin:0 0 1em 1em}
-#social-block a, #after-article-shares a  {width:32px;height:32px;display:block;float:left}
-.twitter {background: url(/img/social-icons/32/twitter.png); font-size:0;}
-.facebook {background: url(/img/social-icons/32/facebook.png); font-size:0}
-.gplus {background: url(/img/social-icons/32/google+.png); font-size:0}
-.pinterest {background: url(/img/social-icons/32/pinterest.png); font-size:0}
-.comment-icon {background: url(/img/social-icons/32/comment.png); font-size:10px;text-align:center;padding-top:9px;}
+#social-block a, #after-article-shares a  {width:24px;height:24px;display:block;float:left}
+.twitter {background: url(/img/social-icons/24/twitter.png); font-size:0;}
+.facebook {background: url(/img/social-icons/24/facebook.png); font-size:0}
+.gplus {background: url(/img/social-icons/24/google+.png); font-size:0}
+.pinterest {background: url(/img/social-icons/24/pinterest.png); font-size:0}
+.comment-icon {background: url(/img/social-icons/24/comment.png); font-size:8px;text-align:center;padding-top:8px}
 
 
 #sidebar {background: #fff; padding-left: 1.5em;}
@@ -210,6 +210,14 @@ img {max-width:100%}
 	.entry-content ol,
 	.entry-content ul {margin: 0 0 10px -1.5em}
 	.entry-content img {width:auto}
+	#social-block a, #after-article-shares a  {width:32px;height:32px;display:block;float:left}
+	.twitter {background: url(/img/social-icons/32/twitter.png); font-size:0;}
+	.facebook {background: url(/img/social-icons/32/facebook.png); font-size:0}
+	.gplus {background: url(/img/social-icons/32/google+.png); font-size:0}
+	.pinterest {background: url(/img/social-icons/32/pinterest.png); font-size:0}
+	.comment-icon {background: url(/img/social-icons/32/comment.png); font-size:10px;text-align:center;padding-top:9px;}
+
+
 }
 @media (min-width: 768px) {
 	body {margin: 0;padding: 0;font: 18px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
