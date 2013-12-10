@@ -171,8 +171,9 @@ img {max-width:100%}
 #navtree .glyphicon {color:#689}
 
 #social-block {float:right;margin:0 0 1em 1em}
-#social-block a, #after-article-shares a  {width:24px;height:24px;display:block;float:left}
-.twitter {background: url(/img/social-icons/24/twitter.png); font-size:0;}
+#social-block a, #after-article-shares a{width:24px;height:24px;display:block;float:left;opacity:0.85}
+#social-block a:hover, #after-article-shares a:hover {opacity:1}
+.twitter {background: url(/img/social-icons/24/twitter.png); font-size:0}
 .facebook {background: url(/img/social-icons/24/facebook.png); font-size:0}
 .gplus {background: url(/img/social-icons/24/google+.png); font-size:0}
 .pinterest {background: url(/img/social-icons/24/pinterest.png); font-size:0}
