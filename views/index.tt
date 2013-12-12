@@ -17,9 +17,9 @@
   </div><!--/row-->
 	
 	<div class="row">
-		<div class="col-xs-6 col-md-8">
+		<div class="col-sm-8">
 		[% IF pics && pics.size %]
-			<div class="hidden-sm">
+			<div class="hidden-sm hidden-xs">
 				<h3>Recent photos</h3>
 				<div class="row">
 					[% FOREACH pic IN pics %]
@@ -35,11 +35,11 @@
 			<div id="blogs"></div>
 			<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
 		</div>
-		<div class="col-xs-6 col-md-4">
+		<div class="col-xs-6 col-sm-4">
 			<h3>Popular this week</h3>
 			<div id="popular"></div>
 		</div>
-		<div class="col-xs-12 col-md-4">
+		<div class="col-xs-6 col-sm-4">
 			<h3>Social Media</h3>
 			<div class="tinytext">
 				[% IF tweets && tweets.size %]
