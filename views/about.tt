@@ -1,4 +1,9 @@
 <!--t:about-->
+
+	<div class="hidden-md hidden-sm hidden-xs">
+	[% INCLUDE includes/social_block.tt %]
+	</div>
+
 	<article class="entry-content drop-cap">
    	<h1>About</h1>
 		

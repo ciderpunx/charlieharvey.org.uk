@@ -1,4 +1,9 @@
 <!--t:about-charlie-->
+
+	<div class="hidden-md hidden-sm hidden-xs">
+	[% INCLUDE includes/social_block.tt %]
+	</div>
+
 	<article id="about-charlie-harvey" class="entry-content drop-cap">
     <!--div class="hero-unit">
 			<h1> What&#8217;s all this then? </h1>

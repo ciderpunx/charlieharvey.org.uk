@@ -1,4 +1,9 @@
 <!--t:about-->
+
+	<div class="hidden-md hidden-sm hidden-xs">
+	[% INCLUDE includes/social_block.tt %]
+	</div>
+
 	<article class="entry-content drop-cap">
 		<h1>About charlieharvey.org.uk</h1>
 		<p>This site has been running since 2004, believe it or not. It has been through a lot of changes on the way, including
