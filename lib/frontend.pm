@@ -15,20 +15,27 @@ use frontend::flick;
 use frontend::newsfeed;
 use frontend::page;
 use frontend::popular;
+use frontend::social;
 use frontend::tag;
 use frontend::writing;
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 prefix undef;
 
 check_page_cache;
 
 get '/' => sub {
+
+		my $collection_ref = frontend::flick::_get_flickr_photo_collection(3, 1);
+		my $photos = frontend::flick::_get_photos($collection_ref, 1);
     cache_page template 'index', {
       active_nav => 'Home',
 			title => "127.0.0.1",
 			description => "The lair of the ciderpunx",
+			tweets => frontend::social::_tweets(),
+			scrobbles => frontend::social::_scrobbles(),
+			pics      => $photos,
 		};
 };
 

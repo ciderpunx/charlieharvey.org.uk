@@ -5,10 +5,11 @@
 	<div class="row">
 		<div class="col-xs-6 col-sm-9">
 			<p>
-				<span class="drop-cap">T</span>his is the homepage for <a href="/about/charlie-harvey">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
-				I use it as a sort of blog, for checking the 
-				<a href="/rss.pl">news</a> and for publishing 
-				<a href="/file/archive/1">files</a> and <a href="/page/index">pages</a> that I&#8217;ve written. 
+				<span class="drop-cap">M</span>y name is <a href="/about/charlie-harvey">Charlie Harvey</a> and this is my website. I like <a href="/page/geekery">computer geekery</a>, 
+				<a href="/page/cider">drinking cider</a> and trying to <a href="/tag/activism">overthrow capitalism</a>. I seem to be doing rather better with the first two.</p>
+			<p>
+			  Sometimes I <a href="/page/project">make things</a> like the <a href="/daily_mail/">Daily Mail story generator</a>, sometimes I <a href="/blog/">blog</a> and sometimes I just stare blankly into 
+				space. 
 			</p>
 		</div>
 		<div class="col-xs-6 col-sm-3">
@@ -17,21 +18,55 @@
     	</div>
     </div>
 
+
+	
     <div class="row">
-    	<div class="col-xs-6 col-md-4">
-    		<h3>Recent blogs</h3>
+    	<div class="col-xs-6 col-md-8">
+			[% IF pics && pics.size %]
+				<div class="hidden-sm">
+					<h3>Recent photos</h3>
+					<div class="row">
+						[% FOREACH pic IN pics %]
+							<div class="col-md-4">
+								<a href="[% pic.href %]"><img src="[% pic.img %]" alt="[% pic.title %]" /></a>
+							</div>
+						[% END %]
+					</div>
+					<p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
+				</div>
+			[% END %]
+   		<h3>Recent blogs</h3>
     		<div id="blogs"></div>
-    		<p><a class="btn btn-dark" href="/page/">More &raquo;</a></p>
-    	</div>
+    		<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
+			</div>
     	<div class="col-xs-6 col-md-4">
-    		<h3>Popular</h3>
+    		<h3>Popular this week</h3>
     		<div id="popular"></div>
-    		<p><a class="btn btn-dark" href="/popular/week">More &raquo;</a></p>
     	</div>
     	<div class="col-xs-12 col-md-4">
     		<h3>Social Media</h3>
-    		<p>Tweets and lastfm</p>
-    		<p><a class="btn btn-dark" href="/about">More &raquo;</a></p>
+				<div class="tinytext">
+					[% IF tweets && tweets.size %]
+						<h4>Tweets <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h4>
+						<ul class="no-decoration">
+							[% FOREACH tweet IN tweets %]
+							<li>[% tweet.title %]</li>
+							[% END %]
+						</ul>
+					[% ELSE %]
+						<h4>No recent tweets</h4>
+					[% END %]
+					[% IF scrobbles && scrobbles.size %]
+						<h4>Scrobbles <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h4>
+						<ul class="no-decoration">
+							[% FOREACH scrobble IN scrobbles %]
+							<li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
+							[% END %]
+						</ul>
+					[% ELSE %]
+						<h4>No recent scrobbles</h4>
+					[% END %]
+				</div>
     	</div>
     </div>
 </article>
@@ -58,7 +93,7 @@
 	$.getJSON( blogsAPI, {})
 		.done(function( data ) {
 			$.each( data.pages, function( i, page ) {
-				the_things.push( "<li><a href='" + page.link + "'>"+ page.title +"</a></li>" );
+				the_things.push( "<li><h4><a href='" + page.link + "'>"+ page.title +"</a></h4><p>" + page.summary + "</p></li>" );
 				if ( i > 3 ) {
 					return false;
 				}
