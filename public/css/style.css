@@ -154,7 +154,7 @@ img {max-width:100%}
 .left-pullquote  {float: left; font-size: 1.42em; font-weight:400; margin: 0 1.2em 0.3em 0; padding-right:0.4em; text-align: right; width: 31%;border-left:none; border-right:5px solid #356;color:#444}
 
 /* ID elements */
-#search {margin: 0; padding-top: 10px; padding-bottom: 10px}
+#search {margin: 0; padding-top: 10px}
 #search .box {margin: 0}
 #search input {margin: 2px}
 #st-search-input {border:1px solid #023; border-radius:5px;width:7em}
