@@ -24,7 +24,7 @@
 				<div class="row">
 					[% FOREACH pic IN pics %]
 						<div class="col-md-4">
-							<a href="[% pic.href %]"><img src="[% pic.img %]" alt="[% pic.title %]" /></a>
+							<a href="[% pic.href %]"><img class="bordered" src="[% pic.img %]" alt="[% pic.title %]" /></a>
 						</div>
 					[% END %]
 				</div>
