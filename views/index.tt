@@ -1,6 +1,5 @@
 <!--t:index-->
 <article class="entry-content drop-cap">
-    <div class="jumbotron">
 	<h1> What&#8217;s all this then? </h1>
 	<div class="row">
 		<div class="col-xs-6 col-sm-9">
@@ -15,60 +14,57 @@
 		<div class="col-xs-6 col-sm-3">
 			<img class="bordered" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
 		</div>
-    	</div>
-    </div>
-
-
+  </div><!--/row-->
 	
-    <div class="row">
-    	<div class="col-xs-6 col-md-8">
-			[% IF pics && pics.size %]
-				<div class="hidden-sm">
-					<h3>Recent photos</h3>
-					<div class="row">
-						[% FOREACH pic IN pics %]
-							<div class="col-md-4">
-								<a href="[% pic.href %]"><img src="[% pic.img %]" alt="[% pic.title %]" /></a>
-							</div>
-						[% END %]
-					</div>
-					<p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
+	<div class="row">
+		<div class="col-xs-6 col-md-8">
+		[% IF pics && pics.size %]
+			<div class="hidden-sm">
+				<h3>Recent photos</h3>
+				<div class="row">
+					[% FOREACH pic IN pics %]
+						<div class="col-md-4">
+							<a href="[% pic.href %]"><img src="[% pic.img %]" alt="[% pic.title %]" /></a>
+						</div>
+					[% END %]
 				</div>
-			[% END %]
-   		<h3>Recent blogs</h3>
-    		<div id="blogs"></div>
-    		<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
+				<p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
 			</div>
-    	<div class="col-xs-6 col-md-4">
-    		<h3>Popular this week</h3>
-    		<div id="popular"></div>
-    	</div>
-    	<div class="col-xs-12 col-md-4">
-    		<h3>Social Media</h3>
-				<div class="tinytext">
-					[% IF tweets && tweets.size %]
-						<h4>Tweets <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h4>
-						<ul class="no-decoration">
-							[% FOREACH tweet IN tweets %]
-							<li>[% tweet.title %]</li>
-							[% END %]
-						</ul>
-					[% ELSE %]
-						<h4>No recent tweets</h4>
-					[% END %]
-					[% IF scrobbles && scrobbles.size %]
-						<h4>Scrobbles <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h4>
-						<ul class="no-decoration">
-							[% FOREACH scrobble IN scrobbles %]
-							<li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
-							[% END %]
-						</ul>
-					[% ELSE %]
-						<h4>No recent scrobbles</h4>
-					[% END %]
-				</div>
-    	</div>
-    </div>
+		[% END %]
+		<h3>Recent blogs</h3>
+			<div id="blogs"></div>
+			<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
+		</div>
+		<div class="col-xs-6 col-md-4">
+			<h3>Popular this week</h3>
+			<div id="popular"></div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<h3>Social Media</h3>
+			<div class="tinytext">
+				[% IF tweets && tweets.size %]
+					<h4>Tweets <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h4>
+					<ul class="no-decoration">
+						[% FOREACH tweet IN tweets %]
+						<li>[% tweet.title %]</li>
+						[% END %]
+					</ul>
+				[% ELSE %]
+					<h4>No recent tweets</h4>
+				[% END %]
+				[% IF scrobbles && scrobbles.size %]
+					<h4>Scrobbles <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h4>
+					<ul class="no-decoration">
+						[% FOREACH scrobble IN scrobbles %]
+						<li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
+						[% END %]
+					</ul>
+				[% ELSE %]
+					<h4>No recent scrobbles</h4>
+				[% END %]
+			</div>
+		</div>
+	</div>
 </article>
 
 <script>
