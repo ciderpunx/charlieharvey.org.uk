@@ -38,6 +38,7 @@ img {max-width:100%}
 .rightalign {text-align:right}
 .leftalign {text-align:left}
 .bordered { border:1px solid #135; box-shadow: 2px 8px 12px -6px #689}
+.break-word {word-wrap:break-word}
 
 .entry-content img {width:100%;max-width:95%}
 .entry-content ul, 
