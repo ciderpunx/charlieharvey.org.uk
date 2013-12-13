@@ -59,7 +59,7 @@
 				[% END %]
 				[% IF scrobbles && scrobbles.size %]
 					<h4>Scrobbles <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h4>
-					<ul class="no-decoration tinytext">
+					<ul class="no-decoration">
 						[% FOREACH scrobble IN scrobbles %]
 						<li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
 						[% END %]
