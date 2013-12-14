@@ -43,8 +43,13 @@
 <body>
 [% INCLUDE includes/header.tt %]
 
+[% IF full_width_image %]
+	<div class="visible-lg full-width-image" style="background-image:url([% full_width_image %])"></div>
+
+  <div id="page" class="opaque-bg">
+[% ELSE %]
   <div id="page">
-    
+[% END %] 
     [% IF success || info || errors%]
     <div id="messages">
     [% END %]

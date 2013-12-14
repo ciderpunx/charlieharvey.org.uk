@@ -11,7 +11,7 @@
 			<header>
 				<h2><a href="[% feed.link %]">[% feed.title %]</a></h2>
 			<header>
-			<ul class="row no-decoration">
+			<ul class="row no-decoration feed-article-list">
 				[% FOREACH story IN feed.stories %]
 					<li class="col-sm-6 col-md-4 feed-article">
 						<article>

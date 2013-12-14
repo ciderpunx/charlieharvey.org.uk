@@ -46,7 +46,7 @@ img {max-width:100%}
 .entry-content li {padding-left: 0.5em}
 
 .article-byline {text-align:center;color:#ccc;font-weight:700}
-.feed-article {border-right:1px solid #689; height:30em;word-wrap:break-word}
+.feed-article {border-right:1px solid #689;height:30em;word-wrap:break-word}
 .feed-article article {padding:0 0.4em}
 .feed-article h4 {margin:0 0.4em 0.4em 0}
 
@@ -71,6 +71,9 @@ img {max-width:100%}
 .flick-pic {background-color: #111; line-height:280px; margin:0.1em; min-width: 280px; height: 280px; text-align:center}
 .flick-pic img {vertical-align:middle}
 .flick-img-single img {max-width:100%}
+
+.full-width-image {height:440px; top:250px; position: absolute; background-position:center; z-index:-1;width:100%}
+.opaque-bg        {background-color: rgba(255,255,255,0.85)}
 
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
@@ -151,8 +154,8 @@ img {max-width:100%}
 
 .comment-detail label {width:4.5em;line-height:2.2em}
 
-.right-pullquote {float: right; font-size: 1.42em; font-weight:400; margin: 0 0.5em 0.3em; text-align: right; width: 32%; color:#444}
-.left-pullquote  {float: left; font-size: 1.42em; font-weight:400; margin: 0 1.2em 0.3em 0; padding-right:0.4em; text-align: right; width: 31%;border-left:none; border-right:5px solid #356;color:#444}
+.right-pullquote, .hreview .right-pullquote {float: right; font-size: 1.42em; font-weight:400; margin: 0 0.5em 0.3em; text-align: right; width: 32%; color:#444; border-left: 5px solid #356;}
+.left-pullquote, .hreview .left-pullquote  {float: left; font-size: 1.42em; font-weight:400; margin: 0 1.2em 0.3em 0; padding-right:0.4em; text-align: right; width: 31%;border-left:none; border-right:5px solid #356;color:#444}
 
 /* ID elements */
 #search {margin: 0; padding-top: 10px}

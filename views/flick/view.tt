@@ -13,7 +13,7 @@
 [% IF photo.description %]
 	<p>[% photo.description %]<br />&nbsp;</p>
 [% END %]
-	<a href="[% photo.original %]"><img src="[% photo.img %]" alt="[% photo.title %]" /></a>
+	<a href="[% photo.original %]"><img src="[% photo.img %]" alt="[% photo.title %]" class="bordered" /></a>
 </article>
 
 <div class="row">
