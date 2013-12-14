@@ -37,7 +37,7 @@ get '/' => sub {
 			tweets => $tweets,
 			scrobbles => $scrobbles,
 			pics      => $photos,
-			full_width_image => "//farm4.static.flickr.com/3670/9009590123_88e46e13af_o.jpg",
+			# full_width_image => "//farm4.static.flickr.com/3670/9009590123_88e46e13af_o.jpg",
 		};
 };
 
