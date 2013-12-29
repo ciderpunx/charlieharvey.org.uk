@@ -1,9 +1,9 @@
 <!--t:social_media_ul-->
 <ul class="xoxo"> 
-   <li><a href="http://twitter.com/ciderpunx" rel="me"><img alt="Twitter: @ciderpunx" src="http://static.charlieharvey.org.uk/img/social-icons/32/twitter.png"/> @ciderpunx</a></li>
-   <li><a href="http://flickr.com/photos/charlie_harvey" rel="me"><img alt="Flickr page" src="http://static.charlieharvey.org.uk/img/social-icons/32/flickr.png"/> flickr</a></li>
-   <li><a href="http://uk.linkedin.com/in/charlieharvey"><img alt="Linked in" src="http://static.charlieharvey.org.uk/img/social-icons/32/linkedin.png"> LinkedIn</a></li> 
-   <li><a href="http://last.fm/user/ciderpunx" rel="me"><img alt="Last fm" src="http://static.charlieharvey.org.uk/img/social-icons/32/lastfm.png"> last.fm</a></li>
-   <li><a href="/page/feed/rss" rel="me"><img alt="RSS" src="http://static.charlieharvey.org.uk/img/social-icons/32/rss.png"> RSS</a></li>
+   <li><a href="http://twitter.com/ciderpunx" rel="me"><div class="sprite32 twitter pull-left"> </div><div class="pull-left"> &nbsp; @ciderpunx</div></a><div class="clear" /></li>
+   <li><a href="http://flickr.com/photos/charlie_harvey" rel="me"><div class="sprite32 flickr pull-left"></div><div class="pull-left"> &nbsp; flickr</div></a><div class="clear" /></li>
+   <li><a href="http://uk.linkedin.com/in/charlieharvey"><div class="sprite32 linkedin pull-left"></div><div class="pull-left"> &nbsp; LinkedIn</div></a><div class="clear" /></li> 
+   <li><a href="http://last.fm/user/ciderpunx" rel="me"><div class="sprite32 lastfm pull-left"></div><div class="pull-left"> &nbsp; last.fm</div></a><div class="clear" /></li>
+   <li><a href="/page/feed/rss" rel="me"><div class="sprite32 rss pull-left"></div><div class="pull-left"> &nbsp; RSS</div></a><div class="clear" /></li>
 </ul>
 <!--/social_media_ul-->

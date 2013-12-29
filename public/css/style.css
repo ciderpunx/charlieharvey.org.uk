@@ -1,33 +1,33 @@
 /* palatte */
 
 /*
-  bright: #234, #998, #edb, #feb, #bb9
+  bright:#234, #998, #edb, #feb, #bb9
   dull:	#135, #aa8, #fd9, #ffa, #cb8
-  also: #234, #689
-	greys: #ccc
-	body-text: #444, #333
+  also:#234, #689
+	greys:#ccc
+	body-text:#444, #333
 */
 
 /* Core elements */
-body {margin: 0;padding: 0;font: 12px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif; color: #333}
-p  {margin: 0.6em 0}
-h1, h2, h3, h4, h5 {font-family: cabin, "Dejavu Sans", Verdana, sans-serif;  margin: 1.2em 0 0.6em 0; line-height: 1.25em; color: #444;font-weight:400}
-h1 {font-size: 2em;font-weight:700}
-h2 {font-size: 1.75em}
-h3 {font-size: 1.65em}
-h4 {font-size: 1.45em}
-h5 {font-size: 1.35em}
-li {line-height: inherit}
-a  {color: #468}
-a:hover {color: #468; text-decoration: underline}
-blockquote {border-left: 5px solid #356; margin: 1em 0; padding: 0 0 0 15px; color:#666; font-style:italic}
-q {color:#666; font-style:italic;}
-q:before {content: " “"}
-q:after  {content: "” "}
+body {margin:0;padding:0;font:12px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif;color:#333}
+p  {margin:0.6em 0}
+h1, h2, h3, h4, h5 {font-family:cabin, "Dejavu Sans", Verdana, sans-serif; margin:1.2em 0 0.6em 0;line-height:1.25em;color:#444;font-weight:400}
+h1 {font-size:2em;font-weight:700}
+h2 {font-size:1.75em}
+h3 {font-size:1.65em}
+h4 {font-size:1.45em}
+h5 {font-size:1.35em}
+li {line-height:inherit}
+a  {color:#468}
+a:hover {color:#468;text-decoration:underline}
+blockquote {border-left:5px solid #356;margin:1em 0;padding:0 0 0 15px;color:#666;font-style:italic}
+q {color:#666;font-style:italic;}
+q:before {content:" “"}
+q:after  {content:"” "}
 blockquote p {font-size:inherit;line-height:inherit}
 input, textarea {font-size:inherit}
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {font-size:inherit;height:inherit;line-height:inherit}
-label, input, button, select, textarea {font-size:inherit; font-family: cabin, sans-serif;line-height:inherit;max-width:99%}
+label, input, button, select, textarea {font-size:inherit;font-family:cabin, sans-serif;line-height:inherit;max-width:99%}
 dt {font-weight:normal;padding-bottom:0.2em;padding-top:0.5em;}
 ol li {margin-top:1em}
 img {max-width:100%}
@@ -37,25 +37,25 @@ img {max-width:100%}
 .leftfloat {float:left;margin-right:1em}
 .rightalign {text-align:right}
 .leftalign {text-align:left}
-.bordered { border:1px solid #135; box-shadow: 2px 8px 12px -6px #689}
+.bordered {border:1px solid #135;box-shadow:2px 8px 12px -6px #689}
 .break-word {word-wrap:break-word}
 
 .entry-content img {width:100%;max-width:95%}
 .entry-content ul, 
-.entry-content ol {margin: 0 0 10px -2em}
-.entry-content li {padding-left: 0.5em}
+.entry-content ol {margin:0 0 10px -2em}
+.entry-content li {padding-left:0.5em}
 
 .article-byline {text-align:center;color:#ccc;font-weight:700}
 .feed-article {border-right:1px solid #689;height:30em;word-wrap:break-word}
 .feed-article article {padding:0 0.4em}
 .feed-article h4 {margin:0 0.4em 0.4em 0}
 
-.no-side-margin-bordered { border:1px solid #135; margin: 1em 0; box-shadow: 2px 8px 12px -6px #689}
-.top-bordered { border-top:1px dashed #689}
-.right-rotated { transform: rotate(5deg)}
-.left-rotated { transform: rotate(-5deg)}
-.col4 {word-wrap:break-word; -moz-column-count: 4; -webkit-column-count: 4; -column-count: 4; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
-.col3 {word-wrap:break-word; -moz-column-count: 3; -webkit-column-count: 3; -column-count: 3; -moz-column-gap: 0.2%; -webkit-column-gap: 0.2%; column-gap: 0.2%; -moz-column-rule: 1px solid #ccc; -webkit-column-rule: 1px solid #ccc; column-rule: 1px solid #ccc; padding: 5px}
+.no-side-margin-bordered {border:1px solid #135;margin:1em 0;box-shadow:2px 8px 12px -6px #689}
+.top-bordered {border-top:1px dashed #689}
+.right-rotated {transform:rotate(5deg)}
+.left-rotated {transform:rotate(-5deg)}
+.col4 {word-wrap:break-word;-moz-column-count:4;-webkit-column-count:4;-column-count:4;-moz-column-gap:0.2%;-webkit-column-gap:0.2%;column-gap:0.2%;-moz-column-rule:1px solid #ccc;-webkit-column-rule:1px solid #ccc;column-rule:1px solid #ccc;padding:5px}
+.col3 {word-wrap:break-word;-moz-column-count:3;-webkit-column-count:3;-column-count:3;-moz-column-gap:0.2%;-webkit-column-gap:0.2%;column-gap:0.2%;-moz-column-rule:1px solid #ccc;-webkit-column-rule:1px solid #ccc;column-rule:1px solid #ccc;padding:5px}
 
 .quarter {width:25%}
 .third  {width:33%}
@@ -67,25 +67,25 @@ img {max-width:100%}
 .unstyled-list, 
 .no-decoration  {list-style-type:none;margin:0;padding:0}
 .no-decoration li {padding:0;margin:0}
-.horizontal-list, .horizontal-list li {display: inline; list-style-type: none}
-.flick-pic {background-color: #111; line-height:280px; margin:0.1em; min-width: 280px; height: 280px; text-align:center}
+.horizontal-list, .horizontal-list li {display:inline;list-style-type:none}
+.flick-pic {background-color:#111;line-height:280px;margin:0.1em;min-width:280px;height:280px;text-align:center}
 .flick-pic img {vertical-align:middle}
 .flick-img-single img {max-width:100%}
 
-.full-width-image {height:440px; top:250px; position: absolute; background-position:center; z-index:-1;width:100%}
-.opaque-bg        {background-color: rgba(255,255,255,0.85)}
+.full-width-image {height:440px;top:250px;position:absolute;background-position:center;z-index:-1;width:100%}
+.opaque-bg        {background-color:rgba(255,255,255,0.85)}
 
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background: url("http://static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat scroll center top #0A2637; background-size:contain; color: #CCCCCC; height: 95px; padding-top: 15px; position: relative; text-align: center; line-height:0; font-size:0px; margin-top:50px}
-.titlebar h1 a {height:80px;position: absolute; left:0; top: 10px; width:100%}
+.titlebar {background:url("http://static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat scroll center top #0A2637;background-size:contain;color:#CCCCCC;height:95px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
+.titlebar h1 a {height:80px;position:absolute;left:0;top:10px;width:100%}
 
-.navbar {font-family: cabin, sans-serif; background-color: #0a2637; background-image: linear-gradient(to bottom,  #134, #0a2637); background-repeat: repeat-x}
-.navbar .nav .active {background-color:#356; color:#feb}
+.navbar {font-family:cabin, sans-serif;background-color:#0a2637;background-image:linear-gradient(to bottom,  #134, #0a2637);background-repeat:repeat-x}
+.navbar .nav .active {background-color:#356;color:#feb}
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {box-shadow:none}
 .navbar-inverse {border:0}
-.navbar-inverse .navbar-inner {background-color: #0a2637; max-width:950px; margin:auto; background:none; border:0}
+.navbar-inverse .navbar-inner {background-color:#0a2637;max-width:950px;margin:auto;background:none;border:0}
 .navbar-inverse .nav > li > a {color:#feb}
 .navbar-inverse .navbar-nav > .active > a, 
 .navbar-inverse .navbar-nav > .active > a:hover, 
@@ -100,137 +100,151 @@ img {max-width:100%}
 .navbar-inverse .navbar-nav > li > a:hover {background-color:#356}
 .navbar-inverse .navbar-toggle{background-image:linear-gradient(to bottom, #356, #023);color:#feb}
 .navbar-inverse .navbar-toggle:focus,
-.navbar-inverse .navbar-toggle:hover {background-image: linear-gradient(to bottom, #578, #356)}
+.navbar-inverse .navbar-toggle:hover {background-image:linear-gradient(to bottom, #578, #356)}
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#feb}
 
-.dropdown-menu > li > a:hover {color:#feb; background-color:#356}
+.dropdown-menu > li > a:hover {color:#feb;background-color:#356}
 
 .nav > li > a {padding:12px 15px}
 
-.jumbotron {font:inherit; line-height:inherit; background-color: rgba(255, 238, 187, 0.6);box-shadow: 4px 4px 43px -24px #689}
-.jumbotron h1 {font-size:2.25em; line-height:inherit}
+.jumbotron {font:inherit;line-height:inherit;background-color:rgba(255, 238, 187, 0.6);box-shadow:4px 4px 43px -24px #689}
+.jumbotron h1 {font-size:2.25em;line-height:inherit}
 
-.blog-info-box {width:75%; margin:auto; margin-bottom:1.4em; background-color:#feb; min-height:5em; padding:1.85em; border-radius:5px; box-shadow: 4px 4px 43px -24px #689}
+.blog-info-box {width:75%;margin:auto;margin-bottom:1.4em;background-color:#feb;min-height:5em;padding:1.85em;border-radius:5px;box-shadow:4px 4px 43px -24px #689}
 .navbar-inverse .nav-collapse .dropdown-menu a:focus, 
 .navbar-inverse .nav-collapse .nav > li > a:focus, 
 .navbar-inverse .nav-collapse .nav > li > a:hover, 
-.btn-primary,.btn-dark {font-family: cabin, dejavu sans, verdana, tahoma, sans-serif;background-color: #023; background-image: linear-gradient(to bottom, #356, #023); background-repeat: repeat-x; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); color: #feb; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)}
+.btn-primary,.btn-dark {font-family:cabin, dejavu sans, verdana, tahoma, sans-serif;background-color:#023;background-image:linear-gradient(to bottom, #356, #023);background-repeat:repeat-x;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);color:#feb;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25)}
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:disabled, 
 .btn-dark:hover,
 .btn-dark:focus,
-.btn-dark:disabled {background-color: #023;color:#feb}
-.pager li > a, .pager li > span {background-color: #023; color:#feb}
+.btn-dark:disabled {background-color:#023;color:#feb}
+.pager li > a, .pager li > span {background-color:#023;color:#feb}
 
-.taggedlink {background: url("http://static.charlieharvey.org.uk/img/tag.png") no-repeat scroll left top transparent; padding-left: 17px; padding-right: 7px}
+.taggedlink {background:url("http://static.charlieharvey.org.uk/img/tag.png") no-repeat scroll left top transparent;padding-left:17px;padding-right:7px}
 
 .breadcrumbs, .breadcrumbs li {margin:0;padding:0}
 .breadcrumbs li {margin-left:-0.2em}
 
-.carousel-caption {background: none repeat scroll 0 0 rgba(10, 38, 55, 0.9);font-size:12px;margin-bottom:0.5em}
-.carousel-caption a {color:#aa8; text-decoration:underline;}
+.carousel-caption {background:none repeat scroll 0 0 rgba(10, 38, 55, 0.9);font-size:12px;margin-bottom:0.5em}
+.carousel-caption a {color:#aa8;text-decoration:underline;}
 .carousel-control .glyphicons-chevron-left, .carousel-control .glyphicons-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {font-size:40px}
 
 .hfeed {margin-top:1em;}
 .hentry {margin-top:3em}
 .hentry ul {text-align:right;}
-.hreview blockquote, .hreview q {border-left: none; margin: 0; padding: 0; color:inherit; font-style:inherit; font-size:inherit; font-weight:inherit; line-height:inherit}
+.hreview blockquote, .hreview q {border-left:none;margin:0;padding:0;color:inherit;font-style:inherit;font-size:inherit;font-weight:inherit;line-height:inherit}
 .hreview {list-style-type:none}
 
-.comment q{display:block; margin-top:1em; margin-bottom:0.6em}
-.cmt-bdy q, .cmt-bdy blockquote {border-left: 5px solid #356; margin: 1em 0; padding: 0 0 0 15px; color:#666; font-style:italic}
+.comment q{display:block;margin-top:1em;margin-bottom:0.6em}
+.cmt-bdy q, .cmt-bdy blockquote {border-left:5px solid #356;margin:1em 0;padding:0 0 0 15px;color:#666;font-style:italic}
 
-.drop-cap > p:first-of-type:first-letter {display: block; float: left; font-size: 3.15em; font-style: normal; font-weight: 700; line-height: 0.67em; margin: 0 0.1em 0 0.02em}
-.no-drop-cap:first-letter {display: inline !important;font-size: 100% !important; font-weight: 400 !important; margin:0 !important;float:none !important}
+.drop-cap > p:first-of-type:first-letter {display:block;float:left;font-size:3.15em;font-style:normal;font-weight:700;line-height:0.67em;margin:0 0.1em 0 0.02em}
+.no-drop-cap:first-letter {display:inline !important;font-size:100% !important;font-weight:400 !important;margin:0 !important;float:none !important}
 
-.required {background: url("http://static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent; font-weight:700; padding-left: 17px; padding-right: 7px}
+.required {background:url("http://static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent;font-weight:700;padding-left:17px;padding-right:7px}
 
-.st-result em {background: none repeat scroll 0 0 #224455; color: #FFEEBB; padding: 3px}
+.st-result em {background:none repeat scroll 0 0 #224455;color:#FFEEBB;padding:3px}
 
-.img200ctr {display:block; width:200px; margin: auto}
+.img200ctr {display:block;width:200px;margin:auto}
 
 .what-next {border-top:5px solid #134}
 
 .comment-detail label {width:4.5em;line-height:2.2em}
 
-.right-pullquote, .hreview .right-pullquote {float: right; font-size: 1.42em; font-weight:400; margin: 0 0.5em 0.3em; text-align: right; width: 32%; color:#444; border-left: 5px solid #356;}
-.left-pullquote, .hreview .left-pullquote  {float: left; font-size: 1.42em; font-weight:400; margin: 0 1.2em 0.3em 0; padding-right:0.4em; text-align: right; width: 31%;border-left:none; border-right:5px solid #356;color:#444}
+.right-pullquote, .hreview .right-pullquote {float:right;font-size:1.42em;font-weight:400;margin:0 0.5em 0.3em;text-align:right;width:32%;color:#444;border-left:5px solid #356;}
+.left-pullquote, .hreview .left-pullquote  {float:left;font-size:1.42em;font-weight:400;margin:0 1.2em 0.3em 0;padding-right:0.4em;text-align:right;width:31%;border-left:none;border-right:5px solid #356;color:#444}
 
 /* ID elements */
-#search {margin: 0; padding-top: 10px}
-#search .box {margin: 0}
-#search input {margin: 2px}
-#st-search-input {border:1px solid #023; border-radius:5px;width:7em}
+#search {margin:0;padding-top:10px}
+#search .box {margin:0}
+#search input {margin:2px}
+#st-search-input {border:1px solid #023;border-radius:5px;width:7em}
 
-#search #go {background-color: #356; background-image: linear-gradient(to bottom, #356, #245); border: 1px solid #023; border-radius: 5px; color: #FEB; cursor: pointer; font-size: 0.8em; padding: 3px; margin:0;min-width:4em}
-#search #go:hover {background-image: linear-gradient(to bottom, #356, #134); box-shadow: 0 1px 1px rgba(82, 168, 236 , 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6)}
-#search-text {width: 170px}
+#search #go {background-color:#356;background-image:linear-gradient(to bottom, #356, #245);border:1px solid #023;border-radius:5px;color:#FEB;cursor:pointer;font-size:0.8em;padding:3px;margin:0;min-width:4em}
+#search #go:hover {background-image:linear-gradient(to bottom, #356, #134);box-shadow: 0 1px 1px rgba(82, 168, 236 , 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6)}
+#search-text {width:170px}
 
 #page {max-width:870px;margin:auto;padding-top:1em;padding-left:0.3em;padding-right:0.3em}
 #page li {margin-bottom:0.5em}
 
 #navtree li {margin-bottom:0.2em}
-#navtree ul {margin: 0 0 10px 0.95em}
+#navtree ul {margin:0 0 10px 0.95em}
 #navtree .glyphicon {color:#689}
 
 #social-block {float:right;margin:0 0 1em 1em}
 #social-block a, #after-article-shares a{width:24px;height:24px;display:block;float:left;opacity:0.85}
 #social-block a:hover, #after-article-shares a:hover {opacity:1}
-.twitter {background: url(http://static.charlieharvey.org.uk/img/social-icons/24/twitter.png); font-size:0}
-.facebook {background: url(http://static.charlieharvey.org.uk/img/social-icons/24/facebook.png); font-size:0}
-.gplus {background: url(http://static.charlieharvey.org.uk/img/social-icons/24/google+.png); font-size:0}
-.hackernews {background: url(http://static.charlieharvey.org.uk/img/social-icons/24/hackernews.png); font-size:0}
-.comment-icon {background: url(http://static.charlieharvey.org.uk/img/social-icons/24/comment.png); font-size:8px;text-align:center;padding-top:8px}
+.sprite {background:url('http://static.charlieharvey.org.uk/img/social-icons/24/social-icons.png') no-repeat top left;width:24px;height:24px;font-size:0} 
+.sprite.twitter {background-position:0px 0px} 
+.sprite.facebook {background-position:0px -24px} 
+.sprite.gplus {background-position:0px -48px} 
+.sprite.hackernews {background-position:0px -72px} 
+.sprite.comment-icon {background-position:0px -96px;font-size:8px;text-align:center;padding-top:8px} 
 
+.sprite32 {background:url('http://static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
+.sprite32.twitter {background-position:0px 0px} 
+.sprite32.facebook {background-position:0px -32px} 
+.sprite32.gplus {background-position:0px -64px} 
+.sprite32.hackernews {background-position:0px -96px} 
+.sprite32.comment-icon {background-position:0px -128px;font-size:10px;text-align:center;padding-top:9px} 
+.sprite32.flickr {background-position:0px -160px} 
+.sprite32.linkedin {background-position:0px -192px} 
+.sprite32.lastfm {background-position:0px -224px} 
+.sprite32.rss {background-position:0px -256px} 
 
-#sidebar {background: #fff; padding-left: 1.5em;}
+#sidebar {background:#fff;padding-left:1.5em}
 #sidebar h4 {margin-top:0}
 #sidebar ul {margin-bottom:1.5em}
 
 #messages {margin-top:1.7em}
 #messages h2,
-#messages p {margin-top: 0.3em;}
+#messages p {margin-top:0.3em;}
 
 #content {padding-top:1.8em}
 
-#footer {font: 0.65em/1.48 cabin,  dejavu sans, verdana, tahoma, sans-serif; background-color:#023; background-image: linear-gradient(to bottom, #023, #112); color: #feb; padding:0; margin:2.5em 0 0; text-align:left}
+#footer {font:0.65em/1.48 cabin,  dejavu sans, verdana, tahoma, sans-serif;background-color:#023;background-image:linear-gradient(to bottom, #023, #112);color:#feb;padding:0;margin:2.5em 0 0;text-align:left}
 #footer h3, #footer a {color:#feb}
 #copyright a {font-style:italic}
 #footer .row li ,
-#footer .row ul {list-style-type: none;padding:0;padding-right:10px;margin:0;margin-bottom:0.6em}
-#footer .xoxo {margin-left: -0.009em}
-#footer .quarter {width:23%; min-width:180px; margin: 1em}
+#footer .row ul {list-style-type:none;padding:0;padding-right:10px;margin:0;margin-bottom:0.6em}
+#footer .xoxo {margin-left:-0.009em}
+#footer .quarter {width:23%;min-width:180px;margin:1em}
 #footer .row {margin-left:0}
 
 #footwrap {max-width:950px;margin:auto;padding-bottom:0.3em} 
 
-#daily-mail {padding:1em; padding-right: 2.2em; min-height: 640px; width: 85%; margin:auto}
+#daily-mail {padding:1em;padding-right:2.2em;min-height:640px;width:85%;margin:auto}
 
-@media (min-width: 400px) {
+@media (min-width:400px) {
 	.titlebar {margin-top:50px;height:110px}
-	.titlebar h1 a {height: 90px;top: 12px}
+	.titlebar h1 a {height:90px;top:12px}
 }
-@media (min-width: 500px) {
-	body {margin: 0;padding: 0;font: 16px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
+@media (min-width:500px) {
+	body {margin:0;padding:0;font:16px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
 	.titlebar {margin-top:50px;height:150px}
 	.entry-content ol,
-	.entry-content ul {margin: 0 0 10px -1.5em}
+	.entry-content ul {margin:0 0 10px -1.5em}
 	.entry-content img {width:auto}
 	#social-block a, #after-article-shares a  {width:32px;height:32px;display:block;float:left}
-	.twitter {background: url(http://static.charlieharvey.org.uk/img/social-icons/32/twitter.png); font-size:0;}
-	.facebook {background: url(http://static.charlieharvey.org.uk/img/social-icons/32/facebook.png); font-size:0}
-	.gplus {background: url(http://static.charlieharvey.org.uk/img/social-icons/32/google+.png); font-size:0}
-	.hackernews {background: url(http://static.charlieharvey.org.uk/img/social-icons/32/hackernews.png); font-size:0}
-	.comment-icon {background: url(http://static.charlieharvey.org.uk/img/social-icons/32/comment.png); font-size:10px;text-align:center;padding-top:9px;}
-
-
+	.sprite {background:url('http://static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
+	.sprite.twitter {background-position:0px 0px} 
+	.sprite.facebook {background-position:0px -32px} 
+	.sprite.gplus {background-position:0px -64px} 
+	.sprite.hackernews {background-position:0px -96px} 
+	.sprite.comment-icon {background-position:0px -128px;font-size:10px;text-align:center;padding-top:9px} 
+	.sprite.flickr {background-position:0px -160px} 
+	.sprite.linkedin {background-position:0px -192px} 
+	.sprite.lastfm {background-position:0px -224px} 
+	.sprite.rss {background-position:0px -256px} 
 }
-@media (min-width: 768px) {
-	body {margin: 0;padding: 0;font: 18px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
+@media (min-width:768px) {
+	body {margin:0;padding:0;font:18px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
 	.jumbotron {padding:0 60px 60px}
 	.titlebar {margin-top:50px;height:180px}
-	.titlebar h1 a {height: 100px}
+	.titlebar h1 a {height:100px}
 	.navbar .container {min-width:815px;margin-right:auto;margin-left:auto}
 	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#023}
 	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {color:#feb}
@@ -239,26 +253,26 @@ img {max-width:100%}
 	.modal-dialog{width:670px}
 }
 @media (min-width:979px) {
-	body {margin: 0;padding: 0;font: 22px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
+	body {margin:0;padding:0;font:22px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
 	.entry-content ol, 
-	.entry-content ul {margin: 0 0 10px -2.35em}
+	.entry-content ul {margin:0 0 10px -2.35em}
 	.jumbotron img {width:100%}
 	.titlebar {height:205px}
-	.titlebar h1 a {height: 102px;top:24px;left:50%;width:870px;margin-left:-435px}
+	.titlebar h1 a {height:102px;top:24px;left:50%;width:870px;margin-left:-435px}
 	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
 	#page {padding-left:0.3em;padding-right:0.3em}
 	#sidebar {display:none;}
 	#social-block {position:fixed;right:0;top:40%}
 	#social-block a, #after-article-shares a {width:64px;height:64px;display:block;float:left}
 	#after-article-shares {display:none}
-	.twitter {background: url(http://static.charlieharvey.org.uk/img/social-icons/64/twitter.png); font-size:0;}
-	.facebook {background: url(http://static.charlieharvey.org.uk/img/social-icons/64/facebook.png); font-size:0}
-	.gplus {background: url(http://static.charlieharvey.org.uk/img/social-icons/64/google+.png); font-size:0}
-	.hackernews {background: url(http://static.charlieharvey.org.uk/img/social-icons/64/hackernews.png); font-size:0}
-	.comment-icon {background: url(http://static.charlieharvey.org.uk/img/social-icons/64/comment.png); font-size:20px;text-align:center;padding-top:19px;}
-
+	.sprite {background:url('http://static.charlieharvey.org.uk/img/social-icons/64/social-icons.png') no-repeat top left;width:64px;height:64px;font-size:0} 
+	.sprite.twitter {background-position:0px 0px}
+	.sprite.facebook {background-position:0px -64px}
+	.sprite.gplus {background-position:0px -128px}
+	.sprite.hackernews {background-position:0px -192px}
+	.sprite.comment-icon {background-position:0px -256px;font-size:20px;text-align:center;padding-top:19px}
 }
 
 .blog-info-box ul,
-.blog-info-box ol {margin: 0 0 10px -25px}
+.blog-info-box ol {margin:0 0 10px -25px}
 

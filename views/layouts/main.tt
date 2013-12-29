@@ -7,10 +7,10 @@
 		<meta name="author"      content="Charlie Harvey" />
 		<meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. Vim: text editor." />
 
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,400italic,700,700italic|PT+Mono" type="text/css" />
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
-		<link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
+		<link async rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,400italic,700,700italic|PT+Mono" type="text/css" />
+		<link async rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
+		<link async rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
+		<link async rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
 
 		<link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts" href="/page/feed/rss" />
 		<link rel="alternate" type="application/rss+xml" title="RSS: Comments" href="/comment/feed/rss" />
@@ -29,7 +29,7 @@
 		<meta property="twitter:description"  content="[% description %]" />
 		<meta property="twitter:creator"      content="@ciderpunx" />
 
-		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script><!--has to be at the top so we can put scripts in middle of page-->
+		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script><!--has to be at the top so we can put scripts in middle of page, can't use async either :-/ -->
 		<!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
 
 		<title>[% title %] -- Charlie Harvey</title>
