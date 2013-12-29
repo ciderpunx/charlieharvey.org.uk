@@ -1,0 +1,49 @@
+<!--t:cv-->
+<div class="hidden-md hidden-sm hidden-xs">
+[% INCLUDE includes/social_block.tt %]
+</div>
+
+<article class="entry-content drop-cap">
+	<header>
+		<h1>[% title %]</h1>
+	</header>
+
+	<p>Thanks for taking the time to look at my CV. <strong>Please note I am not looking for work at the moment</strong>. 
+		Don&#8217;t be offended if I don&#8217;t reply to unsolicited job offers. <br /></p>
+	<p>If I <em>were</em> looking I would be most interested in job opportunities with organizations working on social 
+		and environmental justice issues, overthgrowing global capitalism and/or promoting, using or considering 
+		using Free Software.
+	</p>
+	<ul>
+		<li><a href="http://static.charlieharvey.org.uk/html_static/cv/charlie_harvey_cv.html">Online XHTML Version</a></li>
+		<li><a href="http://static.charlieharvey.org.uk/html_static/cv/charlie_harvey_cv_uk_a4.pdf">A4 PDF</a></li>
+		<li><a href="http://static.charlieharvey.org.uk/html_static/cv/charlie_harvey_cv_us_letter.pdf">US Letter PDF</a></li>
+		<li><a href="http://static.charlieharvey.org.uk/html_static/cv/charlie_harvey_cv.txt">Plain Text</a></li>
+		<li><a href="http://static.charlieharvey.org.uk/html_static/cv/charlie_harvey_cv.sxw">OpenOffice 1 (.sxw)</a></li>
+		<li><a href="http://static.charlieharvey.org.uk/html_static/cv/charlie.xml">Raw XML</a> (in 
+			<a href="http://xmlresume.sourceforge.net/">XML Resume Library Format)</a></li>
+	</ul>
+	<p>
+		I use a perl script I wrote, called xmlcv.pl to keep all versions of my CV &#8217;in sync&#8217;.
+		This in turn uses the CPAN module <a href="http://search.cpan.org/~phish/XML-LibXML/">XML::LibXML</a> and 
+		<a href="http://xmlresume.sourceforge.net/">XML Resume Library</a>.
+	</p>
+	<p>
+		I write my CV as a single XML file, the script then uses XSLT to &#8217;mung&#8217; it into the 
+		various formats available. If you look at the <a href="/cv/charlie.xml">XML version</a> 
+		of my CV, you&#8217;ll see that it&#8217;s still work in progress. The version you are seeing is the
+		(mercifully, perhaps!) brief one.
+	</p>
+	<p>
+		If you are interested in xmlcv.pl works, please feel free to 
+		<a href="/src/xmlcv.tar.gz">download it together with my &#8217;tweaked&#8217; 
+		version of the XML Resume Library [gzipped tar]</a>. I&#8217;d be interested to
+		<a href="/cgi-bin/contact.pl">hear from anyone</a> who finds it useful.
+	</p>
+	<p>
+		<strong>Update: </strong>As of 2011, <a href="http://mindosoft.github.com/">Sergios Stamatis</a> is using xmlcv.pl. He has
+		<a href="https://github.com/MINDoSOFT/mindosoft.github.com/commit/a490e6a5c2a8f43182ef92012d10c7060a2e0554#diff-3">written a bash script</a> 
+		to use xmlcv.pl to update his CV over on git hub. 
+	</p>
+</article>
+<!--/cv-->

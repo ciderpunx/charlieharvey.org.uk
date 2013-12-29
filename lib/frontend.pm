@@ -74,6 +74,18 @@ get '/archive/?' => sub {
 		redirect uri_for('/page/index/archive/1');
 };
 
+get '/cv.pl' => sub {
+	redirect uri_for '/cv'
+};
+
+get '/cv/?' => sub {
+    template 'cv', {
+      active_nav => 'About',
+			title => "Curriculum Vita&eacute;",
+			description => "Charlie Harvey&#8217;s CV or resum&eacute; as they say in the US.",
+		};
+};
+
 get '/daily_mail.pl' => sub {
 		redirect uri_for('/daily_mail/');
 };
