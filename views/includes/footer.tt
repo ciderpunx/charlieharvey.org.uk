@@ -31,9 +31,7 @@
 		<p id="copyright" class="centre">&copy; Charlie Harvey 2003-[% date.format(date.now, '%Y') %]. You can use the content under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">BY-NC-SA licence</a>. The code is under the <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU Affero licence</a>. Get it from <a href="https://gitorious.org/charlieharvey-org-uk_-_dancer_frontend/charlieharvey-org-uk_-_dancer_frontend/">Gitorious</a>.</p>
 	</div>
 </footer>
-<script src="//static.charlieharvey.org.uk/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-<script src="//static.charlieharvey.org.uk/js/main.js"></script>
 <script src="//static.charlieharvey.org.uk/js/highlight.pack.js"></script>
 <script>/* <![CDATA[ */ $('code').each(function(i, e) {hljs.highlightBlock(e)}) /* ]]> */</script>
 <script type="text/javascript">
@@ -72,25 +70,5 @@ owa_cmds.push(['trackDomStream']);
 }());
 //]]>
 </script>
-<!-- End Open Web Analytics Code -->
-
-<!-- UserVoice JavaScript SDK (only needed once on a page) --><!--TODO: Remove when I launch-->
-<script>(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/HKyy7WC61FGYUJ7TPaMXvg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
-
-<!-- A tab to launch the Classic Widget -->
-<script>
-UserVoice = window.UserVoice || [];
-UserVoice.push(['showTab', 'classic_widget', {
-  mode: 'feedback',
-  primary_color: '#cc6d00',
-  link_color: '#007dbf',
-  forum_id: 233769,
-  feedback_tab_name: 'Speak your brains',
-  tab_label: 'Feedback',
-  tab_color: '#002233',
-  tab_position: 'middle-left',
-  tab_inverted: false
-}]);
-</script>
-
+<!-- End Open Web Analytics Tracker -->
 <!--/footer-->
