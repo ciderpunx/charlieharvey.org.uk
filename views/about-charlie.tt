@@ -7,7 +7,7 @@
 	<article id="about-charlie-harvey" class="entry-content drop-cap">
     <!--div class="hero-unit">
 			<h1> What&#8217;s all this then? </h1>
-			<img class="bordered rightfloat right-rotated" alt="Portrait of Charlie Harvey" src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" />
+			<img class="bordered rightfloat right-rotated" alt="Portrait of Charlie Harvey" src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" />
 			<p>
 				<span class="drop-cap">T</span>his is the homepage for <a href="/cgi-bin/about.pl">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
 				I use it as a sort of blog, for checking the 
@@ -17,7 +17,7 @@
       <p><a class="btn btn-primary btn-lg">More about me &raquo;</a></p>
     </div-->
 		<h1>About Charlie Harvey</h1>
-		<img src="http://newint.org/contributors/2010/09/07/charlie-harvey.jpg" alt="Portrait of Charlie Harvey" class="bordered rightfloat right-rotated">
+		<img src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" alt="Portrait of Charlie Harvey" class="bordered rightfloat right-rotated">
 		<p><span class="drop-cap">I</span>&#8217;m Charlie Harvey from <a href="http://www.dailyinfo.co.uk">Oxford, UK</a>. 
 			I&#8217;m interested in all things techie, especially 
 			<a href="http://www.fsf.org">free software</a> and 
