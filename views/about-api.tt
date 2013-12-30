@@ -15,7 +15,7 @@
 	<p>The data are returned as <a href="http://json.org/">JSON</a> by default, but you can modify the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Accept header</a> 
 	to receive <a href="http://www.w3.org/TR/REC-xml/">XML</a> or <a href="http://yaml.org/">YAML</a> if that&#8217;s your bag. 
 	No other formats are supported.</p>
-	<p>The following code exaples illustrate how the API is used. The responses are truncated for brevity</p>
+	<p>The following code examples illustrate how the API is used. The responses are truncated for brevity</p>
 	<h3>Code examples</h3>
 	<ul class="no-decoration">
 		<li>Recent pages as JSON (default)
