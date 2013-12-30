@@ -1,13 +1,12 @@
 <!--t:onsite_link_ul-->
 <ul class="xoxo"> 
-   <li><a href="/popular/week">Most popular this week</a></li>
-   <li><a href="/page/cider">Cider reviews</a></li>
    <li><a href="/daily_mail.pl">Daily Mail story generator</a></li>
    <li><a href="/newsfeed">Newsfeeds</a></li>
    <li><a href="/page/space_invaders">Space Invaders</a></li>
    <li><a href="/mills_boon.pl">Statistically probable Mills and Boon stories</a></li>
    <li><a href="/html_static/real_ultimate_perlgeeks.html">Real Ultimate Perl Geeks</a></li>
    <li><a href="/rot13">ROT13 Tool</a></li>
-   <li><a href="/boozeulator.pl">Boozeulator</a></li>
+	 <li><a href="/about/api">Content API</a></li>
+   <li><a href="/contact">Contact</a></li>
 </ul>
 <!--/onsite_link_ul-->

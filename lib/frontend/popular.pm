@@ -1,4 +1,4 @@
-package frontend::comment;
+package frontend::popular;
 use Dancer ':syntax';
 use Dancer::Plugin::Feed;
 use Dancer::Plugin::Database;

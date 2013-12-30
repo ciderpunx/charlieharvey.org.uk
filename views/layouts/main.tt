@@ -12,9 +12,9 @@
 		<link async rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
 		<link async rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
 
-		<link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts" href="/page/feed/rss" />
-		<link rel="alternate" type="application/rss+xml" title="RSS: Comments" href="/comment/feed/rss" />
-		<link rel="alternate" type="application/rss+xml" title="RSS: Files" href="/file/feed/rss" />
+		<link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts"		href="/page/feed/rss" />
+		<link rel="alternate" type="application/rss+xml" title="RSS: Comments"			href="/comment/feed/rss" />
+		<link rel="alternate" type="application/rss+xml" title="RSS: Files"					href="/file/feed/rss" />
 		<link rel="alternate" type="application/rss+xml" title="RSS: Flickr images" href="http://flickr.com/services/feeds/photos_public.gne?id=8361414@N05&amp;lang=en-us&amp;format=rss_200">
 
 		<meta property="og:title"       content="[% title %]" />

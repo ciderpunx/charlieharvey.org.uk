@@ -1,6 +1,12 @@
 <!--t:tag/view-->
+
+<div class="hidden-md hidden-sm hidden-xs">
+[% INCLUDE includes/social_block.tt %]
+</div>
+
 [% IF results.size %]
 		<header>
+			<p class="pull-right"><a class="sprite32 rss rss-block" href="feed/rss">RSS</a></p>
 			<h1>Stuff tagged: [% tag.title %]</h1>
 			<p>[% entry_count %] things in total. This is page [% pager.current_page %] of [% pager.last_page %]</p>
 		</header>

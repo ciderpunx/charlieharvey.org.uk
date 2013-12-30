@@ -1,6 +1,7 @@
 [% IF page %]
 <!--t:page/article-->
 	<article id="[% page.slug %]" class="entry-content drop-cap">
+	  [% IF page.is_root %]<p class="pull-right"><a class="sprite32 rss rss-block" href="feed/rss">RSS</a></p>[% END %]
 		<header>
 				<h1>[% page.title %]</h1>
 				<a rel="bookmark" href="[% own_url %]" class="hidden">Permalink</a>	

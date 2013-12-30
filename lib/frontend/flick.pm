@@ -79,7 +79,7 @@ get '/view/:id/page/:page/?' => sub {
 
 sub _get_flickr_photo_collection {
   my ($per_page,$page) = (shift,shift);
-  my $api = new Flickr::API({'key' => 'fbcb61dd948f59db78012dc958b5e112'});
+  my $api = new Flickr::API({'key' => config->{FLICKR_KEY}});
   my $response = $api->execute_method(
     'flickr.people.getPublicPhotos', {
         'user_id'  => '8361414@N05',
@@ -146,7 +146,7 @@ sub _get_photo_detail {
 
 sub _get_photo_info {
   my $id = shift;
-  my $api = new Flickr::API({'key' => 'fbcb61dd948f59db78012dc958b5e112'});
+  my $api = new Flickr::API({'key' => config->{FLICKR_KEY}});
   my $response = $api->execute_method(
       'flickr.photos.getInfo', {
       'photo_id' => $id,
@@ -157,7 +157,7 @@ sub _get_photo_info {
 
 sub _get_photo_exif {
   my $id = shift;
-  my $api = new Flickr::API({'key' => 'fbcb61dd948f59db78012dc958b5e112'});
+  my $api = new Flickr::API({'key' => config->{FLICKR_KEY}});
   my $response = $api->execute_method(
       'flickr.photos.getExif', {
       'photo_id' => $id,

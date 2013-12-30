@@ -26,17 +26,26 @@ prefix undef;
 check_page_cache;
 
 get '/' => sub {
-		my $collection_ref = frontend::flick::_get_flickr_photo_collection(3, 1);
-		my $photos = frontend::flick::_get_photos($collection_ref, 1);
-		my $tweets = frontend::social::_tweets();
-		my $scrobbles = frontend::social::_scrobbles();
+		my $collection_ref 
+									= frontend::flick::_get_flickr_photo_collection(3, 1);
+		my $photos		= frontend::flick::_get_photos($collection_ref, 1);
+		my $tweets		= frontend::social::_tweets();
+		my $scrobbles	= frontend::social::_scrobbles();
+		my $page_rs		= frontend::page::_page_recent();
+		my @blogs			= $page_rs->all;
+		my $populars	= frontend::popular::_popular_for('week');
+		my @pop_ord		= frontend::popular::_page_ordering($populars);
+
     cache_page template 'index', {
-      active_nav => 'Home',
-			title => "127.0.0.1",
+      active_nav	=> 'Home',
+			title				=> "127.0.0.1",
 			description => "The lair of the ciderpunx",
-			tweets => $tweets,
-			scrobbles => $scrobbles,
-			pics      => $photos,
+			tweets			=> $tweets,
+			scrobbles		=> $scrobbles,
+			blogs				=> \@blogs,
+			populars		=> $populars,
+			pop_ord			=> \@pop_ord,
+			pics				=> $photos,
 			# full_width_image => "//farm4.static.flickr.com/3670/9009590123_88e46e13af_o.jpg",
 		};
 };
@@ -47,24 +56,40 @@ get '/about.pl' => sub {
 
 get '/about/?' => sub {
     template 'about', {
-      active_nav => 'About',
-			title => "About",
+      active_nav  => 'About',
+			title			  => "About",
 			description => "About Charlie Harvey and about charlieharvey.org.uk. Blah, blah, blah.",
+		};
+};
+
+get '/about/api/?' => sub {
+    template 'about-api', {
+			title				=> "REST Content API Documentation",
+      active_nav	=> 'About',
+			description => "Documentation for the charlieharvey.org.uk REST Content API, with some sample code and a few examples.",
 		};
 };
 
 get '/about/charlie-harvey/?' => sub {
     template 'about-charlie', {
-      active_nav => 'About',
-			title => "About Charlie",
+      active_nav	=> 'About',
+			title				=> "About Charlie",
 			description => "About Charlie Harvey. Cider, geekery, perl and navel gazing",
+		};
+};
+
+get '/about/feeds/?' => sub {
+    template 'about-feeds', {
+			title				=> "RSS and Atom site feeds",
+      active_nav	=> 'About',
+			description => "Information about the various RSS and Atom available from charlieharvey.org.uk.",
 		};
 };
 
 get '/about/this-site/?' => sub {
     template 'about-site', {
-      active_nav => 'About',
-			title => "About charlieharvey.org.uk",
+      active_nav	=> 'About',
+			title				=> "About charlieharvey.org.uk",
 			description => "About Charlie Harvey's website, charlieharvey.org.uk. Standards-compliant, fully responsive navel 
 			                gazing. ",
 		};
@@ -80,8 +105,8 @@ get '/cv.pl' => sub {
 
 get '/cv/?' => sub {
     template 'cv', {
-      active_nav => 'About',
-			title => "Curriculum Vita&eacute;",
+      active_nav	=> 'About',
+			title				=> "Curriculum Vita&eacute;",
 			description => "Charlie Harvey&#8217;s CV or resum&eacute; as they say in the US.",
 		};
 };

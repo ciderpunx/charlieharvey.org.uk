@@ -1,9 +1,10 @@
 <!--t:page/root-->
+
 [% INCLUDE page/article.tt %]
 
 <!--Go through each child section, pulling five recent children from each and building sections like that-->
-
 <!--Maybe use the fluid row layout from bootstrap, and no sidebar here. Or slideshow. Or something.-->
+
 [% FOREACH section IN page.children %]
 	[% IF loop.first %]
 	<div class="row">

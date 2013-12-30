@@ -35,13 +35,27 @@
 				<p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
 			</div>
 		[% END %]
+		[% IF blogs && blogs.size %]
 		<h3>Recent blogs</h3>
-			<div id="blogs"></div>
+			<ul id="blogs" class="no-decoration tinytext">
+			[% FOREACH blog IN blogs %]
+				<li><h4><a href="[% blog.link %]">[% blog.title %]</a></h4><p>[% blog.auto_summary %]</p></li>
+				[% LAST IF loop.index > 3 %]
+			[% END %]
+			</ul>
 			<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
+		[% END %]
 		</div>
 		<div class="col-xs-6 col-sm-4">
+		[% IF pop_ord && pop_ord.size %]
 			<h3>Popular this week</h3>
-			<div id="popular"></div>
+			<ul id="popular" class="no-decoration tinytext">
+			[% FOREACH p IN pop_ord %]
+				<li><a href="[% populars.$p.url.replace('^charlieharvey.org.uk/') %]">[% p %]</a></li>
+				[% LAST IF loop.index > 3 %]
+			[% END %]
+			</ul>
+		[% END %]
 		</div>
 		<div class="col-xs-6 col-sm-4">
 			<h3>Social Media</h3>
@@ -70,36 +84,4 @@
 		</div>
 	</div>
 </article>
-
-<script>
-(function() {
-	var popularAPI = "/popular/week/api";
-	var the_things = [];
-	$.getJSON( popularAPI, {})
-		.done(function( data ) {
-			$.each( data.page_titles_ordered, function( i, item ) {
-				var detail = data.pages[item]
-				the_things.push( "<li><a href='http://" + detail.url + "'>"+ detail.title +"</a></li>" );
-				if ( i > 3 ) {
-					return false;
-				}
-			});
-			$( "<ul/>", { "class": "no-decoration tinytext", html: the_things.join( "" ) }).appendTo( "#popular" );
-		});
-	})();
-(function() {
-	var blogsAPI = "/page/api/recent";
-	var the_things = [];
-	$.getJSON( blogsAPI, {})
-		.done(function( data ) {
-			$.each( data.pages, function( i, page ) {
-				the_things.push( "<li><h4><a href='" + page.link + "'>"+ page.title +"</a></h4><p>" + page.summary + "</p></li>" );
-				if ( i > 3 ) {
-					return false;
-				}
-			});
-			$( "<ul/>", { "class": "no-decoration tinytext", html: the_things.join( "" ) }).appendTo( "#blogs" );
-		});
-	})();
-</script>
 <!--/index-->

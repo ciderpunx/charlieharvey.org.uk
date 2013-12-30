@@ -36,6 +36,8 @@
 							<li><a class="nav tag" href="/about" accesskey="?">About</a></li>
 							<li><a class="nav tag me" href="/cv.pl" accesskey="R">CV</a></li>
 							<li><a class="nav tag" href="/popular/week">Popular this week</a></li>
+							<li><a class="nav tag" href="/about/feeds">RSS and Atom feeds</a></li>
+							<li><a class="nav tag" href="/about/api">Content API</a></li>
 							<li><a class="nav tag" href="/page/privacy">Privacy statement</a></li>
 							<li><a class="nav tag me" href="/contact" accesskey="@">Contact</a></li>
 						</ul>

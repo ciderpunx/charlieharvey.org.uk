@@ -1,0 +1,376 @@
+<!--t:about-api-->
+
+<div class="hidden-md hidden-sm hidden-xs">
+[% INCLUDE includes/social_block.tt %]
+</div>
+
+<article id="about-api" class="entry-content drop-cap">
+	<h1>[% title %]</h1>
+	<p>There is an <abbr title="Application Programming Interface">API</abbr> of sorts for my site content. It uses <abbr title="REpresentational State Transfer">REST</abbr> to
+	   provide read access to the site content, which is all fine to use under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons BY-NC-SA</a>. 
+		 Open data and all that. You don&#8217;t need a key to use it or any of that bullshit. But I would <em>love</em> to <a href="/contact">hear what you do</a> with it if you do.</p>
+	<p>For people  who don&#8217;t need no stinking API I also provide <a href="/about/feeds">RSS and Atom feeds</a> of much of the site content.</p>
+	<h2>Usage</h2>
+	<p>The API is a standard REST-type of a setup, but in a different namespace to the normal site HTML.</p>
+	<p>The data are returned as <a href="http://json.org/">JSON</a> by default, but you can modify the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Accept header</a> 
+	to receive <a href="http://www.w3.org/TR/REC-xml/">XML</a> or <a href="http://yaml.org/">YAML</a> if that&#8217;s your bag. 
+	No other formats are supported.</p>
+	<p>The following code exaples illustrate how the API is used. The responses are truncated for brevity</p>
+	<h3>Code examples</h3>
+	<ul class="no-decoration">
+		<li>Recent pages as JSON (default)
+			<code class="bash">$ curl [% request.uri_base %]/page/api/recent
+{
+   "pages" : [
+      {
+         "link" : "http://beta.charlieharvey.org.uk:3000/page/2013_reading_roundup",
+         "author" : "Charlie Harvey",
+         "parent_id" : "257",
+         "created_at" : "2013-12-23",
+         "summary" : "Last year I did a rundown of the books I read in 2012, mostly as I wanted to play with infogr.am. But also, let&#8217;s face it, because my propensity to navel-gaze craves occasional indulgence. This year I repeat the experiment in a yearly roundup of my reading habits&hellip; Reading stat",
+         "slug" : "2013_reading_roundup",
+         "id" : "316",
+         "title" : "2013: My favourite books and reading stats"
+      }, &hellip;</code>
+		</li>
+		<li>Recent pages as XML <code class="bash">$ curl -H"Accept:text/xml" [% request.uri_base %]/page/api/recent
+&lt;data&gt;
+&lt;pages id="316" author="Charlie Harvey" created_at="2013-12-23" link=&hellip;</code>
+		</li>
+		<li>Recent pages as YAML <code class="bash">$ curl -H"Accept:text/x-yaml" [% request.uri_base %]/page/api/recent
+---
+pages:
+- author: Charlie Harvey
+  created_at: 2013-12-23
+  id: 316
+  link: &hellip;</code>
+		</li>
+	  <li>Using jQuery to pull recent pages into an html page <code class="html">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Blog example&lt;/title&gt;
+  &lt;script src="//code.jquery.com/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Blogs from charlieharveyr.org.uk&lt;/h1&gt;
+  &lt;div id="blogs"&gt; &lt;/div&gt;
+
+  &lt;script&gt;
+    (function() {
+      var blogsAPI = "/page/api/recent";
+      var the_things = [];
+      $.getJSON( blogsAPI, {})
+        .done(function( data ) {
+          $.each( data.pages, function( i, page ) {
+            the_things.push( "&lt;li&gt;&lt;h4&gt;&lt;a href='" + page.link + "'&gt;"+ page.title +"&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;" + page.summary + "&lt;/p&gt;&lt;/li&gt;" );
+          });
+          $( "&lt;ul/&gt;", { "class": "no-decoration tinytext", html: the_things.join( "" ) }).appendTo( "#blogs" );
+        });
+    })();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+		</li>
+
+	</ul>
+
+	<h2>API endpoints</h2>
+
+	<p>
+		In the following documentation, parameters to API calls are shown in square brackets like this: [id]
+	</p>
+
+	<h3>Pages</h3>
+	<p><em>The content under the blog section of the website is referred to as pages by the API</em></p>
+	<dl>
+		<dt><h4>Recent pages</h4></dt>
+		<dd>Retrieve the 10 most recently published pages
+		<code class="bash">$ curl [% request.uri_base %]/page/api/recent</code>
+			Resulting in JSON like this <code class="json">{
+   "pages" : [
+      {
+         "link" : "http://beta.charlieharvey.org.uk:3000/page/2013_reading_roundup",
+         "author" : "Charlie Harvey",
+         "parent_id" : "257",
+         "created_at" : "2013-12-23",
+         "summary" : "Last year I did a rundown of the books I read in 2012, mostly as I wanted to play with infogr.am. But also, let&#8217;s face it, because my propensity to navel-gaze craves occasional indulgence. This year I repeat the experiment in a yearly roundup of my reading habits&hellip; Reading stat",
+         "slug" : "2013_reading_roundup",
+         "id" : "316",
+         "title" : "2013: My favourite books and reading stats"
+      }, 
+      &hellip;
+  ]  
+}</code>
+		</dd>
+		<dt><h4>Single page by [id]</h4></dt>
+		<dd>Retrieve the page with id [id]
+			<code class="bash">$ curl [% request.uri_base %]/page/api/1</code>
+			Resulting in JSON like this <code class="json">{
+   "page" : {
+      "link" : "http://beta.charlieharvey.org.uk:3000/page/index",
+      "author" : "Charlie Harvey",
+      "parent_id" : "0",
+      "created_at" : "2005-11-09",
+      "summary" : "These pages contain bits of html, perl, sysadminning, activism, politics and that for your perusal&hellip;",
+      "slug" : "index",
+      "id" : "1",
+      "title" : "Blog"
+   }
+}</code>
+		</dd>
+	</dl>
+
+	<h3>Social</h3>
+	<dl>
+		<dt><h4>All social</h4></dt>
+		<dd>Return two lists &mdash; one of my 10 most recent tweets and one of my 10 most recent scrobbles
+			<code class="bash">$ curl [% request.uri_base %]/social/api/all</code>
+			Resulting in JSON like this <code class="json">{
+   "tweets" : [
+      {
+         "link" : "https://twitter.com/ciderpunx/status/417563169138044928",
+         "title" : "&lt;a href=\"http://search.twitter.com/search?q=%23security\"&gt;#security&lt;/a&gt; New Fund to Support Snowden-like Whistleblowers: HAMBURG &ndash; A new foundation to support wh... &lt;a href=\"http://wrd.cm/19wQVkG\"&gt;http://wrd.cm/19wQVkG&lt;/a&gt;&nbsp; &#x267A; &lt;a href=\"http://twitter.com/wired\"&gt;@wired&lt;/a&gt;"
+      },
+      {
+         "link" : "https://twitter.com/ciderpunx/status/417450940824694784",
+         "title" : "&lt;a href=\"http://search.twitter.com/search?q=%23security\"&gt;#security&lt;/a&gt; WikiLeaks&rsquo; Assange: Sysadmins of the World, Unite!: HAMBURG &ndash; Faced with increasing encro... &lt;a href=\"http://wrd.cm/19z3kYz\"&gt;http://wrd.cm/19z3kYz&lt;/a&gt;&nbsp; &#x267A; &lt;a href=\"http://twitter.com/wired\"&gt;@wired&lt;/a&gt;"
+      },
+   &hellip;
+   ],
+   "scrobbles" : [
+      {
+         "link" : "http://www.last.fm/music/Johann+Sebastian+Bach/_/Orchestral+Suite+No.1+in+C,BWV",
+         "title" : "Johann Sebastian Bach &ndash; Orchestral Suite No.1 in C,BWV"
+      },
+      {
+         "link" : "http://www.last.fm/music/Johann+Sebastian+Bach/_/Orchestral+Suite+No.1+in+C,BWV",
+         "title" : "Johann Sebastian Bach &ndash; Orchestral Suite No.1 in C,BWV"
+      },
+   &hellip;
+   ]
+}</code>
+</dd>
+		<dt><h4>Scrobbles</h4></dt>
+		<dd>Return a list of my 10 most recent scrobbles
+			<code class="bash">$ curl [% request.uri_base %]/social/api/scrobbles</code>
+			Resulting in JSON like this <code class="json">{
+   "scrobbles" : [
+      {
+         "link" : "http://www.last.fm/music/Johann+Sebastian+Bach/_/Orchestral+Suite+No.1+in+C,BWV",
+         "title" : "Johann Sebastian Bach &ndash; Orchestral Suite No.1 in C,BWV"
+      },
+      {
+         "link" : "http://www.last.fm/music/Johann+Sebastian+Bach/_/Orchestral+Suite+No.1+in+C,BWV",
+         "title" : "Johann Sebastian Bach &ndash; Orchestral Suite No.1 in C,BWV"
+      },
+      &hellip;
+   ]
+}</code>
+		</dd>
+		<dt><h4>Tweets</h4></dt>
+		<dd>Return a list of my 10 most recent tweets
+			<code class="bash">$ curl [% request.uri_base %]/social/api/tweets</code>
+			Resulting in JSON like this <code class="json">{
+   "tweets" : [
+      {
+         "link" : "https://twitter.com/ciderpunx/status/417563169138044928",
+         "title" : "&lt;a href=\"http://search.twitter.com/search?q=%23security\"&gt;#security&lt;/a&gt; New Fund to Support Snowden-like Whistleblowers: HAMBURG &ndash; A new foundation to support wh... &lt;a href=\"http://wrd.cm/19wQVkG\"&gt;http://wrd.cm/19wQVkG&lt;/a&gt;&nbsp; &#x267A; &lt;a href=\"http://twitter.com/wired\"&gt;@wired&lt;/a&gt;"
+      },
+      {
+         "link" : "https://twitter.com/ciderpunx/status/417450940824694784",
+         "title" : "&lt;a href=\"http://search.twitter.com/search?q=%23security\"&gt;#security&lt;/a&gt; WikiLeaks&rsquo; Assange: Sysadmins of the World, Unite!: HAMBURG &ndash; Faced with increasing encro... &lt;a href=\"http://wrd.cm/19z3kYz\"&gt;http://wrd.cm/19z3kYz&lt;/a&gt;&nbsp; &#x267A; &lt;a href=\"http://twitter.com/wired\"&gt;@wired&lt;/a&gt;"
+      },
+      &hellip;
+   ]
+}</code>
+		</dd>
+	</dl>
+
+	<h3>Files</h3>
+	<dl>
+		<dt><h4>Recent files</h4></dt>
+		<dd>Return a list of my 10 most recent files
+			<code class="bash">$ curl [% request.uri_base %]/file/api/recent</code>
+			Resulting in JSON like this <code class="json">{
+   "files" : [
+      {
+         "body" : "&lt;p&gt;Twitter recently got rid of the ability to get search results as an RSS as part of their API update of 11 June 2013.&lt;/p&gt;  &lt;p&gt;I found those feeds rather useful, so I made a little screen scraper that reimplements the functionality without needing to auth against their API (it just pulls the results out of the web search page). I guess this will be good for a while longer, like enough time to switch to &lt;a href=\"http://status.net/\"&gt;statusnet&lt;/a&gt;, identica, or whatever.&lt;/p&gt;&lt;p&gt;It might be of use to some others in the monastry and illustrates the power of &lt;a href=\"http://search.cpan.org/~mirod/HTML-TreeBuilder-XPath-0.14/lib/HTML/TreeBuilder/XPath.pm\"&gt;HTML::TreeBuilder::XPath&lt;/a&gt;.&lt;/p&gt;",
+         "link" : "http://beta.charlieharvey.org.uk:3000/file/uid/111",
+         "created_at" : "2013-06-17",
+         "author" : "Charlie Harvey",
+         "category" : "culture",
+         "id" : "111",
+         "title" : "tweetsearch_to_rss.pl: Get twitter searches as an RSS feed with perl"
+      },
+      &hellip;
+  ]
+}</code>
+		</dd>
+		<dt><h4>Recent files in [category]</h4></dt>
+		<dd>Return a list of the 10 most recent files in a category
+			<code class="bash">$ curl [% request.uri_base %]/file/api/culture/recent</code>
+			Resulting in JSON like this <code class="json">{
+   "files" : [
+      {
+         "body" : "&lt;p&gt;Twitter recently got rid of the ability to get search results as an RSS as part of their API update of 11 June 2013.&lt;/p&gt;  \r\n\r\n&lt;p&gt;I found those feeds rather useful, so I made a little screen scraper that reimplements the functionality without needing to auth against their API (it just pulls the results out of the web search page). I guess this will be good for a while longer, like enough time to switch to &lt;a href=\"http://status.net/\"&gt;statusnet&lt;/a&gt;, identica, or whatever.&lt;/p&gt;\r\n\r\n&lt;p&gt;It might be of use to some others in the monastry and illustrates the power of &lt;a href=\"http://search.cpan.org/~mirod/HTML-TreeBuilder-XPath-0.14/lib/HTML/TreeBuilder/XPath.pm\"&gt;HTML::TreeBuilder::XPath&lt;/a&gt;.&lt;/p&gt;",
+         "link" : "http://beta.charlieharvey.org.uk:3000/file/uid/111",
+         "created_at" : "2013-06-17",
+         "author" : "Charlie Harvey",
+         "category" : "culture",
+         "id" : "111",
+         "title" : "tweetsearch_to_rss.pl: Get twitter searches as an RSS feed with perl"
+      },
+      &hellip;
+  ]
+}</code>
+
+		</dd>
+		<dt><h4>Details of file by [id]</h4></dt>
+		<dd>Return the details of file id [id]
+			<code class="bash">$ curl [% request.uri_base %]/file/api/[id]</code>
+			Resulting in JSON like this <code class="json">{
+   "file" : {
+      "body" : "&lt;p&gt;Twitter recently got rid of the ability to get search results as an RSS as part of their API update of 11 June 2013.&lt;/p&gt;  &lt;p&gt;I found those feeds rather useful, so I made a little screen scraper that reimplements the functionality without needing to auth against their API (it just pulls the results out of the web search page). I guess this will be good for a while longer, like enough time to switch to &lt;a href=\"http://status.net/\"&gt;statusnet&lt;/a&gt;, identica, or whatever.&lt;/p&gt;&lt;p&gt;It might be of use to some others in the monastry and illustrates the power of &lt;a href=\"http://search.cpan.org/~mirod/HTML-TreeBuilder-XPath-0.14/lib/HTML/TreeBuilder/XPath.pm\"&gt;HTML::TreeBuilder::XPath&lt;/a&gt;.&lt;/p&gt;",
+      "link" : "http://beta.charlieharvey.org.uk:3000/file/uid/111",
+      "created_at" : "2013-06-17",
+      "author" : "Charlie Harvey",
+      "category" : "culture",
+      "id" : "111",
+      "title" : "tweetsearch_to_rss.pl: Get twitter searches as an RSS feed with perl"
+   }
+}</code>
+		</dd>
+	</dl>
+
+	<h3>Comments</h3>
+	<dl>
+		<dt><h4></h4></dt>
+		<dd>Return a list of the 10 most recently published comments
+			<code class="bash">$ curl [% request.uri_base %]/comment/api/recent</code>
+      Resulting in JSON like this <code class="json">{
+   "comments" : [
+      {
+         "body" : "Ey Charlie, nice story you did a pretty good job.\r\nthanks for sharing it : )",
+         "link" : "http://beta.charlieharvey.org.uk:3000/comment/317",
+         "created_at" : "2013-12-19",
+         "url" : null,
+         "nick" : null,
+         "id" : "317",
+         "title" : null
+      },
+      &hellip;
+  ]
+}</code>
+		</dd>
+		<dt><h4>Comment by [id]</h4></dt>
+		<dd>Return the details of comment id [id]
+			<code class="bash">$ curl [% request.uri_base %]/comment/api/111</code>
+			Resulting in JSON like this <code class="json">{
+   "comment" : {
+      "link" : "http://beta.charlieharvey.org.uk:3000/comment/111",
+      "body" : "Props to Grumpy Git for liveblogging a cider tasting in the comments thread ;-) Glad you had some cidery fun and hope you didn&#39;t get into a fight!",
+      "created_at" : "2011-09-01",
+      "url" : "http://charlieharvey.org.uk/page/index/",
+      "title" : "Liveblogging",
+      "nick" : "Charlie",
+      "id" : "111"
+   }
+}</code>
+	</dd>
+	</dl>
+
+	<h3>Tags</h3>
+	<dl>
+		<dt><h4>All tags</h4></dt>
+		<dd>Return a list of <em>all</em> tags
+			<code class="bash">$ curl [% request.uri_base %]/tag/api</code>
+			Resulting in JSON like this <code class="json">{
+   "tags" : [
+      {
+         "link" : "http://beta.charlieharvey.org.uk:3000/tag/1in12",
+         "id" : "400",
+         "title" : "1in12"
+      },
+      {
+         "link" : "http://beta.charlieharvey.org.uk:3000/tag/2012",
+         "id" : "477",
+         "title" : "2012"
+      },
+	    &hellip;
+}</code>
+		</dd>
+		<dt><h4></h4></dt>
+		<dd>Return a list of content tagged with the tag that has id [id]
+			<code class="bash">$ curl [% request.uri_base %]/tag/api/477</code>
+			Resulting in JSON like this <code class="json">{
+   "tag" : {
+      "link" : "http://beta.charlieharvey.org.uk:3000/tag/2012",
+      "writings" : [],
+      "id" : "477",
+      "title" : "2012",
+      "pages" : [
+         {
+            "link" : "http://beta.charlieharvey.org.uk:3000/page/self_indulgent_navel_gazing_about_books_i_read_in_2012",
+            "summary" : "It is traditional &mdash; and who am I to dispute traditions? &mdash; to publish navel-gazing lists and yearly \"roundups\" at or about New Year. So, I have had a self-indulgent look back at 2012 through the lens of the books that I read and articles that I wrote this year. Gimme some stats",
+            "updated_at" : "2012-12-30",
+            "author" : "Charlie Harvey",
+            "id" : "255",
+            "title" : "2012 Reading Highlights"
+         }
+      ]
+   }
+}</code>
+		</dd>
+	</dl>
+
+	<h3>Popular</h3>
+	<dl>
+		<dt><h4>Popular for [week|month|year|all-time]</h4></dt>
+		<dd>Return a list of the most popular content for the last [week|month|year] or for [all-time] 
+			<code class="bash">$ curl [% request.uri_base %]/popular/week/api</code>
+			Resulting in JSON like this. Note that an array of pages in order of populartiy and an associative array of page 
+			names to details are returned. The associative array may not be in order. <code class="json">{
+   "page_titles_ordered" : [
+      "127.0.0.1",
+      "Pages : Motherboard details from the GNU/Linux commandline",
+      "Pages : Rooting the Coby Kyros MID9742 Android tablet",
+      "Pages : Tool: Twitter RSS Feed Getter",
+      "Pages : Ettercap remote_browser Plugin Fun",
+      "Pages : Split multi-page PDFs into single page PDFs on GNU/Linux with pdftk",
+      "Pages : Tip: Latest Chromium Browser on Debian Squeeze",
+      "Daily Mail Story Generator",
+      "About",
+      "Pages : Gnome 3 Nautilus Tip &mdash; Make the Delete Key Delete Files"
+   ],
+   "pages" : {
+      "Pages : Split multi-page PDFs into single page PDFs on GNU/Linux with pdftk" : {
+         "hits" : "36",
+         "unique_visits" : "34",
+         "url" : "charlieharvey.org.uk/page/howto_breaking_pdfs_up_into_mutiple_pages",
+         "title" : "Pages : Split multi-page PDFs into single page PDFs on GNU/Linux with pdftk"
+      },
+      "Pages : Ettercap remote_browser Plugin Fun" : {
+         "hits" : "46",
+         "unique_visits" : "37",
+         "url" : "charlieharvey.org.uk/page/ettercap_remote_browser_fun",
+         "title" : "Pages : Ettercap remote_browser Plugin Fun"
+      }
+      &hellip;
+  }
+}</code>
+</dd>
+	</dl>
+
+	<h3>ROT-13</h3>
+	<dl>
+		<dt><h4>ROT-13 [string_to_ROT13]</h4></dt>
+		<dd>Return the <a href="/rot-13">ROT-13ed</a> string of [string_to_ROT13]. Strings ought to be
+			URL encoded. Note that ROT-13ing a string twice un-ROT-13s it. 
+			<code class="bash">$ curl [% request.uri_base %]/rot13/rot-13+roolz</code>
+			Resulting in JSON like this
+			<code class="json">{
+   "msg" : "ebg-13+ebbym"
+}</code>
+		</dd>
+	</dl>
+</article>
+<!--/api-->

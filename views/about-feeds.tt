@@ -1,0 +1,24 @@
+<!--t:about-api-->
+
+<div class="hidden-md hidden-sm hidden-xs">
+[% INCLUDE includes/social_block.tt %]
+</div>
+
+<article id="about-feeds" class="entry-content drop-cap">
+	<h1>[% title %]</h1>
+	<img class="bordered rightfloat" src="http://readwrite.com/files/files/files/images/2008-11-09-feeds.gif" alt="RSS cartoon" />
+	<p>I provide a number of feeds in Atom and RSS format. Here is a complete listing of them. You can use this content under 
+		a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons BY-NC-SA</a> licence.</p>
+	<p>If you&#8217;re a bit of a geek, you might find the <a href="/about/api">REST Content API</a> more convenient to work with.</p>
+	<ul>
+		<li>Latest blog posts: <a href="/page/feed/rss">RSS</a> or <a href="/page/feed/atom">Atom</a></li>
+		<li>Latest files: <a href="/file/feed/rss">RSS</a> or <a href="/file/feed/atom">Atom</a></li>
+		<li>Latest files by category (change the category in the URL if you want a different one): 
+				<a href="/file/techie/feed/rss">RSS</a> or <a href="/file/techie/feed/atom">Atom</a></li>
+		<li>Latest comments: <a href="/comment/feed/rss">RSS</a> or <a href="/comment/feed/atom">Atom</a></li>
+		<li>Latest tags (change the tag name in the URL for a different tag): <a href="/tag/geekery/feed/rss">RSS</a> or <a href="/tag/geekery/feed/atom">Atom</a></li>
+		<li>Popular content this week, month or year (change the period in the URL to year, month or week as appropriate): 
+			<a href="/popular/week/feed/rss">RSS</a> or <a href="/popular/week/feed/atom">Atom</a></li>
+	</ul>
+</article>
+<!--/api-->
