@@ -61,10 +61,10 @@
 				</div>
 			[% END %]
 			[% IF errors %]
-				<div class="alert alert-error alert-block">
+				<div class="alert alert-danger">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<h2>Uh-oh! I found errors</h2>
-					<ul class="error">
+					<h3>Uh-oh! I found errors</h3>
+					<ul class="error no-decoration">
 						[% FOR err IN errors %]
 						<li>[% err %]</li>
 						[% END %]

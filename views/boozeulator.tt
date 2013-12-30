@@ -1,0 +1,41 @@
+<!--t:boozeulator-->
+<article class="entry-content" id="boozeulator">
+	<header >
+		<h1>[% title %]</h1>
+	<header >
+
+[% INCLUDE includes/social_block.tt %]
+
+[% IF ppp && units %]
+	<h3>[% name %] Booze-u-lated!</h3>
+	<p><em>I successfully Booze-u-lated [% name %] and this is what I found</em>:</p>
+	<ul>
+		<li>The pissedness-per-pound for [% name %] is [% ppp %] &mdash; higher is better</li>
+		<li>You would get [% units %] units from drinking the whole [% ml %]ml bottle of [% name %]</li>
+		<li>If you drink enough of it [% name %] will make you pissed</li>
+	</ul>
+	<p>&hellip; hic. <strong>Cheers!</strong></p>
+	<h2>Try again?</h2>
+[% ELSE %]
+	<p class="tinytext">
+		The Booze-u-lator allows the alcoholic cognescenti to calculate the efficiency of drinking a given beverage, by returning a "pissedness per pound"(PPP) quotient.
+		This is calculated by working out how much booze is contained in ones drink, based on the quantity and percentage of alcohol in the chosen brew, then dividing the price by that figure.
+	</p>
+[% END %]
+
+	<form>
+		<p>Enter the name, quantity, percentage alcohol and price for your drink and click Booze-u-late.</p>
+		<p>
+			<label for "name">Name of booze:</label><br />
+			<input id="name" name="name" type="text" size="30" maxlength="50" value="[% name %]"/><br />
+			<label for="ml">How many ml in bottle:  </label><br />
+			<input id="ml" name="ml" type="text" size="5" value="[% ml %]"/><br />
+			<label for="percent">What percentage alcohol it is: </label><br />
+			<input id="percent" name="percent" type="text" size="5" value="[% percent %]" /><br />
+			<label for="price">What it costs: </label><br />
+			<input id="price" name="price" type="text" size="5" value="[% price %]"/><br /><br />
+			<input name="submit" value=" Booze-u-late! " type="submit" />
+		</p>
+	</form>
+</article>
+<!--/boozeulator-->

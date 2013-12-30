@@ -99,6 +99,54 @@ get '/archive/?' => sub {
 		redirect uri_for('/page/index/archive/1');
 };
 
+get '/boozeulator.pl' => sub {
+	redirect uri_for '/boozeulator'
+};
+
+get '/boozeulator' => sub {
+	my $name		= (params->{name})		|| '';
+	my $percent = (params->{percent}) || 0;
+	my $price		= (params->{price})		|| 0;
+	my $ml      = (params->{ml})			|| 0;
+	$percent		= 0 if $percent > 100 || $percent <= 0;
+	$price			= 0 if $price < 0.01;
+	$ml					= 0 if $ml < 1;
+	my $errors	= '';
+	my $success	= '';
+	my $ppp			= 0;
+	my $units		= 0;
+
+	if($name && $percent && $price && $ml) {
+		$ppp			= sprintf("%.2f", ($ml*($percent/100))/($price/100));
+		$units		= sprintf("%.4f", ($ml*$percent)/1000);
+		$success	= "Booze-u-lation successful!";
+	} 
+	else {
+		if ($name || $percent || $price || $ml) {
+			$errors = ["Missing name, percentage ABV, price or amount in ml. Fill in all the things."]
+		}
+	}
+	template 'boozeulator', {
+			title				=> "The Booze-u-lator",
+			description => "The world famous Booze-u-lator: calculate the most efficient way to get pissed.",
+			name				=> $name,
+			percent			=> $percent,
+			ml					=> $ml,
+			price				=> $price,
+			ppp					=> $ppp,
+			units				=> $units,
+			errors			=> $errors,
+			success			=> $success,
+	}
+};
+
+# TODO: Boozeulator API
+#get '/boozeulator/api/:name/:price/:percent/:mls' => sub { 
+#	set serializer => 'mutable';
+#	return {ppp => (params->{mls}), units => 0};
+#}; 
+
+
 get '/cv.pl' => sub {
 	redirect uri_for '/cv'
 };
