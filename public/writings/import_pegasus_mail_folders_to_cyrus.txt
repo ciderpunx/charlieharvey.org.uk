@@ -1,0 +1,197 @@
+#!/usr/bin/perl -w
+# 
+# script to slurp the folders from a pegasus user into a cyrus imapd maildir.
+#
+#               Copyright (C)2004  Charlie Harvey
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+# MA  02111-1307, USA.
+# Also available on line: http://www.gnu.org/copyleft/gpl.html
+#
+#
+# Tech notes
+# ==========
+# 
+# Uses 2 other scripts :
+# 	peg_folder_hierarchy.pl (for what we can get of the folder hierarchy),
+# 	peg_split_and_deliver.pl (splits and delivers mail from a .PMM file)
+# Also uses the cpan module:
+# 	Cyrus::IMAP::Admin
+# Usage: cyr_add.pl  user_to_add mail_dir password
+#
+# The mail_dir should be a standard pegasus mail user directory, with a hierarch.pm 
+# file and .PMM mail folders.
+#
+# You could use randpass for the password, but if you do make a note of it.
+# 
+# Fanx
+# ====
+# Original script by amram@manhattanprojects.com && tom@tomster.org, was one to import a
+# *nix mail hierarchy.
+
+use strict;
+use Cyrus::IMAP::Admin;
+
+# Config bits
+my $cyrus_server = "localhost";
+my $cyrus_user = "cyrus";
+my $cyrus_pass = "PASSWORD";
+
+# Quota is 250 Megs
+my $quota_size = 250*1024;
+my $mechanism = "login";
+
+# these set from argv[]
+my ($newuser,$newdir,$newpasswd);
+
+# grab our commandline args...
+if (!$ARGV[2]) {
+	die "Usage: $0 user_to_add mail_dir password\n";
+} else {
+	$newuser = "$ARGV[0]";
+	$newdir = "$ARGV[1]";
+	$newdir=~s/\/$//;
+	$newpasswd = "$ARGV[2]";
+}
+
+my $cyrus = Cyrus::IMAP::Admin->new($cyrus_server);
+$cyrus->authenticate($mechanism,'imap','',$cyrus_user,'0','10000',$cyrus_pass);
+
+# Create a mailbox for our new user, and set the ACLS up for it.
+sub createMailbox {
+	my ($user, $subfolder) = @_;
+	my $mailbox;
+	if ($subfolder eq "INBOX") {
+		$mailbox = "user/". $user;
+	} else {
+		$mailbox = "user/". $user ."/". $subfolder;
+	}
+	$cyrus->create($mailbox);
+	if ($cyrus->error) {
+		print STDERR "Error: ", $mailbox," ", $cyrus->error, "\n";
+	} else {
+		print "Created Mailbox: $mailbox \n";
+	}
+	$cyrus->setaclmailbox("$mailbox",'cyrus','all');
+	if ($cyrus->error) {
+		print STDERR "Error: ", $mailbox," ", $cyrus->error, "\n";
+	} else {
+		print "Setting ACL: $mailbox cyrus all \n";
+	}
+	$cyrus->setaclmailbox("$mailbox",'everyone','post');
+	if ($cyrus->error) {
+		print STDERR "Error: ", $mailbox," ", $cyrus->error, "\n";
+	} else {
+		print "Setting ACL: $mailbox everyone post \n";
+	}
+}
+
+# Set your quota (see top of script for $quota_size param)
+sub setQuota {
+	my ($user) = @_;
+	my $mailbox = "user/". $user;
+	$cyrus->setquota($mailbox,"STORAGE",$quota_size);
+	if ($cyrus->error) {
+		print STDERR "Error: ", $mailbox," ", $cyrus->error, "\n";
+	} else {
+		print "Setting Quota: $mailbox at $quota_size \n";
+	}
+}
+
+# set up a default IMAP.PM module in pegasus account
+# this is based on a limited understanding of the IMAP.PM format 
+# which I interpret thus (?==dunno what this does):
+# profile_name, session?, server_address, server_port, user_name, ?, password_crypted, timeout, inbox_refresh, ?, ?, ?, always_connect, trash_behaviour
+# \r\nProfile-ID: [profile-id]
+
+sub IMAPdotPM() {
+	open (OUT,">$newdir/IMAP.PM") || warn ("Unable to set up pegasus :0(");
+
+	print OUT "Profile: \"$newuser\_on_oahu\"," .
+		  '123,"192.168.254.202",993,' .
+		  "\"$newuser\",18626," .
+		  '"","",5,600,2,"","",1,"Trash"' .
+		  "\r\nProfile-ID: 1000";
+	close OUT;
+	`chmod 777 $newdir/IMAP.PM`;
+	print "IMAP.PM written for: $newuser\n";
+}
+
+# set pegasus up to use oahu for smtp
+# you need to have a template smtp file here. 
+sub SMTPsetup() {
+	# copy template accross
+	my $template_dir = "/home/mailusers";
+	my $template_file = "oahu.PND";
+	system ("cp -pf $template_dir/$template_file $newdir");
+	
+	# read pmail.ini file
+	open(IN, "$newdir/pmail.ini") || warn ("Couldn't find pmail.ini for $newuser");
+	my @pmail_ini = <IN>;
+	close IN;
+	
+	# backup pmail.ini file
+	open (BAK, ">$newdir/pmail.ini.migration.bak") || warn ("Can't create backup pmail.ini for $newuser");
+	foreach (@pmail_ini) {
+		print BAK $_;
+	}
+	close BAK;
+	
+	# rewrite pmail.ini file
+	open (OUT, ">$newdir/pmail.ini") || warn ("Can't create backup pmail.ini for $newuser");
+	foreach (@pmail_ini) {
+		if ($_=~/^Internet E-mail Address/) {
+			print OUT "SMTP definition\t\t\t  = $template_file\r\n";
+		}
+		print OUT $_;
+	}
+	close OUT;
+	print "Pegasus SMTP completed for: $newuser\n";
+}
+
+########################################
+# Let's go....
+print "Adding User: ", $newuser, "\n";
+
+createMailbox($newuser,'INBOX');
+foreach( `peg_folder_hierarchy.pl $newdir/HIERARCH.PM`) {
+	chomp $_;
+	my ($folfile,$folname)=split /:\t/,$_;
+	$folname=~s/[&]+/_and_/g;	# we don't want ampersands. 
+	$folname=~s/[\s\-]+/_/g;        # ... or odd space strings.
+	$folname=~s/_$//;		# ... or trailing _s.
+	createMailbox($newuser,$folname);
+	my $migrate_mail = `peg_split_and_deliver.pl "$newdir/$folfile.PMM" "user/$newuser/$folname"`;
+	print "$migrate_mail";
+}
+
+# Set quota for user
+setQuota($newuser);
+
+# Set up password for user.
+system "echo ". $newpasswd ." > .saslpass.tmp";
+system "saslpasswd2 -p $newuser < .saslpass.tmp";
+print "Generated Password: Completed \n";
+unlink(".saslpass.tmp");
+
+# Set up pegasus to connect to the new account
+print "Setting up pegasus account for $newuser\n";
+IMAPdotPM();
+#SMTPsetup();
+
+# That should be our lot
+print "Added User: ", $newuser, "\n";
+
+########################################################################################################

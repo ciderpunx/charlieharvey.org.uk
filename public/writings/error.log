@@ -1,0 +1,55 @@
+Argument "330000.00:popp\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "33000.00:cider\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "7053.29:white ace\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "6944.44:Strongbow Super\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "6448.00:Stella\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "5700.00:everclear\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "5000.00:sbow super\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "4880.86:hoochy min\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "4455.91:everclear\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "4455.91:everclear\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+[Mon Aug  2 09:40:51 2010] [error] [client 207.46.13.46] File does not exist: /home/charlieharvey/23QT7L84/htdocs/html_static/49E07DAE16389B38148C655FE56E2EA1_00000.temp0001.htm
+[Mon Aug  2 14:04:41 2010] [error] [client 67.195.37.170] File does not exist: /home/charlieharvey/23QT7L84/htdocs/editors/2009/10/08/meltdown/
+Argument "330000.00:popp\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "33000.00:cider\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "7053.29:white ace\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "6944.44:Strongbow Super\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "6448.00:Stella\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "5700.00:everclear\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "5000.00:sbow super\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "4880.86:hoochy min\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "4455.91:everclear\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+Argument "4455.91:everclear\n" isn't numeric in sort at /home/charlieharvey/23QT7L84/cgi-bin/boozeulator.pl line 58.
+[Mon Aug  2 15:25:19 2010] [error] [client 77.88.42.26] File does not exist: /home/charlieharvey/23QT7L84/htdocs/photos/photos.pl
+[Mon Aug  2 15:25:19 2010] [error] [client 77.88.42.26] File does not exist: /home/charlieharvey/23QT7L84/htdocs/photos/error.pl
+[Mon Aug  2 18:06:43 2010] [error] [client 67.195.111.61] File does not exist: /home/charlieharvey/23QT7L84/htdocs/photos/robots.txt
+[Mon Aug  2 18:06:43 2010] [error] [client 67.195.111.61] File does not exist: /home/charlieharvey/23QT7L84/htdocs/photos/error.pl
+[Mon Aug  2 21:58:47 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/index.pl
+[Mon Aug  2 21:58:53 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/index.pl
+[Mon Aug  2 21:58:59 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/index.pl
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 44.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 47.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 50.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 53.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 55.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 62.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 63.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 64.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 65.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 67.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 68.
+Global symbol "$dbpage" requires explicit package name at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 69.
+Execution of /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl aborted due to compilation errors.
+[Mon Aug  2 21:59:02 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+[Mon Aug  2 22:00:44 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+[Mon Aug  2 22:00:47 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/index.pl
+[Mon Aug  2 22:04:44 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/writings.pl
+[Mon Aug  2 22:04:48 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+[Mon Aug  2 22:04:50 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/index.pl
+[Mon Aug  2 22:07:48 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+[Mon Aug  2 22:07:58 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+[Mon Aug  2 22:08:06 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+Argument "" isn't numeric in numeric ne (!=) at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 38.
+Use of uninitialized value in numeric ne (!=) at /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl line 38.
+[Mon Aug  2 22:10:02 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl
+[Mon Aug  2 22:10:40 2010] [error] [client 78.86.234.193] Premature end of script headers: /home/charlieharvey/23QT7L84/cgi-bin/dbpage.pl

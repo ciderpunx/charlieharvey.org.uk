@@ -1,0 +1,72 @@
+#!/usr/bin/perl
+#
+# topantail.pm: generate headers and footers for charlieharvey.org.uk
+#
+#               Copyright (C)2005  Charlie Harvey
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+# MA  02111-1307, USA.
+# Also available on line: http://www.gnu.org/copyleft/gpl.html
+#
+
+package topantail;
+
+use Exporter;
+use CGI qw(:standard );
+use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+
+$VERSION     = 0.2;
+@ISA         = qw(Exporter);
+@EXPORT      = ();
+@EXPORT_OK   = qw(pg_top search_tail pg_tail );
+%EXPORT_TAGS = ( DEFAULT => [qw(&pg_top, &search_tail, &pg_tail)]);
+
+sub pg_top {
+	my ($title,$bgcol)=@_;
+	my $return="";
+	$return.=header(),     
+    	$return.=start_html(-style=>{'src'=>'/stylesheets/todo.css'},
+			    -script=>{'src'=>'/func.js'},
+                   	     -title=>"$title");
+	#navigation bit
+	open (NAV,"../htdocs/nav.html"); my @nav=<NAV>; close NAV;
+	foreach(@nav) {$return.=$_;}
+	$return.=div({-class=>'tdl_title', -align=>'right', -style=>"background-color:$bgcol;"}, "$title" );
+   
+	return $return;
+}
+
+sub search_tail() {
+	my $return = div({-align=>'left', id=>'clock',style=>'background-color:#000000;color:#32ff23;font-family:arial,sans-serif;font-weight: bold;font-size: 10px;float:left'}, ' ');
+	$return.=div({align=>'right', style=>''}, 
+   	start_form(-name=>"search", -method=>"get", -action=>"http://google.com/search"),
+		'(Thanks ', a ({-href=>'http://google.com'},'Google'),')',
+		hidden(-name=>"domains", -value=>"charlieharvey.org.uk" ),
+		textfield(-maxlength=>"256", -size=>'40', -name=>"q", -value=>"" ),
+		hidden(-name=>"sitesearch", -value=>"charlieharvey.org.uk" ),
+		submit(-name=>"go", -value=>"Search" ),
+		end_form()
+	),br();
+	return $return;
+}
+
+sub pg_tail() {
+	my $return =  end_html();
+	#TODO: add made with jedit, && w3c images.
+	return $return;
+}
+
+
+1;

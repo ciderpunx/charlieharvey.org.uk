@@ -1,0 +1,218 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use utf8;
+use 5.10.0;
+use Data::Dumper;
+use JSON;
+use LWP::Simple;
+use Readonly;
+
+binmode STDOUT, 'utf8';
+
+Readonly my $USAGE => "$0 name_of_your_city <optional latitude> <optional longitude>\n"
+											. "Requires both latitude and longitude to disambiguate city names"
+;
+
+die $USAGE unless (@ARGV>0);
+
+my $json = JSON->new->allow_nonref;
+my $city = $ARGV[0];
+my $lat  = $ARGV[1];
+my $long = $ARGV[2];
+
+die $USAGE if (defined $lat && ! defined $long);
+
+my  $r = get("http://openweathermap.org/data/2.0/find/name?q=$city");
+die "Couldn't get weather" unless defined $r;
+
+my $weather_reports = $json->decode( $r );
+
+my $possible_cities = $weather_reports->{list};
+
+if (@$possible_cities==1) {
+	my $city = $possible_cities->[0];
+	city_weather($city);
+}
+else {
+	if ($lat && $long) {
+		for my $cit (@$possible_cities) {
+			if(int $cit->{coord}{lat} == int $lat
+				 && int $cit->{coord}{lon} == int $long) {
+					city_weather($cit);
+					exit 0;
+			}
+		}
+		say "Couldn't find a city called $city at lat: $lat, long: $long";
+		exit 1;
+	}
+	else {
+		say "================================================================";
+		say "***********  AMBIGUOUS CITY NAME, LISTING 'EM ALL!  ************";
+		say "You can avoid this by setting your city's latitude and longitude";
+		say "================================================================";
+		city_weather($_) for(@$possible_cities);
+	}
+
+}
+
+
+
+sub city_weather {
+	my $city = shift;
+	say '';
+	say "================================================================";
+	say "Weather for "
+			. $city->{name}
+			. " (lat:"
+			. $city->{coord}{lat}
+		  . ", long:"
+			. $city->{coord}{lon}
+			. ")"
+	;
+	say "http://openstreetmap.org/?zoom=13&lat="
+			. $city->{coord}{lat}
+			. "&"
+			. "lon="
+			. $city->{coord}{lon}
+	;		
+	say "----------------------------------------------------------------\n";
+	say "        Date: "
+			. scalar localtime $city->{dt}
+	;
+	say " Temperature: "
+			. to_celcius($city->{main}{temp})
+			. "⁰C (max: "
+			. to_celcius($city->{main}{temp_max})
+			. "⁰C, min: "
+			. to_celcius($city->{main}{temp_min})
+			. "⁰C)"
+	;
+	say "Air pressure: "
+			. $city->{main}{pressure}
+			. " kPa"
+	;
+	say "        Wind: "
+	    . $city->{wind}{speed}
+			. " mps, "
+	    . $city->{wind}{deg}
+			. " degrees"
+	;
+	say "    Humidity: "
+			. $city->{main}{humidity}
+			. "%"
+	;
+	say " Cloud cover: "
+			. $city->{clouds}{all}
+			. "%"
+	;
+	say "        Rain: "
+	    . $city->{rain}{'3h'}
+			. " (3h)"
+	;
+	say "================================================================\n";
+}
+
+sub to_direction {}
+
+sub to_celcius { my $k = shift; $k - 273.15}
+
+
+__END__
+
+=head1 NAME
+
+weather_for.pl : Get the current weather from Open Weather Map API
+http://openweathermap.org/
+
+=head2 VERSION
+
+0.1
+
+=head1 SYNOPSIS
+
+$ ./weather_for.pl kinshasa
+
+================================================================
+Weather for Kinshasa (lat:-4.32, long:15.32)
+http://openstreetmap.org/?zoom=13&lat=-4.32&lon=15.32
+----------------------------------------------------------------
+
+        Date: Wed Oct 17 23:19:37 2012
+ Temperature: 25.49⁰C (max: 25.85⁰C, min: 24.85⁰C)
+Air pressure: 977 kPa
+        Wind: 2 mps, 1 degrees
+    Humidity: 89%
+ Cloud cover: 80%
+        Rain: 1 (3h)
+================================================================
+
+$ ./weather_for.pl oxford 51 -1
+
+================================================================
+Weather for Oxford (lat:51.75, long:-1.26)
+http://openstreetmap.org/?zoom=13&lat=51.75&lon=-1.26
+----------------------------------------------------------------
+
+        Date: Wed Oct 17 23:18:15 2012
+ Temperature: 11.64⁰C (max: 11.85⁰C, min: 10.85⁰C)
+Air pressure: 996 kPa
+        Wind: 0 mps, 3 degrees
+    Humidity: 97%
+ Cloud cover: 67%
+        Rain: 6 (3h)
+================================================================
+
+
+=head1 DESCRIPTION
+
+A simple commandline tool to get the weather in a city from the open weathermap API.
+
+If the city name is not unique, then all cities matching that name are returned. You can specify a latitude and
+longitude if you only want the results for a particular city. You must give both latitude and longitude, or 
+give neither. Both measurements are rounded by removing the decimal place using perl's int function
+internally as are the latitude and longitude of the cities of interest. This is a longwinded wat of saying you
+don't have to type the part of the latitude or longitude after the decimal point.
+
+=head2 OPTIONS
+
+=over
+
+=item City name, required. 
+
+=item Latitude, optional (required when longitude present)
+
+=item Longitude, optional (required when latitude present)
+
+=back
+
+=head1 REQUIREMENTS
+
+Perl 5.10.0 (not tested on earlier versions)
+Data::Dumper
+JSON
+LWP::Simple
+Readonly
+
+=head1 COPYRIGHT AND LICENCE
+
+           Copyright (C)2012 Charlie Harvey
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 
+ 2 of the License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be 
+ useful, but WITHOUT ANY WARRANTY; without even the implied 
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+ PURPOSE.  See the GNU General Public License for more 
+ details.
+
+ You should have received a copy of the GNU General Public 
+ License along with this program; if not, write to the Free
+ Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA  02111-1307, USA.
+ Also available on line: http://www.gnu.org/copyleft/gpl.html
+
+=cut

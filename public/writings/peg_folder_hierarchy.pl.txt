@@ -1,0 +1,79 @@
+#!/usr/bin/perl
+#
+# Attempt to recreate pegasus folder hierarchy from hierarch.pm file
+# read HIERARCH.PM from stdin
+#
+#               Copyright (C)2004  Charlie Harvey
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+# MA  02111-1307, USA.
+# Also available on line: http://www.gnu.org/copyleft/gpl.html
+#
+#
+# Tech Notes
+# ==========
+# - No dependencies (well, you know, perl)
+# - Reads the HIERARCH.PM file from stdin like a *nix filter
+# - Outputs a :\t seperated list of
+# 	PMM filename without .PMM extension:\t
+# 	parent.child hierarchy of folder
+# - Limited to 1 level of subfoldering - any HIERARCH.PM gurus care 
+# to fix it?!
+#####################################################################
+
+# this is what we're going to put these into...
+my %hierarchy;
+
+while (<>) {
+	chomp;
+	s/"//g;				# don't need quotes
+	my @elements=split /,/,$_;	# HIERARCH.PM is a CSV
+	my $folder_name=$elements[$#elements]; # Foldername is last element
+	$folder_name=~s/([^\w]|[\.])+/_/g;       # remove foldername nasties
+	my $parent=$elements[$#elements-1];    # Parent folder is penultimate elem
+	$parent=~s/.*://g;           # This element will have stuff before it 
+				     # that peg needs, but we don't
+	$parent=~s/([^\w]|[\.])/_/g; # strip nasty stuff, like .s & backspaces
+	my $folder_file=$elements[$#elements-2]; # OK here be the filename
+	if ($folder_file!~/FOL[\dA-Fa-f]{5}/) {
+		# must be a filing tray - what do we do here?
+		# For now we label it as SUB_TRAY
+		$folder_file="SUB_TRAY_$folder_file";
+	}
+	else {$folder_file=~s/.*://g;}		# tidy up filename
+	my $hierarch_string="$parent.$folder_name";	# generate folder hierarchy
+	#print $hierarch_string . "\n";
+	if($hierarch_string=~/Name_Unavailable/i || $hierarch_string=~/my_mailbox$/i) {
+		$hierarch_string="INBOX";
+	}
+	$hierarch_string=~s/^my_mailbox[\.]+//i;
+	$hierarch_string=~s/^\./_/;
+	# debug, ignore
+	#print "HS: $hierarch_string\n  FF: $folder_file\n  FN: $folder_name\n P: $parent\n\n";
+	
+	# just to be paranoid ...
+	$hierarch_string=~s/[\r\n\b]//g;
+	$folder_file=~s/[\r\n\b]//g;
+
+	# ok put it in the hash
+	$hierarchy{$folder_file}=$hierarch_string;	
+}
+
+#OK, we now have a nice hash of file names to folder names
+foreach (sort keys  %hierarchy) {
+	next if ($_=~/SUB_TRAY/ || $hierarchy{$_}eq "INBOX");
+	print "$_:\t";
+	print "$hierarchy{$_}\n";
+}

@@ -1,0 +1,160 @@
+# object for creating daily mail stories
+# I realised one day that all that was really required for a 
+# Daily Mail story was a scapegoat, a possibly fictional social
+# evil, and a quote from a mad right winger. Put in some 
+# punctuation and a couple of words to link them and you're away!
+package DailyMail;
+use strict;
+use warnings;
+
+
+# tweak the data to make a random Guardian/Indymedia/Hello magazine story.
+our @scapegoats = (
+  "yobs wearing hoodies and baseball caps",
+  "Eastern European terror gangs",
+  "young single mothers",
+  "homosexuals",
+  "young muslim men",
+  "asylum seekers",
+  "paedophiles",
+  "a hardcore element of anarchists and extremeists",
+  "unemployed layabouts demanding benefits with menace",
+  "so-called new age travellers",
+  "teachers indoctrinated with sixties liberal values",
+  "the politically correct Islington lefties",
+  "insane Brussels bureaucrats",
+);
+
+ 
+our @evil_behaviours = (
+  "terrorising the elderly residents of a tranquil Gloucestershire village",
+  "selling drugs to schoolchildren for fun",
+  "threatening to smash up branches of McDonalds and Starbucks",
+  "destabilising the British way of life",
+  "implicated in the death of Princess Diana (God rest her precious soul)",
+  "setting fire to pensioners whilst high on skunk and crack",
+  "using skateboards and yobbish language to molest journalists",
+);
+
+our @mad_quotes = (
+  "the day of the yob is upon us",
+  "arbeit macht frei",
+  "the lady's not for turning",
+  "I can no longer sit back and allow Communist infiltration, Communist indoctrination, Communist subversion and the international Communist conspiracy to sap and impurify all of our precious bodily fluids.",
+  "was it for this politically correct insanity that I fought and died in eight world wars? I think not!",
+  "I blame all of this on stealth taxes and permissive education in the 1960s.",
+  "surely something can be done?",
+  "make no mistake if this is allowed to continue Armageddon shall surely be upon us and woe betide all who would seek to impose upon us a surveillance society. For on that day the right shall inherit the Earth!",
+  "these dole-scrounging n'er-do-wells must be eliminated at all costs.",
+  "a glorious thousand-year reich seems like the only practical choice to stem the tide of economic migrants",
+);
+
+
+our @tory_looneys = (
+  "Margaret Thatcher",
+  "Enoch Powell",
+  "Boris Johnson",
+  "The deputy commisioner of the Metropolitan Police",
+  "an unnamed source",
+  "Mr I.P.Freely of Tunbridge Wells",
+  "a hardworking family",
+);
+
+
+# these may end up in another file for convienience at some point. it'll do for now though.
+our @story_styles = (
+  "%S have been %e the Mail can exclusively reveal. 
+ 
+  How long can this political correctness gone mad be tolerated by British people?
+ 
+  %T said of %s, \"%q\" 
+  
+  %S made no comment about the accusations when we didn't ask.
+",
+
+ "The Mail has learned that %s are responsible for %e. 
+ 
+Has the world gone mad? %S are %e with impunity. Hanging is surely too good for these no good scum. Why doesn't the Government use all the money it has stolen from the hardworking families of Britain in stealth taxes to make amends for the situation. Probably because they are too busy lining their pockets!
+ 
+The Mail spoke to %t, who said \"%q\"
+",
+
+"In a shocking indictment of our permissive society it has this week emerged that %s have been %e.
+ 
+Things have gone too far. Its bad enough that we tolerate the spicy food and loud music of %s without allowing them to terrorise decent, middle class families as well.
+ 
+The Mail will be starting a campaign against %s and we promise our readers now that we shall not rest until each one of them is hunted down like a dog. %T speaking in support of our campaign said \"%q\".
+ 
+Have things gone too far? Have your say on our webshite!
+",
+
+"Why, Oh Why, Oh Why do we allow %s such freedom? Not only are they probably communists, but %s have this week been revealed as %e.
+ 
+If only the Government and the guacomole-munchers of Islington were a little less concerned with helping Johnny-foreigner and a little more concerned with the rights of the hard working majority of our glorious Nation, then perhaps %s would not get away with such treachery.
+ 
+That certainly seems to be the opinion of %T who this week said, \"%q\".
+ 
+So, next time you are at a dinner party and the menu involves sun dried tomatoes, just consider whether you think that %e is acceptable behaviour.
+",
+
+"Now %s are %e whilst elderly patients in the NHS still have to queue for years in blood spattered corridors. 
+ 
+ Scroungers and misfits are allowed to terrorise our 4X4s whilst our police sit idly by. The only explanation can be that %s are atheistic Trotskyite witches bent on the destruction of all we hold dear in this isle of ours for the benefit of their infernal overlord Beelzebub. Even their uniform of hoodies bears a striking resemblence to the witches of old.
+ 
+How are we to rid our nation of these evil witches and warlocks?
+ 
+Certainly not with holiday camp prisons and free love as the politically correct Whitehall bureaucrats want!
+ 
+Our \"Burn the Witch\" campaign will rid the land of this evil using the only language they understand - fire. We intend to burn six %ss a week for the next year so that their evil souls may descend into the very pits of hell from whence they have slunk.
+  
+Speaking of the Daily Mail's exclusive \"Burn the witch\" campaign, %T said, \"%q\"
+",
+
+"Shocking news has come to light that a recent spate of %e has been perpetrated by %s.
+ 
+ The Mail can reveal that %s are actually not human at all but have been spawned in Europe by a bureaucrat known as Saruman who intends to wrest control of all that is good and decent using this army of misfits.
+ 
+ %T said of the %s, \"%q\".
+ 
+",
+);
+
+# dull constructor
+sub new() {
+  my $self = shift;
+  bless {},$self;
+}
+
+# return a randomly generated daily mail story. 
+sub story {
+  my $story = get_elem(\@story_styles);
+  my $scapegoat = get_elem(\@scapegoats);
+  my $evil = get_elem(\@evil_behaviours);
+  my $mad_quote = get_elem(\@mad_quotes);
+  my $right_winger = get_elem(\@tory_looneys);
+  # should use a hash lookup here. quick and dirty is ok for now.
+  $story =~ s/%s/$scapegoat/g;
+  $story =~ s/%S/ucfirst $scapegoat/ge;
+  $story =~ s/%e/$evil/g;
+  $story =~ s/%E/ucfirst $evil/ge;
+  $story =~ s/%q/$mad_quote/g;
+  $story =~ s/%Q/ucfirst $mad_quote/ge;
+  $story =~ s/%t/$right_winger/g;
+  $story =~ s/%T/ucfirst $right_winger/ge;
+  return $story;
+}
+
+
+# takes an array ref. returns an element at a random offset 
+# within the array.
+sub get_elem {
+  my $aref = shift;
+  my $rnd  = int(rand(scalar(@{$aref})));
+  return ${$aref}[$rnd-1];
+}
+
+
+1;
+
+#my $test = DailyMail->new;
+#$test->story;

@@ -1,0 +1,91 @@
+#!/usr/bin/perl
+#
+# whatdoiwanttodo: gives you a menu of the commands run most frequently from 
+# your bash_history file. It's sort of taking the piss out of whoami.
+#
+#               Copyright (C)2005  Charlie Harvey
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+# MA  02111-1307, USA.
+# Also available on line: http://www.gnu.org/copyleft/gpl.html
+#
+# v.0.1 working
+#
+# installation
+# ------------
+#
+# NB. You have to be using bash, AFAIK the history file should always be in your home directory
+# and called .bash_history (tested on debian && mdk). If not, you'll have to change the $HIST 
+# variable below.
+#
+# 1. copy this file to /usr/local/bin/whatdoiwanttodo (or somewhere else on your $PATH)
+# 2. run chmod 755 /usr/local/bin/whatdoiwanttodo
+# 3. thassit. 
+#
+# Give me a shout with any problems, or improvements charlie _at_ charlieharvey _dot_ com
+#
+
+use strict;
+
+my $HIST = $ENV{'HOME'} . "/.bash_history"; # your bash history file
+my %hash;	# hash to hold the file && count how many times a command comes up
+
+# open up and enhash history file
+open (IN,"$HIST") || die ("Can't open $HIST .");
+while(<IN>) { 
+	chomp $_; 
+	map {$hash{$_}++ => $_} $_; 
+}
+close IN;
+
+# put keys into an array, sorted by value
+my @all_keys = sort hash_descending(keys %hash);
+
+# print 'menu' of top 10 cmds
+foreach (0..9) {
+	unless (!$hash{$all_keys[$_]}){ 
+		printf ("%2d. ", $_); 
+		print $all_keys[$_] . " (" . $hash{$all_keys[$_]} . ")\n";
+	}
+}
+print (" Q. quit (leave whatdoiwanttodo)\n\n> ");
+
+# run selecta loop bit
+choices();
+exit(0);
+
+## ---------------------------------------------------------------
+
+# used to sort our hash by descending values, rather than keys ...
+sub hash_descending {
+	   $hash{$b} <=> $hash{$a};
+}
+
+
+# deal with input. execute command or quit...
+sub choices() {
+	my $choice=<>;
+	chomp $choice;
+	while ($choice!~/^[qQ\d]{1}$/) {
+		print "\b\r> ";
+		$choice=<>;
+		chomp $choice;
+	}
+	if ($choice eq "q" || $choice eq "Q") {return;}
+	else { 
+		system($all_keys[$choice]) == 0 || die ("Couldn't run $all_keys[$choice] ."); 
+		system("echo '$all_keys[$choice]'>>$HIST") == 0 || die ("Couldn't append  $all_keys[$choice] to $HIST .");
+	}
+}

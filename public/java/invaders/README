@@ -1,0 +1,41 @@
+Charlie's Java Invaders.
+========================
+
+About
+-----
+
+This is pretty much uncommented code. Sorry about that - it's a home 
+project for fun. I'll try and document it when I get the time.
+
+See http://charlieharvey.org.uk/dppage.pl?id=16 for an 
+example of how to deploy as an applet.
+
+To run the application, from the dir above 'invaders', do:
+$ java invaders.InvadersApplication
+
+Tested on JVM 1.4.2 && 1.5.
+
+Licence
+-------
+
+        Copyright (C) 2006 Charlie Harvey
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public 
+License along with this program; if not, write to:
+
+      The Free Software Foundation, Inc., 
+      51 Franklin Street, 
+      Fifth Floor, 
+      Boston, 
+      MA  02110-1301, 
+      USA.

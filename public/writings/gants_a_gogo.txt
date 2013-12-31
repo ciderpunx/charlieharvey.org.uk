@@ -1,0 +1,80 @@
+# gantt.pm: perl module for doing xhtml/css gantt charts.
+package gantt;
+use Exporter;
+use Date::Calc qw( Day_of_Week Days_in_Month Month_to_Text);
+use CGI qw(:standard);
+
+our $VERSION     = 0.4;
+our @ISA         = qw(Exporter);
+our @EXPORT      = ( qw(gantt_head gantt_tail gantt_task) ); # exports all 3 subs
+our @EXPORT_OK   = qw(gantt_head gantt_tail gantt_task);
+our %EXPORT_TAGS = ();
+
+my $month,$year,$last_day;
+my @this_month = gmtime;
+my $today=$this_month[3];
+
+sub gantt_head ($$) {
+	($year,$month)=@_;
+	my $return="";
+	$last_day=Days_in_Month($year,$month);
+	$return.=h1(Month_to_Text($month) . " $year") . "\n";
+	$return.='<div class="gantt_bdy" style="width:'. (2+($last_day*30)) . 'px;">';
+	
+	for (my $i = 1; $i <= $last_day; $i++ )  {
+		$dow = Day_of_Week($year,$month,$i);
+      		$return.='<div class="gantt_head"';
+		$return.=' style="background-color:gray"' if ($dow>5 && $i!=$today);
+		$return.=' style="background-color:#f00"' if ($i==$today);
+		$return.=">$i</div>\n";
+	}
+	return $return . br();
+}
+
+sub gantt_task($$$$$$$$$) {
+	return if(!defined $month || !defined $year);
+	my $return="";
+	my ($start_year,
+	    $start_month,
+	    $start_day,
+	    $stop_year,
+	    $stop_month,
+	    $stop_day,
+	    $name,
+	    $url,
+	    $priority)=@_;
+	@_=();
+	if($start_year<$year) {
+		$start_year=$year;
+		$start_month = $start_day = 1;
+	}
+	if($stop_year<$year) {
+		$stop_year=$year;
+		$stop_month = 12;
+		$stop_day = 31;
+	}
+	if($start_month< $month) {
+  		$start_month = $month;
+		$start_day=1;
+	}
+	if($stop_month>$month) {
+		$stop_month = $month;
+		$stop_day = $last_day;
+	}
+	my $width=  ( ( ($stop_day-$start_day) * 30) + 28);
+	$width=28 unless( $width > 27);
+	$return.='<div class="gantt_cell_' . $priority;
+	$return.='" style="margin-left: ' . (($start_day-1)*30) . 'px;';
+	$return.='width: ' . $width . 'px;">';
+	$return.=a({-href=>"$url"},"$name");
+	$return.="</div>\n";
+	return $return;
+}
+
+
+sub gantt_tail {
+	return if(!defined $month || !defined $year);
+	return("</div>");
+}
+
+1;

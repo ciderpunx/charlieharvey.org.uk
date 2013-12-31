@@ -1,0 +1,6 @@
+AddType application/x-xpinstall .xpi
+RewriteEngine on
+RewriteRule ^index\.html$ / [R] 
+RewriteRule ^$ / [R] 
+RewriteRule ^invaders\.html$ /dbpage.pl?id=16 
+RewriteRule ^pong\.html$ /dbpage.pl?id=20

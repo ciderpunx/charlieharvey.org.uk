@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use utf8;
+use 5.10.0;
+use Data::Dumper;
+use Regexp::Grammars;
+
+$Data::Dumper::Indent = 1;
+
+die "Needs path to an xml file" unless (@ARGV==1);
+
+my $filename = $ARGV[0];
+
+open my $in,"<",$filename 
+	or die "Feck: $! on $filename";
+my $xml_file = do {local $/; <$in>};
+
+
+my $parser = qr{
+				<logfile: parser_log >                                                  # Log description of the grammar
+
+				<nocontext:>                                                            # Switch off debugging noise
+
+        <Document>                                                              # Define a document  
+  
+		 		<rule: Document>        <[Element]>*                                    # Contains many elements
+
+				<rule: Element>         <XMLDecl> | <SelfClosingTag>  | <NormalTag>     # Which can be XML declarations, tags and
+				                                                                        # self closing tags
+				
+				<rule: XMLDecl>         \<\?xml <[Attribute]>* \?\>                     # An xml can have zero or more attributes
+
+				<rule: SelfClosingTag>  \< <TagName> <[Attribute]>* / \>                # A self closing tag similarly
+
+        <rule: NormalTag>       \< <TagName> <[Attribute]>* \>                  # A normal tag can also have attributes
+																		<TagBody>?                                  #   And a body
+																<EndTag(:TagName)>                              # And an end tag named the same
+				
+				<token: TagName>        [^\W\d][^\s\>]+                                 # A Name begins with a non-digit non-non word char
+				
+				<rule: EndTag>					\< / <:TagName> \>                              # An end tag is a tagname in <>s with a leading /   
+
+				<rule: TagBody>         <[NormalTag]>* | <[SelfClosingTag]>* | <Text>   # A tag body may contain text, or more tags
+				                                                                        # note that NormalTags are recursive.
+				<rule: Text>            [^<]+                                           # Text is one or more non < chars
+
+        <rule: Attribute>       <AttrName> = \" <AttrValue> \"                  # An attribute is a key="value"
+
+				<token: AttrName>       [^\W\d][^\s]+                                   # Attribute names defined similarly to tag names
+
+				<token: AttrValue>      [^"]+                                           # Attribute values are series of non " chars
+}xms;
+
+				
+my $parsed_xml;
+
+if ($xml_file =~ $parser) {
+	$parsed_xml = \%/;
+}
+else {
+	die "Can't parse xml!\n" . @!;
+}
+
+#print Dumper $parsed_xml;
+
+my $link_tags   = search_collection($parsed_xml, "TagName", "link");
+map { say $_->{TagBody}{Text} } @$link_tags;
+
+sub search_collection {
+  my($collection,$target_key,$target_val,$results) = @_;
+	if (ref $collection eq "ARRAY") {
+		for (@{$collection}) {
+			$results = search_collection($_,$target_key,$target_val,$results);
+		} 
+		return $results; 
+	}
+
+	for (keys %{$collection}) {
+    my $value = $collection->{$_};
+
+    if (ref($value) eq 'HASH' || ref($value) eq 'ARRAY') {
+			$results = search_collection($value,$target_key,$target_val,$results);
+    }
+		
+		if(uc $_ eq uc $target_key && uc $value eq uc $target_val) {
+			push @$results, $collection;
+		}
+  }
+
+	return $results;
+}

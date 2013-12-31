@@ -1,0 +1,119 @@
+module ReadXML where
+
+import Control.Applicative hiding ((<|>),many)
+import Control.Monad
+import Text.Parsec
+import Text.Parsec.String
+
+type AttrName = String
+type AttrVal  = String
+
+data Attribute = Attribute (AttrName, AttrVal) deriving (Show)
+
+data XML =  Element String [Attribute] [XML]
+          | SelfClosingTag String [Attribute]
+          | Decl String
+          | Body String 
+        deriving (Show)
+
+-- The top level document, used in parsing
+document = do
+  spaces                     -- strip leading space
+  y <- (try xmlDecl <|> tag) -- we may start with an XML declaration or a tag
+  spaces
+  x <- many tag
+  spaces
+  return (y : x)
+
+-- XML declaration eg. <?xml version="1.0" encoding="UTF-8"?>
+xmlDecl ::Parser XML
+xmlDecl = do 
+  string "<?xml" 
+  decl <- many (noneOf "?>") 
+  string "?>"
+  return (Decl (decl))
+
+-- A normal or self-closing tag. Earlier version parsed these with seperate functions
+-- But that made perfromance unbelievably slow! Normal tags can have sub-elements or
+-- a text body (cf: elementBody)
+tag = do
+  char '<'
+  spaces
+  name <- many (letter <|> digit)
+  spaces
+  attr <- many attribute
+  spaces
+  close <- try (string "/>" <|> string ">") -- trying just the closing string of the tag bought me
+                                            -- an enormous performance boost, enough to make the 
+                                            -- difference between being usable and not!
+  if (length close) == 2
+  then return (SelfClosingTag name attr)
+  else do 
+        elementBody <- many elementBody
+        endTag name
+        spaces
+        return (Element name attr elementBody)
+
+-- The body of an element, consumes any leading spaces; would be nice to not have the try here
+elementBody = spaces *> try tag <|> text
+
+-- End tag, assuming thatg we had a normal, non self-closing tag
+endTag str = string "</" *> string str <* char '>'
+
+-- Create a body XML element, from text up to the next tag 
+text = Body <$> many1 (noneOf "><")
+
+-- Gets a single attrubute from within a tag, called with many. Bit verbose, but 
+-- people can be funny about their use of spaces.
+attribute = do
+  name <- many (noneOf "= />")  
+  spaces
+  char '='
+  spaces
+  char '"'
+  value <- many (noneOf ['"'])
+  char '"'
+  spaces
+  return (Attribute (name,value))
+
+---- Given a tag name and an xml file, return tags from the xml matching name
+--fetchTagByNameFromFile :: String -> String -> IO [XML]
+fetchTagByNameFromFile name path = 
+  liftM (fetchTagByNameFromElements name) (docFromFile path)
+
+-- Given a tag name and an xml string, return tags matching name 
+fetchTagByNameFromString name doc = 
+  fetchTagByNameFromElements name (docFromString doc)
+
+-- Extract Body from a tag if it has one
+-- Example use would be to grab all links from an rss file:
+-- liftM (unlines <$> map (extractBody)) $ fetchTagByNameFromFile "link" "eg2.rss"
+extractBody (Element _ _ (b:_))  = (bodyString b) -- I assume body will be the first (only element)
+  where bodyString (Body str) = str
+extractBody _                    = ""
+
+-- Given a name and a list of tags find all the tags with that name
+fetchTagByNameFromElements name elements = 
+    fetch elements
+  where fetch []            = []
+        fetch ((Element nm at xml):es)
+          | nm == name      = (Element nm at xml) : (fetch xml) ++ (fetch es)
+          | otherwise       = (fetch xml) ++ (fetch es)
+        fetch ((SelfClosingTag nm at):es)
+          | nm == name      = (SelfClosingTag nm at) : (fetch es)
+          | otherwise       = (fetch es)
+        fetch ((Decl _):es) = (fetch es)
+        fetch ((Body _):es) = (fetch es)
+
+-- Parse an XML document from a file
+docFromFile filepath = do
+  xml <- readFile filepath
+  return (docFromString xml) 
+
+-- Parse XML document from a string, return in a more convenient form or empty list on failure
+docFromString xml = 
+    case (parse document "" xml) of
+      Right xml  -> xml
+      Left err   -> []
+
+

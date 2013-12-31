@@ -1,0 +1,73 @@
+#!/usr/bin/perl
+#                      (c) 2011 Charlie Harvey
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Partially based on http://johnbokma.com/perl/google-suggest.html
+use strict;
+use warnings;
+use 5.10.0;
+use URI::Escape;
+use LWP::UserAgent;
+use XML::Simple;
+use Data::Dumper;
+
+unless (@ARGV) {
+    say "usage: $0 <query>";
+    exit(1);
+}
+
+my $alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+my $url_base = 'http://www.google.com/complete/search?output=toolbar&q='
+    . uri_escape( join ' ' => @ARGV );
+
+my %results;
+
+for my $letter (split //, $alphabet) {
+	my $ua = LWP::UserAgent->new( agent => 'Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))' );
+	my $url = $url_base . " $letter";
+	my $response = $ua->get($url);
+
+	$response->is_success
+		or die "$url: ", $response->status_line;
+	my $ref = XMLin($response->content);
+
+	if(ref $ref->{CompleteSuggestion} eq "ARRAY") {
+		for my $s (@{$ref->{CompleteSuggestion}}) {
+			next if (exists $results{$s->{suggestion}{data}});
+			no warnings;
+			$results{$s->{suggestion}{data}} = sprintf "%12s | '%s'", $s->{num_queries}{int}, $s->{suggestion}{data};
+			use warnings;
+		}
+	}
+  elsif ( ! exists $results{ $ref->{CompleteSuggestion}{suggestion}{data} } ) {
+        $results{ $ref->{CompleteSuggestion}{suggestion}{data} } =
+            sprintf "%12s | '%s'",
+            $ref->{CompleteSuggestion}{num_queries}{int},
+            $ref->{CompleteSuggestion}{suggestion}{data};
+  }
+
+}
+
+say "The Suggester";
+say "\nNote: results are alphabetically sorted and unique\n";
+say "="x45;
+printf "%12s | %s\n", "Num queries", "Term";
+say "="x45;
+my $i=1;
+for (sort keys %results) {
+	say $results{$_};
+}
+say "="x45;

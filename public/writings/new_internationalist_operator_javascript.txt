@@ -1,0 +1,17 @@
+var newint_search_tags = {
+description: "Find articles from New Internationalist",
+						 shortDescription: "New Internationalist Articles",
+						 icon: "http://www.newint.org/favicon.ico",
+						 scope: {
+semantic: {
+						"tag" : "tag"
+					}
+						 },
+doAction: function(semanticObject, semanticObjectType) {
+						if (semanticObject.tag) {
+							return "http://www.newint.org/tag/" + encodeURIComponent(semanticObject.tag);
+						}
+					}
+};
+
+SemanticActions.add("newint_search_tags", newint_search_tags);

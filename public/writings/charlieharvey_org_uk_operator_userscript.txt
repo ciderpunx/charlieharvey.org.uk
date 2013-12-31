@@ -1,0 +1,18 @@
+var charlie_search_tags = {
+description: "Find files and articles from Charlie Harvey",
+						 shortDescription: "Charlie Harvey Pages",
+						 icon: "http://www.charlie.org/favicon.ico",
+						 scope: {
+semantic: {
+						"tag" : "tag"
+					}
+						 },
+doAction: function(semanticObject, semanticObjectType) {
+						if (semanticObject.tag) {
+							return "http://www.charlieharvey.org.uk/tag/" + encodeURIComponent(semanticObject.tag);
+						}
+					}
+};
+
+SemanticActions.add("charlie_search_tags", charlie_search_tags);
+

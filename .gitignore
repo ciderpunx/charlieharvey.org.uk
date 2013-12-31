@@ -1,6 +1,3 @@
 config.yml
 .*.swp
-public/graphics
-public/html_static
-public/src
 logs

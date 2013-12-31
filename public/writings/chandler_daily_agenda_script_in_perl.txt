@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+use iCal::Parser;
+use Data::Dumper;
+use LWP::UserAgent;
+use Email::Send;
+use DateTime;
+
+my $recipient = "sumone\@example.com";
+my $user = 'USER';
+my $pass = 'PASS';
+my $ical_url = 'https://hub.chandlerproject.org/webcal/collection/LONGHASH';
+
+my $browser = LWP::UserAgent->new;
+$browser->credentials(
+        'hub.chandlerproject.org:443',
+        'Chandler Server',
+        $user => $pass,
+);
+my $file = $ical_url;
+$file=~s/.*\///;
+$browser->get($ical_url, ':content_file' => $file);
+die "Can't retrieve ical" unless -e $file;
+
+my $start = DateTime->today();
+my $end = DateTime->now()->add( days=>1 );
+
+my $parser = iCal::Parser->new(start=>$start, end=>$end );
+my $cal = $parser->parse($file);
+my $events = $cal->{events}->{$start->year}->{$start->month}->{$start->day};
+my $todos = $cal->{todos};
+
+my @event_summary;
+
+for(keys %{$events}) {
+    my $e = $events->{$_};
+    push @event_summary, $e->{DTSTART}->hms . ".." . $e->{DTEND}->hms . ": " . $e->{SUMMARY};
+}
+@event_summary = sort @event_summary;
+
+my @todo_summary;
+for(@{$todos}) {
+       push @todo_summary, $_->{SUMMARY} ;
+}
+
+my $message = "From:Sender\@iexample.com\nTo:$recipient\nSubject: Daily agenda for "
+               . $start->ymd
+               . "\n\nEvents\n======\n"
+               . join "\n",(@event_summary);
+$message .= "\n\nTodo\n====\n"
+            . join "\n",@todo_summary;
+
+my $sender = Email::Send->new({mailer => 'SMTP'});
+$sender->mailer_args([Host => 'localhost']);
+$sender->send($message);

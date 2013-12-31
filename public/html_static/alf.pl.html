@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ALF: Apache Log Filter</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#options">OPTIONS</a></li>
+	<ul>
+
+		<li><a href="#commandline_options">Commandline options</a></li>
+		<li><a href="#set_in_script_body">Set in script body</a></li>
+	</ul>
+
+	<li><a href="#requirements">REQUIREMENTS</a></li>
+	<li><a href="#license">LICENSE</a></li>
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>ALF: Apache Log Filter. Or alf.pl if you want to be picky.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<pre>
+ ./alf.pl [-l /path/to/access.log] [-cv]</pre>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>ALF is a filter for people using Apache logging to plain text logs, who still want the 
+flexibility of being able to search their logs like a database. It relies heavily on Jeff 
+Zucker's DBD::AnyData to do the clever stuff, and overlays that with a simple GTK2 
+interface.</p>
+<p>You can run SQL queries and see the results in horizontal or vertical formats;
+open different logs; run a few everyday queries from buttons; append column names to 
+your SQL from a dropdown box; switch between parser formats; and export your filtered 
+results in vertical or horizontal formats.</p>
+<p>You'll need to copy WeblogCombined.pm and WeblogVhost.pm into /path/to/AnyData/Format
+before ALF will play with you. AFAICS WeblogVhost.pm ought to work on all three types of logs
+but I don't have common format logs available to test on. This is very much a learning project
+so all comments are welcome.</p>
+<p>
+</p>
+<hr />
+<h1><a name="options">OPTIONS</a></h1>
+<p>
+</p>
+<h2><a name="commandline_options">Commandline options</a></h2>
+<dl>
+<dt><strong><a name="item__2d_3f_print_usage_and_exit">-?
+Print usage and exit</a></strong>
+
+<dt><strong><a name="item__2dl__2fpath_2fto_2faccess_2elog_a_valid_apache_lo">-l /path/to/access.log
+A valid apache log</a></strong>
+
+<dt><strong><a name="item__2dc_use_common_format_parser">-c
+Use common format parser</a></strong>
+
+<dt><strong><a name="item__2dv_use_vhost_parser">-v
+Use vhost parser</a></strong>
+
+</dl>
+<p>
+</p>
+<h2><a name="set_in_script_body">Set in script body</a></h2>
+<dl>
+<dt><strong><a name="item__table">$TABLE 
+The name which you wish to give the table you'll search. Default: 'log'.</a></strong>
+
+<dt><strong><a name="item__seperator">$SEPERATOR
+Field seperator for use when viewing records in horizontal format. Default: ' | '.</a></strong>
+
+<dt><strong><a name="item__query_font">$QUERY_FONT 
+Font used in the query box. Default: 'FreeSans 12'.</a></strong>
+
+<dt><strong><a name="item__results_font">$RESULTS_FONT   
+Font used to display your results. Default: 'FreeMono 12'.</a></strong>
+
+<dt><strong><a name="item__log_default">$LOG_DEFAULT
+Log that gets filtered if you don't specify one on the commandline. Default: '/home/charlie/access_log_test'</a></strong>
+
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="requirements">REQUIREMENTS</a></h1>
+<pre>
+ perl 5.8.8
+ DBD::AnyData
+ AnyData::Format::WeblogVhost
+ AnyData::Format::WeblogCombined
+ Gtk2
+ Gtk2::Ex::Simple::Menu
+ Getopt::Std</pre>
+<p>
+</p>
+<hr />
+<h1><a name="license">LICENSE</a></h1>
+<pre>
+               Copyright (C)2007  Charlie Harvey</pre>
+<pre>
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version
+ 2 of the License, or (at your option) any later version.</pre>
+<pre>
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.</pre>
+<pre>
+ You should have received a copy of the GNU General Public
+ License along with this program; if not, write to the Free
+ Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA  02111-1307, USA.
+ Also available on line: <a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a></pre>
+
+
+<!-- Start Piwik Tracking -->
+<script src='http://ox4.org/~charlie/piwik/piwik.js' type='text/javascript'></script> 
+
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://ox4.org/~charlie/piwik/" : "http://ox4.org/~charlie/piwik/");
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://ox4.org/~charlie/piwik/piwik.php?idsite=1" style="border:0" alt="Piwik Tracking Image, if you're not using javascript" /></p></noscript>
+<!-- End Piwik Tracking Tag -->
+
+<!--END template: footer-->
+
+</body>
+
+</html>

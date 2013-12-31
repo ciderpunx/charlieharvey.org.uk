@@ -1,0 +1,325 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Talking Vim 2013</title>
+    
+    <meta name="description" content="An introduction to speaking vim for new vim users" />
+    <meta name="author" content="Charlie" />
+
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic|Roboto+Slab:400,700bold" rel="stylesheet" />
+    <link href="/stylesheets/vim.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <strong>doesn't support the features required</strong> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <strong>Chrome</strong>, <strong>Safari</strong> or <strong>Firefox</strong> browser.</p>
+</div>
+
+<div id="impress">
+    <div id="cover" class="step slide" data-x="-1100" data-y="-1500">
+      <h1>Talking Vim</h1>
+      <p><img src="http://imgs.xkcd.com/comics/real_programmers.png" alt="what do real programmers use"/></p>
+      <p class="right">Barncamp 2013 (slides at <a href="http://ox4.li/vim">ox4.li/vim</a>)</p>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="-1500">
+      <h1>What <em>is</em> Vim?</h1>
+      <p>
+        <ul><li>Free Software text editor</li>
+            <li>Very powerful, used by programmers</li>
+            <li>Ubiquitous - on most servers</li>
+            <li><em>Awesome</em> when you know it, but can be a learning curve</li>
+        </ul>
+        </p>
+    </div>
+
+    <div class="step slide" data-x="1100" data-y="-1500">
+      <p>
+        <ul>
+          <li>Wordprocessors: Better for layout.</li>
+          <li>IDEs: XCode (iTunes for code)</li>
+          <li>Lightweight editors: Notepad, nano, gedit</li>
+          <li>Programmer’s Editors: emacs, vim, sublime text</li>
+        </ul>
+      </p>
+    </div>
+
+    <div class="step slide" data-x="2200" data-y="-1500">
+      <h1>Why Vim?</h1>
+      <blockquote><em>Horms and I discussed this, and we came up with two categories of people. People who use Vim, and people who don&#8217;t realize that they could be using Vim.</em><p class="right">Geoff “mandrake” Harrison</p></blockquote>
+    </div>
+
+    <div class="step slide" data-x="3300" data-y="-1500">
+      <h1>Potted history</h1>
+      <p>Stands for VI iMproved. vi invented 1976. Screen mode for a "line based editor" called ex. Vim created 1991. GPL licenced. Asks users to donate to charity in Uganda if they like it.</p>
+    </div>
+
+    <div class="step slide" data-x="4400" data-y="-1500">
+      <p>GNU/Linux: apt-get install vim</p>
+      <p>OS-X: https://code.google.com/p/macvim/</p>
+      <p>Whingedoze: http://vim.org/download.php</p>
+    </div>
+ 
+    <div class="step slide" data-x="5500" data-y="-1500">
+      <blockquote><em>Using Vim is like talking to your editor in ‘verb modifier object’ sentences, turned into acronyms</em><p class="right">Yan Pritzker in <a href="http://yanpritzker.com/2011/12/16/learn-to-speak-vim-verbs-nouns-and-modifiers/">Learn to speak vim – verbs, nouns, and modifiers!</a></p></blockquote>
+    </div>
+
+    <div class="step slide" data-x="6600" data-y="-1500">
+      <h1>Tenses (modes)</h1>
+      <ul>
+        <li>Normal</li>
+        <li>Visual</li>
+        <li>Command</li>
+        <li>Insert/Replace</li>
+      </ul>
+    </div>
+
+    <div class="step slide" data-x="7700" data-y="-1500">
+      <h1>Changing tense</h1>
+      <p>
+      iI (insert before, after), oO (new line before, after), aA (append, end of line)<br />
+      Esc: Normal mode from insert mode<br />
+      :command mode. We focus on normal mode. 
+      </p>
+    </div>
+       
+    <div class="step slide" data-x="8800" data-y="-1500">
+      <h1>Movements (chars)</h1> 
+      <p>
+      h,j,k,l (or arrows). <br />
+      You won&#8217;t be able to use the arrows in vi. You have to move your hand away from the keyboard. 
+      </p>
+    </div>
+    
+    <div class="step slide" data-x="9900" data-y="-1500">
+      <h1>Movements (words)</h1>
+      <p>
+        w,b move a word forward/back at a time. Depending on what you mean by a word. You can also use W,B if you think of a word as <em>anything except for a space</em> 
+      </p>
+    </div>
+    
+    <div class="step slide" data-x="11001" data-y="-1500">
+      <h1>Movements (lines)</h1> 
+      <p>
+        $ and g_ end and last char of line. 0 and ^ start and first char of line
+      </p>
+    </div>
+
+    <div class="step slide" data-x="12100" data-y="-1500">
+      <h1>Movements (blocks)</h1>
+      <p>
+      () start/end of sentence<br /> 
+      {} start/end of paragraph<br /> 
+      % matching bracket 
+      </p>
+    </div>
+
+    <div class="step slide" data-x="13200" data-y="-1500">
+      <h1>Movements (screens)</h1>
+      <p>
+        H,M,L top, middle, bottom of screen<br />
+        PgUp, PgDown (ctrl-U and ctrl-D for half pages)
+      </p>
+    </div>
+
+    <div class="step slide" data-x="14300" data-y="-1500">
+      <h1>Movements (files)</h1>
+      <p>
+        gg: first line; G last line; G122 go to line 122
+      </p>
+    </div>
+
+    <div class="step slide" data-x="15400" data-y="-1500">
+      <h1>Unspeaking and repeating</h1>
+      <p>
+        u: undo, ctrl-r: redo
+      </p>
+    </div>
+
+    <div class="step slide" data-x="16500" data-y="-1500">
+      <h1>First verbs</h1>
+      <ul>
+        <li>y: yank (like copy)</li>
+        <li>d: delete (like cut)</li>
+        <li>c: change (like delete/replace)</li>
+        <li>p: paste</li>
+        <li>v: visually select</li>
+      </ul>
+      <p>Capitalize verbs to speak about lines (P pastes before cursor).</p>
+    </div>
+   
+    <div class="step slide" data-x="17600" data-y="-1500">
+      <h1>Movements can be nouns</h1>
+      <ul>
+        <li>w: word</li>
+        <li>j: down</li>
+        <li>$: til end of line</li>
+      </ul>
+    </div>
+
+
+    <div class="step slide" data-x="18700" data-y="-1500">
+      <h1>Let&#8217;s make a sentence</h1>
+      <ul>
+        <li>yw: yank word</li>
+        <li>dj: delete from here down</li>
+        <li>d$: delete from here til end of line</li>
+      </ul>
+      <p>Don&#8217;t forget, you can u to undo!</p>
+    </div>
+
+    <div class="step slide" data-x="19800" data-y="-1500">
+      <h1>Some more nouns</h1>
+      <ul>
+        <li>as: a sentence</li>
+        <li>ap: a paragraph</li>
+        <li>at: a tag</li>
+        <li>is/ip/ib/iw: inner paragraph, sentence, word, etc</li>
+        <li><strong>I</strong>nside or <strong>A</strong>round text unit. Sentence, para, tag always take an i or a, and need an action. </li>
+      </ul>
+    </div>
+
+    <div class="step slide" data-x="20900" data-y="-1500">
+      <h1>More sentences</h1>
+      <ul>
+        <li>dap: delete a paragraph</li>
+        <li>ciw: change inside word</li>
+        <li>yi(: yank between parentheses</li>
+      </ul>
+      <p>You can combine phrases dawciw</p>
+    </div>
+
+    <div class="step slide" data-x="22000" data-y="-1500">
+      <h1>Single character verbs</h1>
+      <ul>
+        <li>~: change case of char</li>
+        <li>x: delete char</li>
+        <li>r [char2]: replace char with char2</li>
+      </ul>
+    </div>
+
+    <div class="step slide" data-x="23100" data-y="-1500">
+      <h1>Let&#8217;s say something fun</h1>
+      <p>Say we want to underline a whole line (some blogs and wikis work like this for headings)</p>
+      <p>We now know enough to do it!</p>
+    </div>
+
+    <div class="step slide" data-x="24200" data-y="-1500">
+      <h1>Let&#8217;s say something fun</h1>
+      <p>You can just say: YpVr-</p>
+    </div>
+
+    <div class="step slide" data-x="25300" data-y="-1500">
+      <h1>RepetitionRepetition</h1>
+      <p>What if I want to delete two words then? Just prepend a count to any phrase</p>
+      <ul>
+        <li>2dw: Delete 2 words</li>
+        <li>4Y: Yank 4 lines</li>
+        <li>5dap: Delete 5 paragraphs</li>
+      </ul>
+    </div>
+
+    <div class="step slide" data-x="26400" data-y="-1500">
+      <h1>The best key in Vim?</h1>
+      <p>. : Repeat the last phrase. eg. daw to delete a word, . to delete another word</p>
+    </div>
+
+    <div class="step slide" data-x="27500" data-y="-1500">
+      <h1>Searchy movements</h1>
+      <ul>
+        <li>f or F[char]: search "forward" or backward in line (inc char)</li>
+        <li>t or T[char]: search "til" or "til" backward in line (exc char)</li>
+        <li>/: search for a word or regex (regexes are complicated)</li>
+      </ul>
+    </div>
+
+    <div class="step slide" data-x="28600" data-y="-1500">
+      <h1>Some more sentences</h1>
+      <ul>
+        <li>dfJ: delete line upto and including J</li>
+        <li>dt&lt;: delete line til next &lt;</li>
+        <li>2dtQ: delete line til the second Q </li>
+        <li>d/XYZ: delete everything til the next XYZ</li>
+      </ul>
+      <p>You have to press enter after a / search</p>
+    </div>
+
+    <div class="step slide" data-x="29700" data-y="-1500">
+      <h1>Searching like a Ninja</h1>
+      <ul>
+	<li>You can use regexes(wildcards) in a / search.</li>
+      	<li>You can use * to search forwards for word under cursor (# back). n/N to move between occurences</li>
+      	<li>Command mode :set hls or :set nohls to highlight your search time</li>
+    </ul>
+    </div>
+
+    <div class="step slide" data-x="31900" data-y="-1500">
+      <h1>Search and replace</h1>
+      <p>Search and replace happens in command mode. Line orientated, but you can put % before it for whole file</p>
+      <p>:s/this/that/[g]</p>
+    </div>
+
+    <div class="step slide" data-x="33000" data-y="-1500">
+      <h1>Command mode: Files</h1>
+      <ul>
+         <li>:wq write and quit</li>
+         <li>:sav newfile "save as"</li>
+         <li>:q! quit without saving</li>
+      </li>
+    </div>
+
+    <div class="step slide" data-x="34100" data-y="-1500">
+      <h1>Command mode: Tabs/Splits</h1>
+      <ul>
+      	<li>:tabnew [filename]</li>
+      	<li>:sp [filename]</li>
+      	<li>:vsp [vertical split]</li>
+      </ul>
+    </div>
+   
+    <div class="step slide" data-x="35200" data-y="-1500">
+      <h1>Command mode: The shell</h1>
+      <ul>
+      	<li>:! cmd - run smd in a shell</li>
+      	<li>:!r cmd - run in shell and read back at cursor</li>
+      	<li>:[10,20]! cmd - pipe lines 10 to 20 to cmd</li>
+      	<li>Bonus trick: ctrl-z to hop into your teminal, fg to get back</li>
+      </ul>
+    </div>
+
+    <div class="step slide" data-x="36300" data-y="-1500">
+      <h1>More information</h1>
+      <p><a href="http://www.viemu.com/vi-vim-cheat-sheet.gif">Vim cheatsheet</a></p>
+      <p><a href="http://ontwik.com/tools/vim-from-novice-to-professional-by-derek-wyatt-p1/">Derek Wyatt&#8217;s screencasts</a></p>
+      <p><a href="http://shop.oreilly.com/product/9781934356982.do">Practical Vim</a> or the O&#8217;Reilly <a href="http://shop.oreilly.com/product/9780596529833.do">Learning vi and Vim</a></p>
+    </div>
+
+    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+      <p><strong>That&#8217;s all folks</strong></p>
+      <p class="right"><a href="http://charlieharvey.org.uk">http://charlieharvey.org.uk</a> | @ciderpunx</p>
+    </div>
+
+    <div id="ing" class="step" data-x="3500" data-y="-750" data-rotate="270" data-scale="6">
+      <h1><b class="positioning rotating scaling">Questions?</b></h1>
+    </div>
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+<div class="hint">http://charlieharvey.org.uk | @ciderpunx</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="/js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>

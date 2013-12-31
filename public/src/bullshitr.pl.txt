@@ -1,0 +1,212 @@
+#!/usr/bin/perl
+use 5.10.0;
+use warnings;
+use strict;
+use utf8;
+use autodie;
+#use CGI::Carp qw/fatalsToBrowser/;#DEBUG
+use CGI qw(:standard);
+use WWW::Scripter;
+use Sort::Key::Natural qw(natsort);
+use LWP::UserAgent;
+use List::Util 'shuffle';
+use URI::Escape;
+use Readonly;
+
+Readonly my $MAXTOCACHE => 50;
+Readonly my $MAXSHIT    => 7;
+
+
+my $interwebs = WWW::Scripter->new;
+$interwebs->use_plugin('JavaScript');
+
+# We keep an hash to look up the sites we use. Should refactor if we were getting bigger.
+sub fetch_from_cache_or_web {
+    my $site=shift;
+    my %sites = (
+        dotomator => 'http://www.dotomator.com/web20.html',
+        wtf       => 'http://whatthefuckismysocialmediastrategy.com/',
+        bullshitr => 'http://emptybottle.org/bullshit/index.php',
+        dack      => 'http://www.dack.com/web/bullshit.html',
+    );
+    return unless $sites{$site};
+    my $now = time();
+
+    # We cache these pages for 3 hours to minimize latency - turns out that evaluating 
+    # the js is the real bottleneck. But hey.
+    unless (-e "/tmp/bullshit-cache/$site.html" && -M "/tmp/bullshit-cache/$site.html" < 10800 ) {
+        #warn "caching invoked\n"; #DEBUG
+        $interwebs->get($sites{$site});
+        open OUT, '>:utf8', "/tmp/bullshit-cache/$site.html";
+        if($site eq 'dotomator') {
+            my $ua = LWP::UserAgent->new;
+            my $resp = $ua->get("http://www.dotomator.com/web20.js");
+            my $page = $interwebs->content;
+            my $web20 = $resp->content;
+            $page =~ s/<body>/<body>\n<script type="text\/javascript">$web20<\/script>\n\n/;
+            print OUT $page;
+        }
+        else {
+            print OUT $interwebs->content;
+        }
+        close OUT;
+    }
+    $interwebs->get("file:/tmp/bullshit-cache/$site.html")
+
+}
+
+##### These subs are evaluating the js from various bullshit generators
+sub acquire_name_from_dotomator {
+	fetch_from_cache_or_web('dotomator');
+	$interwebs->eval('genName();');
+	return $interwebs->document->getElementById('name')->innerHTML;	
+}
+
+sub acquire_strategy_from_wtf {
+	fetch_from_cache_or_web("wtf");
+	return lc $interwebs->document->getElementById('bigfuckingtext')->innerHTML;
+}
+
+sub make_bullshitr_bullshit {
+	fetch_from_cache_or_web('bullshitr');
+    my @bullshit;
+        for (1..$MAXSHIT) {
+		$interwebs->eval( 'getResult();');
+		push @bullshit, $interwebs->document->getElementById('bullshit')->innerHTML;
+	}
+	return @bullshit;
+}
+
+sub make_dack_bullshit {
+	fetch_from_cache_or_web('dack');
+	my @bullshit;
+        for (1..$MAXSHIT) {
+		$interwebs->eval( 'getResult();');
+		my ($bullshit) = $interwebs->document->getElementsByName('txtTest');
+		push @bullshit, $bullshit->value;
+	}
+	return @bullshit;
+}
+###
+
+# We'll cache $MAXTOCACHE of these
+# TODO: Be nice if the caches got refreshed once in a while. Refactor.
+my @cached_bullshit = glob("/tmp/bullshit-cache/*.shit");
+@cached_bullshit = natsort @cached_bullshit;
+my $last_cached = $cached_bullshit[$#cached_bullshit];
+$last_cached=0 unless $last_cached;
+$last_cached =~ s/[^\d]+(\d+)\.shit$/$1/;
+
+my $rebuild_cache = param('recache') // 0;
+my $page_to_get   = param('pg')    // 1 + int(rand(@cached_bullshit-2));
+
+my $content='';
+if($last_cached < $MAXTOCACHE || $rebuild_cache ) {
+    my $title    = acquire_name_from_dotomator;
+    my $name     = $title . "<sup>&reg;</sup>";
+    my $name_no_reg = $title;
+    $title .= "&reg; - Sounds like bullshit to me - Bullshitr2.0Beta++";
+    my $strategy = acquire_strategy_from_wtf;
+    my @bullshit = shuffle(make_dack_bullshit,make_bullshitr_bullshit);
+    my @split_shit = split /\s+/,$bullshit[13];
+
+
+    my $voice_url = "http://imtranslator.net/translate-and-speak/sockets/tts.asp?dir=enf&amp;speed=0&amp;B=1&amp;ID=877877860&amp;chr=AnnaHead&amp;vc=&amp;text="
+                    . uri_escape("Welcome to $name_no_reg! Its time to $strategy!"); # vc can also be VW Kate
+    ;
+
+    # TODO: Maybe. Use Template toolkit for the html
+    $content=<<ENDHTML
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta name="keywords"    content="Bullshit, prank, fun" />
+    <meta name="author"      content="Charlie Harvey" />
+    <meta name="description" content="" />
+    <meta name="generator"   content="vim and perl" />
+    <meta name="language" content="english,en" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="../css/bullshit.css" />     
+</head>	
+
+<body>
+<div id="content">
+	<h2 id="top">Welcome to $name. It&apos;s time to $strategy &trade;</h2>
+
+	<div id="logo">
+		<h1><a href="#">$name</a></h1>
+	</div>
+	<ul id="menu">
+			<li class="current"><a href="#">Home</a></li>
+			<li><a href="#">Pricing</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+	</ul>
+	<div class="line"></div>
+	<div id="pitch">
+		<h1>$name is more than a tool to $bullshit[0].</h1>
+		<h2>It&apos;s the ability to $bullshit[1], $bullshit[2] and especially to $bullshit[3].</h2>
+	</div>	
+	<div class="third">
+		<h3>$split_shit[0]</h3>
+		<p>$name will change the way you $bullshit[4]. $name lets you $bullshit[5] whilst never forgetting that you need to $bullshit[6].</p>
+	</div>
+	<div class="third">
+		<h3>$split_shit[1]</h3>
+		<p>$name is the only platform that can $bullshit[7] reliably whilst its users $bullshit[8] and even $bullshit[9].</p>
+	</div>
+	<div class="third last">
+		<h3>$split_shit[2]</h3>
+		<p>$name scales, effortlessly &mdash; $bullshit[10] whilst you $bullshit[11].</p>
+	</div>
+<div class="line"></div>
+
+
+		<div class="left">
+			<h4>What is this?</h4>
+			<p><em>Back in the old days of the internet, googling for Bullshit used to bring up dack.com's web economy <a href="http://www.dack.com/web/bullshit.html">Bullshit</a> generator.</em></p> 
+			<p><a href="http://emptybottle.org/bullshit/index.php">Bullshitr</a> came along a few years later to update the concept. The <a href="http://www.dotomator.com/web20.html">Web 2.0 name generator</a> and <a href="http://whatthefuckismysocialmediastrategy.com/">what the fuck is my social media strategy</a> brought their deliverables to the table too.</p>
+			<p>So it isn't like there isn't prior art.</p>
+			<p>The unique combination of Bullshitr2.0Beta++ is that it screen scrapes the existing generators to make a complete bullshit web application home page. Fuck yeh!</p>
+		</div>
+		<div class="right">
+			<h3>Who did this?</h3>
+			<p>It was me! My name is <a href="http://charlieharvey.org.uk/">Charlie Harvey</a> and I do this sort of thing all the time.</p>
+			<h3>How?</h3>
+			<p>Using a bit of perl and some <a href="http://search.cpan.org/~sprout/WWW-Scripter-0.023/lib/WWW/Scripter.pod">WWW::Scripter</a> to call people's javascript functions. I borrowed a free theme from <a href="http://www.solucija.com/template/distinctive">solucija.com</a>.</p>
+			<h3>Why?</h3>
+			<p>I was a bit drunk.</p>
+			<h3>Can I have the code? Can I help?</h3>
+			<p>Sure, here is the <a href="http://charlieharvey.org.uk/src/bullshitr.pl.txt">bullshitr.pl source code</a>. If you want to help out you could help me <a href="bullshitr.pl?recache=1">refresh the cache</a>. Following that link goes off and fetches lots of bullshit, processes it and makes a new page in the cache. Just leave your browser window open while it chugs away for a couple of minutes.</p>
+		</div>
+		<div id="footer">
+			<p>&copy; I guess the contributions are copyright the nice people from the interwebs. It might be better to read a <a href="http://charlieharvey.org.uk/page/cider">Cider Review</a> instead of worrying about that.</p>
+		</div>	
+        <iframe src="$voice_url" style="display:absolute;height:0px;width:0px;"></iframe>
+
+</body>
+
+</html>
+
+ENDHTML
+
+;
+    $last_cached++;
+    my $filenum = $page_to_get;
+    $filenum = $last_cached unless( -e "/tmp/bullshit-cache/$filenum.shit");
+    open OUT, ">:utf8", "/tmp/bullshit-cache/$filenum.shit";
+    print OUT $content;
+    close OUT;
+}
+else {
+    open IN, "<:utf8", "/tmp/bullshit-cache/$page_to_get.shit";
+    $content = join "\n", <IN>;
+    close IN;
+}
+
+$content =~ s|</html>|<!--Cacheref: $page_to_get-->\n</html>|; 
+print "Content-type:text/html\n\n";
+print $content;

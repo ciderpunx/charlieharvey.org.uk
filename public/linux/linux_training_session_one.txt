@@ -1,0 +1,15 @@
+Linux Training
+--------------
+
+
+Areas to cover:
+-logging in/out, consoles, passwd and ssh with PuTTY x
+
+-directories: structure, and moving round x
+-file permissions: chmod, chgrp, ls -l x
+
+-getting help: man, info, apropos -
+-editing stuff: vi, emacs-
+-samba admin: ps, piping commands, grep, smbd, nmbd, smb.conf x
+
+

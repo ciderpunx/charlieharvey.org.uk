@@ -1,0 +1,64 @@
+#!/usr/bin/perl -w
+#
+# subvert.pl: display your change log from subversion
+use strict;
+use CGI qw(:standard );
+use CGI::Carp qw(fatalsToBrowser); # For better error messages
+
+my $WORK_DIR='/var/www'; # location of work directory
+my $start = param('start') || 'BASE';
+my $end = param('end') || 'HEAD';
+validate();
+
+print header(),
+	start_html({-style=>'/stylesheets/subvert.css',-title=>"SUBVERt"}),
+	h1("SUBVERt: Subversion Log Viewer");
+print h2("Showing Revisions From: $start to $end");
+print form();
+print showlog();
+print form();
+print end_html();
+
+# validate start and end params
+sub validate() {
+	for ($start,$end) {
+		next if ($_ eq "BASE" || $_ eq "HEAD" || $_ eq "PREV" || $_ eq "COMMITTED");
+		$_=~s/[^\d]//gi;
+	}
+}
+
+# builds the submit form
+sub form() {
+	my $return="";
+	$return.=start_form({-method=>"post"});
+	$return.="Search repository from revision: ";
+	$return.=textfield({-name=>"start"},"$start");
+	$return.=" &nbsp; to revision: ";
+	$return.=textfield({-name=>"end"},"$end");
+	$return.=" &nbsp; &nbsp; " . submit(-value=>" GO ");
+	$return.=end_form();
+	return div({-class=>"frm"},$return);
+}
+# loop through the log splitting it into entries
+sub showlog() {
+	my $return="";
+	my $log = `svn log $WORK_DIR -r $start:$end` ;
+	my @log = split /[-]{10,}/,$log;
+	for (my $i=1;$i<$#log;$i++){
+		$return.=parse_entry($log[$i]);
+	}
+	return $return;
+}
+
+# parse log entry and give it back as html
+sub parse_entry() {
+	my @entry = split /\n/,@_[0];
+	my ($revision,$author,$date,$cmt_length) = split /\|/,$entry[1];
+	my $return=h3("Revision: $revision<br />Checked in by: $author<br />Checked in on: $date<br />");
+	$return.=b("Comment: ") . "<pre>";
+	for (my $i=3;$i<=$#entry;$i++) {
+		$return.="$entry[$i]\n";
+	}
+	$return.="</pre>\n";
+	return div({-class=>'entry'},$return);
+}

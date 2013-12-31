@@ -1,0 +1,93 @@
+------- Forwarded message follows -------
+Date sent:      	Thu, 1 Jul 2004 18:12:03 -0400 (EDT)
+From:           	/dev/null <xxxxxxxxxxx>
+To:             	****
+Subject:        	BigNoiseMusic
+
+Hi,
+
+As there was no feedback mechanism on the website, and the tech support
+bit didn't work for me, I thought I'd try mailing some standard addresses.
+I'd be grateful if you could pass this mail on to whoever is responsible
+for the site.
+
+ I have a few critiscisms of your bignoisemusic.com website which I'd
+liketo air. These aren't meant to be overly negative, and I should point
+out that I am a supporter of Oxfam's activities, and I want to contribute
+in as constructive a way as possible.
+
+ I was very disappointed that Oxfam have made the choice only to support
+users of Microsoft products with their new website. Needless to say
+Microsoft are a corporation with an extremely sketchy ethical history, see
+for example
+http://www.corporatewatch.org.uk/profiles/microsoft/microsoft1.htm.
+
+ Proprietary software is one of the greatest threats to the global commons
+of publicly available digital information (see the Oxfam International
+campaign proposal on
+http://danny.oz.au/free-software/advocacy/oicampaign.html ).
+
+Microsoft have time after time sought to "embrace and extend" open
+standards to which everyone has access in order to dominate the flow of
+information and profit from it, check out, for example
+http://www.opensource.org/halloween/ . Are Oxfam really only going to
+support proprietary closed protocols, and does this not go against some of
+your excellent analysis of the negative effects of IP laws, particularly
+TRIPS? (e.g. http://www.oxfamamerica.org/advocacy/art5385.html ,
+http://www.oxfam.co.uk/what_we_do/issues/trade/trips_wsf2002.htm )
+
+ Users of free software (like gnu/linux) or even non-market-dominant
+nonfree software (like the mozilla browser or Mac OS) should be able to
+access digital information in an open way. This is part of the basis of
+digital citizenship, which is something that I can't imagine Oxfam not
+wanting to support.
+
+ Digital Rights Management - something else the website uses, probably
+at the  request of the recording industry, is a further worrying
+development. Essentially it redefines ownership in favour of large
+corporate interests, rather than in the interest of the person who has
+purchased the music (see http://www.eff.org/IP/DRM/fair_use_and_drm.html).
+Playing a song on more than one machine (especially if it's not a
+Microsoft machine) now becomes too difficult for the average user, whilst
+not being a serious obstacle to large scale pirates. The people to suffer
+are people like me - home users who want to listen to their music on more
+than one machine. Fair use becomes eroded, this is only a short way from
+creating books that can only be read once, and all the other IP scare
+stories one hears about. The only people to gain are M$, the recording
+industry and large scale pirating operations.
+
+ I understand that the website is probably a great way to raise money,
+and fundraising is crucial to the other extremely important work that
+Oxfam does, however, when a website goes against so many key principles of
+digital and global citizenship I think it's time to reconsider how it
+works.
+
+ In short, a better website would:
+
+- Support open standards, thereby supporting free software (gnu/linux,
+mozilla, etc.) as well as nonfree (M$, MacOS), thus encouraging
+participation from all digital citizens.
+
+- Not depend on secret proprietary software products to work, and not
+force people to use the software of a single ethically questionable
+corporation.
+
+- Eliminate DRM, by using the mp3, or, even better, ogg music formats.
+This would allow the people purchasing music control over their tunes,
+rather than having to cede it to the corporate interest of the music
+interest.
+
+ If we're trying to create a fairer world, then I believe people's right
+to participate in that world - be it in very simple ways like eating or
+choosing a government, or more complex ones like digital rights - should
+be at the heart of our strategy. This is a difficult ideal to live up to,
+and I don't believe that bignoisemusic.com has quite managed to get there
+yet (certainly not for me as a free software user and someone unwilling to
+pay for tunes that I can't use as I see fit). I hope it will in the
+future!
+
+Cheers,
+
+Charlie Harvey
+
+

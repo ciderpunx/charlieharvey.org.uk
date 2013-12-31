@@ -1,0 +1,340 @@
+                    Charlie Harvey - Curriculum Vitae
+
+
+Contact Information:
+
+Charlie Harvey
+
+Website: http://charlieharvey.org.uk/
+
+
+Technical Overview:
+
+    * Programming including Java, Perl, PHP, Bash scripting, DOS batch,
+      C/C++, Ruby. (15 years professional experience)
+    * Networking - including TCP/IP, cabling, security, configuration.
+      (15 years professional experience)
+    * W3C compliant (X)HTML, HTML5, CSS. XML, XSLT, javascript and all
+      that jazz. (13 years professional experience)
+    * High quality application support and training. (14 years
+      professional experience)
+    * Sysadmin and support of GNU/Linux (Debian, Ubuntu, Mandrake,
+      RedHat) (13 years professional experience)
+    * Sysadmin and support of FreeBSD and OpenBSD systems (5 years
+      professional experience)
+    * Desktop support of OSX machines (5 years professional experience)
+    * Admin and support for Windows (3.1, 95, 98, NT4, 2000, XPi, Vista,
+      7) (14 years professional experience)
+    * Project management experience and planning (12 years professional
+      experience)
+    * Excellent time management and work prioritisation, including
+      having been a company director for 5 years.
+    * Outstanding communication skills
+    
+
+Employment History:
+
+    IT Director
+    New Internationalist, Oxford
+    2008-Present
+    
+    Projects:
+    * FreeBSD, OpenBSD, Debian, server management- Managed complex,
+      heterogenous international network of servers including various
+      BSD boxen, Debian machines and VMs, OpenBSD firewalls and various
+      embedded GNU/Linux file servers.
+    * Jointly responsible for all technical aspects of newint.org, a
+      busy website powered by Bricolage CMS. Including template
+      development, database management and so on. I implemented Varnish
+      caching layer which significantly sped up the site. Also
+      implemented lots of functionality including a powerful search
+      facility built with Catalyst and Xapian.
+    * Website redesign- Worked with colleagues and Andy Clarke on a
+      complete redesign of newint.org.
+    * Online shops- Migrated e-commerce infrastructure from ZenCart to
+      Magento e-commerce system. Managed external contractors and
+      contributed to code as well as managing LAMP infrastructure for
+      multi-million pound e-commerce sites, New Internationalist Shop
+      and Amnesty Shop. Responsible for all technical aspects from
+      managing hosting arrangements to sysadmin to code development.
+      Built custom scripts to facilitate stock and order transfer
+      process to WebRelayXML based system.
+    * Friends of the Earth Shop- Designed, built, managed Friends of the
+      Earth Shop, including developing mobile friendly templates and
+      working closely with Friends of the Earth staff.
+    * Easier English Wiki- Set up mediawiki instance for New
+      Internationalist’s Easier English Wiki.
+    * CRM implementation- Initiated and worked on project to implement
+      CiviCRM to integrate the various New Internationalist databases
+      and "Friends" scheme.
+    * New Internationalist for iPad- Provided technical support for New
+      Internationalist’s implementation of a MagPlus iOS app.
+    * Tech support and customer service- Helped support and train
+      colleagues.
+    
+    
+    Web Developer
+    Corporatewatch, London
+    2012-Present
+    
+    Projects:
+    * Drupal mapping site build- Built a Drupal-based mapping site that
+      allows users to see the physical location of corporate power,
+      Mapping the Corporations. It was an interesting project to work on
+      as we specifically wanted to avoid using corporate infrastructure
+      (eg. Google maps) as much as possible.
+    * ad-hoc shop support- I occasionally help out with specific
+      projects on CorporateWatch’s shop.
+    
+    
+    Voluntary Web Strategist, Developer, Manager
+    East Oxford Community Association
+    2012-Present
+    
+    Projects:
+    * Site management, migration to wordpress- I am a volunteer trustee
+      at my local community centre, and helped them move their website,
+      eastoxford.org to wordpress.com, which fitted their needs much
+      better than their previous solution. I helped them to work on some
+      basic SEO and trained a number of volunteers to use wordpress to
+      keep the site updated as well as configuring the site.
+    
+    
+    Sysadmin
+    OX4
+    2010-Present
+    
+    Projects:
+    * Web hosting, sysadmin- OX4 is a webhosting service for
+      Oxford-based activists which I help run. We focus on providing
+      extremely reliable and fairly secure web services including
+      hosting for Drupal 6 and 7 sites.
+    
+    
+    IT Manager
+    People & Planet, Oxford
+    2002-2008
+    
+    Projects:
+    * Server migration from Win32 to GNU/Linux- Built and maintained 3
+      GNU/Linux servers to provide mail, web, file, NAT, and firewall
+      services, furthering knowledge of Apache, Samba, iptables,
+      postfix, and cyrus-imapd.
+    * Intranet development- Wrote and maintained organizational intranet
+      using perl, php, Java, css, MySQL and xml/xsl. Later migrated this
+      to a Ruby on Rails application, using agile methodologies.
+    * Web administration and developement- Built and administered Apache
+      server for organizational website, this included administering DNS
+      and Exim SMTP and developing MySQL driven RSS news feeds which
+      integrated with existing php news pages.
+    * Image database- Wrote a fully featured Java/MySQL image database
+      application.
+    * Spam filtering/antivirus email and webmail system- With support
+      for 20 users, using postfix, clamav, spamassasin, squirrelmail,
+      cyrus-imapd and self-written perl code.
+    * Automating system administration- With perl, php, ruby and bash
+      scripts.
+    * Documentation- Including a comprehensive set of howtos, training
+      materials and a full operations manual.
+    * Data entry management- Managed and trained data-entry staff and
+      prioritized data entry workloads.
+    * Support and maintenance- For a network of 25 Windows 95/98/2000
+      boxes.
+    * High quality application and network support and training- For 25
+      users
+    * IT Project Management- Managed IT budget, developed and oversaw
+      organizational IT strategy.
+    * Office management- Including telecomms support, health and safety
+      management, and purchasing.
+    
+    
+    IT Systems Manager
+    The Hot Group London
+    1999-2002
+    
+    Projects:
+    * System Administration- Of 3 NT4 servers, and assisting systems
+      administration of GNU/LInux servers.
+    * Network management and user support and training- Of 35 Windows
+      98/2000 machines.
+    * Intranet development and maintenance- Of internal website and IIS
+      webserver.
+    * Release Management- Including establishing and maintaining CVS
+      repository.
+    * Facilitation of webserver relocations- Twice oversaw logistics of
+      webserver moves, including assisting with setup.
+    * Java development- Coded various applets and applications, such as
+      an automatic email from voicemail generator.
+    * Deploying and configuring servers- Built NT4 and GNU/Linux
+      web/mail/file servers from scratch (including hardware).
+    * Mailserver management- Of Infinite Interchange mail/webmail server
+    * Purchasing supervision- Supervised all IT spending, licencing
+      requirements and stock control. Extended departmental Access
+      database to simplify the task.
+    
+    
+    Volunteer IT Consultant
+    Oxfam Development Education London
+    1999-2000
+    
+    Projects:
+    * Database redesign- Redesigned several Access databases.
+    * Desktop support- For users of NT network.
+    * Assisting in organization of major conference- at the University
+      of Hertfordshire.
+    
+
+Education:
+
+    Coursera courses passed, 2013
+    Coursera
+    
+      - Programming Languages (University of Washington);, Statistics
+      One (Princeton).
+    
+    Regular Expression Training Course, 2012
+    FLOSSUK/Damian Conway
+    
+      - Understanding the Perl regex engine;.
+    
+    Advanced Perl Techniques, 2011
+    FLOSSUK/Dave Cross/Magnum Solutions
+    
+      - Perl 5.10, 5.12;.
+    
+    City and Guilds Level 3, 2003
+    Oxford College of Further Education
+    
+      - C++ Programming (302).
+    
+    City and Guilds Level 3, 2001
+    Barnet College
+    
+      - Java Programming (7261).
+    
+    Developers Certificate, 1999
+    MicroTech Training Services, London
+    
+      - HTML/JavaScript.
+    
+    A-Levels, 1991
+    Colchester VIth Form College
+    
+      - English Language & Literature (A), General Studies (A),
+      History (B), Economics (C), Politics (C).
+    
+    Seven GCSEs, including
+    
+      - Maths (A), English (A).
+    
+
+Web technologies:
+
+    * Dynamic websites using various backend databases - MySQL,
+      postgresql and SQL Server.
+    * Reasonable knowledge of Drupal -- I run a voluntary Drupal hosting
+      service and have worked on sites like Mapping the Corporations.
+    * Familiarity with a number of web frameworks including professional
+      experience of Catalyst and Rails. I made SnippIOa pastebin site
+      from an interesting Haskell framework called Yesod, an intranet
+      using Rails, the interactive parts of newint.orgout of Catalyst,
+      the non-interactive parts with Bricolage/Mason, and rebuilt my own
+      site charlieharvey.org.ukwith Dancer not long ago.
+    * Webserver deployment, configuration and administration of Apache
+      on FreeBSD, OpenBSD, Windows and GNU/Linux platforms.
+    * Perl, ruby, php, java, haskell development - whole product
+      lifecycle and project management experience.
+    * Fluent, accessible and standards compliant (x)html, html5, css,
+      xml, xslt, rss, JavaScript, Java Applets.
+    * Built and maintain online shops for New Internationalist, Friends
+      of the Earthand Amnesty International UK. Configured and managed
+      Magento e-commerce software, built custom modules, project managed
+      software suppliers, created custom themes.
+    * Have a passing familiarity with node.js
+    * Experience with Less and Sass CSS preprocessors as well as with
+      writing CSS by hand for large sites (eg newint.org 100-200k
+      uniques/month).
+    *
+    
+
+Programming experience:
+
+    * Perl including familiarity with many CPAN modules. Highlights
+      include web based budget management tool; multiple customized
+      system administration utilities; organizational intranet making
+      extensive use of CGI.pm and HTML::Template; websites using
+      Catalyst and Dancer, sysadmin tools, etc.
+    * php including configuration of apache. Highlights include xml/xslt
+      based meeting scheduler; RSS feed generator
+      (http://peopleandplanet.org/rss/news.xml ); various web tools.
+    * Ruby including Rails. Highlights include a version of CPAN's
+      Lingua::EN::Fathom; Rails based organizational intranet with full
+      CMS.
+    * Bash scripting. Highlights include various tools for Samba
+      administration, task automation server monitoring and so on.
+    * DOS batch. Highlights include various system administration tools,
+      login scripts.
+    * Other languages worked with include C, C++, Pascal, Ada, Assembler
+      (NASM), Clojure, Haskell, ML, io, Scala, Common Lisp, Erlang,
+      Prolog, Bash, Javascript, Scheme (I have written an
+      implementationof Scheme) and dBase IV. Remember that?
+    * Version control using git, CVS and subversion including setting up
+      repositories, branching, merging, svn+ssh, as well as having been
+      responsible for release management at hotrecruit.
+    * Java including J2EE. Highlights include 10,000 line image
+      database; voicemail to email converter for Argent Branch PBX.
+    
+
+Systems Administration experience:
+
+    * DNS management using BIND on Freebsd and Linux
+    * Database administration including managing multiple MySQL and
+      postgresql servers. And nosql tools like redis and mongodb. I once
+      even used to manage Microsoft SQL Server servers.
+    * Apache: Building from scratch; configuration; modules including
+      mod_perl, mod_ruby, mod_fastcgi, mod_rewrite, etc; security;
+      deployment.
+    * Email: installation, configuration and management of postfix,
+      cyrus-imapd, squirrelmail, mercury, exim, clamav, spamassassin,
+      amavis, Infinite InterChange, Roundcube, Horde, dovecot, etc..
+    * Windows 3.1 to 7: Administration, configuration, security,
+      installation, troubleshooting, hatred.
+    
+
+Publications:
+
+    " Free Software as DIY culture". University of Gothenberg,
+    Sweden.
+
+
+Hobbies:
+
+    * Community and campaigning groups Including Local Indymedia and the
+      Oxford Action Resource Centre (whose XHTML1.1 compliant website I
+      built back in the day).* Punk rock music.* Anarchist politics and community organizing.* Cider.
+
+Professional Memberships:
+
+    FLOSSUK
+    
+
+    ACM
+    
+
+    Free Software Foundation Europe
+    
+
+    Open Rights Group
+    
+
+    Industrial Workers of the World
+    
+
+    
+
+References:
+
+    Available upon request.
+    
+
+Last modified December 2013.

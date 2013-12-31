@@ -1,0 +1,197 @@
+#!/usr/bin/perl
+=head1 NAME
+
+smbopengtk.pl
+
+=head2 VERSION
+
+0.2
+
+=head1 SYNOPSIS
+
+Tool for faffing around with win32/nix style filenames.
+
+=head1 DESCRIPTION
+
+Lets you:
+
+=over
+
+=item Open a file/directory using the *nix
+smb://server/path/to/dir convention
+
+=item Open a file/directory using the *nix
+/path/to/local/file convention
+
+=item Open a file/directory using the win32
+\\server\path\to\file convention
+
+=item Attempt to open as file or directory
+
+=item Convert between the two conventions
+
+=item Escape an unescaped *nix filepath  
+
+=back
+
+=head2 OPTIONS
+
+=over
+
+=item  $FILEMANAGER
+
+The filemanager you use to open directories with - set inside
+script
+
+=item $FILEOPENER
+
+The program you use to open files.
+
+=back
+
+=head1 REQUIREMENTS
+
+Perl 5.8.8 (not tested on earlier versions)
+Gtk2
+Glib
+
+=head1 COPYRIGHT AND LICENCE
+
+               Copyright (C)2006  Charlie Harvey
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version
+ 2 of the License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+
+ You should have received a copy of the GNU General Public
+ License along with this program; if not, write to the Free
+ Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA  02111-1307, USA.
+ Also available on line: http://www.gnu.org/copyleft/gpl.html
+
+=cut
+
+use strict;
+use warnings;
+use Gtk2 -init;
+use Glib qw|TRUE FALSE|;
+
+my $FILEMANAGER= 'nautilus';
+my $FILEOPENER = 'gnome-open';
+
+my $window = Gtk2::Window->new ('toplevel');
+$window->set_border_width(10);
+$window->set_title("SMB open");
+my $win32 = Gtk2::Button->new ('Win32');
+my $open_as_file = Gtk2::CheckButton->new_with_label ('File');
+$open_as_file->set_active(1);
+my $nix = Gtk2::Button->new ('*nix');
+my $escape = Gtk2::Button->new ('Escape');
+my $open = Gtk2::Button->new ('Open');
+my $textentry = Gtk2::Entry->new;
+$textentry->set_width_chars(40);
+my $box = Gtk2::HBox->new;
+
+sub close {
+    Gtk2->main_quit;
+}
+
+sub smbopen {
+    if ($open_as_file->get_active) {
+        open_as_file();
+    }
+    else {
+        open_with_file_manager();
+    }
+}
+
+sub open_as_file {
+    my $file = convert_filename($textentry->get_text);
+    print "smbopen $file with $FILEOPENER\n";
+    system($FILEOPENER . ' ' . $file);
+}
+
+sub open_with_file_manager {
+    my $file = convert_filename($textentry->get_text);
+    print "smbopen $file with $FILEMANAGER\n";
+    system($FILEMANAGER . ' ' . $file);
+}
+
+sub win32ize {
+    $textentry->set_text(
+        convert_to_win32(
+          $textentry->get_text));
+      return TRUE;
+}
+
+sub nixize {
+    $textentry->set_text(
+        convert_filename(
+          $textentry->get_text));
+      return TRUE;
+}
+
+sub escape {
+    $textentry->set_text(
+        escape_name(
+          $textentry->get_text));
+      return TRUE;
+}
+
+sub escape_name {
+    my $file=shift;
+    $file=~s/([\s\&\!\t])/\\$1/g;
+    return $file;
+}
+
+sub convert_filename {
+    my $file = shift;
+    if ($file=~/^\\\\/) {
+        $file=~s/^\\+//;
+        $file=~s/\\/\//g;
+        $file = 'smb://' . $file;
+        $file = escape_name($file);
+    }
+    return $file;
+}
+
+sub convert_to_win32 {
+    my $file = shift;
+    if ($file=~/^smb:\/\//) {
+        $file=~s/smb:\/\//\\\\/;
+    }
+    $file=~s/\\([\& \t\!])/$1/g;
+    $file=~s/\//\\/g;
+    return $file;
+}
+
+sub key_pressed {
+    my ($widget,$event,$data) = @_;
+    smbopen if ($event->keyval==65293);
+    return FALSE;
+}
+
+$window->signal_connect(destroy =>\&close);
+$win32->signal_connect ( clicked => \&win32ize);
+$nix->signal_connect ( clicked => \&nixize);
+$escape->signal_connect ( clicked => \&escape);
+$open->signal_connect ( clicked => \&smbopen);
+$textentry->signal_connect ( key_press_event => \&key_pressed);
+
+$box->add ($textentry);
+$box->add ($open);
+$box->add ($win32);
+$box->add ($nix);
+$box->add ($escape);
+$box->add ($open_as_file);
+$window->add($box);
+$window->show_all;
+Gtk2->main;
+0;

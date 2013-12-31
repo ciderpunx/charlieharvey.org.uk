@@ -1,0 +1,101 @@
+#!/usr/bin/perl
+#
+# split pegasus folder into messages, and deliver them.
+#
+#               Copyright (C)2004  Charlie Harvey
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+# MA  02111-1307, USA.
+# Also available on line: http://www.gnu.org/copyleft/gpl.html
+#
+#
+# Tech Notes
+# ==========
+# - Depends on cpan module Mail::IMAPClient
+# - Expects a .PMM file and a preexisting imap folder as commandline args
+# - Written from scratch. 
+# - Mail::IMAPClient is documented on http://search.cpan.org/~djkernen/Mail-IMAPClient-2.2.7/IMAPClient.pod .
+###########################################################################
+
+use strict;
+use Mail::IMAPClient;
+
+if (!$ARGV[1]) {
+	die("Usage: $0 PMM_FOLDER imap_folder");
+}
+my $pmm=$ARGV[0];         # pmm file from commandline
+my $imap_folder=$ARGV[1]; # imap folder we want to append to
+my $split_char = chr(26); # peg internal control char where we'll split
+my $flag=0;		  # have to treat first line weirdly
+my $msg_count=0;	  # counter for message  names	
+my $mail_buffer="";	  # hash to hold entire folder
+my $start=`date +%s`;	  # trying some optimizations
+
+print "Appending from: $pmm to $imap_folder\n";
+
+#create IMAPClient object, and connect.
+my $imap = Mail::IMAPClient->new(
+		Server=>'127.0.0.1',
+		User=>'cyrus',
+		Password=>'PASSWORD',
+) || die ("can't create imap client: $@\n"); 
+
+# connect to our folder, if we can't select it it most likely doesn't exist, or
+# we can't post to it anyhow, so that's fatal.
+$imap->connect || die ("can't connect to imap server: $@\n");
+$imap->select($imap_folder) || die ("Can't select $imap_folder: $@");
+
+# simalarly if we can't open our .PMM file, it'd be daft to go on.
+open (PMM,$pmm) || die ("can't open $pmm");
+while (<PMM>) { 
+	if (! $flag) {
+		$flag++;
+		# These are the only headers I've encountered in the first line
+		# they have a load of binary crap before them, we'll drop that.
+		s/.*(Received:|From:|Resent-From:|Return-Path:)/$1/i;
+	}
+	# if we come across an ASCII 26, it's a new message
+	if ($_=~m/^$split_char/) {
+		$_=~s/$split_char//;	      # we don't need it now
+		append_mail($mail_buffer);
+		$msg_count++;
+		$mail_buffer="";
+	}				      
+	$_=~s/[\0-\7]//g; 		      # get rid of binary fluff that rfc2060 doesn't like
+	$mail_buffer.=$_;
+}
+close PMM; 
+
+# right, now we'll append the messages, and try to set the seen flag (broken)
+# TODO: p4 make seen flag work I think this might be an error in pegasus
+# needs testing.
+sub append_mail () {
+	my ($msg) = @_;
+	next if (length ($msg) < 10); #skip empty messages
+	my $msg_id = $imap->append($imap_folder,$msg ) ||
+		warn ("Can't append mail $msg_count from $pmm to $imap_folder: $@");
+	$imap->see($msg_id) || warn ("Can't set status to seen: $@");
+	return;
+}
+
+# we're not too worried if we can't /dis/connect
+$imap->disconnect() || warn ("Can't close imap connection: $@\n");
+
+# that's our lot.
+my $stop = `date +%s`;
+my $time_taken = $stop-$start;
+print "Appending complete: from $pmm to $imap_folder in $time_taken seconds\n";
+
+######################################################################################

@@ -1,0 +1,44 @@
+evilmalware 0.6 (beta)
+
+Copyright 2000, 2001, 2003, 2005
+E\/17 |-|4><0|2z Software Foundation, Inc.
+
+This is free software; see the source for copying conditions.  There is
+NO warranty; not even for MERCHANTABILITY, COMPLETE DESTRUCTION OF IMPORTANT 
+DATA or FITNESS FOR A PARTICULAR PURPOSE (eg. sending thousands of Viagra 
+spams to people accross the world).
+
+Basic Installation
+==================
+
+Before attempting to compile this virus make sure you have the correct
+version of glibc installed, and that your firewall rules are set to `allow 
+everything'.
+
+1. Put the attachment into the appropriate directory eg. /usr/src
+
+2. Type `tar xvzf evilmalware.tar.gz' to extract the source files for 
+   this virus.
+
+3. `cd' to the directory containing the virus's source code and type
+   `./configure' to configure the virus for your system.  If you're
+   using `csh' on an old version of System V, you might need to type
+   `sh ./configure' instead to prevent `csh' from trying to execute
+   `configure' itself.
+
+4. Type `make' to compile the package. You may need to be logged in as 
+   root to do this.
+
+5. Optionally, type `make check_payable' to run any self-tests that come 
+   with the virus, and send a large donation to an unnumbered Swiss bank 
+   account.
+
+6. Type `make install' to install the virus and any spyware, trojans
+   pornography, penis enlargement adverts and DDoS attacks that 
+   come with it.
+  
+7. You may now configure your preferred malware behaviour in 
+   /etc/evilmalware.conf .
+
+SEE ALSO
+   evilmalware(1), evilmalware.conf(5), please_delete_all_my_files(1) 
