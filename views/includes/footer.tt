@@ -37,7 +37,6 @@
 <script type="text/javascript">
 //<![CDATA[
   var _paq = _paq || [];
-  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
   _paq.push(["setCookieDomain", "*.charlieharvey.org.uk"]);
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
@@ -51,13 +50,11 @@
   })(); 
 //]]>
 </script>
-
-<!-- Start Open Web Analytics Tracker -->
 <script type="text/javascript">
 //<![CDATA[
 var owa_baseUrl = 'http://openstats.charlieharvey.org.uk/';
 var owa_cmds = owa_cmds || [];
-owa_cmds.push(['setSiteId', 'efa7a1e8bc047ddcfaead759a286b8c0']);
+owa_cmds.push(['setSiteId', 'beaed51c3972b32c94d9cd55e266978e']);
 owa_cmds.push(['trackPageView']);
 owa_cmds.push(['trackClicks']);
 owa_cmds.push(['trackDomStream']);
@@ -70,5 +67,5 @@ owa_cmds.push(['trackDomStream']);
 }());
 //]]>
 </script>
-<!-- End Open Web Analytics Tracker -->
+
 <!--/footer-->
