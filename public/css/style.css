@@ -79,7 +79,7 @@ img {max-width:100%}
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background:url("http://static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat scroll center top #0A2637;background-size:contain;color:#CCCCCC;height:95px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
+.titlebar {background:url("//static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat scroll center top #0A2637;background-size:contain;color:#CCCCCC;height:95px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
 .titlebar h1 a {height:80px;position:absolute;left:0;top:10px;width:100%}
 
 .navbar {font-family:cabin, sans-serif;background-color:#0a2637;background-image:linear-gradient(to bottom,  #134, #0a2637);background-repeat:repeat-x}
@@ -124,7 +124,7 @@ img {max-width:100%}
 .btn-dark:disabled {background-color:#023;color:#feb}
 .pager li > a, .pager li > span {background-color:#023;color:#feb}
 
-.taggedlink {background:url("http://static.charlieharvey.org.uk/img/tag.png") no-repeat scroll left top transparent;padding-left:17px;padding-right:7px}
+.taggedlink {background:url("//static.charlieharvey.org.uk/img/tag.png") no-repeat scroll left top transparent;padding-left:17px;padding-right:7px}
 
 .breadcrumbs, .breadcrumbs li {margin:0;padding:0}
 .breadcrumbs li {margin-left:-0.2em}
@@ -145,7 +145,7 @@ img {max-width:100%}
 .drop-cap > p:first-of-type:first-letter {display:block;float:left;font-size:3.15em;font-style:normal;font-weight:700;line-height:0.67em;margin:0 0.1em 0 0.02em}
 .no-drop-cap:first-letter {display:inline !important;font-size:100% !important;font-weight:400 !important;margin:0 !important;float:none !important}
 
-.required {background:url("http://static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent;font-weight:700;padding-left:17px;padding-right:7px}
+.required {background:url("//static.charlieharvey.org.uk/img/required.png") no-repeat scroll left center transparent;font-weight:700;padding-left:17px;padding-right:7px}
 
 .st-result em {background:none repeat scroll 0 0 #224455;color:#FFEEBB;padding:3px}
 
@@ -178,14 +178,14 @@ img {max-width:100%}
 #social-block {float:right;margin:0 0 1em 1em}
 #social-block a, #after-article-shares a{width:24px;height:24px;display:block;float:left;opacity:0.85}
 #social-block a:hover, #after-article-shares a:hover {opacity:1}
-.sprite {background:url('http://static.charlieharvey.org.uk/img/social-icons/24/social-icons.png') no-repeat top left;width:24px;height:24px;font-size:0} 
+.sprite {background:url('//static.charlieharvey.org.uk/img/social-icons/24/social-icons.png') no-repeat top left;width:24px;height:24px;font-size:0} 
 .sprite.twitter {background-position:0px 0px} 
 .sprite.facebook {background-position:0px -24px} 
 .sprite.gplus {background-position:0px -48px} 
 .sprite.hackernews {background-position:0px -72px} 
 .sprite.comment-icon {background-position:0px -96px;font-size:8px;text-align:center;padding-top:8px} 
 
-.sprite32 {background:url('http://static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
+.sprite32 {background:url('//static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
 .sprite32.twitter {background-position:0px 0px} 
 .sprite32.facebook {background-position:0px -32px} 
 .sprite32.gplus {background-position:0px -64px} 
@@ -230,7 +230,7 @@ img {max-width:100%}
 	.entry-content ul {margin:0 0 10px -1.5em}
 	.entry-content img {width:auto}
 	#social-block a, #after-article-shares a  {width:32px;height:32px;display:block;float:left}
-	.sprite {background:url('http://static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
+	.sprite {background:url('//static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
 	.sprite.twitter {background-position:0px 0px} 
 	.sprite.facebook {background-position:0px -32px} 
 	.sprite.gplus {background-position:0px -64px} 
@@ -266,7 +266,7 @@ img {max-width:100%}
 	#social-block {position:fixed;right:0;top:40%}
 	#social-block a, #after-article-shares a {width:64px;height:64px;display:block;float:left}
 	#after-article-shares {display:none}
-	.sprite {background:url('http://static.charlieharvey.org.uk/img/social-icons/64/social-icons.png') no-repeat top left;width:64px;height:64px;font-size:0} 
+	.sprite {background:url('//static.charlieharvey.org.uk/img/social-icons/64/social-icons.png') no-repeat top left;width:64px;height:64px;font-size:0} 
 	.sprite.twitter {background-position:0px 0px}
 	.sprite.facebook {background-position:0px -64px}
 	.sprite.gplus {background-position:0px -128px}

@@ -295,6 +295,16 @@ get '/tagcloud/?' => sub {
 	redirect uri_for '/tag/cloud'
 };
 
+get '/tag.atom/:tag' => sub {
+  my $tag = params->{tag};
+	redirect uri_for "/tag/$tag/feed/atom";
+};
+
+get '/tag.rss/:tag' => sub {
+  my $tag = params->{tag};
+	redirect uri_for "/tag/$tag/feed/rss";
+};
+
 get '/twitterhaiku.pl' => sub {
 	template 'twitterhaiku', {
 		title => 'MOTHBALLED: Twitter haiku',
