@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content="[% description %]" />
 		<meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />

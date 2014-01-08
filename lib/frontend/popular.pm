@@ -4,6 +4,7 @@ use Dancer::Plugin::Feed;
 use Dancer::Plugin::Database;
 use v5.14;  # for given/when
 use POSIX qw(strftime);
+use HTML::Entities;
 
 prefix '/popular';
 
@@ -100,7 +101,18 @@ sub _popular_for {
 	;
 	my $sth = database('piwik')->prepare($query);
 	$sth->execute;
-	return $sth->fetchall_hashref('title');
+	my $results = $sth->fetchall_hashref('title');
+	# Make the titles UTF-8 friendly, just htmlentities them
+	for (keys %{$results}) {
+		my $newtitle = encode_entities($_);
+		$newtitle =~ s/&#151;/&mdash;/g; # horrible but it keeps the validator happy
+		unless ($newtitle eq $_) {
+			$results->{$newtitle}=$results->{$_};
+			$results->{$newtitle}{title}=$newtitle;
+			delete $results->{$_}
+		}
+	}
+	return $results;
 }
 
 sub _page_ordering {
