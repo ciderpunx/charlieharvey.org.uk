@@ -3,7 +3,7 @@
 	<ul class="horizontal-list no-decoration xoxo">
 		[% FOREACH tag IN page.tags %]
 			<li class="xfolkentry">
-				<a rel="tag bookmark" class="taggedlink" href="/tag/[% tag.title %]">[% tag.title %]</a>
+				<a rel="tag bookmark" class="taggedlink" href="/tag/[% tag.title | uri %]">[% tag.title %]</a>
 			</li>
 		[% END %]
 	</ul>

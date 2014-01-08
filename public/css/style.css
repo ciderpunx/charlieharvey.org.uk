@@ -174,9 +174,9 @@ img {max-width:100%}
 #page {max-width:870px;margin:auto;padding-top:1em;padding-left:0.3em;padding-right:0.3em}
 #page li {margin-bottom:0.5em}
 
-#navtree li {margin-bottom:0.2em}
-#navtree ul {margin:0 0 10px 0.95em}
-#navtree .glyphicon {color:#689}
+.navtree li {margin-bottom:0.2em}
+.navtree ul {margin:0 0 10px 0.95em}
+.navtree .glyphicon {color:#689}
 
 #social-block {float:right;margin:0 0 1em 1em}
 #social-block a, #after-article-shares a{width:24px;height:24px;display:block;float:left;opacity:0.85}

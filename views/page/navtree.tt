@@ -1,5 +1,5 @@
 <!--t:page/navtree-->
-<ul id="navtree" class="xoxo no-decoration">
+<ul class="navtree xoxo no-decoration">
 [% IF ancestors %]
 		[% pages = ancestors.reverse %]
 		[% index = pages.shift %]

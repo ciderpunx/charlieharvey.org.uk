@@ -1,6 +1,6 @@
 <!--t:comment-->
 <section>
-<p><a name="comments" href="#"></a><br /></p>
+<p><a id="comments" href="#"></a><br /></p>
 <h3>Comments</h3>
 
 [% INCLUDE comment/form.tt %]
