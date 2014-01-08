@@ -136,8 +136,11 @@ img {max-width:100%}
 .hfeed {margin-top:1em;}
 .hentry {margin-top:3em}
 .hentry ul {text-align:right;}
-.hreview blockquote, .hreview q {border-left:none;margin:0;padding:0;color:inherit;font-style:inherit;font-size:inherit;font-weight:inherit;line-height:inherit}
+.hreview {color #ccc}
+.hreview blockquote, .hreview q {font-style:normal;color:#444;border-left:none;margin:0;padding:0;color:inherit;font-style:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;margin-bottom:2em}
 .hreview {list-style-type:none}
+
+
 
 .comment q{display:block;margin-top:1em;margin-bottom:0.6em}
 .cmt-bdy q, .cmt-bdy blockquote {border-left:5px solid #356;margin:1em 0;padding:0 0 0 15px;color:#666;font-style:italic}

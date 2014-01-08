@@ -132,14 +132,20 @@ post '/create' => sub {
 	elsif (  _botscout_lookup( $email, $remote )
         || _stopforumspam_lookup( $email, $remote )
         || _akismet_lookup( $email, $remote, $user_agent, $referer, $body, $nick, $url )) {
-		sleep 30; 
+		sleep 20; 
 		push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 
+	}
+	elsif ( _spammy_title($ctitle)) {
+		sleep 20;
+		push @errors, "You look like a spammer. I normally don&#8217;t expect 2 capital letters in a single word. 
+		               Sorry if you are trying to say something like O&#8217;Neill &mdash; just lowercase it and 
+									 I will edit for you.";
 	}
 	# count a hrefs
 	my $count = 0;
 	while ($body =~ /a\s+href/g) {$count++} 
 	if ($count > 2) {
-		sleep 30;
+		sleep 20;
 		push @errors, "Your email looked spammy. Maybe there were lots of links in it or something like that?"
 	}
 
@@ -164,6 +170,7 @@ post '/create' => sub {
 			url			=> $url,
 			body		=> $body,
 			page_id => $page_id,
+			remote	=> request->remote_address,
 		});
 		template 'comment/create_success', {
 			title => "Comment added",
@@ -249,8 +256,16 @@ sub _akismet_lookup {
         COMMENT_AUTHOR_URL   => $url,
         REFERRER             => $referrer,
     );
-
 		return 1 if ('true' eq $akismet_verdict);
+}
+
+sub _spammy_title {
+	my $title = shift;
+	my @words = split /\s+/, $title;
+	for (@words) {
+		my $count = () = m{[A-Z]}g;
+		return 1 if $count > 1;
+	}
 }
 
 sub _create_comment {
@@ -268,21 +283,23 @@ sub _create_comment {
 	error $page->link;
 	cache_remove $page->link;
 	$new_comment->insert;
-	_email_comment($new_comment);
+	_email_comment($new_comment,$page,$argref->{remote});
 }
 
 sub _email_comment {
-	my ($cmt) = @_;
+	my ($cmt,$page,$remote) = @_;
 	 try {
         email {
 					from    => config->{'DEFAULT_EMAIL'},
 					to      => config->{'DEFAULT_EMAIL'},
-					subject => 'charlieharvey.org.uk: New Comment',
+					subject => 'charlieharvey.org.uk: New Comment on ' 
+										 . $page->link,
 					body    => $cmt->nick 
 											. "(" 
 											. $cmt->email 
 											. ") said:\n" 
-											. $cmt->body, 
+											. $cmt->body 
+											. "\nIP: $remote",
 				}
 	 }
 	 catch {
