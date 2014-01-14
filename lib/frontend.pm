@@ -99,6 +99,10 @@ get '/archive/?' => sub {
 		redirect uri_for('/page/index/archive/1');
 };
 
+get '/blog/?' => sub {
+	redirect uri_for '/page/index'
+};
+
 get '/boozeulator.pl' => sub {
 	redirect uri_for '/boozeulator'
 };

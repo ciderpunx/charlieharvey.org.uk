@@ -175,7 +175,7 @@ img {max-width:100%}
 #page li {margin-bottom:0.5em}
 
 .navtree li {margin-bottom:0.2em}
-.navtree ul {margin:0 0 10px 0.95em}
+.navtree-sub {margin:0 0 10px 0.95em !important}
 .navtree .glyphicon {color:#689}
 
 #social-block {float:right;margin:0 0 1em 1em}

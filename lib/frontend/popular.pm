@@ -64,7 +64,7 @@ get '/:period/feed/:format/?' => sub {
 			},
 			entries => [ map { 
 				title   => $_ || "Untitled", 
-				link    => $pages->{$_}{url},
+				link    => "http://" . $pages->{$_}{url},
 				author  => config->{SITE_AUTHOR},
 				content => $_ . " (". $pages->{$_}{unique_visits} . " unique visits)",
 			}, @page_ordering ] 
