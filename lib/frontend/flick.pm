@@ -93,6 +93,7 @@ sub _get_flickr_photo_collection {
 
 sub _get_photos {
   my ($collection_ref,$page) = (shift,shift);
+  return unless $collection_ref->{children}; # collection has no children
   my @photos;
   my @kids = @{$collection_ref->{children}};
   foreach(@kids) {
@@ -114,6 +115,7 @@ sub _get_meta {
 
 sub _get_photo_detail {
   my $ref = shift;
+  return unless $ref->{children};
   my $child = $ref->{children};
   my %photo;
   my $owner = $child->[1]{attributes}{username};

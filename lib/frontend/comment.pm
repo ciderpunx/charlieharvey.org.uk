@@ -228,6 +228,7 @@ sub _char_clean {
 
 sub _botscout_lookup {
 	my ($email, $remote) = (shift,shift);
+	return 1 unless($email && $remote);
 	my $botscout_query   = "http://botscout.com/test/?multi&mail="
 												 . uri_escape($email)
 												 . "&ip=$remote&key="
@@ -239,6 +240,7 @@ sub _botscout_lookup {
 
 sub _stopforumspam_lookup {
 	my ($email, $remote) = @_;
+	return 1 unless($email && $remote);
 	my $stopforumspam_query = "http://www.stopforumspam.com/api?email="
 														. uri_escape($email)
 														. "&ip=$remote";
@@ -249,6 +251,7 @@ sub _stopforumspam_lookup {
 
 sub _akismet_lookup {
     my ($email, $remote, $user_agent, $referrer, $body, $nick, $url) = @_;
+		return 1 unless($email && $remote);
     my $akismet = Net::Akismet->new(
         KEY => config->{AKISMET_KEY},
         URL => config->{AKISMET_URL},
@@ -269,6 +272,7 @@ sub _akismet_lookup {
 
 sub _spammy_title {
 	my $title = shift;
+	return unless $title;
 	my @words = split /\s+/, $title;
 	for (@words) {
 		my $count = () = m{[A-Z]}g;

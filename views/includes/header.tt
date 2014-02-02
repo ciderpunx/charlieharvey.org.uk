@@ -67,8 +67,8 @@
 							script.src = "//swiftype.com/embed.js";
 							var entry = document.getElementsByTagName('script')[0];
 							entry.parentNode.insertBefore(script, entry);
-						}()); // TODO: APIfy this to avoid tracking
-					/*]]>*/
+						}()); // TODO: APIfy this to avoid tracking*/
+					/*]]>
 					</script>
 				</div> 
 			</div><!--/.nav-collapse -->

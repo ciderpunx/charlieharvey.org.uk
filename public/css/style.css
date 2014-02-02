@@ -79,8 +79,8 @@ img {max-width:100%}
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background:url("//static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat scroll center top #0A2637;background-size:contain;color:#CCCCCC;height:95px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
-.titlebar h1 a {height:80px;position:absolute;left:0;top:10px;width:100%}
+.titlebar {background:url("//static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat center top #0A2637;background-image:url("//static.charlieharvey.org.uk/img/dotorg-2014-topbar.svgz"),none;background-size:contain;color:#CCCCCC;height:95px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
+.titlebar h1 a {height:37px;position:absolute;left:0;top:2px;width:100%}
 
 .navbar {font-family:cabin, sans-serif;background-color:#0a2637;background-image:linear-gradient(to bottom,  #134, #0a2637);background-repeat:repeat-x}
 .navbar .nav .active {background-color:#356;color:#feb}
@@ -224,7 +224,7 @@ img {max-width:100%}
 
 @media (min-width:400px) {
 	.titlebar {margin-top:50px;height:110px}
-	.titlebar h1 a {height:90px;top:12px}
+	.titlebar h1 a {height:50px;top:8px}
 }
 @media (min-width:500px) {
 	body {margin:0;padding:0;font:16px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
@@ -248,7 +248,7 @@ img {max-width:100%}
 	body {margin:0;padding:0;font:18px/1.352131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
 	.jumbotron {padding:0 60px 60px}
 	.titlebar {margin-top:50px;height:180px}
-	.titlebar h1 a {height:100px}
+	.titlebar h1 a {height:80px}
 	.navbar .container {min-width:815px;margin-right:auto;margin-left:auto}
 	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#023}
 	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {color:#feb}
@@ -262,7 +262,7 @@ img {max-width:100%}
 	.entry-content ul {margin:0 0 10px -2.35em}
 	.jumbotron img {width:100%}
 	.titlebar {height:205px}
-	.titlebar h1 a {height:102px;top:24px;left:50%;width:870px;margin-left:-435px}
+	.titlebar h1 a {height:90px;top:12px;left:50%;width:870px;margin-left:-435px}
 	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
 	#page {padding-left:0.3em;padding-right:0.3em}
 	#sidebar {display:none;}

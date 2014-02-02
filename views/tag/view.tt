@@ -46,7 +46,7 @@
 		<h1>Stuff tagged [% tag.title %]</h1>
 		<h2>No more stuff here, sorry</h2>
 	</header>
-	[% IF page_offset > 0 %]
+	[% IF page_offset %]
 	<article>
 		<p>Try the front page of the <a href="[% page.link %]">[% page.title %] section</a>.</p>
 	</article>

@@ -2,6 +2,7 @@
 use Dancer ':syntax';
 use FindBin '$RealBin';
 use Plack::Handler::FCGI;
+use lib '/var/www/charlieharvey.org.uk/lib';
 
 # For some reason Apache SetEnv directives dont propagate
 # correctly to the dispatchers, so forcing PSGI and env here 
@@ -12,6 +13,6 @@ set environment => 'production';
 my $psgi = path($RealBin, '..', 'bin', 'app.pl');
 my $app = do($psgi);
 die "Unable to read startup script: $@" if $@;
-my $server = Plack::Handler::FCGI->new(nproc => 5, detach => 1);
+my $server = Plack::Handler::FCGI->new(nproc => 2, detach => 1);
 
 $server->run($app);

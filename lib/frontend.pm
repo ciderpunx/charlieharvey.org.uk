@@ -171,6 +171,12 @@ get '/flick.pl' => sub {
 		redirect uri_for('/flick/');
 };
 
+get '/flick_view.pl' => sub {
+	my $id		= (params->{id})		|| '504996476';
+	my $page	= (params->{page})	|| '1';
+	redirect uri_for("/flick/view/$id/page/$page");
+};
+
 get '/mills_boon.pl' => sub {
 	redirect uri_for '/mills_and_boon'
 };
@@ -390,6 +396,9 @@ post '/contact' => sub {
 
 # Flush the CHI cache. 
 get '/flush' => sub { cache_clear };
+get '/inc' => sub { 
+	print join ", ", @INC;
+};
 
 
 # this takes care of 404s and should be the last route.

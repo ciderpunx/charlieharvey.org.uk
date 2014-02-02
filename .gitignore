@@ -1,3 +1,4 @@
 config.yml
 .*.swp
 logs
+public/munin

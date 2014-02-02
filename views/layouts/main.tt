@@ -30,8 +30,8 @@
 		<meta property="twitter:domain"       content="charlieharvey.org.uk" />
 		<meta property="twitter:description"  content="[% description %]" />
 		<meta property="twitter:creator"      content="@ciderpunx" />
-
-		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script><!--has to be at the top so we can put scripts in middle of page, can't use async either :-/ -->
+		
+		<script src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script>
 		<!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
 
 		<title>[% title %] -- Charlie Harvey</title>
