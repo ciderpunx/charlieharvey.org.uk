@@ -190,30 +190,30 @@ get '/mills_and_boon/?' => sub {
 	unless ($content) { 
 		push @errors, "Could not retrieve feed";
 	}	
-	unless ($rss->parse($content)) {
+	unless ($content && $rss->parse($content)) {
 		push @errors, "Could not parse feed"; 
 	}
  
-	# get last 7 channel items, skip chapter names and concat together
-	my $i=0;
-	my $last = $#{$rss->{items}};
-	$last = 7 if $last>7; 
-	foreach my $item (@{$rss->{'items'}}) {
-		$i++;
-		next unless (defined($item->{'description'}));
-		next if($item->{'title'} =~ /^ADV: /); #ad filter
-		last if($i>$last); # no more than $last stories please.
-		$feed.=$item->{'description'};
-	}
-
-	$feed =~ s{<(/?p)>}{[$1]}g;	  # keep p tags
-	$feed =~ s{</?[^>]+>}{}g;     # lose the rest
-	$feed =~ s{\[(/?p)\]}{<$1>}g;	# put ps back
-	# Converts chrs beyond 127 to html entities
-	$feed =~ s{([^\x20-\x7F])}{'&#' . ord($1) . ';'}gse;
-	$feed =~ s{&#8217;}{'}g; # fucking "smart" quotes
 
 	if ($feed && !@errors) {
+		# get last 7 channel items, skip chapter names and concat together
+		my $i=0;
+		my $last = $#{$rss->{items}};
+		$last = 7 if $last>7; 
+		foreach my $item (@{$rss->{'items'}}) {
+			$i++;
+			next unless (defined($item->{'description'}));
+			next if($item->{'title'} =~ /^ADV: /); #ad filter
+			last if($i>$last); # no more than $last stories please.
+			$feed.=$item->{'description'};
+		}
+
+		$feed =~ s{<(/?p)>}{[$1]}g;	  # keep p tags
+		$feed =~ s{</?[^>]+>}{}g;     # lose the rest
+		$feed =~ s{\[(/?p)\]}{<$1>}g;	# put ps back
+		# Converts chrs beyond 127 to html entities
+		$feed =~ s{([^\x20-\x7F])}{'&#' . ord($1) . ';'}gse;
+		$feed =~ s{&#8217;}{'}g; # fucking "smart" quotes
 		my $story = _to_markov($feed);
 		template 'mills_boon', {
 			title => 'Throbbing manhood',
