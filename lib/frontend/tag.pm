@@ -196,7 +196,7 @@ sub _all_tags {
 
 sub _stuff_tagged {
 	my ($tag,$page) = @_;
-	$page = 1 unless $page;
+	$page = 1 unless $page && $page=~/^[\d]+$/;
 
 	my $pg_rs = $tag->page->search({is_live=>1},{order_by=>{-desc=>'updated_at'}})->page($page);
 	my $pg_pager = $pg_rs->pager;
