@@ -24,19 +24,23 @@ get '/' => sub {
 sub _get_feed {
 	my $feed = shift;	
 
-	rss->parse( LWP::Simple::get($feed) );
+	my $tmp = LWP::Simple::get($feed);
+	if($tmp) {
+		$tmp =~ s/([^\x0A-\x7F])/'&#' . ord($1) . ';'/gse;
+		rss->parse($tmp);
 
-	my @stories;
-	my $display_max = config->{'FEED_MAX'};
+		my @stories;
+		my $display_max = config->{'FEED_MAX'};
 
-	for ( my $i = 0; $i < $display_max; $i++ ) {
-		next unless exists rss->{items}->[$i] and ref rss->{items};
-		push @stories, rss->{items}->[$i];
-	}
+		for ( my $i = 0; $i < $display_max; $i++ ) {
+			next unless exists rss->{items}->[$i] and ref rss->{items};
+			push @stories, rss->{items}->[$i];
+		}
 
-	return { 
-		title   => rss->{channel}{title} =>
-		link    => rss->{channel}{link}, 
-		stories => \@stories,					
+		return { 
+			title   => rss->{channel}{title} =>
+			link    => rss->{channel}{link}, 
+			stories => \@stories,					
+		};
 	};
 }
