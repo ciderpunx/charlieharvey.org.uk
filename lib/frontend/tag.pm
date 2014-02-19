@@ -96,8 +96,7 @@ get '/:title/feed/:format/?' => sub {
 	}
 	my $format = params->{format};
 	if(uc $format ne 'RSS' && uc $format ne 'ATOM') {
-		send_error("Bad feed format. RSS or Atom.");
-		return
+		$format="RSS";
 	}
 	my $rhash = _stuff_tagged($tag,1);
 	my @results;

@@ -176,8 +176,7 @@ sub _make_feed {
 	my ($format,$category,$fs) = (shift,shift,shift);
 
 	if(uc $format ne 'RSS' && uc $format ne 'ATOM') {
-		send_error("Bad feed format. RSS or Atom.");
-		return
+		$format="RSS";
 	}
 
 	my $link_uri = $category 

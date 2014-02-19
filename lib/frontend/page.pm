@@ -69,8 +69,7 @@ get '/feed/:format' => sub {
 	my @ps			= $page_rs->all;
 	my $format	= params->{format};
 	if(uc $format ne 'RSS' && uc $format ne 'ATOM') {
-		send_error("Bad feed format. RSS or Atom.");
-		return
+		$format = "RSS";
 	}
 	my $feed = create_feed( 
     format			=> params->{format}, #Feed format (RSS or Atom) 

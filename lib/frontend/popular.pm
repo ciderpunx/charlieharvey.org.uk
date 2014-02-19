@@ -43,8 +43,7 @@ get '/:period/feed/:format/?' => sub {
 		my $format = params->{format};
 		
 		if(uc $format ne 'RSS' && uc $format ne 'ATOM') {
-			send_error("Bad feed format. RSS or Atom.");
-			return
+			$format = "RSS";
 		}
 		
 		my $period = _validate_period(params->{period});
