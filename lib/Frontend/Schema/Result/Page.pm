@@ -194,11 +194,11 @@ sub auto_summary {
 	my $summary = $self->body;
   $summary =~ s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
   $summary = substr($summary,0,300);
-  $summary =~ s/&\w*$//;	  # remove trailing broken entities &am and such
-  $summary =~ s/[\r\n]+//g; # remove newlines
-  $summary =~ s/\s+/ /g;	  # squeeze whitespace
-  $summary =~ s/^\s+//;		  # chop leading whitespace
-  $summary =~ s/\s+$//;		  # chop trailing whitespace
+  $summary =~ s/&\w*$//;	   # remove trailing broken entities &am and such
+  $summary =~ s/[\r\n"]+//g; # remove newlines and quotes
+  $summary =~ s/\s+/ /g;	   # squeeze whitespace
+  $summary =~ s/^\s+//;		   # chop leading whitespace
+  $summary =~ s/\s+$//;		   # chop trailing whitespace
 	return $summary;
 }
 
