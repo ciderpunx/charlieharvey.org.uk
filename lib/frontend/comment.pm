@@ -121,7 +121,7 @@ post '/create' => sub {
 	my $page_id    = $no_html->filter(_char_clean(params->{page_id},20)); #TODO and writing_id?
 	my $email      = $no_html->filter(_char_clean(params->{email},250));
 	my $ctitle     = $no_html->filter(_char_clean(params->{ctitle},250));
-	my $body       = $min_html->filter(substr(params->{body}, 0, 2500));
+	my $body       = $min_html->filter(substr(params->{bdy}, 0, 2500));
 	my $nick       = $no_html->filter(_char_clean(params->{nick},140));
 	my $url        = $no_html->filter(_char_clean(params->{url},250));
 
@@ -129,8 +129,14 @@ post '/create' => sub {
 	my $remote     = request->remote_address;
 	my $user_agent = request->user_agent;
   my @errors;
-	
-	if (!$remote) {
+
+	if (defined params->{body}) {
+		push @errors, "You are doing a spammy thing, so I shall waste your time now"; 
+		open OUT, ">>:UTF8", '/var/log/prob_spammers';
+		print OUT "$remote, $user_agent, $referer\n";
+		close OUT;
+	}
+	elsif (!$remote) {
 		push @errors, "Missing remote address. It is required for antispam measures. Sorry."; 
 	}
 	elsif (length $body  < 50) {

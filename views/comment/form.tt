@@ -13,8 +13,8 @@
 		</div>
 
 		<p>
-			<label for="body" class="required">Leave a reply:</label><br />
-			<textarea required name="body" rows="5" cols="52" id="body" placeholder="Type your comment here"></textarea>
+			<label for="bdy" class="required">Leave a reply:</label><br />
+			<textarea required name="bdy" rows="5" cols="52" id="bdy" placeholder="Type your comment here"></textarea>
 		</p>
 
 		<p class="comment-detail">
