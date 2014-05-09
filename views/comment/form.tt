@@ -45,7 +45,7 @@
 
 	<script>
 		$('.comment-detail').hide();
-		$('#body').focus(
+		$('#bdy').focus(
 			function(){  
 				$('.comment-detail').slideDown();
 				$('#name').focus();

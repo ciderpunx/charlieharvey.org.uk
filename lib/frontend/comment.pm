@@ -5,6 +5,7 @@ use Dancer::Plugin::Feed;
 use Dancer::Plugin::Email;
 use Dancer::Plugin::Cache::CHI;
 use Net::Akismet;
+use Net::DNS;
 use HTML::Entities;
 use HTML::Parser; ## needed for TagFilter, which calls SUPER on it.
 use HTML::TagFilter;
@@ -131,24 +132,34 @@ post '/create' => sub {
   my @errors;
 
 	if (defined params->{body}) {
+		sleep 20; 
 		push @errors, "You are doing a spammy thing, so I shall waste your time now"; 
 		open OUT, ">>:UTF8", '/var/log/prob_spammers';
 		print OUT "$remote, $user_agent, $referer\n";
 		close OUT;
 	}
-	elsif (!$remote) {
+  if ($referer !~ m{https?://charlieharvey.org.uk}) {
+		sleep 20; 
+		push @errors, "Your lack of a referer makes me think you are a spammer. I shall pause the connection."; 
+  }
+  if ($user_agent =~ m{MSIE 6\.0}) {
+		sleep 20; 
+		push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
+  }
+	if (!$remote) {
 		push @errors, "Missing remote address. It is required for antispam measures. Sorry."; 
 	}
-	elsif (length $body  < 50) {
+	if (length $body  < 50) {
 		push @errors, "I don&#8217;t accept super short comments as they are often spammy.";
 	}
-	elsif (  _botscout_lookup( $email, $remote )
+	if (     _honeypot_lookup( $email)
+        || _botscout_lookup( $email, $remote )
         || _stopforumspam_lookup( $email, $remote )
         || _akismet_lookup( $email, $remote, $user_agent, $referer, $body, $nick, $url )) {
 		sleep 20; 
 		push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 
 	}
-	elsif ( _spammy_title($ctitle)) {
+	if ( _spammy_title($ctitle)) {
 		sleep 20;
 		push @errors, "You look like a spammer. I normally don&#8217;t expect 2 capital letters in a single word. 
 		               Sorry if you are trying to say something like O&#8217;Neill &mdash; just lowercase it and 
@@ -273,6 +284,24 @@ sub _akismet_lookup {
         REFERRER             => $referrer,
     );
 		return 1 if ('true' eq $akismet_verdict);
+}
+
+sub _honeypot_lookup {
+  # Assuming you are querying the IP address 127.1.1.7 and your access key is wowuzdampcoz (which it actually is), you should format your DNS query as:
+  # wowuzdampcoz.7.1.1.127.dnsbl.httpbl.org
+  # [Access Key] [Octet-Reversed IP] dnsbl.httpbl.org 
+  my $remote = join(".", reverse (split(/\./,shift) ));
+  return 1 unless $remote;
+  my $lookupaddr = config->{HONEYPOT_KEY}.".$remote.dnsbl.httpbl.org";
+  my $res = Net::DNS::Resolver->new;
+  my $query = $res->search($lookupaddr);
+  return unless $query && $query->answer;
+  for my $r ($query->answer) {
+      if ($r->type eq "A") {
+         my @octets = split /\./, $r->address;
+         return 1 if ($octets[3] =~ 4 && $octets[2]>4);
+      }
+  }
 }
 
 sub _spammy_title {
