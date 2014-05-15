@@ -91,7 +91,8 @@ get '/:title/feed/?' => sub {
 get '/:title/feed/:format/?' => sub {
 	my $tag = _tag_by_title(params->{title});
 	if (!$tag) {
-		send_error "Cannot find tag called " . params->{title};
+		#send_error "Cannot find tag called " . params->{title};
+		forward uri_for '/404';
 		return
 	}
 	my $format = params->{format};
@@ -134,7 +135,7 @@ get '/:title/:page/?' => sub {
 	my $page = params->{page} || 1;
 	my $tag = _tag_by_title(params->{title});
 	if (!$tag) {
-		redirect '/404';
+		forward uri_for '/404';
 		return
 	}
 	

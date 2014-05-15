@@ -33,7 +33,31 @@
 </footer>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 <script src="//static.charlieharvey.org.uk/js/highlight.pack.js"></script>
-<script>/* <![CDATA[ */ $('code').each(function(i, e) {hljs.highlightBlock(e)}) /* ]]> */</script>
+<script>/* <![CDATA[ */ 
+        $('code').each(function(i, e) {hljs.highlightBlock(e)}); 
+        $( "#social-block-toggle" ).click(function() {
+		$( "#social-block" ).slideToggle( "slow", function() {
+			if ($('#social-block-toggle').html()==$('<div/>').html('&#8599').html()) {
+			 	$('#social-block-toggle').html("&#8601;");
+			}
+			else{
+			 	$('#social-block-toggle').html("&#8599;");
+			}
+		});
+	});
+        $( "#sidebar-toggle" ).click(function() {
+		$( "#sidebar" ).slideToggle( "slow", function() {
+			if ($('#sidebar-toggle').html()==$('<div/>').html('&#8599').html()) {
+			 	$('#sidebar-toggle').html("&#8601;");
+			}
+			else{
+			 	$('#sidebar-toggle').html("&#8599;");
+			}
+		});
+	});
+
+
+/* ]]> */</script>
 <script type="text/javascript">
 //<![CDATA[
   var _paq = _paq || [];

@@ -10,9 +10,12 @@
 				[% END %]
 		</header>
 
-		<ul class="no-decoration" id="social-block">
-			[% INCLUDE page/share_this_list.tt %]
-		</ul>
+                <div class="social-block-div">
+			<ul class="no-decoration" id="social-block">
+				[% INCLUDE page/share_this_list.tt %]
+			</ul>
+			<a href="javascript:void(0)" id="social-block-toggle" class="visible-lg">&#8599;</a>
+                </div>
 
 		[% IF page.is_cover %]
 			<p class="tinytext no-drop-cap">This is the <em>[% page.title %]</em> section. <a href="#blog-info-popup" data-toggle="modal" data-target="#blog-info-popup">Learn more &raquo;</a></p>
@@ -25,10 +28,13 @@
 					</div>
 					<div class="modal-body">
 		[% ELSE %]
-			<div class="tinytext pull-right quarter visible-lg" id="sidebar">
+			<div class="visible-lg">
+                        	<p style="text-align:right;"><a href="javascript:void(0)" id="sidebar-toggle">&#8601;</a></p>
+				<aside id="sidebar" class="quarter tinytext pull-right">
 				[% INCLUDE page/related_links.tt %]
 				<h4>Navigation</h4>
 				[% INCLUDE page/navtree.tt %]
+				</aside>
 			</div>	
 	 [% END %]
 		

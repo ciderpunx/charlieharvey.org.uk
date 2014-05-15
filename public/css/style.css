@@ -178,7 +178,7 @@ img {max-width:100%}
 .navtree-sub {margin:0 0 10px 0.95em !important}
 .navtree .glyphicon {color:#689}
 
-#social-block {float:right;margin:0 0 1em 1em}
+.social-block-div {float:right;margin:0 0 1em 1em}
 #social-block a, #after-article-shares a{width:24px;height:24px;display:block;float:left;opacity:0.85}
 #social-block a:hover, #after-article-shares a:hover {opacity:1}
 .sprite {background:url('//static.charlieharvey.org.uk/img/social-icons/24/social-icons.png') no-repeat top left;width:24px;height:24px;font-size:0} 
@@ -266,7 +266,7 @@ img {max-width:100%}
 	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
 	#page {padding-left:0.3em;padding-right:0.3em}
 	#sidebar {display:none;}
-	#social-block {position:fixed;right:0;top:40%}
+	.social-block-div {position:fixed;right:0;top:40%}
 	#social-block a, #after-article-shares a {width:64px;height:64px;display:block;float:left}
 	#after-article-shares {display:none}
 	.sprite {background:url('//static.charlieharvey.org.uk/img/social-icons/64/social-icons.png') no-repeat top left;width:64px;height:64px;font-size:0} 

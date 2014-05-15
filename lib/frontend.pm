@@ -293,6 +293,10 @@ get '/rss.pl' => sub {
 	redirect uri_for '/newsfeed'
 };
 
+get '/rss/latest.xml' => sub {
+	redirect uri_for '/page/feed/rss'
+};
+
 ## TODO: need a better search tool than swifttype for search.
 get '/search/?' => sub {
     template 'search', {
