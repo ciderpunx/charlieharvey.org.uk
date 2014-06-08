@@ -10,6 +10,7 @@
         <p class="entry-summary">
 				[% child.auto_summary %] <a href="[% child.link %]">&hellip;</a>
 				</p>
+        <div class="clear" style="padding-top:1em;"></div>
 				<div class="leftfloat">
 					<ul class="horizontal-list unstyled-list tinytext">
 						<li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
