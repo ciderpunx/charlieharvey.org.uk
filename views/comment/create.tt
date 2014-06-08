@@ -10,8 +10,8 @@
 	<form method="post" action="/comment/create" enctype="multipart/form-data">
 	
 		<p>
-			<label for="body" class="required">Leave a reply:</label>
-			<textarea required name="body" rows="5" cols="52" id="body" placeholder="Type your comment here">[% body %]</textarea>
+			<label for="bdy" class="required">Leave a reply:</label>
+			<textarea required name="bdy" rows="5" cols="52" id="bdy" placeholder="Type your comment here">[% bdy %]</textarea>
 		</p>
 
 		<p class="comment-detail">

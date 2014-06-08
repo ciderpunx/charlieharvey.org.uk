@@ -79,7 +79,7 @@ img {max-width:100%}
 .alert {padding-left:2.2em}
 .alert .close {font-size:2em}
 
-.titlebar {background:url("//static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat center top #0A2637;background-image:url("//static.charlieharvey.org.uk/img/dotorg-2014-topbar.svgz"),none;background-size:contain;color:#CCCCCC;height:95px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
+.titlebar {background:url("//static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg") no-repeat center top #0A2637;background-image:url("//static.charlieharvey.org.uk/img/dotorg-2014-topbar-2.svgz"),none;background-size:contain;color:#CCCCCC;height:57px;padding-top:15px;position:relative;text-align:center;line-height:0;font-size:0px;margin-top:50px}
 .titlebar h1 a {height:37px;position:absolute;left:0;top:2px;width:100%}
 
 .navbar {font-family:cabin, sans-serif;background-color:#0a2637;background-image:linear-gradient(to bottom,  #134, #0a2637);background-repeat:repeat-x}
@@ -181,12 +181,14 @@ img {max-width:100%}
 .social-block-div {float:right;margin:0 0 1em 1em}
 #social-block a, #after-article-shares a{width:24px;height:24px;display:block;float:left;opacity:0.85}
 #social-block a:hover, #after-article-shares a:hover {opacity:1}
+#social-block-toggle {}
 .sprite {background:url('//static.charlieharvey.org.uk/img/social-icons/24/social-icons.png') no-repeat top left;width:24px;height:24px;font-size:0} 
 .sprite.twitter {background-position:0px 0px} 
 .sprite.facebook {background-position:0px -24px} 
 .sprite.gplus {background-position:0px -48px} 
 .sprite.hackernews {background-position:0px -72px} 
 .sprite.comment-icon {background-position:0px -96px;font-size:8px;text-align:center;padding-top:8px} 
+.sprite.close-arrow {background-position:0px -120px;font-size:8px;text-align:center;padding-top:8px;height:6px}
 
 .sprite32 {background:url('//static.charlieharvey.org.uk/img/social-icons/32/social-icons.png') no-repeat top left;width:32px;height:32px;font-size:0} 
 .sprite32.twitter {background-position:0px 0px} 
@@ -198,6 +200,7 @@ img {max-width:100%}
 .sprite32.linkedin {background-position:0px -192px} 
 .sprite32.lastfm {background-position:0px -224px} 
 .sprite32.rss {background-position:0px -256px} 
+.sprite32.close-arrow {background-position:0px -288px;font-size:8px;text-align:center;padding-top:8px;height:8px}
 
 #sidebar {background:#fff;padding-left:1.5em}
 #sidebar h4 {margin-top:0}
@@ -223,12 +226,12 @@ img {max-width:100%}
 #daily-mail {padding:1em;padding-right:2.2em;min-height:640px;width:85%;margin:auto}
 
 @media (min-width:400px) {
-	.titlebar {margin-top:50px;height:110px}
+	.titlebar {margin-top:50px;height:86px}
 	.titlebar h1 a {height:50px;top:8px}
 }
 @media (min-width:500px) {
 	body {margin:0;padding:0;font:16px/1.652131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
-	.titlebar {margin-top:50px;height:150px}
+	.titlebar {margin-top:55px;height:115px}
 	.entry-content ol,
 	.entry-content ul {margin:0 0 10px -1.5em}
 	.entry-content img {width:auto}
@@ -243,11 +246,12 @@ img {max-width:100%}
 	.sprite.linkedin {background-position:0px -192px} 
 	.sprite.lastfm {background-position:0px -224px} 
 	.sprite.rss {background-position:0px -256px} 
+  .sprite.close-arrow {background-position:0px -288px;font-size:8px;text-align:center;padding-top:8px;height:8px}
 }
 @media (min-width:768px) {
 	body {margin:0;padding:0;font:18px/1.652131 "Libre Baskerville", "URW Bookman L", Georgia, serif}
 	.jumbotron {padding:0 60px 60px}
-	.titlebar {margin-top:50px;height:180px}
+	.titlebar {margin-top:50px;height:140px}
 	.titlebar h1 a {height:80px}
 	.navbar .container {min-width:815px;margin-right:auto;margin-left:auto}
 	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#023}
@@ -261,7 +265,7 @@ img {max-width:100%}
 	.entry-content ol, 
 	.entry-content ul {margin:0 0 10px -2.35em}
 	.jumbotron img {width:100%}
-	.titlebar {height:205px}
+	.titlebar {height:156px}
 	.titlebar h1 a {height:90px;top:12px;left:50%;width:870px;margin-left:-435px}
 	.navbar .container {width:930px;margin-right:auto;margin-left:auto}
 	#page {padding-left:0.3em;padding-right:0.3em}
@@ -275,6 +279,7 @@ img {max-width:100%}
 	.sprite.gplus {background-position:0px -128px}
 	.sprite.hackernews {background-position:0px -192px}
 	.sprite.comment-icon {background-position:0px -256px;font-size:20px;text-align:center;padding-top:19px}
+  .sprite.close-arrow {background-position:0px -320px;font-size:16px;text-align:center;padding-top:16px;height:16px}
 }
 
 .blog-info-box ul,

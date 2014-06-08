@@ -39,7 +39,7 @@ get '/' => sub {
     cache_page template 'index', {
       active_nav	=> 'Home',
 			title				=> "127.0.0.1",
-			description => "The lair of the ciderpunx",
+			description => "The lair of the ciderpunx. Being the home page of Charlie Harvey",
 			tweets			=> $tweets,
 			scrobbles		=> $scrobbles,
 			blogs				=> \@blogs,
@@ -150,6 +150,10 @@ get '/boozeulator' => sub {
 #	return {ppp => (params->{mls}), units => 0};
 #}; 
 
+
+get '/cgi-bin/.*' => sub {
+   redirect uri_for '/'
+};
 
 get '/cv.pl' => sub {
 	redirect uri_for '/cv'

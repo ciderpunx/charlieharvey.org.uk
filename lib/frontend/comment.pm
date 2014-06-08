@@ -132,9 +132,8 @@ post '/create' => sub {
   my @errors;
 
 	if (defined params->{body}) {
-		sleep 10; 
 		push @errors, "You are doing a spammy thing, so I shall waste your time now"; 
-		open OUT, ">>:UTF8", '/var/log/prob_spammers';
+		open OUT, ">>:UTF-8", '/var/log/prob_spammers';
 		print OUT "$remote, $user_agent, $referer\n";
 		close OUT;
 	}
@@ -152,11 +151,11 @@ post '/create' => sub {
 	if (!$body || length $body  < 50) {
 		push @errors, "I don&#8217;t accept super short comments as they are often spammy.";
 	}
-	if (     _honeypot_lookup( $email)
+        # || _stopforumspam_lookup( $email, $remote )
+	if (    _honeypot_lookup( $email)
         || _botscout_lookup( $email, $remote )
-        || _stopforumspam_lookup( $email, $remote )
         || _akismet_lookup( $email, $remote, $user_agent, $referer, $body, $nick, $url )) {
-		sleep 10; 
+		sleep 5; 
 		push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 
 	}
 	if ( _spammy_title($ctitle)) {
@@ -172,7 +171,7 @@ post '/create' => sub {
 		while ($body =~ /a\s+href/g) {$count++} 
 	}
 	if ($count > 2) {
-		sleep 20;
+		sleep 2;
 		push @errors, "Your email looked spammy. Maybe there were lots of links in it or something like that?"
 	}
 
@@ -198,6 +197,7 @@ post '/create' => sub {
 			body		=> $body,
 			page_id => $page_id,
 			remote	=> request->remote_address,
+      referer => $referer,
 		});
 		template 'comment/create_success', {
 			title => "Comment added",
@@ -269,7 +269,7 @@ sub _stopforumspam_lookup {
 }
 
 sub _akismet_lookup {
-    my ($email, $remote, $user_agent, $referrer, $body, $nick, $url) = @_;
+    my ($email, $remote, $user_agent, $referer, $body, $nick, $url) = @_;
 		return 1 unless($email && $remote);
     my $akismet = Net::Akismet->new(
         KEY => config->{AKISMET_KEY},
@@ -284,7 +284,7 @@ sub _akismet_lookup {
         COMMENT_AUTHOR       => $nick,
         COMMENT_AUTHOR_EMAIL => $email,
         COMMENT_AUTHOR_URL   => $url,
-        REFERRER             => $referrer,
+        REFERRER             => $referer,
     );
 		return 1 if ('true' eq $akismet_verdict);
 }
@@ -332,23 +332,24 @@ sub _create_comment {
 	error $page->link;
 	cache_remove $page->link;
 	$new_comment->insert;
-	_email_comment($new_comment,$page,$argref->{remote});
+	_email_comment($new_comment, $page, $argref->{referer}, $argref->{remote});
 }
 
 sub _email_comment {
-	my ($cmt,$page,$remote) = @_;
+	my ($cmt,$page,$referer,$remote) = @_;
 	 try {
         email {
 					from    => config->{'DEFAULT_EMAIL'},
 					to      => config->{'DEFAULT_EMAIL'},
-					subject => 'charlieharvey.org.uk: New Comment on ' 
+					subject => 'charlieharvey.org.uk: New Comment on http://charlieharvey.org.uk/' 
 										 . $page->link,
 					body    => $cmt->nick 
 											. "(" 
 											. $cmt->email 
 											. ") said:\n" 
 											. $cmt->body 
-											. "\nIP: $remote",
+											. "\nIP: $remote"
+											. "\nReferrer: $referer",
 				}
 	 }
 	 catch {

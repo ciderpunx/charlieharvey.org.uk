@@ -18,7 +18,7 @@
 				[% IF cmt.title %]<h4 class="item entry-title">[% cmt.title %]</h4>[% END %]
 			</header>
 			<p class="description entry-content cmt-bdy">
-				[% cmt.body %]
+				[% FILTER html_para %][% cmt.body %][% END %]
 			</p>
 			<p class="dtreviewed updated published tinytext auth">
 				<time class="value-title" title="[% cmt.updated_at %]Z" datetime="[% cmt.updated_at %]Z">[% cmt.nice_updated %]</time>

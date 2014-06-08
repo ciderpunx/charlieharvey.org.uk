@@ -49,7 +49,7 @@
 			function(){  
 				$('.comment-detail').slideDown();
 				$('#name').focus();
-				$('#body').attr('rows',10);
+				$('#bdy').attr('rows',10);
 			});
 	</script>
 </div>

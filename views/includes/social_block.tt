@@ -7,6 +7,6 @@
 		<li><a href="https://plus.google.com/share?url=[% url %]" class="sprite gplus">Share on Google+</a></li>
 		<li><a href="http://news.ycombinator.com/submitlink?u=[% url %]&amp;t=[% title %]" class="sprite hackernews">Share on Hacker News</a></li>
 	</ul>
-	<a href="#" id="social-block-toggle" class="visible-lg">&#8599;</a>
+	<a href="javascript:void(0)" id="social-block-toggle" class="visible-lg">&#8599;</a>
 </div>
 <!--/social_block-->

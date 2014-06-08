@@ -59,10 +59,12 @@ sub _tweets {
 		$title =~ s/</&lt;/g;     
 		$title =~s/@?ciderpunx\://;
 		$title =~ s/(https?:\/\/[\w\-\.\?\=\/]+)\b?/<a href="$1">$1<\/a>/ig;
-		$title =~ s/\s#(\w+)\s?/ <a href="http:\/\/search.twitter.com\/search?q=%23$1">#$1<\/a> /ig;
+		$title =~ s/\s#(\w+)\s?/ <a href="http:\/\/twitter.com\/search?q=%23$1">#$1<\/a> /ig;
 		$title =~ s/@(\w+)\b?/<a href="http:\/\/twitter.com\/$1">\@$1<\/a>/ig;
 		$title =~ s/^\s+//;
 		$title =~ s/\s+$//;
+                $title =~ s/&amp;#/&#/g;
+                $title =~ s{(pic.twitter.com\/\w+)}{<a href="http://$1">$1</a>}g;
 		push @items, {title=>$title, link=>$link};
 	}
 	return \@items;
