@@ -3,8 +3,11 @@
 			<article class="hentry drop-cap">
 				<header>
 					<h3 class="entry-title"><a href="[% child.link %]">[% child.title %]</a></h3>
-				</header>
-				<p class="entry-summary">
+        </header>
+        [% IF child.image_url %]
+          <a href="[% child.link %]"><img style="width:40%" src="[% child.image_url %]" alt="[% child.title %] cover image" class="bordered rightfloat"></a>
+        [% END %]
+        <p class="entry-summary">
 				[% child.auto_summary %] <a href="[% child.link %]">&hellip;</a>
 				</p>
 				<div class="leftfloat">

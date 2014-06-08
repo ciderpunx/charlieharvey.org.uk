@@ -106,6 +106,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_nullable => 1 },
   "title",
 	{ data_type => "varchar", default_value => "", is_nullable => 0, size => 80 },
+  "image_url",
+	{ data_type => "varchar", default_value => "", is_nullable => 0, size => 200 },
   "body",
   { data_type => "text", is_nullable => 0 },
   "related",

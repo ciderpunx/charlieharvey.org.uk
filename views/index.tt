@@ -22,6 +22,22 @@
 	
 	<div class="row">
 		<div class="col-sm-8">
+		[% IF blogs && blogs.size %]
+		<h3>Recent blogs</h3>
+			<ul id="blogs" class="no-decoration tinytext">
+			[% FOREACH blog IN blogs %]
+        <li>
+          <h4><a href="[% blog.link %]">[% blog.title %]</a></h4>
+          [% IF blog.image_url %]
+          <a href="[% blog.link %]"><img class="bordered" alt="[% blog.title %] cover image" src="[% blog.image_url %]" style="width:100%" /></a>
+          [% END %]
+          <p>[% blog.auto_summary %] <a href="[% blog.link %]">&hellip;</a></p>
+         </li>
+			  [% LAST IF loop.index > 3 %]
+			[% END %]
+			</ul>
+			<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
+		[% END %]
 		[% IF pics && pics.size %]
 			<div class="hidden-sm hidden-xs">
 				<h3>Recent photos</h3>
@@ -34,16 +50,6 @@
 				</div>
 				<p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
 			</div>
-		[% END %]
-		[% IF blogs && blogs.size %]
-		<h3>Recent blogs</h3>
-			<ul id="blogs" class="no-decoration tinytext">
-			[% FOREACH blog IN blogs %]
-				<li><h4><a href="[% blog.link %]">[% blog.title %]</a></h4><p>[% blog.auto_summary %]</p></li>
-				[% LAST IF loop.index > 3 %]
-			[% END %]
-			</ul>
-			<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
 		[% END %]
 		</div>
 		<div class="col-xs-6 col-sm-4">

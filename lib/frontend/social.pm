@@ -2,7 +2,7 @@ package frontend::social;
 use utf8;
 use Dancer ':syntax';
 use XML::RSS;
-use LWP::Simple ();
+use LWP::Simple qw($ua get);
 use HTML::Entities;
 
 prefix '/social';
@@ -41,6 +41,7 @@ sub _tweets {
 	my $limit    = 5;
 	my @items;
 
+  $ua->timeout(2);
 	my $content=LWP::Simple::get($url);
 	return unless $content;
 	my $rss = new XML::RSS;
@@ -75,6 +76,7 @@ sub _scrobbles {
 	my $limit    = 5;
 	my @items;
 
+  $ua->timeout(2);
 	my $content=LWP::Simple::get($url);
 	return unless $content;
 	my $rss = new XML::RSS;

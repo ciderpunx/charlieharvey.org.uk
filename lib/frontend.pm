@@ -19,7 +19,7 @@ use frontend::social;
 use frontend::tag;
 use frontend::writing;
 
-our $VERSION = '0.2';
+our $VERSION = '0.3';
 
 prefix undef;
 
