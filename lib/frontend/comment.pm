@@ -145,6 +145,14 @@ post '/create' => sub {
 		sleep 1; 
 		push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
   }
+  if (scalar(split /[\.\s]+/,$nick)>2) {
+		sleep 1; 
+		push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
+  }
+  if ($nick =~ m{http://}) {
+		sleep 1; 
+		push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
+  }
 	if (!$remote) {
 		push @errors, "Missing remote address. It is required for antispam measures. Sorry."; 
 	}
