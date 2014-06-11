@@ -5,11 +5,11 @@ use Dancer::Plugin::Feed;
 use Dancer::Plugin::Cache::CHI;
 
 prefix '/page';
-  
+
 check_page_cache;
 
 get '/' => sub {
-  redirect '/page/id/' 
+  redirect '/page/id/'
            . config->{ROOT_PAGE_ID};
 };
 
@@ -28,7 +28,7 @@ get '/api/recent' => sub {
 
   my $page_rs = _page_recent();
   my @ps      = $page_rs->all;
-  
+
   my @pages = map {
     author     => config->{SITE_AUTHOR},
     created_at => $_->created_at->ymd,
@@ -71,19 +71,19 @@ get '/feed/:format' => sub {
   if(uc $format ne 'RSS' && uc $format ne 'ATOM') {
     $format = "RSS";
   }
-  my $feed = create_feed( 
-    format      => params->{format}, #Feed format (RSS or Atom) 
+  my $feed = create_feed(
+    format      => params->{format}, #Feed format (RSS or Atom)
     title        => 'Recent pages on charlieharvey.org.uk',
     description => "The latest blog posts from my website, charlieharvey.org.uk",
     image        => {
-            title   => "charlieharvey.org.uk pages feed", 
+            title   => "charlieharvey.org.uk pages feed",
             width   => 240,
             height => 45,
             url    => "/graphics/minilogo.png",
             link   => uri_for("/comments"),
     },
-    entries => [ map { 
-      title   => $_->title || "Untitled", 
+    entries => [ map {
+      title   => $_->title || "Untitled",
       link    => uri_for($_->link),
       author  => config->{SITE_AUTHOR},
       summary => $_->auto_summary,
@@ -96,24 +96,24 @@ get '/feed/:format' => sub {
 
 get '/:slug/?' => sub {
   my $slug = params->{slug};
-  $slug =~ s{\/$}{}; 
+  $slug =~ s{\/$}{};
   my $page = _page_by_slug($slug);
-  
+
   if(!$page) {
     redirect '/404';
     return
   }
-  
+
   my @ancestors = $page->ancestors;
   my @top_categories = $page->top_categories;
 
   if ($page->is_root) {
-    # TODO: There are a lot of unnecessary queries going on here. 
+    # TODO: There are a lot of unnecessary queries going on here.
     #       Good place to optimize. Cache sorts it for now.
     my @recent_children = $page->recent_children(5);
-    cache_page template 'page/root', { 
+    cache_page template 'page/root', {
       active_nav      => 'Blog',
-      page            => $page, 
+      page            => $page,
       title            => $page->title,
       own_url          => uri_for($page->link)->as_string,
       parent_url      => uri_for('page/0')->as_string,
@@ -124,9 +124,9 @@ get '/:slug/?' => sub {
   }
   elsif ($page->is_cover) {
     my @recent_children = $page->recent_children(10);
-    cache_page template 'page/cover', { 
+    cache_page template 'page/cover', {
       active_nav      => 'Blog',
-      page            => $page, 
+      page            => $page,
       title            => $page->title,
       own_url          => uri_for($page->link)->as_string,
       parent_url      => uri_for($page->parent->link)->as_string,
@@ -137,9 +137,9 @@ get '/:slug/?' => sub {
     }; # cover page
   }
   else {
-    cache_page template 'page/view', { 
+    cache_page template 'page/view', {
       active_nav      => 'Blog',
-      page            => $page, 
+      page            => $page,
       title            => $page->title,
       own_url          => uri_for($page->link)->as_string,
       parent_url      => uri_for($page->parent->link)->as_string,
@@ -158,14 +158,14 @@ get '/:slug/archive/:page/?' => sub {
   my $slug        = params->{slug};
   my $page_offset = params->{page};
   $page_offset    = 1 unless ($page_offset && $page_offset =~ /\d+/ && $page_offset > 0);
-  $slug =~ s{\/$}{}; 
+  $slug =~ s{\/$}{};
   my $page = _page_by_slug($slug);
   unless ($page && $page->is_cover) {
     redirect '/404';
     return;
   }
 
-  my ($page_rs,$parent_url,$page_obj,@pages); 
+  my ($page_rs,$parent_url,$page_obj,@pages);
 
   if (! $page->is_root) {
     $page_rs    = _page_archive($page->id);
@@ -182,19 +182,19 @@ get '/:slug/archive/:page/?' => sub {
 
   my @ancestors = $page->ancestors;
 
-  template 'page/archive', { 
+  template 'page/archive', {
       active_nav      => 'Blog',
-      page    => $page, 
+      page    => $page,
       ancestors       => \@ancestors,
       own_url    => uri_for($page->link)->as_string,
       parent_url  => $parent_url,
       pages    => \@pages,
-      pager    => $page_obj->pager, 
+      pager    => $page_obj->pager,
       page_offset   => $page_offset,
-      title    => $page->title 
-             . " archive, page " 
+      title    => $page->title
+             . " archive, page "
              . $page_offset,
-      description => "Archive of posts about " 
+      description => "Archive of posts about "
           . $page->title
           . " (page $page_offset)"
   }; # archive view
@@ -205,11 +205,11 @@ get '/:slug/archive/:page/?' => sub {
 sub _page_archive {
     my ($id)    = @_;
     my $schema  = schema 'frontend';
-    my $results = $schema->resultset('Page')->search({ 
+    my $results = $schema->resultset('Page')->search({
         parent_id => { '=', $id } ,
         is_live    => {'=', 1},
       },
-      { 
+      {
         order_by => { -desc => 'id' },
     });
     return $results;
@@ -224,10 +224,10 @@ sub _full_archive {
 sub _page_recent {
     my ($id)    = @_;
     my $schema  = schema 'frontend';
-    my $results = $schema->resultset('Page')->search({ 
+    my $results = $schema->resultset('Page')->search({
         is_live => {'=', 1},
       },
-      { 
+      {
           order_by => { -desc => 'id' },
           rows     => config->{RESULTS_PER_PAGE},
     });
