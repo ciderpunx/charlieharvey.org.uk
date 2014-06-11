@@ -154,6 +154,10 @@ get '/boozeulator' => sub {
 #  return {ppp => (params->{mls}), units => 0};
 #}; 
 
+get '/cal.pl' => sub {
+   redirect uri_for '/'
+};
+
 get '/contact.pl/?' => sub {
    redirect uri_for '/contact'
 };
@@ -291,6 +295,21 @@ get '/most_popular.pl' => sub {
   redirect uri_for '/popular/week'
 };
 
+get '/page_category.pl/?' => sub {
+  my $slug = param('slug');
+  my $pg = param('pg');
+  if($slug && $pg) {
+    redirect uri_for "/page/$slug/archive/$pg"
+  }
+  elsif($slug) {
+    redirect uri_for "/page/$slug"
+  }
+  else {
+    redirect uri_for '/page/index'
+  }
+};
+
+
 get '/photos.pl' => sub {
   redirect uri_for '/flick/list/1'
 };
@@ -347,6 +366,14 @@ get '/tag.rss/:tag' => sub {
   redirect uri_for "/tag/$tag/feed/rss";
 };
 
+get '/td/?' => sub {
+   redirect uri_for '/'
+};
+
+get '/todo.pl' => sub {
+   redirect uri_for '/'
+};
+
 get '/twitterhaiku.pl' => sub {
   template 'twitterhaiku', {
     title => 'MOTHBALLED: Twitter haiku',
@@ -356,6 +383,10 @@ get '/twitterhaiku.pl' => sub {
   }
 };
 
+get '/webmail.pl' => sub {
+   redirect uri_for '/'
+};
+
 get '/writings/?' => sub {
   redirect uri_for '/file'
 };
@@ -363,6 +394,7 @@ get '/writings/?' => sub {
 get '/writings.pl' => sub {
   redirect uri_for '/file'
 };
+
 
 get '/contact/?' => sub {
     template 'contact', {
