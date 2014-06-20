@@ -327,10 +327,14 @@ get '/rot13' => sub {
   }
 };
 
+get '/rot13/api/?' => sub { 
+  redirect 'http://charlieharvey.org.uk/about/api#rot13' # is this the best way to do this uri_for doesn't like the #rot13
+};
+
 get '/rot13/api/:to_rot' => sub { 
   set serializer => 'mutable';
   return {msg => _rot13(params->{to_rot}) || ''};
-}; 
+};
 
 get '/rss.pl' => sub {
   redirect uri_for '/newsfeed'

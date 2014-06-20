@@ -362,7 +362,7 @@ pages:
 
 	<h3>ROT-13</h3>
 	<dl>
-		<dt><h4>ROT-13 [string_to_ROT13]</h4></dt>
+    <dt><a name="rot13"></a><h4>ROT-13 [string_to_ROT13]</h4></dt>
 		<dd>Return the <a href="/rot-13">ROT-13ed</a> string of [string_to_ROT13]. Strings ought to be
 			URL encoded. Note that ROT-13ing a string twice un-ROT-13s it. 
 			<code class="bash">$ curl [% request.uri_base %]/rot13/api/rot-13+roolz</code>
