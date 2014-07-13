@@ -1,85 +1,96 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="[% description %]" />
-		<meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
-		<meta name="author"      content="Charlie Harvey" />
-		<meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. Vim: text editor." />
-	
-		<!--Validator says no to async on link elements. Sorry page speed insights but its true -->
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,400italic,700,700italic|PT+Mono" type="text/css" />
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
-		<link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="[% description %]" />
+    <meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
+    <meta name="author"      content="Charlie Harvey" />
+    <meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. Vim: text editor." />
+  
+    <!--Validator says no to async on link elements. Sorry page speed insights but its true -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,400italic,700,700italic|PT+Mono" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
+    <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
 
-		<link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts"		href="/page/feed/rss" />
-		<link rel="alternate" type="application/rss+xml" title="RSS: Comments"			href="/comment/feed/rss" />
-		<link rel="alternate" type="application/rss+xml" title="RSS: Files"					href="/file/feed/rss" />
-		<link rel="alternate" type="application/rss+xml" title="RSS: Flickr images" href="http://flickr.com/services/feeds/photos_public.gne?id=8361414@N05&amp;lang=en-us&amp;format=rss_200">
+    <link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts"    href="/page/feed/rss" />
+    <link rel="alternate" type="application/rss+xml" title="RSS: Comments"      href="/comment/feed/rss" />
+    <link rel="alternate" type="application/rss+xml" title="RSS: Files"          href="/file/feed/rss" />
+    <link rel="alternate" type="application/rss+xml" title="RSS: Flickr images" href="http://flickr.com/services/feeds/photos_public.gne?id=8361414@N05&amp;lang=en-us&amp;format=rss_200">
 
-		<meta property="og:title"       content="[% title %]" />
-		<meta property="og:type"        content="article" />
-		<meta property="og:url"         content="[% reuqest.base_uri %][% request.uri %]" />
-		<meta property="og:site_name"   content="charlieharvey.org.uk" />
-		<meta property="og:description" content="[% description %]" />
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="dc.rights" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
 
-		<meta property="twitter:card"         content="summary" />
-		<meta property="twitter:title"        content="[% title %]" />
-		<meta property="twitter:domain"       content="charlieharvey.org.uk" />
-		<meta property="twitter:description"  content="[% description %]" />
-		<meta property="twitter:creator"      content="@ciderpunx" />
-		
-		<script src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script>
-		<!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
+    <meta property="og:title"       content="[% title %]" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:url"         content="[% request.base_uri %][% request.uri %]" />
+    <meta property="og:site_name"   content="charlieharvey.org.uk" />
+    <meta property="og:description" content="[% description %]" />
 
-		<title>[% title %] -- Charlie Harvey</title>
-	</head>
+    <meta property="twitter:card"         content="summary" />
+    <meta property="twitter:title"        content="[% title %]" />
+    <meta property="twitter:domain"       content="charlieharvey.org.uk" />
+    <meta property="twitter:description"  content="[% description %]" />
+    <meta property="twitter:creator"      content="@ciderpunx" />
 
-	<body>
-	[% INCLUDE includes/header.tt %]
+    <meta name="dc.title"       content="[% title %]" />
+    <meta name="dc.creator"     content="Charlie Harvey" />
+    <meta name="dc.subject"     content="[% keywords %]" />
+    <meta name="dc.description" content="[% description %]" />
+    <meta name="dc.publisher"   content="charlieharvey.org.uk" />
+    <meta name="dc.contributor" content="Charlie Harvey" />
+    <meta name="dc.language"    content="en-GB" />
 
-	[% IF full_width_image %]
-		<div class="visible-lg full-width-image" style="background-image:url([% full_width_image %])"></div>
+    <script src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
 
-		<div id="page" class="opaque-bg">
-	[% ELSE %]
-		<div id="page">
-	[% END %] 
-			[% IF success || info || errors%]
-			<div id="messages">
-			[% END %]
-			[% IF success %]
-				<div class="alert alert-success alert-block">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<p>[% success %]</p>
-				</div>
-			[% END %]
-			[% IF info %]
-				<div class="alert alert-info alert-block">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<p>[% info %]</p>
-				</div>
-			[% END %]
-			[% IF errors %]
-				<div class="alert alert-danger">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<h3>Uh-oh! I found errors</h3>
-					<ul class="error no-decoration">
-						[% FOR err IN errors %]
-						<li>[% err %]</li>
-						[% END %]
-					</ul>
-				</div>
-			[% END %]
-			[% IF success || info || errors%]
-			</div> <!--/messages-->
-			[% END %]
+    <title>[% title %] -- Charlie Harvey</title>
+  </head>
 
-	[% content %]
-		</div>
+  <body>
+  [% INCLUDE includes/header.tt %]
 
-	[% INCLUDE includes/footer.tt %]
-	</body>
+  [% IF full_width_image %]
+    <div class="visible-lg full-width-image" style="background-image:url([% full_width_image %])"></div>
+
+    <div id="page" class="opaque-bg">
+  [% ELSE %]
+    <div id="page">
+  [% END %] 
+      [% IF success || info || errors%]
+      <div id="messages">
+      [% END %]
+      [% IF success %]
+        <div class="alert alert-success alert-block">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>[% success %]</p>
+        </div>
+      [% END %]
+      [% IF info %]
+        <div class="alert alert-info alert-block">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>[% info %]</p>
+        </div>
+      [% END %]
+      [% IF errors %]
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <h3>Uh-oh! I found errors</h3>
+          <ul class="error no-decoration">
+            [% FOR err IN errors %]
+            <li>[% err %]</li>
+            [% END %]
+          </ul>
+        </div>
+      [% END %]
+      [% IF success || info || errors%]
+      </div> <!--/messages-->
+      [% END %]
+
+  [% content %]
+    </div>
+
+  [% INCLUDE includes/footer.tt %]
+  </body>
 </html>
