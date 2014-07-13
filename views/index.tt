@@ -4,28 +4,28 @@
 </div>
 
 <article class="entry-content drop-cap frontpage-opaque-bg">
-	<h1>What&#8217;s all this then?</h2>
-	<div class="row">
-		<div class="col-xs-6 col-sm-9">
-			<p>
-				<span class="drop-cap">M</span>y name is <a href="/about/charlie-harvey">Charlie Harvey</a> and this is my website. I like <a href="/page/geekery">computer geekery</a>, 
-				<a href="/page/cider">drinking cider</a> and trying to <a href="/tag/activism">overthrow capitalism</a>. I seem to be doing rather better with the first two.</p>
-			<p>
-			  Sometimes I <a href="/page/project">make things</a> like the <a href="/daily_mail/">Daily Mail story generator</a>, sometimes I <a href="/blog/">blog</a> and sometimes I just stare blankly into 
-				space. 
-			</p>
-		</div>
-		<div class="col-xs-6 col-sm-3">
-			<img class="bordered" alt="Portrait of Charlie Harvey" src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" />
-		</div>
+  <h1>What&#8217;s all this then?</h1>
+  <div class="row">
+    <div class="col-xs-6 col-sm-9">
+      <p>
+        <span class="drop-cap">M</span>y name is <a href="/about/charlie-harvey">Charlie Harvey</a> and this is my website. I like <a href="/page/geekery">computer geekery</a>, 
+        <a href="/page/cider">drinking cider</a> and trying to <a href="/tag/activism">overthrow capitalism</a>. I seem to be doing rather better with the first two.</p>
+      <p>
+        Sometimes I <a href="/page/project">make things</a> like the <a href="/daily_mail/">Daily Mail story generator</a>, sometimes I <a href="/blog/">blog</a> and sometimes I just stare blankly into 
+        space. 
+      </p>
+    </div>
+    <div class="col-xs-6 col-sm-3">
+      <img class="bordered" alt="Portrait of Charlie Harvey" src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" />
+    </div>
   </div><!--/row-->
-	
-	<div class="row">
-		<div class="col-sm-8">
-		[% IF blogs && blogs.size %]
-		<h3>Recent blogs</h3>
-			<ul id="blogs" class="no-decoration tinytext">
-			[% FOREACH blog IN blogs %]
+  
+  <div class="row">
+    <div class="col-sm-8">
+    [% IF blogs && blogs.size %]
+    <h3>Recent blogs</h3>
+      <ul id="blogs" class="no-decoration tinytext">
+      [% FOREACH blog IN blogs %]
         <li>
           <h4><a href="[% blog.link %]">[% blog.title %]</a></h4>
           [% IF blog.image_url %]
@@ -33,61 +33,61 @@
           [% END %]
           <p>[% blog.auto_summary %] <a href="[% blog.link %]">&hellip;</a></p>
          </li>
-			  [% LAST IF loop.index > 3 %]
-			[% END %]
-			</ul>
-			<p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
-		[% END %]
-		[% IF pics && pics.size %]
-			<div class="hidden-sm hidden-xs">
-				<h3>Recent photos</h3>
-				<div class="row">
-					[% FOREACH pic IN pics %]
-						<div class="col-md-4">
-							<a href="[% pic.href %]"><img class="bordered" src="[% pic.img %]" alt="[% pic.title %]" /></a>
-						</div>
-					[% END %]
-				</div>
-				<p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
-			</div>
-		[% END %]
-		</div>
-		<div class="col-xs-6 col-sm-4">
-		[% IF pop_ord && pop_ord.size %]
-			<h3>Popular this week</h3>
-			<ul id="popular" class="no-decoration tinytext">
-			[% FOREACH p IN pop_ord %]
-				<li><a href="[% populars.$p.url.replace('^charlieharvey.org.uk/') %]">[% p %]</a></li>
-				[% LAST IF loop.index > 3 %]
-			[% END %]
-			</ul>
-		[% END %]
-		</div>
-		<div class="col-xs-6 col-sm-4">
-			<h3>Social Media</h3>
-			<div class="tinytext break-word">
-				[% IF tweets && tweets.size %]
-					<h4>Tweets <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h4>
-					<ul class="no-decoration tinytext">
-						[% FOREACH tweet IN tweets %]
-						<li>[% tweet.title %]</li>
-						[% END %]
-					</ul>
-				[% ELSE %]
-					<h4>No recent tweets</h4>
-				[% END %]
-				[% IF scrobbles && scrobbles.size %]
-					<h4>Scrobbles <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h4>
-					<ul class="no-decoration">
-						[% FOREACH scrobble IN scrobbles %]
-						<li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
-						[% END %]
-					</ul>
-				[% ELSE %]
-					<h4>No recent scrobbles</h4>
-				[% END %]
-			</div>
-		</div>
-	</div>
+        [% LAST IF loop.index > 3 %]
+      [% END %]
+      </ul>
+      <p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
+    [% END %]
+    [% IF pics && pics.size %]
+      <div class="hidden-sm hidden-xs">
+        <h3>Recent photos</h3>
+        <div class="row">
+          [% FOREACH pic IN pics %]
+            <div class="col-md-4">
+              <a href="[% pic.href %]"><img class="bordered" src="[% pic.img %]" alt="[% pic.title %]" /></a>
+            </div>
+          [% END %]
+        </div>
+        <p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
+      </div>
+    [% END %]
+    </div>
+    <div class="col-xs-6 col-sm-4">
+    [% IF pop_ord && pop_ord.size %]
+      <h3>Popular this week</h3>
+      <ul id="popular" class="no-decoration tinytext">
+      [% FOREACH p IN pop_ord %]
+        <li><a href="[% populars.$p.url.replace('^charlieharvey.org.uk/') %]">[% p %]</a></li>
+        [% LAST IF loop.index > 3 %]
+      [% END %]
+      </ul>
+    [% END %]
+    </div>
+    <div class="col-xs-6 col-sm-4">
+      <h3>Social Media</h3>
+      <div class="tinytext break-word">
+        [% IF tweets && tweets.size %]
+          <h4>Tweets <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h4>
+          <ul class="no-decoration tinytext">
+            [% FOREACH tweet IN tweets %]
+            <li>[% tweet.title %]</li>
+            [% END %]
+          </ul>
+        [% ELSE %]
+          <h4>No recent tweets</h4>
+        [% END %]
+        [% IF scrobbles && scrobbles.size %]
+          <h4>Scrobbles <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h4>
+          <ul class="no-decoration">
+            [% FOREACH scrobble IN scrobbles %]
+            <li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
+            [% END %]
+          </ul>
+        [% ELSE %]
+          <h4>No recent scrobbles</h4>
+        [% END %]
+      </div>
+    </div>
+  </div>
 </article>
 <!--/index-->
