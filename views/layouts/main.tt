@@ -7,20 +7,19 @@
     <meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
     <meta name="author"      content="Charlie Harvey" />
     <meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. Vim: text editor." />
-  
+
     <!--Validator says no to async on link elements. Sorry page speed insights but its true -->
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Cabin:400,400italic,700,700italic|PT+Mono" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700%7CCabin:400,400italic,700,700italic%7CPT+Mono" type="text/css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
     <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
 
     <link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts"    href="/page/feed/rss" />
     <link rel="alternate" type="application/rss+xml" title="RSS: Comments"      href="/comment/feed/rss" />
-    <link rel="alternate" type="application/rss+xml" title="RSS: Files"          href="/file/feed/rss" />
+    <link rel="alternate" type="application/rss+xml" title="RSS: Files"         href="/file/feed/rss" />
     <link rel="alternate" type="application/rss+xml" title="RSS: Flickr images" href="http://flickr.com/services/feeds/photos_public.gne?id=8361414@N05&amp;lang=en-us&amp;format=rss_200">
 
-    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
-    <link rel="dc.rights" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+    <link rel="license copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
 
     <meta property="og:title"       content="[% title %]" />
     <meta property="og:type"        content="article" />
@@ -34,13 +33,13 @@
     <meta property="twitter:description"  content="[% description %]" />
     <meta property="twitter:creator"      content="@ciderpunx" />
 
-    <meta name="dc.title"       content="[% title %]" />
-    <meta name="dc.creator"     content="Charlie Harvey" />
-    <meta name="dc.subject"     content="[% keywords %]" />
-    <meta name="dc.description" content="[% description %]" />
-    <meta name="dc.publisher"   content="charlieharvey.org.uk" />
-    <meta name="dc.contributor" content="Charlie Harvey" />
-    <meta name="dc.language"    content="en-GB" />
+    <meta property="dc.title"       content="[% title %]" />
+    <meta property="dc.creator"     content="Charlie Harvey" />
+    <!--meta property="dc.subject"     content="[% keywords %]" /-->
+    <meta property="dc.description" content="[% description %]" />
+    <meta property="dc.publisher"   content="charlieharvey.org.uk" />
+    <meta property="dc.contributor" content="Charlie Harvey" />
+    <meta property="dc.language"    content="en-GB" />
 
     <script src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script>
     <!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
