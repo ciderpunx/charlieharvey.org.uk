@@ -225,7 +225,8 @@ sub _page_recent {
     my ($id)    = @_;
     my $schema  = schema 'frontend';
     my $results = $schema->resultset('Page')->search({
-        is_live => {'=', 1},
+        is_cover => { '!=', 1},
+        is_live  => { '=', 1},
       },
       {
           order_by => { -desc => 'id' },
