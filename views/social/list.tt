@@ -1,28 +1,28 @@
 <!--t:social/list-->
 <article class="entry-content">
-	<header>
-		<h1>[% title %]</h1>
-	</header>
-	<p>[% description %]</p>
-	<section>
-		[% IF tweets && tweets.size %]
-			<h2>Twitter <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h2>
-			<ul>
-			[% FOREACH tweet IN tweets %]
-				<li>[% tweet.title %]</li>
-			[% END %]
-			</ul>
-			<p>You can also get my <a href="/social/api/tweets/">recent tweets via my social API</a></p>
-		[% END %]
-		[% IF scrobbles && scrobbles.size %]
-			<h2>Last.fm <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h2>
-			<ul>
-			[% FOREACH scrobble IN scrobbles %]
-				<li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
-			[% END %]
-			<p>You can also get my <a href="/social/api/scrobbles/">recent scrobbles via my social API</a></p>
-			</ul>
-		[% END %]
-	</section>
+  <header>
+    <h1>[% title %]</h1>
+  </header>
+  <p>[% description %]</p>
+  <section>
+    [% IF tweets && tweets.size %]
+      <h2>Twitter <a href="http://twitter.com/ciderpunx">@ciderpunx</a></h2>
+      <ul>
+      [% FOREACH tweet IN tweets %]
+        <li>[% tweet.title %]</li>
+      [% END %]
+      </ul>
+      <p>You can also get my <a href="/social/api/tweets/">recent tweets via my social API</a></p>
+    [% END %]
+    [% IF scrobbles && scrobbles.size %]
+      <h2>Last.fm <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h2>
+      <ul>
+      [% FOREACH scrobble IN scrobbles %]
+        <li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
+      [% END %]
+      <p>You can also get my <a href="/social/api/scrobbles/">recent scrobbles via my social API</a></p>
+      </ul>
+    [% END %]
+  </section>
 </article>
 <!--/social/list-->

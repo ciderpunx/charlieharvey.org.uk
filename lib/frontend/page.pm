@@ -94,6 +94,10 @@ get '/feed/:format' => sub {
 
 };
 
+get '/photography/?.*' => sub {
+	redirect uri_for('/page/design');
+};
+
 get '/:slug/?' => sub {
   my $slug = params->{slug};
   $slug =~ s{\/$}{};
