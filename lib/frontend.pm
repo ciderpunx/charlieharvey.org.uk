@@ -318,6 +318,10 @@ get '/rot13.pl' => sub {
   redirect uri_for '/rot13'
 };
 
+get '/rot-13' => sub {
+  redirect uri_for '/rot13'
+};
+
 get '/rot13' => sub {
   my $rot13ed = _rot13(params->{rot13}) || '';
   template 'rot13', {
