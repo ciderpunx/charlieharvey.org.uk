@@ -99,7 +99,7 @@ sub _get_photos {
   foreach(@kids) {
     next unless exists $_->{name};
     my $attr = $_->{attributes};
-    my $img = "http://farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_m.jpg";
+    my $img = "//farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_m.jpg";
     my $href = "/flick/view/" . $attr->{id} . "/page/" . $page;
     #my $href =   "http://farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_b.jpg";
     my $title = $attr->{title};
@@ -130,9 +130,9 @@ sub _get_photo_detail {
 	}
   my $taken = $child->[9]{attributes}{taken};
   my $attr = $ref->{attributes};
-  my $img = "http://farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_b.jpg";
-  my $original =   "http://farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{originalsecret} . "_o.jpg";
-  my $exif_href = "http://flickr.com/photo_exif.gne?id=" . $attr->{id}; 
+  my $img = "//farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_b.jpg";
+  my $original =   "//farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{originalsecret} . "_o.jpg";
+  my $exif_href = "//flickr.com/photo_exif.gne?id=" . $attr->{id}; 
   
   %photo = ( 
     'owner' => $owner,
