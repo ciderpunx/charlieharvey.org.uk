@@ -126,14 +126,21 @@ __PACKAGE__->many_to_many(page => 'page_comment', 'page');
 # Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-08-25 16:58:54
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:KZSb/Q+APJwkm8IlUl3GrQ
 
+use Text::Markdown 'markdown';
+
 sub nice_updated {
-	my $self = shift;
-	my $date = $self->updated_at;
-	$date =~ s/T.*//;
-	return $date;
+  my $self = shift;
+  my $date = $self->updated_at;
+  $date =~ s/T.*//;
+  return $date;
 }
 sub link {
-	my $self = shift; 
-	return '/comment/' . $self->id;
+  my $self = shift; 
+  return '/comment/' . $self->id;
+}
+
+sub markdown_body {
+  my $self = shift;
+  markdown($self->body,{tab_width=>2})
 }
 1;

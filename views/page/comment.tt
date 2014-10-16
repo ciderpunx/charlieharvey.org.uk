@@ -7,24 +7,9 @@
 
 [% IF page.comments.size %]
 <ul>
-  [% FOREACH cmt IN page.comments %]
-  <!--TODO: Markup needs tidying up here-->
+  [% FOREACH comment IN page.comments %]
   <li class="unstyled-list hreview hentry comment top-bordered">
-    <article>
-      <header>
-        <p class="cid rightfloat"><a href="/comment/[% cmt.id %]">#[% cmt.id %]</a></p>
-        <h5 class="author item reviewer vcard">
-          [% IF cmt.url %]<a href="[% cmt.url %]" class="fn url" rel="nofollow">[% END %][% IF cmt.nick%][% cmt.nick %][% ELSE %]Anon[% END %] [% IF cmt.url %]</a>[% END %]
-        </h5>
-        [% IF cmt.title %]<h4 class="entry-title item ">[% cmt.title %]</h4>[% END %]
-      </header>
-      <div class="description entry-content cmt-bdy">
-        [% FILTER html_para %][% cmt.body %][% END %]
-      </div>
-      <p class="dtreviewed updated published tinytext auth">
-        <time class="value-title" title="[% cmt.updated_at %]Z" datetime="[% cmt.updated_at %]Z">[% cmt.nice_updated %]</time>
-      </p>
-    </article>
+    [% INCLUDE comment/view.tt %]
   </li>
   [% END %] 
 </ul>

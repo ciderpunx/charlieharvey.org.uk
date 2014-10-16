@@ -1,59 +1,59 @@
 [% IF page %]
 <!--t:page/article-->
-	<article id="[% page.slug %]" class="entry-content drop-cap">
-	  [% IF page.is_root %]<p class="pull-right"><a class="sprite32 rss rss-block" href="feed/rss">RSS</a></p>[% END %]
-		<header>
-				<h1 class="entry-title">[% page.title %]</h1>
-				<a rel="bookmark" href="[% own_url %]" class="hidden">Permalink</a>	
-				[% UNLESS page.is_cover %]
-        <p class="article-byline"><em>Written by <span class="author">Charlie</span> on [% page.nice_created %] </em></p>				
-				[% END %]
-		</header>
+  <article id="[% page.slug %]" class="entry-content drop-cap">
+    [% IF page.is_root %]<p class="pull-right"><a class="sprite32 rss rss-block" href="feed/rss">RSS</a></p>[% END %]
+    <header>
+        <h1 class="entry-title">[% page.title %]</h1>
+        <a rel="bookmark" href="[% own_url %]" class="hidden">Permalink</a>  
+        [% UNLESS page.is_cover %]
+        <p class="article-byline"><em>Written by <span class="author">Charlie</span> on [% page.nice_created %] </em></p>        
+        [% END %]
+    </header>
 
                 <div class="social-block-div">
-			<ul class="no-decoration" id="social-block">
-				[% INCLUDE page/share_this_list.tt %]
-			</ul>
-			<a href="javascript:void(0)" id="social-block-toggle" class="visible-lg">&#8599;</a>
+      <ul class="no-decoration" id="social-block">
+        [% INCLUDE page/share_this_list.tt %]
+      </ul>
+      <a href="javascript:void(0)" id="social-block-toggle" class="visible-lg">&#8599;</a>
                 </div>
 
-		[% IF page.is_cover %]
-			<p class="tinytext no-drop-cap">This is the <em>[% page.title %]</em> section. <a href="#blog-info-popup" data-toggle="modal" data-target="#blog-info-popup">Learn more &raquo;</a></p>
-			<div id="blog-info-popup" class="tinytext modal fade in">
-				<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-						<a class="close" data-dismiss="modal">×</a> 
-						<h2 class="modal-title">More about [% page.title %]</h2>
-					</div>
-					<div class="modal-body">
-		[% ELSE %]
-			<div class="visible-lg">
-                        	<p style="text-align:right;"><a href="javascript:void(0)" id="sidebar-toggle">&#8601;</a></p>
-				<aside id="sidebar" class="quarter tinytext pull-right">
-				[% INCLUDE page/related_links.tt %]
-				<h4>Navigation</h4>
-				[% INCLUDE page/navtree.tt %]
-				</aside>
-			</div>	
-	 [% END %]
-		
-	[% page.body %]	
+    [% IF page.is_cover %]
+      <p class="tinytext no-drop-cap">This is the <em>[% page.title %]</em> section. <a href="#blog-info-popup" data-toggle="modal" data-target="#blog-info-popup">Learn more &raquo;</a></p>
+      <div id="blog-info-popup" class="tinytext modal fade in">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a> 
+            <h2 class="modal-title">More about [% page.title %]</h2>
+          </div>
+          <div class="modal-body">
+    [% ELSE %]
+      <div class="visible-lg">
+                          <p style="text-align:right;"><a href="javascript:void(0)" id="sidebar-toggle">&#8601;</a></p>
+        <aside id="sidebar" class="quarter tinytext pull-right">
+        [% INCLUDE page/related_links.tt %]
+        <h4>Navigation</h4>
+        [% INCLUDE page/navtree.tt %]
+        </aside>
+      </div>  
+   [% END %]
+    
+  [% page.markdown_body %]  
 
-	[% INCLUDE page/tweet.tt %]
+  [% INCLUDE page/tweet.tt %]
 
-	[% IF page.is_cover %]
-					</div>
-				</div>
-			</div>
-		</div><!--/blog info modal-->
-	[% END %]
-	</article>
+  [% IF page.is_cover %]
+          </div>
+        </div>
+      </div>
+    </div><!--/blog info modal-->
+  [% END %]
+  </article>
 [% ELSE %]
-	<article>
-		<header>
-				<h1>OMG! You asked for a page that doesn&#8217;t exist. Or I messed up some code.</h1>
-		</header>
-	</article>
+  <article>
+    <header>
+        <h1>OMG! You asked for a page that doesn&#8217;t exist. Or I messed up some code.</h1>
+    </header>
+  </article>
 <!--/page/article-->
 [% END %]

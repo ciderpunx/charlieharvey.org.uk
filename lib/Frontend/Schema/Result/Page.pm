@@ -105,9 +105,9 @@ __PACKAGE__->add_columns(
   "parent_id",
   { data_type => "integer", is_nullable => 1 },
   "title",
-	{ data_type => "varchar", default_value => "", is_nullable => 0, size => 80 },
+  { data_type => "varchar", default_value => "", is_nullable => 0, size => 80 },
   "image_url",
-	{ data_type => "varchar", default_value => "", is_nullable => 0, size => 200 },
+  { data_type => "varchar", default_value => "", is_nullable => 0, size => 200 },
   "body",
   { data_type => "text", is_nullable => 0 },
   "related",
@@ -149,6 +149,7 @@ __PACKAGE__->set_primary_key("id");
 
 # Created by DBIx::Class::Schema::Loader v0.07025 @ 2013-08-25 16:58:55
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Ac9xTtgnCuBmAlf5OJxFAQ
+use Text::Markdown 'markdown';
 
 __PACKAGE__->parent_column('parent_id');
 __PACKAGE__->set_primary_key("id");
@@ -167,15 +168,15 @@ sub tag_str {
 }
 sub recent_children {
     my ($self,$max) = (shift,shift);
-		$max = 5 if(!$max);
+    $max = 5 if(!$max);
     my $rs   = $self->result_source->resultset->search(
         { parent_id => { '=', $self->id } ,
-					is_live => {'=', 1},
-				},
+          is_live => {'=', 1},
+        },
         { 
-					order_by => {-desc => 'created_at'},
+          order_by => {-desc => 'created_at'},
           rows    => $max, 
-				}
+        }
     );
     return $rs->all;
 }
@@ -183,43 +184,47 @@ sub top_categories {
     my $self = shift;
     my $rs   = $self->result_source->resultset->search(
         { parent_id => { '=', 1} ,
-					is_live => {'=', 1},
-				},
+          is_live => {'=', 1},
+        },
         { 
-					order_by => {-desc => 'created_at'},
-				}
+          order_by => {-desc => 'created_at'},
+        }
     );
     return $rs->all;
 }
 sub auto_summary {
-	my $self = shift; 
-	my $summary = $self->body;
+  my $self = shift; 
+  my $summary = $self->markdown_body;
   $summary =~ s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
   $summary = substr($summary,0,300);
-  $summary =~ s/&\w*$//;	   # remove trailing broken entities &am and such
+  $summary =~ s/&\w*$//;     # remove trailing broken entities &am and such
   $summary =~ s/[\r\n"]+//g; # remove newlines and quotes
-  $summary =~ s/\s+/ /g;	   # squeeze whitespace
-  $summary =~ s/^\s+//;		   # chop leading whitespace
-  $summary =~ s/\s+$//;		   # chop trailing whitespace
-	return $summary;
+  $summary =~ s/\s+/ /g;     # squeeze whitespace
+  $summary =~ s/^\s+//;       # chop leading whitespace
+  $summary =~ s/\s+$//;       # chop trailing whitespace
+  return $summary;
+}
+sub markdown_body {
+  my $self = shift; 
+  markdown($self->body,{tab_width=>2});
 }
 
 sub link {
-	my $self = shift; 
-	return '/page/' . $self->slug;
+  my $self = shift; 
+  return '/page/' . $self->slug;
 }
 
 sub nice_updated {
-	my $self = shift;
-	my $date = $self->updated_at;
-	$date =~ s/T.*//;
-	return $date;
+  my $self = shift;
+  my $date = $self->updated_at;
+  $date =~ s/T.*//;
+  return $date;
 }
 sub nice_created {
-	my $self = shift;
-	my $date = $self->created_at;
-	$date =~ s/T.*//;
-	return $date;
+  my $self = shift;
+  my $date = $self->created_at;
+  $date =~ s/T.*//;
+  return $date;
 }
 
 1;

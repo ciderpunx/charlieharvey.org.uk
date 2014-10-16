@@ -12,6 +12,7 @@ use HTML::TagFilter;
 use LWP::UserAgent;
 use URI::Escape;
 use Try::Tiny;
+use Text::Markdown 'markdown';
 
 prefix '/comment';
 
@@ -119,10 +120,14 @@ get '/create' => sub {
 post '/create' => sub {
   my $no_html    = HTML::TagFilter->new({allow=>{}});
   my $min_html   = HTML::TagFilter->new();
+  $min_html->allow_tags({ code => {class => [] }, });
+  $min_html->deny_tags({h1=>{'all' => []}, h2=>{'all' => []},
+                        h3=>{'all' => []}, h4=>{'all' => []}
+  });
   my $page_id    = $no_html->filter(_char_clean(params->{page_id},20)); #TODO and writing_id?
   my $email      = $no_html->filter(_char_clean(params->{email},250));
   my $ctitle     = $no_html->filter(_char_clean(params->{ctitle},250));
-  my $body       = $min_html->filter(substr(params->{bdy}, 0, 2500));
+  my $body       = $min_html->filter(markdown(substr(params->{bdy}, 0, 2500)));
   my $nick       = $no_html->filter(_char_clean(params->{nick},140));
   my $url        = $no_html->filter(_char_clean(params->{url},250));
 
@@ -145,11 +150,11 @@ post '/create' => sub {
     sleep 1; 
     push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
   }
-  if (scalar(split /[\.\s]+/,$nick)>2) {
+  if ($nick && scalar(split /[\.\s]+/,$nick)>2) {
     sleep 1; 
     push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
   }
-  if ($nick =~ m{http://}) {
+  if ($nick && $nick =~ m{http://}) {
     sleep 1; 
     push @errors, "You are exhibiting spam-like behaviour. I shall pause the connection to waste your time."; 
   }
@@ -348,13 +353,14 @@ sub _create_comment {
 
 sub _email_comment {
   my ($cmt,$page,$referer,$remote) = @_;
+  my $nick = $cmt->nick // "Anon";
    try {
         email {
           from    => config->{'DEFAULT_EMAIL'},
           to      => config->{'DEFAULT_EMAIL'},
           subject => 'charlieharvey.org.uk: New Comment on http://charlieharvey.org.uk/' 
                      . $page->link,
-          body    => $cmt->nick 
+          body    => $nick 
                       . "(" 
                       . $cmt->email 
                       . ") said:\n" 
