@@ -206,7 +206,9 @@ sub auto_summary {
 }
 sub markdown_body {
   my $self = shift; 
-  markdown($self->body,{tab_width=>2});
+  my $body=$self->body;
+  $body =~ s{^\s+<}{<}gm;
+  markdown($body,{tab_width=>2, empty_element_suffix => '/>',});
 }
 
 sub link {
