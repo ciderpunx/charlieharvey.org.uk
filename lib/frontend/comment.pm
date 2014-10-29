@@ -120,14 +120,16 @@ get '/create' => sub {
 post '/create' => sub {
   my $no_html    = HTML::TagFilter->new({allow=>{}});
   my $min_html   = HTML::TagFilter->new();
-  $min_html->allow_tags({ code => {class => [] }, });
-  $min_html->deny_tags({h1=>{'all' => []}, h2=>{'all' => []},
-                        h3=>{'all' => []}, h4=>{'all' => []}
+  $min_html->allow_tags({ code => {class => []}, br => {none => []}, });
+  $min_html->deny_tags({h1=>{all => []}, h2=>{all => []},
+                        h3=>{all => []}, h4=>{all => []}
   });
   my $page_id    = $no_html->filter(_char_clean(params->{page_id},20)); #TODO and writing_id?
   my $email      = $no_html->filter(_char_clean(params->{email},250));
   my $ctitle     = $no_html->filter(_char_clean(params->{ctitle},250));
-  my $body       = $min_html->filter(markdown(substr(params->{bdy}, 0, 2500)));
+  my $body       = $min_html->filter(markdown(substr(params->{bdy}, 0, 2500), {tab_width=>2,empty_element_suffix => '>',}));
+  $body =~ s{<br>}{<br />}g; # html tagfilter doesn't handle empty tags as expected so re-add empty element closes for br-s
+                             # other elems are still valid html 5 so don't bother doing the right thing XHTML-wise. Yuk.
   my $nick       = $no_html->filter(_char_clean(params->{nick},140));
   my $url        = $no_html->filter(_char_clean(params->{url},250));
 
@@ -166,7 +168,7 @@ post '/create' => sub {
   }
         # || _stopforumspam_lookup( $email, $remote )
   if (    _honeypot_lookup( $email)
-        || _botscout_lookup( $email, $remote )
+  # || _botscout_lookup( $email, $remote )
         || _akismet_lookup( $email, $remote, $user_agent, $referer, $body, $nick, $url )) {
     sleep 5; 
     push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 

@@ -141,8 +141,8 @@ sub link {
 
 sub markdown_body {
   my $self = shift;
-  my $body=shift;
+  my $body=$self->body;
   $body=~s{\s+<}{<}gm;
-  markdown($body,{tab_width=>2, empty_element_suffix => '/>',})
+  markdown($body,{tab_width=>2, empty_element_suffix => '>',})
 }
 1;
