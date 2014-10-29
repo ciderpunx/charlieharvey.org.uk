@@ -96,7 +96,7 @@ var flickrshow = function (target, settings) {
             pms.method = 'flickr.photos.getRecent';
         }
 
-        var url = 'http://api.flickr.com/services/rest/?';
+        var url = 'https://api.flickr.com/services/rest/?';
 
         // Loop through the parameters and append them to the URL ...
         for (var i in pms) url += i + '=' + pms[i] + '&';
