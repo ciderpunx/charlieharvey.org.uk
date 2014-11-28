@@ -57,7 +57,7 @@
       <h3>Popular this week</h3>
       <ul id="popular" class="no-decoration tinytext">
       [% FOREACH p IN pop_ord %]
-        <li><a href="[% populars.$p.url.replace('^charlieharvey.org.uk/') %]">[% p %]</a></li>
+        <li><a href="[% populars.$p.url.replace('^charlieharvey.org.uk/') %]">[% p.replace('\-\-.*$','') %]</a></li>
         [% LAST IF loop.index > 3 %]
       [% END %]
       </ul>
