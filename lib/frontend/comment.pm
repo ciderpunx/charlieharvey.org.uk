@@ -229,11 +229,11 @@ get '/:id' => sub {
       return
   }
   my $author = $comment->nick || "Anonymous coward";
-  my $title = $comment->title
-              . ". A comment by "
-              . $author
-              . " with id "
-              . $comment->id
+  my $title = $comment->title || '';
+  $title .= ". A comment by "
+            . $author
+            . " with id "
+            . $comment->id
   ;
 
   template 'comment/view', { 
