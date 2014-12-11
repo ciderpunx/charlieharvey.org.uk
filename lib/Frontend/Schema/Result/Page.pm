@@ -195,10 +195,12 @@ sub top_categories {
 sub auto_summary {
   my $self = shift; 
   my $summary = $self->markdown_body;
+  $summary =~ s/<(\/?)h\d[^>]*>/_$1H_/ig; # strip headings 
   $summary =~ s/<(?:[^>'"]*|(['"]).*?\1)*>//gs;
   $summary = substr($summary,0,300);
   $summary =~ s/&\w*$//;     # remove trailing broken entities &am and such
   $summary =~ s/[\r\n"]+//g; # remove newlines and quotes
+  $summary =~ s/_H_.*_\/H_//ig;
   $summary =~ s/\s+/ /g;     # squeeze whitespace
   $summary =~ s/^\s+//;       # chop leading whitespace
   $summary =~ s/\s+$//;       # chop trailing whitespace
