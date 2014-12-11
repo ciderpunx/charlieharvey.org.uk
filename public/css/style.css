@@ -47,6 +47,9 @@ img {max-width:100%}
 .entry-content li {padding-left:0.5em}
 
 .article-byline {text-align:center;color:#ccc;font-weight:700}
+.article-thumbnail {width: 100%; margin:auto; height:300px;overflow:hidden}
+.article-thumbnail img {width:100% !important;min-height:100%;max-width:100%;position:relative;top:50%;left:50%;transform:translate(-50%,-50%)}
+
 .feed-article {border-right:1px solid #689;height:30em;word-wrap:break-word}
 .feed-article article {padding:0 0.4em}
 .feed-article h4 {margin:0 0.4em 0.4em 0}

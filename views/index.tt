@@ -29,7 +29,9 @@
         <li>
           <h4><a href="[% blog.link %]">[% blog.title %]</a></h4>
           [% IF blog.image_url %]
-          <a href="[% blog.link %]"><img class="bordered" alt="[% blog.title %] cover image" src="[% blog.image_url %]" style="width:100%" /></a>
+          <div class="bordered article-thumbnail">
+          <a href="[% blog.link %]"><img alt="[% blog.title %] cover image" src="[% blog.image_url %]" /></a>
+          </div>
           [% END %]
           <p>[% blog.auto_summary %] <a href="[% blog.link %]">&hellip;</a></p>
          </li>
