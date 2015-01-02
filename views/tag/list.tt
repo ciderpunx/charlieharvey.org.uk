@@ -1,22 +1,22 @@
 <!--t:tag/list-->
 [% IF sects %]
 <header>
-	<h1>All Tags</h1>
+  <h1>All Tags</h1>
 </header>
 <article>
 [% FOREACH sect IN sects.keys.sort %]
-	<h3>[% sect %]</h3>
-	<ul class="col4 unstyled-list tags-sect-[% sect %] xoxo">
-	[% FOREACH tag IN sects.$sect %]
-		[% pc = tag.get_column('page_count') %]
-		[% wc = tag.get_column('writing_count') %]
-		[% entries = pc+wc %]
-		<li><a href="[% tag.link %]" rel="tag">[% tag.title %]</a> ([% entries %])</li>
-	[% END %]
-	</ul>
+  <h3>[% sect %]</h3>
+  <ul class="col4 unstyled-list tags-sect-[% sect %] xoxo">
+  [% FOREACH tag IN sects.$sect %]
+    [% pc = tag.get_column('page_count') %]
+    [% wc = tag.get_column('writing_count') %]
+    [% entries = pc+wc %]
+    <li><a href="[% tag.link %]" rel="tag">[% tag.title %]</a> ([% entries %])</li>
+  [% END %]
+  </ul>
 [% END %]
 </article>
 [% ELSE %]
-	<h1>No tags. Apparently.</h1>
+  <h1>No tags. Apparently.</h1>
 [% END %]
 <!--/tag/list-->
