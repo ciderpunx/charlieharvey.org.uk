@@ -8,7 +8,6 @@
     <meta name="author"      content="Charlie Harvey" />
     <meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. Vim: text editor." />
 
-    <!--Validator says no to async on link elements. Sorry page speed insights but its true -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700%7CCabin:400,400italic,700,700italic%7CPT+Mono" type="text/css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
@@ -45,37 +44,37 @@
     <meta property="dc.contributor" content="Charlie Harvey" />
     <meta property="dc.language"    content="en-GB" />
 
-    <script src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script>
-    <!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
+    <script async="async" src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <!--[if lt IE 9]><script async="async" src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script async="async" src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><![endif]-->
     <title>[% title %] -- Charlie Harvey</title>
   </head>
 
   <body>
   [% INCLUDE includes/header.tt %]
 
-  [% IF full_width_image %]
+  [%- IF full_width_image %]
     <div class="visible-lg full-width-image" style="background-image:url([% full_width_image %])"></div>
 
     <div id="page" class="opaque-bg">
   [% ELSE %]
-    <div id="page">
+<div id="page">
   [% END %] 
-      [% IF success || info || errors%]
+      [%- IF success || info || errors%]
       <div id="messages">
       [% END %]
-      [% IF success %]
+      [%- IF success %]
         <div class="alert alert-success alert-block">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p>[% success %]</p>
         </div>
       [% END %]
-      [% IF info %]
+      [%- IF info %]
         <div class="alert alert-info alert-block">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p>[% info %]</p>
         </div>
       [% END %]
-      [% IF errors %]
+      [%- IF errors %]
         <div class="alert alert-danger">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <h3>Uh-oh! I found errors</h3>
@@ -86,13 +85,12 @@
           </ul>
         </div>
       [% END %]
-      [% IF success || info || errors%]
+      [%- IF success || info || errors%]
       </div> <!--/messages-->
       [% END %]
+[% content %]
+</div>
 
-  [% content %]
-    </div>
-
-  [% INCLUDE includes/footer.tt %]
-  </body>
+[% INCLUDE includes/footer.tt %]
+</body>
 </html>

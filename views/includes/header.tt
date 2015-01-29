@@ -1,77 +1,77 @@
 <!--t:header-->
-	<p class="hidden"><a id="top" href="#content">Skip navigation</a></p>
-	<header class="titlebar">
-			<h1>[% IF title != "127.0.0.1" %]<a rel="me home" class="fn url no_under" href="/">[% END %]Charlie Harvey[% IF title != "127.0.0.1" %]</a>[% END %]</h1>
-	</header>
+  <p class="hidden"><a id="top" href="#content">Skip navigation</a></p>
+  <header class="titlebar">
+      <h1>[% IF title != "127.0.0.1" %]<a rel="me home" class="fn url no_under" href="/">[% END %]Charlie Harvey[% IF title != "127.0.0.1" %]</a>[% END %]</h1>
+  </header>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li [% IF active_nav == "Home" %]class="active"[% END %]><a class="tag me" href="/" >Home</a></li>
-					<li class="dropdown [% IF active_nav == 'Blog' %]active[% END %]">
-						<a class="dropdown-toggle" href="#" data-toggle="dropdown">Blog<strong class="caret"></strong></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a class="nav tag me" href="/page/index" accesskey="B">Blog home</a></li>
-							<li class="divider"></li>
-							<li><a class="nav tag me" href="/page/geekery">Geekery</a></li>
-							<li><a class="nav tag me" href="/page/cider">Cider reviews</a></li>
-							<li><a class="nav tag me" href="/page/projects">Projects</a></li>
-							<li><a class="nav tag me" href="/page/activism">Activism</a></li>
-							<li><a class="nav tag me" href="/page/reading_lists">Reading</a></li>
-							<li><a class="nav tag me" href="/page/design">Design &amp; photography</a></li>
-							<li><a class="nav tag me" href="/page/musings_rants_oped">Musings</a></li>
-							<li><a class="nav tag me" href="/page/vegan_recipes">Vegan recipes</a></li>
-							<li><a class="nav tag me" href="/page/fun_and_games">Fun and games</a></li>
-						</ul>
-					</li>
-					<li [% IF active_nav == "Files" %]class="active"[% END %]><a class="nav tag me" href="/file/archive/1" accesskey="W">Files</a></li>
-					<li [% IF active_nav == "Images" %]class="active"[% END %]><a class="nav tag me" href="/flick/list/1" accesskey="I">Images</a></li>
-					<li class="dropdown [% IF active_nav == 'About' %]active[% END %]">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a class="nav tag" href="/about" accesskey="?">About</a></li>
-							<li><a class="nav tag me" href="/cv.pl" accesskey="R">CV</a></li>
-							<li><a class="nav tag" href="/popular/week">Popular this week</a></li>
-							<li><a class="nav tag" href="/about/feeds">RSS and Atom feeds</a></li>
-							<li><a class="nav tag" href="/about/api">Content API</a></li>
-							<li><a class="nav tag" href="/page/privacy">Privacy statement</a></li>
-							<li><a class="nav tag me" href="/contact" accesskey="@">Contact</a></li>
-						</ul>
-					</li>
-				</ul>
-				<div class="searchbox right nav navbar-right">
-					<form id="search">
-						<p class="box" style="margin:0">
-						<label class="search-label hidden" for="st-search-input">Search:</label>
-						<input type="text" tabindex="1" id="st-search-input" />
-						<label for="go" class="hidden">Go</label> 
-						<input type="submit" tabindex="2" name="go" value="Search" id="go" />
-						</p>
-					</form>
-					<script>/*<![CDATA[*/
-						var Swiftype = window.Swiftype || {};
-						(function() {
-							Swiftype.key = 'vnRipZn9z6DwLaHGeqr9';
-							Swiftype.inputElement = '#st-search-input';
-							Swiftype.resultContainingElement = '#st-results-container';
-							Swiftype.attachElement = '#st-search-input';
-							Swiftype.renderStyle = "new_page";
-							Swiftype.resultPageURL = '/search';
-							var script = document.createElement('script');
-							script.type = 'text/javascript';
-							script.async = true;
-							script.src = "//swiftype.com/embed.js";
-							var entry = document.getElementsByTagName('script')[0];
-							entry.parentNode.insertBefore(script, entry);
-						}()); // TODO: APIfy this to avoid tracking*/
-					  /*]]>*/
-					</script>
-				</div> 
-			</div><!--/.nav-collapse -->
-		</div>
-	</nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">Menu</button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li [% IF active_nav == "Home" %]class="active"[% END %]><a class="tag me" href="/" >Home</a></li>
+          <li class="dropdown [% IF active_nav == 'Blog' %]active[% END %]">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Blog<strong class="caret"></strong></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a class="nav tag me" href="/page/index" accesskey="B">Blog home</a></li>
+              <li class="divider"></li>
+              <li><a class="nav tag me" href="/page/geekery">Geekery</a></li>
+              <li><a class="nav tag me" href="/page/cider">Cider reviews</a></li>
+              <li><a class="nav tag me" href="/page/projects">Projects</a></li>
+              <li><a class="nav tag me" href="/page/activism">Activism</a></li>
+              <li><a class="nav tag me" href="/page/reading_lists">Reading</a></li>
+              <li><a class="nav tag me" href="/page/design">Design &amp; photography</a></li>
+              <li><a class="nav tag me" href="/page/musings_rants_oped">Musings</a></li>
+              <li><a class="nav tag me" href="/page/vegan_recipes">Vegan recipes</a></li>
+              <li><a class="nav tag me" href="/page/fun_and_games">Fun and games</a></li>
+            </ul>
+          </li>
+          <li [% IF active_nav == "Files" %]class="active"[% END %]><a class="nav tag me" href="/file/archive/1" accesskey="W">Files</a></li>
+          <li [% IF active_nav == "Images" %]class="active"[% END %]><a class="nav tag me" href="/flick/list/1" accesskey="I">Images</a></li>
+          <li class="dropdown [% IF active_nav == 'About' %]active[% END %]">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a class="nav tag" href="/about" accesskey="?">About</a></li>
+              <li><a class="nav tag me" href="/cv.pl" accesskey="R">CV</a></li>
+              <li><a class="nav tag" href="/popular/week">Popular this week</a></li>
+              <li><a class="nav tag" href="/about/feeds">RSS and Atom feeds</a></li>
+              <li><a class="nav tag" href="/about/api">Content API</a></li>
+              <li><a class="nav tag" href="/page/privacy">Privacy statement</a></li>
+              <li><a class="nav tag me" href="/contact" accesskey="@">Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="searchbox right nav navbar-right">
+          <form id="search">
+            <p class="box" style="margin:0">
+            <label class="search-label hidden" for="st-search-input">Search:</label>
+            <input type="text" tabindex="1" id="st-search-input" />
+            <label for="go" class="hidden">Go</label> 
+            <input type="submit" tabindex="2" name="go" value="Search" id="go" />
+            </p>
+          </form>
+          <script>/*<![CDATA[*/
+            var Swiftype = window.Swiftype || {};
+            (function() {
+              Swiftype.key = 'vnRipZn9z6DwLaHGeqr9';
+              Swiftype.inputElement = '#st-search-input';
+              Swiftype.resultContainingElement = '#st-results-container';
+              Swiftype.attachElement = '#st-search-input';
+              Swiftype.renderStyle = "new_page";
+              Swiftype.resultPageURL = '/search';
+              var script = document.createElement('script');
+              script.type = 'text/javascript';
+              script.async = true;
+              script.src = "//swiftype.com/embed.js";
+              var entry = document.getElementsByTagName('script')[0];
+              entry.parentNode.insertBefore(script, entry);
+            }()); // TODO: APIfy this to avoid tracking*/
+            /*]]>*/
+          </script>
+        </div> 
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
 <!--/header-->
