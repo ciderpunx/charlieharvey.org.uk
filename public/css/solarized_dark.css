@@ -92,3 +92,9 @@ code .deletion {
 code .tex .formula {
   background: #073642;
 }
+
+code .container:before,
+code .container:after {
+  content: "";
+  display: inline;
+}
