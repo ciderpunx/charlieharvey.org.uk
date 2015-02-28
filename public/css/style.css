@@ -108,6 +108,8 @@ img {max-width:100%}
 .navbar-inverse .navbar-toggle:hover {background-image:linear-gradient(to bottom, #578, #356)}
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color:#feb}
 
+.searchbox {height: 1em}
+
 .dropdown-menu > li > a:hover {color:#feb;background-color:#356}
 
 .nav > li > a {padding:12px 15px}
@@ -167,9 +169,9 @@ img {max-width:100%}
 #search {margin:0;padding-top:10px}
 #search .box {margin:0}
 #search input {margin:2px}
-#st-search-input {border:1px solid #023;border-radius:5px;width:7em}
+#st-search-input {border:1px solid #023;border-radius:5px;width:9em}
 
-#search #go {background-color:#356;background-image:linear-gradient(to bottom, #356, #245);border:1px solid #023;border-radius:5px;color:#FEB;cursor:pointer;font-size:0.8em;padding:3px;margin:0;min-width:4em}
+#search #go {background-color:#356;background-image:linear-gradient(to bottom, #356, #245);border:1px solid #023;color:#FEB;cursor:pointer;font-size:0.8em;padding:6px;margin: -2px 0 0 -37px;min-width:2.15em}
 #search #go:hover {background-image:linear-gradient(to bottom, #356, #134);box-shadow: 0 1px 1px rgba(82, 168, 236 , 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6)}
 #search-text {width:170px}
 

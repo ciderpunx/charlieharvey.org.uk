@@ -44,32 +44,27 @@
           </li>
         </ul>
         <div class="searchbox right nav navbar-right">
-          <form id="search">
+          <form method="get" id="search" action="https://duckduckgo.com/">
+            <input type="hidden" name="sites"value="charlieharvey.org.uk"/>
+            <input type="hidden" name="ka" value="g"/>
+            <input type="hidden" name="k7" value="w"/>
+            <input type="hidden" name="kj" value="#0a2637"/>
+            <input type="hidden" name="ky" value="#fafafa"/>
+            <input type="hidden" name="kx" value="#446688"/>
+            <input type="hidden" name="kt" value="g"/>
             <p class="box" style="margin:0">
-            <label class="search-label hidden" for="st-search-input">Search:</label>
-            <input type="text" tabindex="1" id="st-search-input" />
-            <label for="go" class="hidden">Go</label> 
-            <input type="submit" tabindex="2" name="go" value="Search" id="go" />
+              <div class="input-group">
+                <label class="search-label hidden" for="st-search-input">Search:</label>
+                <input type="text" name="q" maxlength="255" tabindex="1" placeholder="Search" id="st-search-input" />
+                <div class="input-group-btn">
+                  <button type="submit" tabindex="2" name="go" value="" id="go" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </div>
+                <label for="go" class="hidden">Go</label> 
+              </div>
             </p>
           </form>
-          <script>/*<![CDATA[*/
-            var Swiftype = window.Swiftype || {};
-            (function() {
-              Swiftype.key = 'vnRipZn9z6DwLaHGeqr9';
-              Swiftype.inputElement = '#st-search-input';
-              Swiftype.resultContainingElement = '#st-results-container';
-              Swiftype.attachElement = '#st-search-input';
-              Swiftype.renderStyle = "new_page";
-              Swiftype.resultPageURL = '/search';
-              var script = document.createElement('script');
-              script.type = 'text/javascript';
-              script.async = true;
-              script.src = "//swiftype.com/embed.js";
-              var entry = document.getElementsByTagName('script')[0];
-              entry.parentNode.insertBefore(script, entry);
-            }()); // TODO: APIfy this to avoid tracking*/
-            /*]]>*/
-          </script>
         </div> 
       </div><!--/.nav-collapse -->
     </div>

@@ -20,6 +20,8 @@
 
     <link rel="license copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
 
+    <link rel="shortcut icon" href="//static.charlieharvey.org.uk/favicon.ico" />
+
     <meta property="og:title"       content="[% title %]" />
     <meta property="og:type"        content="article" />
     <meta property="og:url"         content="[% request.base_uri %][% request.uri %]" />
