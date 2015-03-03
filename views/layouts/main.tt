@@ -2,16 +2,15 @@
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="[% description %]" />
     <meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
     <meta name="author"      content="Charlie Harvey" />
     <meta name="generator"   content="Dancer [% dancer_version %]: Minimalist perl web framework. Vim: text editor." />
 
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700%7CCabin:400,400italic,700,700italic%7CPT+Mono" type="text/css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/solarized_dark.css" />
-    <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700%7CCabin:400,700%7CInconsolata:400" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="screen"/>
+    <link rel="stylesheet" href="//static.charlieharvey.org.uk/css/style.css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="RSS: Blog Posts"    href="/page/feed/rss" />
     <link rel="alternate" type="application/rss+xml" title="RSS: Comments"      href="/comment/feed/rss" />
@@ -60,7 +59,7 @@
 
     <div id="page" class="opaque-bg">
   [% ELSE %]
-<div id="page">
+<div id="page" class="container">
   [% END %] 
       [%- IF success || info || errors%]
       <div id="messages">
