@@ -210,6 +210,7 @@ sub markdown_body {
   my $self = shift; 
   my $body=$self->body;
   $body =~ s{^\s+<}{<}gm;
+  $body =~ s{\{!([^!]+)!\}}{<span class="mono">$1</span>}gm; # allow inline code bits thus !!code!!
   markdown($body,{tab_width=>2, empty_element_suffix => '/>',});
 }
 
