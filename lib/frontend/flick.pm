@@ -6,70 +6,70 @@ use Dancer::Plugin::Cache::CHI;
 use Flickr::API;
 
 prefix '/flick';
-	
+  
 check_page_cache;
 
 get '/' => sub {
-	redirect uri_for 'flick/list/1' 
+  redirect uri_for 'flick/list/1' 
 };
 
 get '/list/:page/?' => sub {
   my $per_page = 24;
-	my $page = params->{page};
+  my $page = params->{page};
 
-	my $collection_ref = _get_flickr_photo_collection($per_page, $page);
+  my $collection_ref = _get_flickr_photo_collection($per_page, $page);
   my $photos = _get_photos($collection_ref, $page);
   my $meta = _get_meta($collection_ref);
 
-	my $next = int($meta->{page}) < $meta->{pages} 
-						 ? int($meta->{page})+1
-						 : undef
-	;
-	my $prev = int($meta->{page}) > 1 
-						 ? int($meta->{page})-1
-						 : undef
-	;
-	my $last = $meta->{page} eq $meta->{pages}
-						 ? undef
-						 : $meta->{pages}
-	;
-	my $first = int($meta->{page})==1
-							? undef
-							: 1
-	;
+  my $next = int($meta->{page}) < $meta->{pages} 
+             ? int($meta->{page})+1
+             : undef
+  ;
+  my $prev = int($meta->{page}) > 1 
+             ? int($meta->{page})-1
+             : undef
+  ;
+  my $last = $meta->{page} eq $meta->{pages}
+             ? undef
+             : $meta->{pages}
+  ;
+  my $first = int($meta->{page})==1
+              ? undef
+              : 1
+  ;
   template 'flick/list', {
-			active_nav  => 'Images',
-			title				=> "Charlie&#8217;s flickr photos $page",
-			description => "Gallery of Charlie Harvey(aka Ludwig Van Standard Lamp)&#8217;s photography from flickr.",
-			page				=> $meta->{page},
-			perpage			=> $meta->{perpage},
-			total				=> $meta->{total},
-			mt          => $meta,
-			nxt 				=> $next,
-			prv	 			  => $prev,
-			frst				=> $first,
-			lst 				=> $last,
-			photos      => $photos,
-	 };
+      active_nav  => 'Images',
+      title        => "Charlie&#8217;s flickr photos $page",
+      description => "Gallery of Charlie Harvey(aka Ludwig Van Standard Lamp)&#8217;s photography from flickr.",
+      page        => $meta->{page},
+      perpage      => $meta->{perpage},
+      total        => $meta->{total},
+      mt          => $meta,
+      nxt         => $next,
+      prv           => $prev,
+      frst        => $first,
+      lst         => $last,
+      photos      => $photos,
+   };
 
 };
 
 get '/view/:id/page/:page/?' => sub {
-	my $page = params->{page};
-	my $id   = params->{id};
+  my $page = params->{page};
+  my $id   = params->{id};
 
-	my $ref   = _get_photo_info($id);
-	my $photo = _get_photo_detail($ref);
-	my $exif  = _get_photo_exif($id);
+  my $ref   = _get_photo_info($id);
+  my $photo = _get_photo_detail($ref);
+  my $exif  = _get_photo_exif($id);
 
   template 'flick/view', {
-			active_nav  => 'Images',
-			title				=> $photo->{title} . " &mdash; from Charlie&#8217;s flickr photos page $page",
-			description => $photo->{title} . ". A photograph by Charlie Harvey (aka Ludwig Van Standard Lamp).",
-			exif				=> $exif,
-			page				=> $page,
-			photo				=> $photo,
-	 };
+      active_nav  => 'Images',
+      title        => $photo->{title} . " &mdash; from Charlie&#8217;s flickr photos page $page",
+      description => $photo->{title} . ". A photograph by Charlie Harvey (aka Ludwig Van Standard Lamp).",
+      exif        => $exif,
+      page        => $page,
+      photo        => $photo,
+   };
 };
 
 
@@ -121,13 +121,13 @@ sub _get_photo_detail {
   my $owner = $child->[1]{attributes}{username};
   my $title = $child->[3]{children}[0]{content} || 'Untitled';
   my $descr = $child->[5]{children}[0]{content};
-	if($descr) {
-		$descr =~ s/&gt;/>/gi;
-		$descr =~ s/&lt;/</gi;
-		$descr =~ s/rel=&quot;nofollow&quot;//gi; 
-		$descr =~ s/&quot;/"/gi;
-		$descr =~ s/\n/<br \/>/g;
-	}
+  if($descr) {
+    $descr =~ s/&gt;/>/gi;
+    $descr =~ s/&lt;/</gi;
+    $descr =~ s/rel=&quot;nofollow&quot;//gi; 
+    $descr =~ s/&quot;/"/gi;
+    $descr =~ s/\n/<br \/>/g;
+  }
   my $taken = $child->[9]{attributes}{taken};
   my $attr = $ref->{attributes};
   my $img = "//farm" . $attr->{farm} . ".static.flickr.com/" . $attr->{server} . "/" . $attr->{id} . "_" . $attr->{secret} . "_b.jpg";
