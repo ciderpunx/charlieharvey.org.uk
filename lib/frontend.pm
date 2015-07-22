@@ -27,7 +27,7 @@ check_page_cache;
 
 get '/' => sub {
     my $collection_ref 
-                  = frontend::flick::_get_flickr_photo_collection(3, 1);
+                  = frontend::flick::_get_flickr_photo_collection(5, 1);
     my $photos    = frontend::flick::_get_photos($collection_ref, 1);
     my $tweets    = frontend::social::_tweets();
     my $scrobbles  = frontend::social::_scrobbles();

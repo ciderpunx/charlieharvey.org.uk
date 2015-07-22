@@ -40,19 +40,6 @@
         <p class="rightalign"><a href="/page/"><em>More blogs</em> &raquo;</a></p>
 
       [%- END -%]
-      [% IF pics && pics.size %]
-        <div class="hidden-sm hidden-xs">
-          <h3>Recent photos</h3>
-          <div class="row">
-            [%- FOREACH pic IN pics %]
-              <div class="col-md-4">
-                <a href="[% pic.href %]"><img class="bordered" src="[% pic.img %]" alt="[% pic.title %]" /></a>
-              </div>
-            [%- END %]
-          </div>
-          <p class="rightalign"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
-        </div>
-      [% END %]
       </div>
 
       <div class="col-xs-6 col-sm-4">
@@ -64,7 +51,19 @@
         [%- END %]
         </ul>
       [%- END %]
+      [%- IF pics && pics.size %]
+        <h3>Recent photos</h3>
+        <ul class="text-center no-decoration">
+        [%- FOREACH pic IN pics %]
+          <li><a href="[% pic.href %]"><img style="width:95%" class="bordered" src="[% pic.img %]" alt="[% pic.title %]" /></a><br />&nbsp;</li>
+        [%- END %]
+        </ul>
+        <p class="text-center"><a href="/flick/"><em>More photos</em> &raquo;</a></p>
+      [% ELSE %]
+        <h4>No recent pics</h4>
+      [%- END %]
       </div>
+
       <div class="col-xs-6 col-sm-4">
         <h3>Social Media</h3>
         <div class="tinytext break-word">
@@ -87,8 +86,10 @@
             </ul>
           [% ELSE %]
             <h4>No recent scrobbles</h4>
-          [% END %]
+          [%- END %]
+
         </div>
+
       </div>
     </div>
   </article>
