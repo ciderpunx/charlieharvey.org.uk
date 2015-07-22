@@ -3,6 +3,7 @@ use Dancer ':syntax';
 use Dancer::Plugin::DBIC qw(schema resultset rset);
 use Dancer::Plugin::Feed;
 use Dancer::Plugin::Cache::CHI;
+use HTML::Entities;
 
 prefix '/page';
 
@@ -83,10 +84,15 @@ get '/feed/:format' => sub {
             link   => uri_for("/comments"),
     },
     entries => [ map {
-      title   => $_->title || "Untitled",
+      title   => decode_entities($_->title) || "Untitled",
       link    => uri_for($_->link),
       author  => config->{SITE_AUTHOR},
-      summary => $_->auto_summary,
+      summary => '<img style="width:30%;float:left;" src="'
+                 . $_->image_url
+                 . '">'
+                 . '<p style="width:69%;float:left">' 
+                 . decode_entities($_->auto_summary) 
+                 . '</p><p style="clear:both;"> </p>',
       issued  => $_->updated_at,
     }, @ps ], #makes collection of feed entries
   );
