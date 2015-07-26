@@ -38,13 +38,13 @@ get '/' => sub {
 
     cache_page template 'index', {
       active_nav  => 'Home',
-      title        => "127.0.0.1",
+      title       => "Charlie Harvey 127.0.0.1",
       description => "The lair of the ciderpunx. Being the home page of Charlie Harvey",
       tweets      => $tweets,
-      scrobbles    => $scrobbles,
-      blogs        => \@blogs,
+      scrobbles   => $scrobbles,
+      blogs       => \@blogs,
       populars    => $populars,
-      pop_ord      => \@pop_ord,
+      pop_ord     => \@pop_ord,
       pics        => $photos,
       # full_width_image => "//farm4.static.flickr.com/3670/9009590123_88e46e13af_o.jpg",
     };
@@ -57,14 +57,14 @@ get '/about.pl' => sub {
 get '/about/?' => sub {
     template 'about', {
       active_nav  => 'About',
-      title        => "About",
+      title        => "About Charlie Harvey",
       description => "About Charlie Harvey and about charlieharvey.org.uk. Blah, blah, blah.",
     };
 };
 
 get '/about/api/?' => sub {
     template 'about-api', {
-      title        => "REST Content API Documentation",
+      title        => "Charlie Harvey REST Content API Documentation",
       active_nav  => 'About',
       description => "Documentation for the charlieharvey.org.uk REST Content API, with some sample code and a few examples.",
     };
@@ -73,14 +73,14 @@ get '/about/api/?' => sub {
 get '/about/charlie-harvey/?' => sub {
     template 'about-charlie', {
       active_nav  => 'About',
-      title        => "About Charlie",
-      description => "About Charlie Harvey. Cider, geekery, perl and navel gazing",
+      title        => "About Charlie Harvey (Personal info)",
+      description => "About Charlie Harvey (personal information). Cider, geekery, perl and navel gazing",
     };
 };
 
 get '/about/feeds/?' => sub {
     template 'about-feeds', {
-      title        => "RSS and Atom site feeds",
+      title        => "RSS and Atom site feeds on charlieharvey.org.uk",
       active_nav  => 'About',
       description => "Information about the various RSS and Atom available from charlieharvey.org.uk.",
     };
@@ -173,7 +173,7 @@ get '/cv.pl' => sub {
 get '/cv/?' => sub {
     template 'cv', {
       active_nav  => 'About',
-      title        => "Curriculum Vita&eacute;",
+      title        => "My Curriculum Vita&eacute;",
       description => "Charlie Harvey&#8217;s CV or resum&eacute; as they say in the US.",
     };
 };
