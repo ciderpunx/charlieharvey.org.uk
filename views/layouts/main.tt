@@ -2,7 +2,7 @@
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport"    content="width=device-width, initial-scale=1" />
     <meta name="description" content="[% description %]" />
     <meta name="keywords"    content="charlie harvey, charlie, harvey, perl, html, punk, punk rock, cider, ciderpunx, direct action, boozeulator, daily mail generator, code, floss, gnu/linux, hacker, geekery" />
     <meta name="author"      content="Charlie Harvey" />
@@ -26,6 +26,7 @@
     <meta property="og:url"         content="[% request.base_uri %][% request.uri %]" />
     <meta property="og:site_name"   content="charlieharvey.org.uk" />
     <meta property="og:description" content="[% description %]" />
+    [% IF page && page.image_url -%]<meta property="og:image"       content="[% IF page.image_url.match('^/[^/]') -%]http://static.charlieharvey.org.uk[% ELSIF  page.image_url.match('^//') -%]http:[% END -%][% page.image_url -%]" />[% END %]
 
     <meta property="twitter:card"         content="summary" />
     <meta property="twitter:title"        content="[% title %]" />
@@ -33,8 +34,8 @@
     <meta property="twitter:description"  content="[% description %]" />
     <meta property="twitter:creator"      content="@ciderpunx" />
     <meta property="twitter:site"         content="@ciderpunx" />
-    [% IF page && page.image_url -%]<meta property="twitter:image"        content="[% UNLESS page.image_url.match('^http://') -%]http://charlieharvey.org.uk[% END -%][% page.image_url -%]" />
-    <meta property="twitter:image:src"    content="[% UNLESS page.image_url.match('^http://') -%]http://charlieharvey.org.uk[% END -%][% page.image_url -%]" />
+    [% IF page && page.image_url -%]<meta property="twitter:image"        content="[% IF page.image_url.match('^/[^/]') -%]http://static.charlieharvey.org.uk[% ELSIF  page.image_url.match('^//') -%]http:[% END -%][% page.image_url -%]" />
+    <meta property="twitter:image:src"    content="[% IF page.image_url.match('^/[^/]') -%]http://static.charlieharvey.org.uk[% ELSIF  page.image_url.match('^//') -%]http:[% END -%][% page.image_url -%]" />
     [% END -%]
 
     <meta property="dc.title"       content="[% title %]" />
