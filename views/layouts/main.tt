@@ -18,7 +18,6 @@
     <link rel="alternate" type="application/rss+xml" title="RSS: Flickr images" href="http://flickr.com/services/feeds/photos_public.gne?id=8361414@N05&amp;lang=en-us&amp;format=rss_200">
 
     <link rel="license copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
-
     <link rel="shortcut icon" href="//static.charlieharvey.org.uk/favicon.ico" />
 
     <meta property="og:title"       content="[% title %]" />

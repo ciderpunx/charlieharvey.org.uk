@@ -1,7 +1,7 @@
 <!--t:header-->
   <p class="hidden"><a id="top" href="#content">Skip navigation</a></p>
   <header class="titlebar">
-      <h1>[% IF title != "127.0.0.1" %]<a rel="me home" class="fn url no_under" href="/">[% END %]Charlie Harvey[% IF title != "127.0.0.1" %]</a>[% END %]</h1>
+      <h1>[% IF title != "Charlie Harvey 127.0.0.1" %]<a rel="me home" class="fn url no_under" href="/">[% END %]Charlie Harvey[% IF title != "Charlie Harvey 127.0.0.1" %]</a>[% END %]</h1>
   </header>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
