@@ -88,7 +88,7 @@ get '/feed/:format' => sub {
       link    => uri_for($_->link),
       author  => config->{SITE_AUTHOR},
       summary => '<img style="width:30%;float:left;" src="'
-                 . $_->image_url
+                 . $_->image_url_absolute
                  . '">'
                  . '<p style="width:69%;float:left">' 
                  . decode_entities($_->auto_summary) 

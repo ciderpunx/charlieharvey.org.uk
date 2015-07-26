@@ -219,6 +219,17 @@ sub link {
   return '/page/' . $self->slug;
 }
 
+sub image_url_absolute {
+  my $self = shift; 
+  my $url = $self->image_url;
+  if ($url =~ m{^//}) {
+    $url = "http:$url";  
+  }
+  elsif ($url =~ m{^/}) {
+    $url = "http://static.charlieharvey.org.uk/$url";
+  }
+  return $url;
+}
 sub nice_updated {
   my $self = shift;
   my $date = $self->updated_at;
