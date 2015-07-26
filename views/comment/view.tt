@@ -2,14 +2,15 @@
     <article class="comment hentry hreview">
       <header>
         <p class="cid rightfloat"><a href="/comment/[% comment.id %]">#[% comment.id %]</a></p>
-        <h5 class="author item reviewer vcard" rel="author">
+        <h5 class="author reviewer vcard" rel="author">
           [% IF comment.url %]<a href="[% comment.url %]" class="fn url" rel="nofollow">[% ELSE %]<span class="fn">[% END %][% IF comment.nick %][% comment.nick %][% ELSE %]Anon[% END %] [% IF comment.url %]</a>[% ELSE %]</span>[% END %]
         </h5>
-        [% IF comment.title %]<h4 class="entry-title item ">[% comment.title %]</h4>[% ELSE%]<h4 class="entry-title item hidden">Comment [% comment.id %]</h4>[% END %]
+        [% IF comment.title %]<h4 class="entry-title">[% comment.title %]</h4>[% ELSE%]<h4 class="entry-title hidden">Comment [% comment.id %]</h4>[% END %]
       </header>
       <div class="description entry-content comment-bdy">
         [% comment.markdown_body | replace('<pre><code>','<code>') | replace('</code></pre>','</code>') %]
       </div>
+      <div class="item hidden"><span class="type">url</span>:<a class="fn url" href="http://charlieharvey.org.uk[% comment.page.link %]">[% comment.page.title %]</a></div>
       <p class="dtreviewed updated published tinytext auth">
         <time class="value-title" title="[% comment.updated_at %]Z" datetime="[% comment.updated_at %]Z">[% comment.nice_updated %]</time>
       </p>
