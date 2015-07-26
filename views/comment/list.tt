@@ -6,7 +6,7 @@
 <ul class="unstyled-list hfeed">
   [% FOREACH comment IN comments %]
   <!--TODO: Markup needs tidying up here-->
-  <li class="unstyled-list hreview hentry comment top-bordered">
+  <li class="unstyled-list comment top-bordered">
   [% INCLUDE comment/view.tt %]
   </li>
   [% END %]

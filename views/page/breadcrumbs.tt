@@ -5,7 +5,7 @@
 		[% FOR pg IN ancestors.reverse %]
     <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="[% pg.link %]"  itemprop="url"><span itemprop="title">[% pg.title %]</span></a> /</li>
 		[% END %]
-			<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="url"><span itemprop="title">[% page.title %]</span></span></li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="[% pg.link %]" itemprop="url"></a><span itemprop="title">[% page.title %]</span></li>
 	[% END %]
   </ul>
 	<!--/breadcrumbs-->
