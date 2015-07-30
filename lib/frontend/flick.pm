@@ -39,14 +39,14 @@ get '/list/:page/?' => sub {
   ;
   template 'flick/list', {
       active_nav  => 'Images',
-      title        => "Charlie&#8217;s flickr photos $page",
+      title       => "Charlie&#8217;s flickr photos $page",
       description => "Gallery of Charlie Harvey(aka Ludwig Van Standard Lamp)&#8217;s photography from flickr.",
       page        => $meta->{page},
-      perpage      => $meta->{perpage},
-      total        => $meta->{total},
+      perpage     => $meta->{perpage},
+      total       => $meta->{total},
       mt          => $meta,
       nxt         => $next,
-      prv           => $prev,
+      prv         => $prev,
       frst        => $first,
       lst         => $last,
       photos      => $photos,
@@ -64,11 +64,12 @@ get '/view/:id/page/:page/?' => sub {
 
   template 'flick/view', {
       active_nav  => 'Images',
-      title        => $photo->{title} . " &mdash; from Charlie&#8217;s flickr photos page $page",
-      description => $photo->{title} . ". A photograph by Charlie Harvey (aka Ludwig Van Standard Lamp).",
+      title       => $photo->{title} . " &mdash; from Charlie&#8217;s flickr photos page $page",
+      description => $photo->{title} . ". A photograph by Charlie Harvey (aka Ludwig Van Standard Lamp). On page $page of the gallery.",
       exif        => $exif,
       page        => $page,
-      photo        => $photo,
+      photo       => $photo,
+      image_url   => $photo->{img}
    };
 };
 
