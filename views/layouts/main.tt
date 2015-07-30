@@ -18,7 +18,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS: Flickr images" href="http://flickr.com/services/feeds/photos_public.gne?id=8361414@N05&amp;lang=en-us&amp;format=rss_200">
 
     <link rel="license copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
-    <link rel="shortcut icon" href="//static.charlieharvey.org.uk/favicon.ico" />
+    <link rel="shortcut icon"     href="//static.charlieharvey.org.uk/favicon.ico" />
 
     <meta property="og:title"       content="[% title %]" />
     <meta property="og:type"        content="article" />
@@ -26,6 +26,7 @@
     <meta property="og:site_name"   content="charlieharvey.org.uk" />
     <meta property="og:description" content="[% description %]" />
     [% IF page && page.image_url -%]<meta property="og:image"       content="[% IF page.image_url.match('^/[^/]') -%]http://static.charlieharvey.org.uk[% ELSIF  page.image_url.match('^//') -%]http:[% END -%][% page.image_url -%]" />[% END %]
+    [%- IF image_url -%]<meta property="og:image"       content="[% IF  image_url.match('^//') -%]https:[% END -%][% image_url -%]" />[% END %]
 
     <meta property="twitter:card"         content="summary" />
     <meta property="twitter:title"        content="[% title %]" />
@@ -35,6 +36,9 @@
     <meta property="twitter:site"         content="@ciderpunx" />
     [% IF page && page.image_url -%]<meta property="twitter:image"        content="[% IF page.image_url.match('^/[^/]') -%]http://static.charlieharvey.org.uk[% ELSIF  page.image_url.match('^//') -%]http:[% END -%][% page.image_url -%]" />
     <meta property="twitter:image:src"    content="[% IF page.image_url.match('^/[^/]') -%]http://static.charlieharvey.org.uk[% ELSIF  page.image_url.match('^//') -%]http:[% END -%][% page.image_url -%]" />
+    [% END -%]
+    [%- IF image_url -%]<meta property="twitter:image"        content="[% IF image_url.match('^//') -%]https:[% END -%][% image_url -%]" />
+    <meta property="twitter:image:src"    content="[% IF image_url.match('^//') -%]https:[% END -%][% image_url -%]" />
     [% END -%]
 
     <meta property="dc.title"       content="[% title %]" />
