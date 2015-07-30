@@ -3,6 +3,7 @@ use utf8;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC qw(schema resultset rset);
 use Dancer::Plugin::Feed;
+use HTML::Entities;
 
 prefix '/tag';
 
@@ -103,12 +104,16 @@ get '/:title/feed/:format/?' => sub {
   my $rhash = _stuff_tagged($tag,1);
   my @results;
   for my $key (reverse sort keys $rhash->{results}) {
+    my $issued = $rhash->{results}{$key}->can('created_at')
+      ? $rhash->{results}{$key}->created_at
+      : $rhash->{results}{$key}->updated
+    ;
     push @results, {
-      title   => $rhash->{results}{$key}->title || "Untitled", 
+      title   => decode_entities($rhash->{results}{$key}->title) || "Untitled", 
       link    => uri_for($rhash->{results}{$key}->link)->as_string,
       author  => config->{SITE_AUTHOR},
       summary => $rhash->{results}{$key}->auto_summary || "",
-      issued  => $rhash->{results}{$key}->created_at || $rhash->{results}{$key}->updated ,
+      issued  => $issued ,
     }, # makes collection of feed entries
   }
 
