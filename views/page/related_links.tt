@@ -1,13 +1,12 @@
 <!--t:page/related_links-->
-	<h4>Related links</h4>
-			[% IF page.related %]
-				<ul class="no-decoration">
-				[% FOR ln IN page.related.split("\n") %]
-					<li>[% bits = ln.split("\\|") %] 
-							[% title = bits.shift %] 
-							[% href = bits.shift %]
-							<a href="[% href %]">[% title %]</a></li>
-				[% END %]
-				</ul>
-			[% END %]
-<!--/page/related_links-->
+        <h4>Related links</h4>
+      [% IF page.related -%]
+  <ul class="no-decoration">
+        [% FOR ln IN page.related.split("\n") -%]
+          <li>[%- bits = ln.split("\\|") %]
+              [%- title = bits.shift %]
+              [%- href = bits.shift -%]<a href="[% href.collapse %]">[% title.collapse %]</a></li>
+        [% END -%]
+</ul>
+      [%- END %]
+        <!--/page/related_links-->
