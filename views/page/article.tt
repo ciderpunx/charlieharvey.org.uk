@@ -1,13 +1,14 @@
 [% IF page %]
 <!--t:page/article-->
-  <article id="[% page.slug %]" class="entry-content drop-cap">
-    [% IF page.is_root %]<p class="pull-right"><a class="sprite32 rss rss-block" href="feed/rss">RSS</a></p>[% END %]
+  <article id="[% page.slug -%]" class="[% UNLESS page.is_cover %]hentry[% END -%] drop-cap">
+    [%- IF page.is_root %]<p class="pull-right"><a class="sprite32 rss rss-block" href="feed/rss">RSS</a></p>[% END %]
     <header>
         <h1 class="entry-title">[% page.title %]</h1>
         <a rel="bookmark" href="[% own_url %]" class="hidden">Permalink</a>  
-        [% UNLESS page.is_cover %]
-        <p class="article-byline"><em>Written by <span class="author">Charlie</span> on [% page.nice_created %] </em></p>        
-        [% END %]
+        [%- UNLESS page.is_cover -%]
+        <p class="article-byline">
+          <em>Written by <span class="author vcard"><span class="fn">Charlie</span></span> on <time class="entry-date published updated" datetime="[% page.created_at %]+00:00">[% page.nice_created %]</time></em></p>        
+        [%- END %]
     </header>
 
                 <div class="social-block-div">
@@ -37,8 +38,9 @@
         </aside>
       </div>  
    [% END %]
-    
+  <div class="entry-content">
   [% page.markdown_body %]  
+  </div>
 
   [% INCLUDE page/tweet.tt %]
 
