@@ -5,138 +5,155 @@ use Dancer::Plugin::DBIC qw(schema resultset rset);
 prefix '/daily_mail';
 
 our @scapegoats = (
-  "yobs wearing hoodies and baseball caps",
-  "Eastern European terror gangs",
-  "young single mothers",
-  "homosexuals",
-  "young muslim men",
-  "asylum seekers",
-  "paedophiles",
-  "anarchists",
-  "gypsies",
-  "women",
-  "Islamist youths",
-  "hoody-wearing layabouts",
-  "communist-sympathisers",
-  "youths",
-  "unemployed layabouts demanding benefits with menace",
-  "so-called new age travellers",
-  "teachers indoctrinated with sixties liberal values",
-  "the politically correct Islington lefties",
-  "insane Brussels bureaucrats",
-  "anarchists calling themselves the Wombles",
-  "anarchist leaders \"the elders\"",
-  "glue-sniffing teenagers",
-  "gangs of black youths",
-  "thugs",
-  "Guardian-reading do-gooders",
-  "louts",
-  "hooligans",
-  "gangs of children, some still in their prams",
-  "Noam Chomsky devotees",
-  "followers of Hugo Chavez",
-  "ravers smashed out of their tiny minds on ecstasy",
-  "Cherie Blair&#8217;s friends",
-  "miners, bent on revenge",
-  "the unions",
-  "hunt sabateours",
-  "cyberterrorists",
-  "criminal gangs from Eastern Europe",
-  "French unions",
-  "the Unions",
-  "cyber criminals",
-  "Twitter users",
   "Al Qu&#8217;aeda bosses",
+  "Cherie Blair&#8217;s friends",
+  "Eastern European terror gangs",
+  "French unions",
+  "Guardian-reading do-gooders",
+  "Islamist youths",
+  "Jeremy Corbyn-admiring lefty scum",
+  "Jeremy Corbyn admirers",
+  "Jeremy Corbyn fans",
+  "Noam Chomsky devotees",
+  "Twitter users",
+  "anarchist leaders \"the elders\"",
+  "anarchists calling themselves the Wombles",
+  "anarchists",
+  "asylum seekers",
+  "bleeding heart liberals",
+  "chavs",
+  "coloureds",
+  "communist-sympathisers",
+  "Corbynites",
+  "criminal gangs from Eastern Europe",
+  "cyber criminals",
+  "cyberterrorists",
   "enviro-Mental-ists",
-  "lesbians",
+  "extremists",
+  "feminazis",
+  "followers of Hugo Chavez",
+  "gangs of black youths",
+  "gangs of children, some still in their prams",
+  "glue-sniffing teenagers",
+  "gypsies",
+  "homosexuals",
   "homosexuals",
   "hoodies",
-  "chavs",
+  "hoody-wearing layabouts",
+  "hooligans",
+  "hunt sabateours",
+  "insane Brussels bureaucrats",
+  "lesbians",
+  "louts",
+  "miners, bent on revenge",
+  "migrants",
+  "paedophiles",
+  "ravers smashed out of their tiny minds on ecstasy",
+  "so-called new age travellers",
+  "so-called refugees",
+  "teachers indoctrinated with sixties liberal values",
+  "the Unions",
+  "the politically correct Islington lefties",
   "the poor",
-  "coloureds",
-  "extremists",
-  "bleeding heart liberals",
+  "the unions",
+  "thugs",
+  "unemployed layabouts demanding benefits with menace",
+  "women",
+  "yobs wearing hoodies and baseball caps",
+  "young muslim men",
+  "young single mothers",
+  "youths",
 );
 
  
 our @evil_behaviours = (
-  "terrorising the elderly residents of a tranquil Gloucestershire village",
-  "selling drugs to schoolchildren for fun",
-  "threatening to smash up branches of McDonalds and Starbucks",
-  "destabilising the British way of life",
+  "admiring Jeremy Corbyn",
+  "allowing foreign illegals to live",
+  "assisting asylum seekers",
+  "being foreign and suspicious looking",
   "being involved in the death of Princess Diana (God rest her precious soul)",
-  "setting fire to pensioners whilst high on skunk and crack",
-  "using skateboards and yobbish language to molest journalists",
-  "squatting houses left empty by families on holiday",
-  "getting away with arson",
-  "looting and pillaging supermarkets",
-  "urinating on the Union Jack",
-  "burning policemen at the stake",
-  "eating babies",
-  "drilling for oil in one family's back garden",
-  "pleasuring themselves on the alters of our great cathedrals",
-  "setting fire to libraries",
-  "selling heroin to the unions",
-  "injecting crack into primary school children",
-  "terrorising innocent investment bankers",
-  "plotting the overthrow both of the British state and our way of life",
-  "smoking skunk in the halls of Parliament",
-  "defacing statues in Trafalgar Square",
-  "holding illegal raves illegally in illegal fields",
-  "injecting crack into the kneecaps of innocent passers by",
-  "smashing up images of our queen of hearts, Lady Diana herself",
-  "listening to loud music",
-  "reading the works of Karl Marx",
-  "praising Osama Bin Laden",
-  "sacrificing goats to a gilded image of Ken Livingstone",
-  "causing cancer",
-  "tweeting the Interwebs into cyberterror on the Facebooks",
-  "plotting to kidnap a senior royal",
   "binge drinking on council estates",
   "binge drinking",
-  "welcoming foreigners",
+  "burning policemen at the stake",
+  "causing cancer",
+  "causing obesity",
+  "defacing statues in Trafalgar Square",
+  "destabilising the British way of life",
+  "drilling for oil in one family's back garden",
+  "eating babies",
   "engaging in steamy sex romps",
+  "fighting the poilce",
+  "getting away with arson",
   "hacking the Gibson",
-  "training in Al-Quaeda terror camps",
+  "helping illegal immigrants",
+  "helping so-called migrants",
+  "holding illegal raves illegally in illegal fields",
   "immigrating",
-  "being foreign and suspicious looking",
+  "injecting crack into primary school children",
+  "injecting crack into the kneecaps of innocent passers by",
+  "listening to loud music",
+  "looting and pillaging supermarkets",
+  "pleasuring themselves on the alters of our great cathedrals",
+  "plotting the overthrow both of the British state and our way of life",
+  "plotting to kidnap a senior royal",
+  "praising Osama Bin Laden",
+  "reading the works of Karl Marx",
   "ripping off hard working families",
+  "sacrificing goats to a gilded image of Ken Livingstone",
+  "selling drugs to schoolchildren for fun",
+  "selling heroin to the unions",
+  "setting fire to libraries",
+  "setting fire to pensioners whilst high on skunk and crack",
+  "smashing up images of our queen of hearts, Lady Diana herself",
+  "smoking skunk in the halls of Parliament",
+  "squatting houses left empty by families on holiday",
+  "terrorising innocent investment bankers",
+  "terrorising the elderly residents of a tranquil Gloucestershire village",
+  "threatening to smash up branches of McDonalds and Starbucks",
+  "training in Al-Quaeda terror camps",
+  "trolling social media users",
+  "tweeting the Interwebs into cyberterror on the Facebooks",
+  "urinating on the Union Jack",
+  "using skateboards and yobbish language to molest journalists",
+  "voting for Jeremy Corbyn",
+  "welcoming foreigners",
 );
 
 our @mad_quotes = (
-  "the day of the yob is upon us",
-  "arbeit macht frei",
-  "As I look ahead, I am filled with foreboding. Like the Roman, I seem to see the River Tiber foaming with much blood.",
-  "yet again these oafs have destroyed my evening.",
-  "kill the commie swine",
-  "I like sponge",
-  "If only we had a privitised National Identity scheme this would never have happened",
-  "our prisons are like holiday camps.",
-  "the lady&#8217;s not for turning",
-  "I can no longer sit back and allow Communist infiltration, Communist indoctrination, Communist subversion and the international Communist conspiracy to sap and impurify all of our precious bodily fluids.",
-  "was it for this politically correct insanity that I fought and died in eight world wars? I think not!",
-  "I blame all of this on stealth taxes and permissive education in the 1960s.",
-  "surely something can be done?",
-  "make no mistake if this is allowed to continue Armageddon shall surely be upon us and woe betide all who would seek to impose upon us a surveillance society. For on that day the right shall inherit the Earth!",
-  "these dole-scrounging n&#8217;er-do-wells must be eliminated at all costs.",
-  "a glorious thousand-year reich seems like the only practical choice to stem the tide of economic migrants",
-  "new Age travellers? Not in this age. Not in any age. Let others speak for these New Age travellers. We will speak for their victims.",
-  "society needs to condemn a little more and understand a little less.",
-  "we are a grandmother",
-  "read my lips; no new taxeis",
-  "we are coming slowly, painfully to an autumn of understanding, I hope it will be followed by a winter of common sense.",
-  "I have always said if you want a speech, ask a man. If you want something done, ask a woman.",
-  "I grew up in the 1930s with an unemployed father. He did not riot. He got on his bike and looked for work, and he went on looking until he found it.",
   "A large proportion of Britain&#8217;s Asian population fail to pass the cricket test. Which side do they cheer for?",
-  "But many of the unemployeds had become static and didn&#8217;t know that if they got on a bus for an hour&#8217;s journey, they&#8217;d be in Cardiff and could look for the jobs there.",
-  "Waterboarding is not torture",
+  "As I look ahead, I am filled with foreboding. Like the Roman, I seem to see the River Tiber foaming with much blood.",
   "Ban this sick filth",
-  "I think hanging is too good for them; Its time to consider the reintroduction of crucifiction, especially for criminals.",
-  "Multiculturalism has failed utterly",
+  "But many of the unemployeds had become static and didn&#8217;t know that if they got on a bus for an hour&#8217;s journey, they&#8217;d be in Cardiff and could look for the jobs there.",
   "Hoorah for the blackshirts!",
-  "We need a lot less of the passive tolerance of recent years and much more active, muscular liberalism. Especially for the blacks.",
-  "Things got out of hand and we&#8217;d had a few drinks. We smashed the place up and Boris set fire to the toilets.",
+  "I blame all of this on stealth taxes and permissive education in the 1960s.",
+  "I can no longer sit back and allow Communist infiltration, Communist indoctrination, Communist subversion and the international Communist conspiracy to sap and impurify all of our precious bodily fluids.",
+  "I grew up in the 1930s with an unemployed father. He did not riot. He got on his bike and looked for work, and he went on looking until he found it.",
+  "I have always said if you want a speech, ask a man. If you want something done, ask a woman.",
+  "I like sponge",
+  "I think hanging is too good for them; Its time to consider the reintroduction of crucifiction, especially for criminals.",
+  "If only we had a privitised National Identity scheme this would never have happened",
   "Its the terrorists fault. Watch my eyes. Te-rror-ists. Now I can say anything I like and you&#8217;ll think it makes sense somehow. Brilliant. Te-rror-is-ts.",
+  "Multiculturalism has failed utterly",
+  "Things got out of hand and we&#8217;d had a few drinks. We smashed the place up and Boris set fire to the toilets.",
+  "Waterboarding is not torture",
+  "We need a lot less of the passive tolerance of recent years and much more active, muscular liberalism. Especially for the blacks.",
+  "a glorious thousand-year reich seems like the only practical choice to stem the tide of economic migrants",
+  "arbeit macht frei",
+  "kill the commie swine",
+  "make no mistake if this is allowed to continue Armageddon shall surely be upon us and woe betide all who would seek to impose upon us a surveillance society. For on that day the right shall inherit the Earth!",
+  "new Age travellers? Not in this age. Not in any age. Let others speak for these New Age travellers. We will speak for their victims.",
+  "our prisons are like holiday camps.",
+  "read my lips; no new taxeis",
+  "society needs to condemn a little more and understand a little less.",
+  "surely something can be done?",
+  "the day of the yob is upon us",
+  "the lady&#8217;s not for turning",
+  "these dole-scrounging n&#8217;er-do-wells must be eliminated at all costs.",
+  "was it for this politically correct insanity that I fought and died in eight world wars? I think not!",
+  "we are a grandmother",
+  "we are coming slowly, painfully to an autumn of understanding, I hope it will be followed by a winter of common sense.",
+  "yet again these oafs have destroyed my evening.",
+  "kill the poor",
 );
 
 
@@ -318,27 +335,43 @@ Docktawh Gillian Keith, speaking from her underground nutrition dome said, \"Eve
 She added \"As it turns out %e is almost completely identical to cancer, in how it affects the balance of our chakras. And everybody knows that %e is mostly caused by %s, who are known to promote a negative orgone balance in the red layer of the energy rainbow.\"
 
 Of course liberal-minded multiculturalists will no doubt assume that comparing %s to carcinogens is \"racist\", but they can&#8217;t deny the simple facts of the case. And the Mail is happy to back Gillian&#8217;s words; she gave us a fresh insight into Broken Britain by saying, \"%Q\". 
-"
+",
+
+"The Daily Mail has learned, by imagining them, of literally BILLIONS of incidents of %e, all of them involving %s.
+
+In the glorious days of %T, no hardworking family of Britain would expect to experience %e, but nowadays thanks to %s %e is an everyday occurence. 
+
+Frankly, the only thing that any sane person can say is <q>%Q</q>.
+",
+"The horror or Broken Britain continues this week. 
+
+First we learn that %e is becoming ever more common, then we learn that %s are %e2 every day.
+
+Among the hardworking Britons to attack %s %e2 was %t who today said <q>%q</q>.
+",
 );
 
 
 get '/' => sub {
-	template 'daily_mail/view', {
-		title => 'Daily Mail story generator',
-		description => 'It generates Daily Mail style DM stories. For lazy Daily Mail hacks and others.',
-		story => _make_story()
-	}	
+  template 'daily_mail/view', {
+    title => 'Daily Mail story generator',
+    description => 'It generates Daily Mail-style DM stories. For lazy Daily Mail hacks and others. I blame single mothers',
+    story => _make_story()
+  }  
 };
 
 # make a DM story
 sub _make_story {
-  my $story					= _get_elem(\@story_styles);
-  my $scapegoat			= _get_elem(\@scapegoats);
-  my $evil					= _get_elem(\@evil_behaviours);
-  my $mad_quote			= _get_elem(\@mad_quotes);
-  my $right_winger	= _get_elem(\@tory_looneys);
+  my $story        = _get_elem(\@story_styles);
+  my $scapegoat    = _get_elem(\@scapegoats);
+  my $evil         = _get_elem(\@evil_behaviours);
+  my $evil2        = _get_elem(\@evil_behaviours);
+  my $mad_quote    = _get_elem(\@mad_quotes);
+  my $right_winger = _get_elem(\@tory_looneys);
   $story =~ s/%s/$scapegoat/g;
   $story =~ s/%S/ucfirst $scapegoat/ge;
+  $story =~ s/%e2/$evil2/g;
+  $story =~ s/%E2/$evil2/g;
   $story =~ s/%e/$evil/g;
   $story =~ s/%E/ucfirst $evil/ge;
   $story =~ s/%q/$mad_quote/g;
@@ -346,7 +379,7 @@ sub _make_story {
   $story =~ s/%t/$right_winger/g;
   $story =~ s/%T/ucfirst $right_winger/ge;
   $story =~ s/\n/<br \/>/g;
-	return $story;
+  return $story;
 }
 
 # takes an array ref. returns an element at a random offset 
