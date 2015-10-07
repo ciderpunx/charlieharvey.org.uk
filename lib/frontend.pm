@@ -39,7 +39,7 @@ get '/' => sub {
     cache_page template 'index', {
       active_nav  => 'Home',
       title       => "Charlie Harvey 127.0.0.1",
-      description => "The lair of the ciderpunx. Being the home page of Charlie Harvey",
+      description => "Charlie Harvey's website &mdash; the lair of the ciderpunx. Being the home page of Charlie Harvey with diverse musings on cider, geekery and perl.",
       tweets      => $tweets,
       scrobbles   => $scrobbles,
       blogs       => \@blogs,
