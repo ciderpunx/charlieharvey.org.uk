@@ -3,10 +3,10 @@
 [% url = request.uri_base _ request.uri %]
 	<ul class="no-decoration" id="social-block">
 
-		<li><a href="https://twitter.com/intent/tweet?via=ciderpunx&amp;related=ciderpunx&amp;url=[% url %]&amp;text=I&#8217;m%20reading%20[% title %]%20&mdash;%20" class="sprite twitter">Share on Twitter</a></li>
-		<li><a href="http://www.facebook.com/share.php?u=[% url %]&amp;t=I&#8217;m%20reading%20[% title %]" class="sprite facebook">Share on Facebook</a></li>
+		<li><a href="https://twitter.com/intent/tweet?via=ciderpunx&amp;related=ciderpunx&amp;url=[% url %]&amp;text=I&#8217;m%20reading%20[% title | url %]%20&mdash;%20" class="sprite twitter">Share on Twitter</a></li>
+		<li><a href="http://www.facebook.com/share.php?u=[% url %]&amp;t=I&#8217;m%20reading%20[% title | url %]" class="sprite facebook">Share on Facebook</a></li>
 		<li><a href="https://plus.google.com/share?url=[% url %]" class="sprite gplus">Share on Google+</a></li>
-		<li><a href="http://news.ycombinator.com/submitlink?u=[% url %]&amp;t=[% title %]" class="sprite hackernews">Share on Hacker News</a></li>
+		<li><a href="http://news.ycombinator.com/submitlink?u=[% url %]&amp;t=[% title | url %]" class="sprite hackernews">Share on Hacker News</a></li>
 	</ul>
 	<a href="javascript:void(0)" id="social-block-toggle" class="visible-lg">&#8599;</a>
 </div>
