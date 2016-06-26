@@ -23,9 +23,8 @@
         <li><span class="tinytext glyphicon glyphicon-arrow-right"></span><a href="[% cat.link %]">[% cat.title %]</a></li>
         [% END -%]
       [% END -%]
-      </li>
-    </ul>
-  </li>
+      </ul>
+    </li>
 [% END -%]
 </ul>
 <!--/page/navtree-->

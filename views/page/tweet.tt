@@ -1,5 +1,5 @@
 <!--t:tweet-->
 <ul class="no-decoration" id="after-article-shares">
-	[% INCLUDE page/share_this_list.tt %]
+  [% INCLUDE page/share_this_list.tt %]
 </ul>
 <!--/tweet-->
