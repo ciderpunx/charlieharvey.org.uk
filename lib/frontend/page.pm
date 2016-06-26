@@ -151,12 +151,12 @@ get '/:slug/?' => sub {
   if ($page->is_root) {
     # TODO: There are a lot of unnecessary queries going on here.
     #       Good place to optimize. Cache sorts it for now.
-    my @recent_children = $page->recent_children(5);
-    cache_page template 'page/root', {
+    my @recent_children = _page_recent()->all;
+    cache_page template 'page/root-new', {
       active_nav      => 'Blog',
       page            => $page,
-      title            => $page->title,
-      own_url          => uri_for($page->link)->as_string,
+      title           => $page->title,
+      own_url         => uri_for($page->link)->as_string,
       parent_url      => uri_for('page/0')->as_string,
       recent_children => \@recent_children,
       ancestors       => \@ancestors,

@@ -6,30 +6,30 @@
 <!--Maybe use the fluid row layout from bootstrap, and no sidebar here. Or slideshow. Or something.-->
 
 [% FOREACH section IN page.children %]
-	[% IF loop.first %]
-	<div class="row">
-	[% END %]
+  [% IF loop.first %]
+  <div class="row">
+  [% END %]
         [% IF loop.index > 0 && loop.index % 3 == 0 %]
         </div>
         <div class="row">
         [% END %]
 
-	<section class="col-sm-4 tinytext">
-		<header>
-			<h2><a href="[% section.link %]">[% section.title %]</a></h2>
-		</header>
-	[% IF section.children %]
-		<ul class="no-decoration">
-		[% FOREACH pg IN section.recent_children %]
-		<li><a href="[% pg.link %]">[% pg.title %]</a></li>
-		[% END %]
-		</ul>
-	[% END %]
-	</section>
+  <section class="col-sm-4 tinytext">
+    <header>
+      <h2><a href="[% section.link %]">[% section.title %]</a></h2>
+    </header>
+  [% IF section.children %]
+    <ul class="no-decoration">
+    [% FOREACH pg IN section.recent_children %]
+    <li><a href="[% pg.link %]">[% pg.title %]</a></li>
+    [% END %]
+    </ul>
+  [% END %]
+  </section>
 
-	[% IF loop.last %]
-		</div>
-	[% END %]
+  [% IF loop.last %]
+    </div>
+  [% END %]
 [% END %]
 
 [% INCLUDE page/comment.tt %]
