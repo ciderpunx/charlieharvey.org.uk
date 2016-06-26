@@ -49,7 +49,6 @@ img {max-width:100%}
 .rightalign {text-align:right}
 .leftalign {text-align:left}
 .bordered {border:1px solid #135;box-shadow:2px 8px 12px -6px #689}
-.full-width-embed {width:100%;height:21em}
 .break-word {word-wrap:break-word}
 
 .entry-content img {width:100%;max-width:95%}
@@ -86,8 +85,9 @@ img {max-width:100%}
 .flick-pic img {vertical-align:middle}
 .flick-img-single img {max-width:100%}
 .full-width-video {width:100%;height:21em} /* for YT video and such */
-
-.full-width-image {height:440px;top:250px;position:absolute;background-position:center;z-index:-1;width:100%}
+.full-width-embed {width:100%;height:21em}
+.full-width, img.full-width {width:100%}
+.full-width-bg-image {height:440px;top:250px;position:absolute;background-position:center;z-index:-1;width:100%}
 .opaque-bg        {background-color:rgba(255,255,255,0.85)}
 
 .alert {padding-left:2.2em}
@@ -249,7 +249,7 @@ img {max-width:100%}
   .titlebar {margin-top:55px;height:115px}
   .entry-content ol,
   .entry-content ul {margin:0 0 10px -1.5em}
-  .entry-content img {width:auto}
+  /*.entry-content img {width:auto}*/
   .social-block-div {float:right;margin:0; display: block; padding-left:4px}
   #social-block a {width:32px;height:32px;margin-left:0;display:block;float:left}
   #footer {line-height:1.681em}
