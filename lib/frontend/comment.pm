@@ -134,7 +134,7 @@ post '/create' => sub {
   my $url        = $no_html->filter(_char_clean(params->{url},250));
 
   my $referer    = request->referer;
-  my $remote     = request->remote_address;
+  my $remote     = request->header("X-Forwarded-For") || request->remote_address;
   my $user_agent = request->user_agent;
   my @errors;
 
@@ -211,7 +211,7 @@ post '/create' => sub {
       url      => $url,
       body    => $body,
       page_id => $page_id,
-      remote  => request->remote_address,
+      remote  => request->header("X-Forwarded-For") || request->remote_address,
       referer => $referer,
     });
     template 'comment/create_success', {
@@ -372,7 +372,7 @@ sub _email_comment {
         }
    }
    catch {
-    error "Something went wrong when sending email."
+    error "Something went wrong when sending email. $_"
    }
 }
 
