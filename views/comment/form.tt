@@ -1,4 +1,7 @@
 <!--t:comment/form-->
+[%- IF amp_view -%]
+<p><a href="/comment/create/[%- page.id -%]">Post your comment &raquo;</a></p>
+[%- ELSE -%]
 <div id="comment-form" class="comment">
   <form method="post" action="/comment/create" enctype="multipart/form-data">
     <div class="comment-detail tinytext">
@@ -53,4 +56,5 @@
       });
   </script>
 </div>
+[%- END -%]
 <!--/comment/form-->

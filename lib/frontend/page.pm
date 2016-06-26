@@ -37,8 +37,8 @@ get '/api/recent' => sub {
     parent_id  => $_->parent_id,
     slug       => $_->slug,
     link       => uri_for($_->link)->as_string,
-    summary     => $_->auto_summary,
-    title       => $_->title,
+    summary    => $_->auto_summary,
+    title      => $_->title,
   }, @ps;
 
   return {pages => \@pages}
@@ -101,7 +101,38 @@ get '/feed/:format' => sub {
 };
 
 get '/photography/?.*' => sub {
-	redirect uri_for('/page/design');
+  redirect uri_for('/page/design');
+};
+
+get '/:slug/amp' => sub {
+  my $slug = params->{slug};
+  $slug =~ s{\/$}{};
+  my $page = _page_by_slug($slug);
+
+  if(!$page) {
+    redirect '/404';
+    return
+  }
+
+  if ($page->is_root || $page->is_cover) {
+    redirect uri_for("/page/$slug")
+  }
+  else {
+    my @ancestors = $page->ancestors;
+    my @top_categories = $page->top_categories;
+
+    cache_page template 'page/ampview', {
+      active_nav      => 'Blog',
+      page            => $page,
+      title           => $page->title,
+      own_url         => uri_for($page->link)->as_string,
+      parent_url      => uri_for($page->parent->link)->as_string,
+      ancestors       => \@ancestors,
+      top_categories  => \@top_categories,
+      description     => $page->auto_summary,
+      amp_view        => 1,
+    }, { layout          => 'amp', };
+  }
 };
 
 get '/:slug/?' => sub {

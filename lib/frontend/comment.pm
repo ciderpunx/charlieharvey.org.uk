@@ -117,6 +117,13 @@ get '/create' => sub {
   };
 };
 
+get '/create/:page_id' => sub {
+  my $page_id = params->{page_id};
+  template 'comment/create', { 
+    title => "Add your comment", 
+    page_id => $page_id,
+  };
+};
 post '/create' => sub {
   my $no_html    = HTML::TagFilter->new({allow=>{}});
   my $min_html   = HTML::TagFilter->new();

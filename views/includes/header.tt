@@ -44,6 +44,14 @@
           </li>
         </ul>
         <div class="searchbox right nav navbar-right pull-right">
+          [%-IF amp_view -%]
+              <a class="btn btn-default btn-dark" 
+                href="https://duckduckgo.com/?sites=charlieharvey.org.uk&amp;q=x&amp;ka=Cabin,DDG_ProximaNova,freesans,helvetica,arial,sans-serifi&amp;ka=&amp;kd=1&amp;kh=1&amp;kj=#0a2637&amp;kt='Libre Baskerville','URW Bookman L',Georgia,serif&amp;kx=#446688&amp;ky=#fafafa&amp;q=x&amp;ia=web"
+                title="Search charlieharvey.org.uk on duckduckgo">
+                    DDG Search
+                    <span class="glyphicon glyphicon-search"></span>
+              </a>
+          [%- ELSE -%]
           <form method="get" id="search" class="navbar-form" role="search" action="https://duckduckgo.com/">
             <input type="hidden" name="sites" value="charlieharvey.org.uk"/>
             <input type="hidden" name="k1" value="-1"/>
@@ -66,6 +74,7 @@
                 <label for="go" class="hidden">Go</label> 
             </div>
           </form>
+          [%- END -%]
         </div> 
       </div><!--/.nav-collapse -->
     </div>
