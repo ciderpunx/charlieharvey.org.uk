@@ -1,26 +1,26 @@
 <!--t:page/article_summary-->
-	<li>
-			<article class="hentry drop-cap">
-				<header>
-					<h3 class="entry-title"><a href="[% child.link %]">[% child.title %]</a></h3>
+  <li>
+      <article class="hentry drop-cap">
+        <header>
+          <h3 class="entry-title"><a href="[% child.link %]">[% child.title %]</a></h3>
         </header>
         [% IF child.image_url %]
-          <a href="[% child.link %]"><img style="width:40%" src="[% child.image_url %]" alt="[% child.title %] cover image" class="bordered rightfloat"></a>
+          <a href="[% child.link %]"><img style="width:40%;max-width:225px" src="[% child.image_url %]" alt="[% child.title %] cover image" class="bordered rightfloat"></a>
         [% END %]
         <p class="entry-summary">
-				[% child.auto_summary %] <a href="[% child.link %]">&hellip;</a>
-				</p>
+        [% child.auto_summary %] <a href="[% child.link %]">&hellip;</a>
+        </p>
         <div class="clear" style="padding-top:1em;"></div>
-				<div class="leftfloat">
-					<ul class="horizontal-list unstyled-list tinytext">
-						<li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
-						<li class="updated published"><em>Published: <time class="value-title" title="[% child.created_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_created %]</time></em></li>
-					</ul>
-				</div>
-				<div class="righttfloat rightalign">
-					<a class="" href="[% child.link %]">Read on &raquo;</a>
-				</div>
-				<div class="clear"> </div>
-			</article>
+        <div class="leftfloat">
+          <ul class="horizontal-list unstyled-list tinytext">
+            <li class="author vcard"><em>Posted By: <a href="/" class="fn url" rel="home">Charlie Harvey</a></em></li>                    
+            <li class="updated published"><em>Published: <time class="value-title" title="[% child.created_at %]Z" datetime="[% child.created_at %]Z">[% child.nice_created %]</time></em></li>
+          </ul>
+        </div>
+        <div class="righttfloat rightalign">
+          <a class="" href="[% child.link %]">Read on &raquo;</a>
+        </div>
+        <div class="clear"> </div>
+      </article>
   </li>
 <!--/page/article_summary-->
