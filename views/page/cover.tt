@@ -1,21 +1,21 @@
 <!--t:page/cover-->
 [% IF page.parent_id %]
-	[% INCLUDE page/breadcrumbs.tt %]
+  [% INCLUDE page/breadcrumbs.tt %]
 [% END %]
 
 [% INCLUDE page/article.tt %]
 
 [% IF page.children %]
-	<ul class="hfeed unstyled-list" >
-	[% FOREACH child IN recent_children %]
-		[% INCLUDE page/article_summary.tt %]
-	[% END %]
-	</ul>
+  <ul class="hfeed unstyled-list" >
+  [% FOREACH child IN recent_children %]
+    [% INCLUDE page/article_summary.tt %]
+  [% END %]
+  </ul>
 [% END %]
 
 [% IF recent_children.size > 9 %]
 <p class="centre">
-	<a href="[% own_url %]/archive/2" class="btn btn-dark btn-lg">More <em>[% page.title %]</em> articles &raquo;</a>
+  <a href="[% own_url %]/archive/2" class="btn btn-dark btn-lg">More <em>[% page.title %]</em> articles &raquo;</a>
 </p>
 [% END %]
 
