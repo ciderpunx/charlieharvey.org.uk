@@ -1,73 +1,81 @@
 <!--t:about-->
 
-	<div class="hidden-md hidden-sm hidden-xs">
-	[% INCLUDE includes/social_block.tt %]
-	</div>
+  <div class="hidden-md hidden-sm hidden-xs">
+  [% INCLUDE includes/social_block.tt %]
+  </div>
 
-	<article class="entry-content drop-cap">
-   	<h1>About</h1>
-		
-		<div id="about-carousel" class="carousel slide no-side-margin-bordered">
-			 <ol class="carousel-indicators">
-    				<li data-target="#about-carousel" data-slide-to="0" class="active"></li>
-    				<li data-target="#about-carousel" data-slide-to="1"></li>
-    				<li data-target="#about-carousel" data-slide-to="2"></li>
-  			</ol>
-			<div class="carousel-inner">
-				<div class="item active">
-					<a href="/about/charlie-harvey">
-						<img src="/img/navel-gazer.png" alt="Navel gazing baby" />
-					</a>
-					<div class="carousel-caption">
-						<p>Navel gazing: <a href="/about/charlie-harvey">About Charlie Harvey</a></p>
-					</div>
-				</div>
-				<div class="item">
-					<a href="/cv">
-						<img src="/img/cv-persp.png" alt="Picture of my cv" />
-					</a>
-					<div class="carousel-caption">
-							<p>Gissa job: <a href="/cv">my CV</a></p>
-					</div>
-				</div>
-				<div class="item">
-					<a href="/about/this-site">
-						<img src="/img/through-the-ages.png" alt="Screengrabs of this site through the ages" />
-					</a>
-					<div class="carousel-caption">
-						<p>Colophon: <a href="/about/this-site">About this site</a></p>
-					</div>
-				</div>
-				<!--div class="item">
-					<img src="http://placehold.it/1200x480" alt="" />
-					<div class="carousel-caption">
-						<p>Caption text here</p>
-					</div>
-				</div-->
-			</div><!-- /.carousel-inner -->
-				<a class="carousel-control left" href="#about-carousel" data-slide="prev"><span class="icon-prev" /><a>
-				<a class="carousel-control right" href="#about-carousel" data-slide="next"><span class="icon-next" /></a>
-		</div><!-- /.carousel -->
+  <article class="entry-content drop-cap">
+     <h1>About</h1>
+    
+    <div id="about-carousel" class="carousel slide no-side-margin-bordered" data-interval="6000" data-ride="carousel">
+       <ol class="carousel-indicators">
+            <li data-target="#about-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#about-carousel" data-slide-to="1"></li>
+            <li data-target="#about-carousel" data-slide-to="2"></li>
+        </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <a href="/about/charlie-harvey">
+            <img src="/img/navel-gazer.png" alt="Navel gazing baby" />
+          </a>
+          <div class="carousel-caption">
+            <p>Navel gazing: <a href="/about/charlie-harvey">About Charlie Harvey</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <a href="/cv">
+            <img src="/img/cv-persp.png" alt="Picture of my cv" />
+          </a>
+          <div class="carousel-caption">
+              <p>Gissa job: <a href="/cv">my CV</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <a href="/about/this-site">
+            <img src="/img/through-the-ages.png" alt="Screengrabs of this site through the ages" />
+          </a>
+          <div class="carousel-caption">
+            <p>Colophon: <a href="/about/this-site">About this site</a></p>
+          </div>
+        </div>
+        <!--div class="item">
+          <img src="http://placehold.it/1200x480" alt="" />
+          <div class="carousel-caption">
+            <p>Caption text here</p>
+          </div>
+        </div-->
+      </div><!-- /.carousel-inner -->
+      <a class="carousel-control left" href="#about-carousel" data-slide="prev"><span class="icon-prev"></span><a>
+      <a class="carousel-control right" href="#about-carousel" data-slide="next"><span class="icon-next"></span></a>
+    </div><!-- /.carousel -->
 
-		<div class="row">
-			<div class="col-lg-6">
-				<h3>About me</h3>
-				<p>There is a big long load of navel gazing on the <a href="/about/charlie-harvey">About Charlie Harvey</a> page.</p>
-				<p>If that doesn&#8217;t float your boat you can always look at <a href="/cv">my CV</a></p>
-			</div>
-			<div class="col-lg-6">
-				<h3>About this site</h3>
-				<p>There is a writeup of my objectives with this website at <a href="/about/this-site">About charlieharvey.org.uk</a>. 
-				   You can also check out the <a href="/page/redesigning_charlieharvey_org_uk_dancer_bootstrap/">site redesign blog series</a>, which 
-					 is mostly videos.</p>
-			</div>
-		</div>
-	</article>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>About me</h3>
+        <p>There is a big long load of navel gazing on the <a href="/about/charlie-harvey">About Charlie Harvey</a> page.</p>
+        <p>If that doesn&#8217;t float your boat you can always look at <a href="/cv">my CV</a></p>
+      </div>
+      <div class="col-lg-6">
+        <h3>About this site</h3>
+        <p>There is a writeup of my objectives with this website at <a href="/about/this-site">About charlieharvey.org.uk</a>. 
+           You can also check out the <a href="/page/redesigning_charlieharvey_org_uk_dancer_bootstrap/">site redesign blog series</a>, which 
+           is mostly videos.</p>
+      </div>
+    </div>
+  </article>
 <script>
-  $(document).ready(function(){
-		$('.carousel').carousel({
-			interval: 6000
-		});
-  });
+  //$(document).ready(function(){
+    //$('.carousel').carousel({ interval: 6000 });
+  //});
+    // native carousel, prolly lose the jqueryish version at some point
+    var slider = document.getElementById('about-carousel');
+    slider.addEventListener('slid.bs.carousel', function(e) {
+      var active = slider.querySelector('.item.active .carousel-caption');
+      if (active.classList) { active.classList.remove('slide') } else { active.className = active.className.replace(' slide','') }
+    });
+    slider.addEventListener('slide.bs.carousel', function(e) {
+      var active = slider.querySelector('.item.active .carousel-caption');
+      if (active.classList) { active.classList.add('slide') } else { active.className += ' slide'; }
+    });
 </script>
 <!--/about-->

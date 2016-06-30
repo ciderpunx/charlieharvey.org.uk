@@ -3,30 +3,30 @@
 [% INCLUDE includes/social_block.tt %]
 
 <div style="float:right; padding-top:150px; width: 180px">
-	<a href="/daily_mail/">Another? &raquo;</a>
+  <a href="/daily_mail/">Another? &raquo;</a>
 </div>
 
 <div id="daily-mail">
-	<div class="centre">
-		<img src="/graphics/daily_mail.png" alt="Daily Mail Headline/Logo" />
-	</div>
-	<div>
-		<h2 id="mail_headline"></h2>
-		<p>[% story %]</p>
-	</div>
+  <div class="centre">
+    <img src="/graphics/daily_mail.png" alt="Daily Mail Headline/Logo" />
+  </div>
+  <div>
+    <h2 id="mail_headline"></h2>
+    <p>[% story %]</p>
+  </div>
 </div>
 
 <hr />
 
 <p class="centre">
-	<strong>Refresh/f5 for <a href="/daily_mail/">another daily mail story</a> or maybe 
-		<a href="http://twitter.com?status=Shock,%20Horror,%20Evil!%20Daily%20Mail%20Story%20Generator:%20http://nin.tl/da_mail">Tweet it</a>.
-	</strong>
-	<br />
-	This page uses the <a href="http://www.qwghlm.co.uk/toys/dailymail/">Daily Mail headline</a> code by 
-	<a href="http://qwghlm.co.uk">qwghlm</a>. You&#8217;d probably like Dan and Dan&#8217;s 
-	<a href="http://www.youtube.com/watch?v=5eBT6OSr1TI&amp;feature=player_embedded">Daily Mail song</a> 
-	on youtube.
+  <strong>Refresh/f5 for <a href="/daily_mail/">another daily mail story</a> or maybe 
+    <a href="http://twitter.com?status=Shock,%20Horror,%20Evil!%20Daily%20Mail%20Story%20Generator:%20http://nin.tl/da_mail">Tweet it</a>.
+  </strong>
+  <br />
+  This page uses the <a href="http://www.qwghlm.co.uk/toys/dailymail/">Daily Mail headline</a> code by 
+  <a href="http://qwghlm.co.uk">qwghlm</a>. You&#8217;d probably like Dan and Dan&#8217;s 
+  <a href="http://www.youtube.com/watch?v=5eBT6OSr1TI&amp;feature=player_embedded">Daily Mail song</a> 
+  on youtube.
 </p>
  
 <script>$.getScript("http://www.qwghlm.co.uk/projects/dailymail.js", function() {setHeadline();})</script>

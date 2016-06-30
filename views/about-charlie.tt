@@ -1,126 +1,125 @@
 <!--t:about-charlie-->
+  <div class="hidden-md hidden-sm hidden-xs">
+  [% INCLUDE includes/social_block.tt %]
+  </div>
 
-	<div class="hidden-md hidden-sm hidden-xs">
-	[% INCLUDE includes/social_block.tt %]
-	</div>
-
-	<article id="about-charlie-harvey" class="entry-content drop-cap">
+  <article id="about-charlie-harvey" class="entry-content drop-cap">
     <!--div class="hero-unit">
-			<h1> What&#8217;s all this then? </h1>
-			<img class="bordered rightfloat right-rotated" alt="Portrait of Charlie Harvey" src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" />
-			<p>
-				<span class="drop-cap">T</span>his is the homepage for <a href="/cgi-bin/about.pl">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
-				I use it as a sort of blog, for checking the 
-				<a href="/rss.pl">news</a> and for publishing 
-				<a href="/writings.pl">files</a> and <a href="/page/">pages</a> that I&#8217;ve written. 
-			</p>
+      <h1> What&#8217;s all this then? </h1>
+      <img class="bordered rightfloat right-rotated" alt="Portrait of Charlie Harvey" src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" />
+      <p>
+        <span class="drop-cap">T</span>his is the homepage for <a href="/cgi-bin/about.pl">Charlie Harvey</a>, that bloke with dreadlocks that you probably know from <a href="/tag/activism">some demo</a>, or <a href="http://www.barcrawl.co.uk/pubreview.aspx?PubID=5997">the pub</a> in Oxford.
+        I use it as a sort of blog, for checking the 
+        <a href="/rss.pl">news</a> and for publishing 
+        <a href="/writings.pl">files</a> and <a href="/page/">pages</a> that I&#8217;ve written. 
+      </p>
       <p><a class="btn btn-primary btn-lg">More about me &raquo;</a></p>
     </div-->
-		<h1>About Charlie Harvey</h1>
-		<img src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" alt="Portrait of Charlie Harvey" class="bordered rightfloat right-rotated">
-		<p><span class="drop-cap">I</span>&#8217;m Charlie Harvey from <a href="http://www.dailyinfo.co.uk">Oxford, UK</a>. 
-			I&#8217;m interested in all things techie, especially 
-			<a href="http://www.fsf.org">free software</a> and 
-			<a href="http://linux.org">GNU/Linux</a>. I&#8217;m also into 
-			<a href="http://www.punkoiuk.co.uk/">punk rock</a>, 
-			<a href="http://www.dublondon.co.uk/">dub reggae</a>, 
-			and <a href="/page/cider">good cider</a>. 
-			I&#8217;m fairly involved with <a href="http://www.anarchism.net/">anarchist politics</a>
-			and <a href="http://www.schnews.org.uk/">direct action</a> and <a href="http://oxford.indymedia.org.uk/">media activism</a> for an anarchist society. 
-		</p>
-		
-		<h2>Professional<a id="_professional"></a> </h2>
-		<ul>
-			<li>I work as the IT Manager for <a href="http://www.newint.org">New Internationalist</a> &mdash; a 
-					publishing workers co-op that has been working for over 30 years to highlight radical 
-					issues not covered in the corporate media</li>
-			<li>I&#8217;m involved with the grassroots web hosting collective 
-					<a href="http://ox4.org" title="Oxford Activist web hosting">OX4</a>.</li>
-			<li>I used to work as the IT Systems Manager for 
-					<a href="http://peopleandplanet.org">People &amp; Planet</a>, 
-					an organization that works with UK students to empower them to 
-					campaign on issues of Human Rights, world poverty, and the environment. </li>
-			<li>I sometimes help out at 
-					<a href="http://www.corporatewatch.org">Corporate Watch</a>, the UK-based 
-					activists who investigate corporate misrule of the planet.</li>
-			<li>I used to work as the IT Manager for <a href="http://hotrecruit.com">hotrecruit</a>, 
-					a dotcom involved in recruitment for students and young people.</li>
-			
-			<li>You can view <a href="/cv">my CV</a> elsewhere on the site. If you like that sort of thing.</li>
-		</ul>
+    <h1>About Charlie Harvey</h1>
+    <img style="width:25%" src="//static.charlieharvey.org.uk/img/charlie-harvey.jpg" alt="Portrait of Charlie Harvey" class="bordered rightfloat right-rotated">
+    <p><span class="drop-cap">I</span>&#8217;m Charlie Harvey from <a href="http://www.dailyinfo.co.uk">Oxford, UK</a>. 
+      I&#8217;m interested in all things techie, especially 
+      <a href="http://www.fsf.org">free software</a> and 
+      <a href="http://linux.org">GNU/Linux</a>. I&#8217;m also into 
+      <a href="http://www.punkoiuk.co.uk/">punk rock</a>, 
+      <a href="http://www.dublondon.co.uk/">dub reggae</a>, 
+      and <a href="/page/cider">good cider</a>. 
+      I&#8217;m fairly involved with <a href="http://www.anarchism.net/">anarchist politics</a>
+      and <a href="http://www.schnews.org.uk/">direct action</a> and <a href="http://oxford.indymedia.org.uk/">media activism</a> for an anarchist society. 
+    </p>
+    
+    <h2>Professional<a id="_professional"></a> </h2>
+    <ul>
+      <li>I work as the IT Manager for <a href="http://www.newint.org">New Internationalist</a> &mdash; a 
+          publishing workers co-op that has been working for over 30 years to highlight radical 
+          issues not covered in the corporate media</li>
+      <li>I&#8217;m involved with the grassroots web hosting collective 
+          <a href="http://ox4.org" title="Oxford Activist web hosting">OX4</a>.</li>
+      <li>I used to work as the IT Systems Manager for 
+          <a href="http://peopleandplanet.org">People &amp; Planet</a>, 
+          an organization that works with UK students to empower them to 
+          campaign on issues of Human Rights, world poverty, and the environment. </li>
+      <li>I sometimes help out at 
+          <a href="http://www.corporatewatch.org">Corporate Watch</a>, the UK-based 
+          activists who investigate corporate misrule of the planet.</li>
+      <li>I used to work as the IT Manager for <a href="http://hotrecruit.com">hotrecruit</a>, 
+          a dotcom involved in recruitment for students and young people.</li>
+      
+      <li>You can view <a href="/cv">my CV</a> elsewhere on the site. If you like that sort of thing.</li>
+    </ul>
 
-		<h3>Activism<a id="_activism"> </a> </h3>
-		<p>
-			These are some of the areas of activism I try to be involved with from time to time. I have various <a href="/page/activism">activist pages</a> on this site.
-		</p>
-		<ul>
-			<li><a href="http://www.fsf.org">Free and open source software</a>. Means that 
-					<em>you</em>, not a company get to decide what happens on your computer.
-					I used to be involved in the campaign against 
-					<a href="http://www.nosoftwarepatents.com/">software patents in Europe</a>, 
-					as well as with the <a href="http://aktivix.org">aktivix collective</a>. Now I&#8217;m involved in 
-					<a href="http://hacktivista.net/">hacktionlab</a>. I&#8217;m a member of the <a href="http://fellowship.fsfe.org/">FSFE Fellowship</a>.</li>
-			<li>I&#8217;ve done some anti-cuts campaigning and helped 
-				 <a href="http://www.noshockdoctrine.org.uk/">No Shock Doctrine for Britain</a> make a 
-				 <a href="http://charlieharvey.org.uk/page/what_will_george_osborne_cut_next">What Will George Osborne Cut Next</a> gizmo</li>
-			<li><a href="http://coinet.org.uk">Climate Change</a> is the biggest threat to our 
-					species we&#8217;ve yet faced. I was involved 
-					in organising the <a href="http://climatecamp.org.uk">Camp for Climate Action</a>
-					to help develop a grassroots resistance to it. I also used to campaign with the radical 
-					direct action group <a href="http://tvca.ox4.org/">Thames Valley Climate Action</a>.</li>
-			<li>The <a href="http://www.corporatewatch.org.uk/?lid=1262">G8</a> is a group of 
-					wealthy nations who dictate how the rest of the world should 
-					live their lives (as slaves to corporate misrule seems to be the normal conclusion). 
-					Me and some pals <a href="http://www.indymedia.org.uk/en/2005/07/316517.html">did an action</a> 
-					to protest when the G8 came to Gleneagles in Scotland. I also helped People 
-					&amp; Planet run their <a href="http://noncms.peopleandplanet.org/g8/">G8 summer festival</a> there.</li>
-			<li>I support the various campaigns against corporate-owned GM foods being introduced.</li>
-			<li>Nuclear power <a href="http://archive.greenpeace.org/comms/no.nukes/nenstcc.html">
-					won&#8217;t solve climate change</a>. I 
-					<a href="http://www.indymedia.org.uk/en/2006/08/349369.html">got arrested</a> 
-					for saying so.</li>
-			<li>Consuming stuff makes you miserable and fucks up your planet. Unless you&#8217;re in
-					<a href="http://www.indymedia.org.uk/en/2006/11/357169.html">a consumer cult</a>.</li>
-			<li><a href="http://indymedia.org.uk">Indymedia</a> is a grassroots media collective 
-					who I support.</li>
-			<li><a href="http://theoarc.org.uk">OARC</a> is the Oxford Action Resource Centre. It used to be called OCSET.</li>
-			<li>I&#8217;m a member of the <a href="http://www.openrightsgroup.org/">Open Rights Group</a> and a supporter of 
-					EFF, both groups campaigning for digital freedoms.</li>
-			<li>I haven&#8217;t done much <a href="http://www.roadalert.org.uk/">road protesting</a> 
-					for a couple of years now.</li>
-			<li>I was involved quite heavily in <a href="http://www.j-n-v.org">anti-war</a> 
-					activism against the immoral invasion of Iraq.</li>
-			<li><a href="http://www.no2id.net/">NO2ID</a> is a campaign against the introduction 
-					of compulsory biometric ID cards and a total surveillance database in the UK.</li>
-		</ul>
+    <h3>Activism<a id="_activism"> </a> </h3>
+    <p>
+      These are some of the areas of activism I try to be involved with from time to time. I have various <a href="/page/activism">activist pages</a> on this site.
+    </p>
+    <ul>
+      <li><a href="http://www.fsf.org">Free and open source software</a>. Means that 
+          <em>you</em>, not a company get to decide what happens on your computer.
+          I used to be involved in the campaign against 
+          <a href="http://www.nosoftwarepatents.com/">software patents in Europe</a>, 
+          as well as with the <a href="http://aktivix.org">aktivix collective</a>. Now I&#8217;m involved in 
+          <a href="http://hacktivista.net/">hacktionlab</a>. I&#8217;m a member of the <a href="http://fellowship.fsfe.org/">FSFE Fellowship</a>.</li>
+      <li>I&#8217;ve done some anti-cuts campaigning and helped 
+         <a href="http://www.noshockdoctrine.org.uk/">No Shock Doctrine for Britain</a> make a 
+         <a href="http://charlieharvey.org.uk/page/what_will_george_osborne_cut_next">What Will George Osborne Cut Next</a> gizmo</li>
+      <li><a href="http://coinet.org.uk">Climate Change</a> is the biggest threat to our 
+          species we&#8217;ve yet faced. I was involved 
+          in organising the <a href="http://climatecamp.org.uk">Camp for Climate Action</a>
+          to help develop a grassroots resistance to it. I also used to campaign with the radical 
+          direct action group <a href="http://tvca.ox4.org/">Thames Valley Climate Action</a>.</li>
+      <li>The <a href="http://www.corporatewatch.org.uk/?lid=1262">G8</a> is a group of 
+          wealthy nations who dictate how the rest of the world should 
+          live their lives (as slaves to corporate misrule seems to be the normal conclusion). 
+          Me and some pals <a href="http://www.indymedia.org.uk/en/2005/07/316517.html">did an action</a> 
+          to protest when the G8 came to Gleneagles in Scotland. I also helped People 
+          &amp; Planet run their <a href="http://noncms.peopleandplanet.org/g8/">G8 summer festival</a> there.</li>
+      <li>I support the various campaigns against corporate-owned GM foods being introduced.</li>
+      <li>Nuclear power <a href="http://archive.greenpeace.org/comms/no.nukes/nenstcc.html">
+          won&#8217;t solve climate change</a>. I 
+          <a href="http://www.indymedia.org.uk/en/2006/08/349369.html">got arrested</a> 
+          for saying so.</li>
+      <li>Consuming stuff makes you miserable and fucks up your planet. Unless you&#8217;re in
+          <a href="http://www.indymedia.org.uk/en/2006/11/357169.html">a consumer cult</a>.</li>
+      <li><a href="http://indymedia.org.uk">Indymedia</a> is a grassroots media collective 
+          who I support.</li>
+      <li><a href="http://theoarc.org.uk">OARC</a> is the Oxford Action Resource Centre. It used to be called OCSET.</li>
+      <li>I&#8217;m a member of the <a href="http://www.openrightsgroup.org/">Open Rights Group</a> and a supporter of 
+          EFF, both groups campaigning for digital freedoms.</li>
+      <li>I haven&#8217;t done much <a href="http://www.roadalert.org.uk/">road protesting</a> 
+          for a couple of years now.</li>
+      <li>I was involved quite heavily in <a href="http://www.j-n-v.org">anti-war</a> 
+          activism against the immoral invasion of Iraq.</li>
+      <li><a href="http://www.no2id.net/">NO2ID</a> is a campaign against the introduction 
+          of compulsory biometric ID cards and a total surveillance database in the UK.</li>
+    </ul>
 
-		<h3>Pals<a id="_pals"> </a> </h3>
-		<p>
-			Here are links to a few of my friends&#8217; websites
-		</p> 
-		<ul>
-			<li>My flatmate Manishta Blogs at <a href="http://leftstream.org.uk/">Leftstream</a>.</li>
-			<li>My colleague Michael has set up an <a href="http://www.emsm.org.uk/">ethical media and ad sales company</a> called EMSM to help charities and social enterprises get their message out there.</li>
-			<li><a href="http://eleanorg.org">Nor</a> is my lover. I helped build her <a href="http://php.net/">PHP</a>-based <a href="http://ox4.org/~nor">website/art experiment</a>. She also does <a href="http://radicalx.ox4.org">radicalX</a> sex-positive activist art.</li>
-			<li>My flatmate <a href="http://gillions.org">Graham</a> has a cool site. And a <a href="http://penguin.ox4.org">Penguin&#8217;s Playground</a>, 
-					where he is learning about <a href="http://drupal.org">Drupal</a></li>
-			<li>Nishma has a good wordpress where she writes about global justice stuff, <a href="http://thetopsoil.org.uk/">the topsoil</a></li>
-			<li>My colleague <a href="http://thomasash.philosofiles.com/">Tom Ash</a> has a <a href="http://www.philosofiles.com/">philosophy web site</a> called PhilosoFiles.</li>
-			<li>I used to go out with Rose, and we&#8217;re still good friends. I helped her build
-					<a href="http://web.archive.org/web/20060106100655/http://free.hostdepartment.com/r/rose_cairns">her website</a>, 
-					which she was once planning on using 
-					to drum up business for her artistic talents...</li>
-			<li><a href="http://mbharris.co.uk/">Mike</a> is a techie buddy</li>
-			<li>Oxford-based artist and general cool geezer Stig does lovely <a href="http://shtig.net">art</a> 
-					on his site</li>
-			<li>Adam <a href="http://brightgreenscotland.org/index.php/author/adamramsay/">writes about politics</a> on Bright Green Scotland</li>
-			<li>My activist buddy <a href="http://jonathanleighton.com/">Jon Leighton</a> has a sort-of-bloggy site.</li>
-			<li>My pal <a href="http://ultrabobban.blogspot.com/">Bobban</a> runs ultra marathons for some crazy reason.
-			</li>
-			<li>Crispin and Fi are pals from a long while back and blog about their <a href="http://www.sy-revolution.com/blog/blog1.php">Mediterranean Yachting adventures</a></li>
-			<li>Tom has a site called <a href="http://geecologist.org/">Geecologist</a>, geddit?! He used to be my flatmate back in the day.</li>
-			<li><a href="http://www.phillipadsmith.com/">Phillip Smith</a> used to work with me at New Internationalist, he blogs about tech and the interwebs.</li> 
-		</ul>
+    <h3>Pals<a id="_pals"> </a> </h3>
+    <p>
+      Here are links to a few of my friends&#8217; websites
+    </p> 
+    <ul>
+      <li>My flatmate Manishta Blogs at <a href="http://leftstream.org.uk/">Leftstream</a>.</li>
+      <li>My colleague Michael has set up an <a href="http://www.emsm.org.uk/">ethical media and ad sales company</a> called EMSM to help charities and social enterprises get their message out there.</li>
+      <li><a href="http://eleanorg.org">Nor</a> is my lover. I helped build her <a href="http://php.net/">PHP</a>-based <a href="http://ox4.org/~nor">website/art experiment</a>. She also does <a href="http://radicalx.ox4.org">radicalX</a> sex-positive activist art.</li>
+      <li>My flatmate <a href="http://gillions.org">Graham</a> has a cool site. And a <a href="http://penguin.ox4.org">Penguin&#8217;s Playground</a>, 
+          where he is learning about <a href="http://drupal.org">Drupal</a></li>
+      <li>Nishma has a good wordpress where she writes about global justice stuff, <a href="http://thetopsoil.org.uk/">the topsoil</a></li>
+      <li>My colleague <a href="http://thomasash.philosofiles.com/">Tom Ash</a> has a <a href="http://www.philosofiles.com/">philosophy web site</a> called PhilosoFiles.</li>
+      <li>I used to go out with Rose, and we&#8217;re still good friends. I helped her build
+          <a href="http://web.archive.org/web/20060106100655/http://free.hostdepartment.com/r/rose_cairns">her website</a>, 
+          which she was once planning on using 
+          to drum up business for her artistic talents...</li>
+      <li><a href="http://mbharris.co.uk/">Mike</a> is a techie buddy</li>
+      <li>Oxford-based artist and general cool geezer Stig does lovely <a href="http://shtig.net">art</a> 
+          on his site</li>
+      <li>Adam <a href="http://brightgreenscotland.org/index.php/author/adamramsay/">writes about politics</a> on Bright Green Scotland</li>
+      <li>My activist buddy <a href="http://jonathanleighton.com/">Jon Leighton</a> has a sort-of-bloggy site.</li>
+      <li>My pal <a href="http://ultrabobban.blogspot.com/">Bobban</a> runs ultra marathons for some crazy reason.
+      </li>
+      <li>Crispin and Fi are pals from a long while back and blog about their <a href="http://www.sy-revolution.com/blog/blog1.php">Mediterranean Yachting adventures</a></li>
+      <li>Tom has a site called <a href="http://geecologist.org/">Geecologist</a>, geddit?! He used to be my flatmate back in the day.</li>
+      <li><a href="http://www.phillipadsmith.com/">Phillip Smith</a> used to work with me at New Internationalist, he blogs about tech and the interwebs.</li> 
+    </ul>
 
-	</article>
+  </article>
 <!--/about-charlie-harvey-->
