@@ -1,12 +1,12 @@
 <!--t:search-->
-<h1>Search Form</h1>
-<form action="/search" role="search" class="navbar-form" id="search" method="get">
+<h1>Search form</h1>
+<form action="/ddg" role="search" class="navbar-form" id="search" method="get">
   <div id="search-input-group" class="input-group">
     <label for="st-search-input" class="search-label hidden">Search:</label>
-    <input type="text" id="st-search-input" placeholder="Search" tabindex="1" maxlength="255" name="q">
+    <input type="text" id="st-search-input" style="width:20em" placeholder="Search" tabindex="1" maxlength="255" name="q">
     <div class="input-group-btn">
       <button class="btn btn-default" id="go" value="" name="go" tabindex="2" type="submit">
-        <span class="glyphicon glyphicon-search"></span>
+          Search
       </button>
     </div>
     <label class="hidden" for="go">Go</label> 
