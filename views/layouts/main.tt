@@ -25,6 +25,7 @@
     <link rel="original-source"   href="[% request.base_uri %][% request.uri %]" />
 
     <meta property="og:title"       content="[% title %]" />
+    <meta property="og:locale"      content="en_GB" />
     <meta property="og:type"        content="article" />
     <meta property="og:url"         content="[% request.base_uri %][% request.uri %]" />
     <meta property="og:site_name"   content="charlieharvey.org.uk" />
@@ -53,12 +54,62 @@
     <meta property="dc.contributor" content="Charlie Harvey" />
     <meta property="dc.language"    content="en-GB" />
 
+    [%- IF request.uri == "/" %]
+    <script type="application/ld+json">
+      { "@context": "http://schema.org"
+      , "@type":    "WebSite"
+      , "url":      "https://charlieharvey.org.uk/"
+      , "name":     "Charlie Harvey's site: 127.0.0.1"
+      , "author": { "@type": "Person"
+                  , "name":  "Charlie Harvey"
+                  }
+      , "publisher":  { "@type": "Organization"
+                      , "name":  "charlieharvey.org.uk"
+                      , "logo": { "@type":  "ImageObject"
+                                , "url":    "http://static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg"
+                                , "width":  "950"
+                                , "height": "224"
+                                }
+                      }
+      , "potentialAction": { "@type":       "SearchAction"
+                           , "target":      "https://charlieharvey.org.uk/ddg?q={search_term_string}"
+                           , "query-input": "required name=search_term_string"
+                           }
+      , "description": "Charlie Harvey: 127.0.0.1 - the lair of the ciderpunx. Perl, cider, geekery"
+      }
+    </script>
+    [% ELSIF page && !page.is_cover -%]
+    <script type="application/ld+json">
+      { "@context": "http://schema.org"
+      , "@type":    "NewsArticle"
+      , "mainEntityOfPage": { "@type": "WebPage"
+                            ,  "@id":  "[% request.base_uri %][% request.uri %]"
+                            }
+      , "headline": "[% title %]"
+      , "image": { "@type":  "ImageObject"
+                 , "url":    "http:[% page.image_url.remove('^https?://')  %]"
+                 , "height": "600"
+                 , "width":  "400"
+                 }
+      , "datePublished": "[% page.created_at %]+00:00"
+      , "dateModified":  "[% page.updated_at %]+00:00"
+      , "author": { "@type": "Person"
+                  , "name":  "Charlie Harvey"
+                  }
+      , "publisher":  { "@type": "Organization"
+                      , "name":  "charlieharvey.org.uk"
+                      , "logo": { "@type":  "ImageObject"
+                                , "url":    "http://static.charlieharvey.org.uk/img/dotorg-2013-topbar.jpg"
+                                , "width":  "950"
+                                , "height": "224"
+                                }
+                      }
+      , "description": "[% description %]"
+      }
+    </script>
+    [%- END %]
     <!--[if lt IE 9]><script src="//static.charlieharvey.org.uk/js/vendor/respond.min.js"></script><script src="//static.charlieharvey.org.uk/js/vendor/html5shiv-printshiv.js"></script><script src="//cdn.jsdelivr.net/jquery/1.10.2/jquery-1.10.2.min.js"></script><![endif]-->
-    <!--[if gte IE 9]><!-->
-      <!--script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script-->
-      <!--experiment, use zepto to replace jquery and bootstrap-native from http://thednp.github.io/bootstrap.native/-->
-      <script src="//static.charlieharvey.org.uk/js/zepto.min.js"></script>
-    <!--<![endif]-->
+    <!--[if gte IE 9]><!--><script src="//static.charlieharvey.org.uk/js/zepto.min.js"></script><!--<![endif]-->
 
     <title>[% title %] -- Charlie Harvey</title>
   </head>

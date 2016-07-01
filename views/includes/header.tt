@@ -46,7 +46,7 @@
         <div class="searchbox right nav navbar-right pull-right">
           [%-IF amp_view -%]
               <a class="btn btn-default btn-dark" 
-                href="https://duckduckgo.com/?sites=charlieharvey.org.uk&amp;q=x&amp;ka=Cabin,DDG_ProximaNova,freesans,helvetica,arial,sans-serifi&amp;ka=&amp;kd=1&amp;kh=1&amp;kj=#0a2637&amp;kt='Libre Baskerville','URW Bookman L',Georgia,serif&amp;kx=#446688&amp;ky=#fafafa&amp;q=x&amp;ia=web"
+                href="https://duckduckgo.com/?sites=charlieharvey.org.uk&amp;q=x&amp;ka=Cabin,DDG_ProximaNova,freesans,helvetica,arial,sans-serif&amp;ka=&amp;kd=1&amp;kh=1&amp;kj=#0a2637&amp;kt='Libre Baskerville','URW Bookman L',Georgia,serif&amp;kx=#446688&amp;ky=#fafafa&amp;q=x&amp;ia=web"
                 title="Search charlieharvey.org.uk on duckduckgo">
                     DDG Search
                     <span class="glyphicon glyphicon-search"></span>
