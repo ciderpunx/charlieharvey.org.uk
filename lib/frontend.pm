@@ -362,7 +362,7 @@ get '/search/?' => sub {
 
 get '/ddg/?' => sub {
   my $term = params->{'q'};
-  redirect "https://duckduckgo.com/?sites=charlieharvey.org.uk&q=$term&ka=Cabin,DDG_ProximaNova,freesans,helvetica,arial,sans-serif&kd=1&kh=1&kj=%2302673&kt=Libre%20Baskerville,URW%20Bookman%20L,Georgia,serif&kx=%23446688&ky=%23fafafa&ia=web";
+  redirect "https://duckduckgo.com/?sites=charlieharvey.org.uk&q=$term&ka=Cabin,DDG_ProximaNova,freesans,helvetica,arial,sans-serif&kd=1&kh=1&kj=%230a2637&kt=Libre%20Baskerville,URW%20Bookman%20L,Georgia,serif&kx=%23446688&ky=%23fafafa&ia=web";
 };
 
 get '/tagcloud/?' => sub {
