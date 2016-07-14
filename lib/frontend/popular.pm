@@ -2,7 +2,7 @@ package frontend::popular;
 use Dancer ':syntax';
 use Dancer::Plugin::Feed;
 use Dancer::Plugin::Database;
-use v5.14;  # for given/when
+use v5.020;  # for given/when
 use POSIX qw(strftime);
 use HTML::Entities;
 
