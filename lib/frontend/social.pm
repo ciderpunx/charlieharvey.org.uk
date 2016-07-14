@@ -37,8 +37,8 @@ get '/api/all/?' => sub {
 ##
 
 sub _tweets {
-  my $url      = "http://ox4.org/~charlie/tweets.xml";
-  my $limit    = 5;
+  my $url   = "http://ox4.org/~charlie/tweets.xml";
+  my $limit = 5;
   my @items;
 
   $ua->timeout(2);
@@ -72,8 +72,9 @@ sub _tweets {
 }
 
 sub _scrobbles {
-  my $url      = "http://ws.audioscrobbler.com/1.0/user/ciderpunx/recenttracks.rss";
-  my $limit    = 5;
+  # my $url      = "http://ws.audioscrobbler.com/1.0/user/ciderpunx/recenttracks.rss";
+  my $url   = "http://xiffy.nl/lastfmrss.php?user=ciderpunx";   
+  my $limit  = 5;
   my @items;
 
   $ua->timeout(2);
@@ -89,9 +90,9 @@ sub _scrobbles {
     my $title=$item->{title};
     my $link=$item->{link};
     $title = encode_entities($title, '^\n\x20-\x25\x27-\x7e'); 
-    $title =~ s/&amp;gt;/&gt;/g;  
-    $title =~ s/&amp;lt;/&lt;/g;     
-    $link =~ s/&\W/&amp;/g;           
+    $title =~ s/&amp;gt;/&gt;/g;
+    $title =~ s/&amp;lt;/&lt;/g;
+    $link =~ s/&\W/&amp;/g;
     push @items, {title=>$title, link=>$link};
   }
   return \@items;

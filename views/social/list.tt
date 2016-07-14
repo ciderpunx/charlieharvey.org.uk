@@ -15,7 +15,7 @@
       <p>You can also get my <a href="/social/api/tweets/">recent tweets via my social API</a></p>
     [% END %]
     [% IF scrobbles && scrobbles.size %]
-      <h2>Last.fm <a href="http://last.fm/user/ciderpunx">ciderpunx</a></h2>
+      <h2>Libre.fm <a href="https://libre.fm/user/ciderpunx">ciderpunx</a></h2>
       <ul>
       [% FOREACH scrobble IN scrobbles %]
         <li><a href="[% scrobble.link %]">[% scrobble.title %]</a></li>
