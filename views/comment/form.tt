@@ -50,9 +50,9 @@
     $('.comment-detail').hide();
     $('#bdy').focus(
       function(){  
-        $('.comment-detail').slideDown();
-        $('#name').focus();
+        $('.comment-detail').show();
         $('#bdy').attr('rows',10);
+        $('#name').focus();
       });
   </script>
 </div>
