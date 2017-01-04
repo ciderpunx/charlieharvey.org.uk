@@ -143,7 +143,7 @@ our @mad_quotes = (
   "make no mistake if this is allowed to continue Armageddon shall surely be upon us and woe betide all who would seek to impose upon us a surveillance society. For on that day the right shall inherit the Earth!",
   "new Age travellers? Not in this age. Not in any age. Let others speak for these New Age travellers. We will speak for their victims.",
   "our prisons are like holiday camps.",
-  "read my lips; no new taxeis",
+  "read my lips; no new taxes",
   "society needs to condemn a little more and understand a little less.",
   "surely something can be done?",
   "the day of the yob is upon us",
