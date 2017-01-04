@@ -3,7 +3,7 @@
 [% INCLUDE includes/social_block.tt %]
 
 <div style="float:right; padding-top:150px; width: 180px">
-  <a href="/daily_mail/">Another? &raquo;</a>
+  <a href="/daily_mail/?[% USE Math; GET Math.rand(13878427); %]">Another? &raquo;</a>
 </div>
 
 <div id="daily-mail">
@@ -19,7 +19,7 @@
 <hr />
 
 <p class="centre">
-  <strong>Refresh/f5 for <a href="/daily_mail/">another daily mail story</a> or maybe 
+  <strong>Refresh/f5 for another daily mail story or maybe 
     <a href="http://twitter.com?status=Shock,%20Horror,%20Evil!%20Daily%20Mail%20Story%20Generator:%20http://nin.tl/da_mail">Tweet it</a>.
   </strong>
   <br />
