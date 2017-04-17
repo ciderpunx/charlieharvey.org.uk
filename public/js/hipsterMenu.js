@@ -3,7 +3,6 @@ var hipsterAdjectives =
   , "vegan"
   , "antique"
   , "craft"
-  , "tradittional"
   , "Brazillian"
   , "fusion"
   , "Japanese"
