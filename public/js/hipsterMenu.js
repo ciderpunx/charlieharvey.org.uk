@@ -90,7 +90,15 @@ var hipsterFoodstuffs =
   , "balsamic vinegar"
   , "horse penis"
   , "duck's eyes"
-  ];
+  , "polystyrene"
+  , "Himalayan pink salt"
+  , "wotsits"
+  , "twiglets"
+  , "monster munch"
+  , "puffin"
+  , "swan"
+  ]
+;
 var hipsterVessels    =
   [ "on a broken shovel"
   , "on a salvaged plank"
@@ -147,7 +155,20 @@ var hipsterVessels    =
   , "in a lego spaceship"
   , "in a shopping trolley"
   , "on a clipboard"
-  ];
+  , "on a chisel"
+  , "on a screwdriver"
+  , "on a dustbin lid"
+  , "in a miniature skip"
+  , "in a broken teacup"
+  , "in the shell of an organic walnut, smeared with beeswax"
+  , "on a lentil. For fifty quid"
+  , "in a plywood coffin"
+  , "on a vintage backgammon board"
+  , "stuffed into an exhaust pipe"
+  , "nailed to a chair"
+  , "inside a wig"
+  ]
+;
 var hipsterPrepositions =
   [ "with"
   , "accompanied by"
@@ -166,7 +187,11 @@ var hipsterPrepositions =
   , "conjoined with"
   , "proximal to"
   , "harmonised with"
+  , "in a gravy of"
+  , "with a sauce of"
+  , "with an individual serving of"
   ]
+;
 var hipsterServingMethods =
   [ "served"
   , "curated"
@@ -180,7 +205,13 @@ var hipsterServingMethods =
   , "sited"
   , "propagated"
   , "laid out"
+  , "supplied"
+  , "taxi-delivered"
+  , "conjured"
+  , "spilled"
+  , "drizzled"
   ]
+;
 
 function curateMeal() {
   var ingredients = knuthShuffle(hipsterFoodstuffs).slice(0,2);
