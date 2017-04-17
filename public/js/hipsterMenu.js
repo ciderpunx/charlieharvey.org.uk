@@ -145,6 +145,8 @@ var hipsterVessels    =
   , "pegged on a clothesline"
   , "on a minature staircase with a chutney cupboard"
   , "in a lego spaceship"
+  , "in a shopping trolley"
+  , "on a clipboard"
   ];
 var hipsterPrepositions =
   [ "with"
