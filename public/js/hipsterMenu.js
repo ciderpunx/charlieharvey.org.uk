@@ -124,7 +124,7 @@ var hipsterVessels    =
   , "on a gardening trowel"
   , "on a reclaimed carpet tile"
   , "in a broken microwave. Ping!"
-  , "on a baking tray, sprinkeld with icing sugar"
+  , "on a baking tray, sprinkled with icing sugar"
   , "in a vintage dog bowl"
   , "in a zinc cat bowl"
   , "in a Japanese high-healed shoe"
