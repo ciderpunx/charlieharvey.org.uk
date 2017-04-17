@@ -137,7 +137,7 @@ var hipsterVessels    =
   , "on a baking tray, sprinkled with icing sugar"
   , "in a vintage dog bowl"
   , "in a zinc cat bowl"
-  , "in a Japanese high-healed shoe"
+  , "in a Japanese high-heeled shoe"
   , "in a seedtray"
   , "in an authentic porcelein urinal"
   , "on an iPad 1"
