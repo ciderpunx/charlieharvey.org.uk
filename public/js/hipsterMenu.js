@@ -43,6 +43,8 @@ var hipsterAdjectives =
   , "home-brewed"
   , "foamed"
   , "sun-blushed"
+  , "our own"
+  , "locally-sourced"
   ];
 var hipsterFoodstuffs =
   [ "avocado"
@@ -63,7 +65,7 @@ var hipsterFoodstuffs =
   , "marmite"
   , "candy"
   , "candy floss"
-  , "blackcurrant jous"
+  , "blackcurrant jus"
   , "pickled egg"
   , "Strawberry pilsner"
   , "olives"
@@ -146,8 +148,13 @@ var hipsterVessels    =
   , "in a glass above a live goldfish"
   , "in a telephone box"
   , "in a 15mm isolating ball valve"
+  , "in a septic tank"
+  , "on a scale model of the Taj Mahal"
+  , "on an 80s Jackie annual"
   , "on a spanner"
   , "on a roof slate"
+  , "on a breeze block"
+  , "in a plastic refuse sack, garnished with a mulch of local woodchip"
   , "on a boulder"
   , "on a bed of Argentinian cave moss"
   , "pegged on a clothesline"
@@ -167,6 +174,7 @@ var hipsterVessels    =
   , "stuffed into an exhaust pipe"
   , "nailed to a chair"
   , "inside a wig"
+  , "in a pair of hemp yoga pants"
   ]
 ;
 var hipsterPrepositions =
