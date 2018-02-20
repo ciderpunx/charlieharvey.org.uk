@@ -1,7 +1,1 @@
-User-agent: Swiftbot
-Disallow: /tag*
-Disallow: /flick*
-Disallow: /giga*
-Disallow: /cgi-bin/giga*
-
 Sitemap: http://charlieharvey.org.uk/sitemap.xml
