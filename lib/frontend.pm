@@ -410,19 +410,28 @@ get '/writings.pl' => sub {
 
 
 get '/contact/?' => sub {
+    my $remote_host = request->header('x-forwarded-for');
+    $remote_host =~ s{, 127\.0\.0\.1$}{};
+    unless($remote_host) {
+      $remote_host = request->remote_host;
+    }
     template 'contact', {
       active_nav => 'About',
       title => "Contact me",
       description => "Contact Charlie Harvey",
       referer => request->referer,
       useragent => request->user_agent,
-      remote_host => request->remote_address,
+      remote_host => $remote_host,
     };
 };
 
 post '/contact' => sub {
   my $sender = params->{sender};
-  my $body = params->{body};
+  my $body   = params->{body};
+  $body     .= "\nReferer: " . request->referer;
+  $body     .= "\nUA:      " . request->user_agent;
+  $body     .= "\nRemote Host: " . request->header('x-forwarded-for');
+
   $sender    =~ s/%40/@/;
   $body      =~ s/\+/ /gs;
   $body      =~ s/%([a-f0-9]{2})/chr(hex($1))/gei;
@@ -446,7 +455,11 @@ post '/contact' => sub {
     sleep 10;
     push @errors,"You are a spammer"
   }
-    
+  if(_body_contains_spam_phrases($body)) {
+    sleep 10;
+    push @errors,"Your email contained a phrase often used by spammers";
+  }
+
   if(@errors) {
     template 'contact', {
       active_nav => 'About',
@@ -471,6 +484,7 @@ post '/contact' => sub {
   }
 };
 
+
 # Flush the CHI cache. 
 get '/flush' => sub { cache_clear };
 get '/inc' => sub { 
@@ -488,6 +502,19 @@ any qr{.*}  => sub {
 };
 
 ### Helper functions
+
+sub _body_contains_spam_phrases {
+  my $body = shift;
+  my @phrases = (
+    'content on your site',
+    '\sseo\s',
+    'cams',
+  );
+  if(grep {$body =~ /$_/gi} @phrases) {
+    return 1;
+  }
+  return 0;
+}
 
 sub _email_charlie {
   my ($sender,$body) = @_;
