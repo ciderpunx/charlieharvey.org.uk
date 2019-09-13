@@ -509,6 +509,7 @@ sub _body_contains_spam_phrases {
     'content on your site',
     '\sseo\s',
     'cams',
+    '\svape\s'
   );
   if(grep {$body =~ /$_/gi} @phrases) {
     return 1;
