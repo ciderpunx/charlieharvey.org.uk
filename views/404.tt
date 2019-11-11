@@ -1,7 +1,7 @@
 <h1>Shit. Can&#8217;t find it. 404</h1>
 
 <p>
-What were you thinking? [% request.uri_base %][% request.path %] isn&#8217;t a page on this site. Maybe you can&#8217;t type? 
+What were you thinking? [% FILTER html %][% request.uri_base %][% request.path %][% END %] isn&#8217;t a page on this site. Maybe you can&#8217;t type? 
 Or maybe I broke something. Either way that page isn&#8217;t there.  
 </p>
 
