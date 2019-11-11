@@ -1,4 +1,2 @@
 AddType application/x-xpinstall .xpi
-RewriteEngine on
-RewriteRule ^index\.html$ / [R] 
-RewriteRule ^$ / [R] 
+Options +Indexes
