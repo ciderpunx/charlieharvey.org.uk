@@ -426,7 +426,15 @@ get '/contact/?' => sub {
 };
 
 post '/contact' => sub {
-  my $sender = params->{sender};
+  my @errors;
+
+  my $def_spammer = params->{sender};
+  if($def_spammer != '') {
+    sleep 20;
+    push @errors,"You are exhibiting spamlike behaviour";
+  }
+
+  my $sender = params->{bobitsk};
   my $body   = params->{body};
   $body     .= "\nReferer: " . request->referer;
   $body     .= "\nUA:      " . request->user_agent;
@@ -442,8 +450,6 @@ post '/contact' => sub {
     , 'ivanballard.*@gmail.com'
     , 'stellafair\d+@gmail.com'
   );
-
-  my @errors;
 
   unless ($body) {
     push @errors, "Body is empty";
@@ -509,7 +515,12 @@ sub _body_contains_spam_phrases {
     'content on your site',
     '\sseo\s',
     'cams',
-    '\svape\s'
+    '\svape\s',
+    '\sfeedback\s*?form',
+    '\scontact\s*?form',
+    '\sadvertis',
+    '\scoupon',
+    '\sSent from my iPhone\s',
   );
   if(grep {$body =~ /$_/gi} @phrases) {
     return 1;
