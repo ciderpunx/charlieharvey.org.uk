@@ -311,7 +311,7 @@ sub _akismet_lookup {
         COMMENT_AUTHOR_URL   => $url,
         REFERRER             => $referer,
     );
-    return 1 if ('true' eq $akismet_verdict);
+    return 1 if ($akismet_verdict && 'true' eq $akismet_verdict);
 }
 
 sub _honeypot_lookup {

@@ -5,7 +5,7 @@
   All fields are required.<br /><br />
   <div style="line-height:0;display:none;">
     <label class="required" for="sender">Your email: </label>
-    <input required placeholder="email@example.com" type="hidden" name="sender" value="" size="40" maxlength="40" id="sender" />
+    <input placeholder="email@example.com" type="hidden" name="sender" value="" size="40" maxlength="40" id="sender" />
   </div>
   <label class="required" for="bobitsk">Your email: </label>
   <input required placeholder="email@example.com" type="bobitsk" name="bobitsk" value="[% bobitsk %]" size="40" maxlength="40" id="bobitsk" />

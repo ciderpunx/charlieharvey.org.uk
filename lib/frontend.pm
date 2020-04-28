@@ -410,10 +410,13 @@ get '/writings.pl' => sub {
 
 
 get '/contact/?' => sub {
-    my $remote_host = request->header('x-forwarded-for');
-    $remote_host =~ s{, 127\.0\.0\.1$}{};
+    my $remote_host = "";
+    $remote_host = request->header('x-forwarded-for');
     unless($remote_host) {
       $remote_host = request->remote_host;
+    }
+    if($remote_host) {
+      $remote_host =~ s{, 127\.0\.0\.1$}{};
     }
     template 'contact', {
       active_nav => 'About',
@@ -429,16 +432,26 @@ post '/contact' => sub {
   my @errors;
 
   my $def_spammer = params->{sender};
-  if($def_spammer != '') {
-    sleep 20;
+  if($def_spammer ne  '') {
+    sleep 5;
     push @errors,"You are exhibiting spamlike behaviour";
   }
 
+  my $remote_host = "";
+  $remote_host = request->header('x-forwarded-for');
+  unless($remote_host) {
+    $remote_host = request->remote_host;
+  }
+  if($remote_host) {
+    $remote_host =~ s{, 127\.0\.0\.1$}{};
+  }
   my $sender = params->{bobitsk};
   my $body   = params->{body};
   $body     .= "\nReferer: " . request->referer;
   $body     .= "\nUA:      " . request->user_agent;
-  $body     .= "\nRemote Host: " . request->header('x-forwarded-for');
+  if($remote_host) {
+    $body     .= "\nRemote Host: $remote_host";
+  }
 
   $sender    =~ s/%40/@/;
   $body      =~ s/\+/ /gs;
@@ -458,16 +471,16 @@ post '/contact' => sub {
     push @errors, "Email is empty"
   }
   if (grep {$sender =~ /$_/gi} @seo_spammers) {
-    sleep 10;
+    sleep 5;
     push @errors,"You are a spammer"
   }
   if(_body_contains_spam_phrases($body)) {
-    sleep 10;
+    sleep 5;
     push @errors,"Your email contained a phrase often used by spammers";
   }
-  if (    _honeypot_lookup( $sender)
-        || _akismet_lookup( $sender, request->remote_host, request->user_agent, request->referer, $body, $sender, '' )) {
-    sleep 10; 
+  if (    frontend::comment->_honeypot_lookup( $sender)
+        || frontend::comment->_akismet_lookup( $sender, request->remote_host, request->user_agent, request->referer, $body, $sender, '' )) {
+    sleep 5; 
     push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 
   }
 
