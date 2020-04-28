@@ -465,6 +465,11 @@ post '/contact' => sub {
     sleep 10;
     push @errors,"Your email contained a phrase often used by spammers";
   }
+  if (    _honeypot_lookup( $sender)
+        || _akismet_lookup( $sender, request->remote_host, request->user_agent, request->referer, $body, $sender, '' )) {
+    sleep 10; 
+    push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 
+  }
 
   if(@errors) {
     template 'contact', {
