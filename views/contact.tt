@@ -8,7 +8,7 @@
     <input placeholder="email@example.com" type="hidden" name="sender" value="" size="40" maxlength="40" id="sender" />
   </div>
   <label class="required" for="bobitsk">Your email: </label>
-  <input required placeholder="email@example.com" type="bobitsk" name="bobitsk" value="[% bobitsk %]" size="40" maxlength="40" id="bobitsk" />
+  <input required placeholder="email@example.com" type="email" name="bobitsk" value="[% bobitsk %]" size="40" maxlength="40" id="bobitsk" />
   <br /> <br />
   <label class="required" for="body">Your message: </label>
   <textarea placeholder="Your message" required name="body" rows="10" cols="65" id="body">[% body %]</textarea>
