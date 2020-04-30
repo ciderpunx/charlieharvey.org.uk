@@ -8,6 +8,8 @@ use Try::Tiny;
 use XML::RSS;
 use XML::Simple;
 use LWP::Simple ();
+use LWP::UserAgent;
+use JSON;
 
 use frontend::comment;
 use frontend::daily_mail;
@@ -434,7 +436,16 @@ post '/contact' => sub {
   my $def_spammer = params->{sender};
   if($def_spammer ne  '') {
     sleep 5;
-    push @errors,"You are exhibiting spamlike behaviour";
+    push @errors,"You look like a spammer";
+  }
+  if(_spammy_user_agent(request->user_agent)) {
+    sleep 5;
+    push @errors,"You look like a spammer";
+  }
+  my $token = params->{'h-captcha-response'};
+  if(_verify_hcaptcha($token)) {
+    sleep 5;
+    push @errors,"Failed to complete CAPTCHA";
   }
 
   my $remote_host = "";
@@ -472,7 +483,7 @@ post '/contact' => sub {
   }
   if (grep {$sender =~ /$_/gi} @seo_spammers) {
     sleep 5;
-    push @errors,"You are a spammer"
+    push @errors,"You look like a spammer"
   }
   if(_body_contains_spam_phrases($body)) {
     sleep 5;
@@ -480,8 +491,8 @@ post '/contact' => sub {
   }
   if (    frontend::comment->_honeypot_lookup( $sender)
         || frontend::comment->_akismet_lookup( $sender, request->remote_host, request->user_agent, request->referer, $body, $sender, '' )) {
-    sleep 5; 
-    push @errors, "You look to me like a spammer. Maybe you are, maybe you&#8217;re not but that is how it looks."; 
+    sleep 5;
+    push @errors, "You look a spammer";
   }
 
   if(@errors) {
@@ -526,6 +537,37 @@ any qr{.*}  => sub {
 };
 
 ### Helper functions
+
+sub _verify_hcaptcha {
+  my $token = shift;
+  my $secret_key = config->{HCAPTCHA_SECRET};
+  my $verify_url = config->{HCAPTCHA_VERIFY_URL};
+  my $json_data = "{'secret': $secret_key, 'token': $token}";
+  my $req =  HTTP::Request->new( 'POST', $verify_url);
+  $req->header( 'Content-Type' => 'application/json' );
+  $req->content( $json_data );
+  my $lwp = LWP::UserAgent->new;
+  my $response = $lwp->request( $req );
+
+  if($response->is_success) {
+    my $json = decode_json($response->content);
+    if($json->success eq 'true') {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+sub _spammy_user_agent {
+  my $ua = shift;
+  my @dodgy_uas = (
+    'Edition Campaign 34',
+  );
+  if(grep {$ua =~ /$_/gi} @dodgy_uas) {
+    return 1;
+  }
+  return 0;
+}
 
 sub _body_contains_spam_phrases {
   my $body = shift;

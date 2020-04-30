@@ -13,13 +13,15 @@
   <label class="required" for="body">Your message: </label>
   <textarea placeholder="Your message" required name="body" rows="10" cols="65" id="body">[% body %]</textarea>
   <br /> <br />
+  <div class="h-captcha" data-sitekey="f30849c6-5f48-4088-9c13-05ff94231086"></div>
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
   <label class="hidden" for='submit'> &nbsp; </label>
   <input class="btn btn-dark btn-lg" type="submit" name="submit" value=" Contact Me &raquo; " id="submit" /> 
   <input type="hidden" name="remote" value=""  />  
   </p>
 </form>
 <p>
-<strong>Privacy note: </strong> 
+<strong>Privacy note: </strong>
 The following details about you will be forwarded to me, if you would rather not reveal this data, please don&#8217;t use this form. Full <a href="/page/privacy">privacy stataement</a>.</p>
 <p>
 Host:  [% remote_host %]<br />
