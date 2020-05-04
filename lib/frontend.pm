@@ -160,10 +160,6 @@ get '/cal.pl' => sub {
    redirect uri_for '/'
 };
 
-get '/contact.pl/?' => sub {
-   redirect uri_for '/contact'
-};
-
 get '/cgi-bin/*' => sub {
    redirect uri_for '/'
 };
@@ -411,7 +407,7 @@ get '/writings.pl' => sub {
 };
 
 
-get '/contact/?' => sub {
+get '/contact_charlie/?' => sub {
     my $remote_host = "";
     $remote_host = request->header('x-forwarded-for');
     unless($remote_host) {
@@ -430,7 +426,7 @@ get '/contact/?' => sub {
     };
 };
 
-post '/contact' => sub {
+post '/contact_charlie' => sub {
   my @errors;
 
   my $def_spammer = params->{sender};

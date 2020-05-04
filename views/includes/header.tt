@@ -39,7 +39,7 @@
               <li><a class="nav tag" href="/about/feeds">RSS and Atom feeds</a></li>
               <li><a class="nav tag" href="/about/api">Content API</a></li>
               <li><a class="nav tag" href="/page/privacy">Privacy statement</a></li>
-              <li><a class="nav tag me" href="/contact" accesskey="@">Contact</a></li>
+              <li><a class="nav tag me" href="/contact_charlie" accesskey="@">Contact</a></li>
             </ul>
           </li>
         </ul>

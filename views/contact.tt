@@ -1,6 +1,6 @@
 <header><h1>Contact Charlie Harvey</h1></header>
 <div id="contact">
-<form method="post" action="/contact" enctype="multipart/form-data">
+<form method="post" action="/contact_charlie" enctype="multipart/form-data">
   <p>
   All fields are required.<br /><br />
   <div style="line-height:0;display:none;">
