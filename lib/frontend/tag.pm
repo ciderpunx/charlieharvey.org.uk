@@ -16,7 +16,9 @@ get '/' => sub {
     $letter = "0-9" if($letter =~ /\d/);
     next unless ($letter =~ /^[\w\d]/); # skip non-alphanums
     if ($sects{$letter}) {
-      push $sects{$letter}, $_; 
+      my @swap = $sects{$letter};
+			push @swap, $_;
+			$sects{$letter}=@swap;
     }
     else {
       $sects{$letter} = [$_];
@@ -102,8 +104,9 @@ get '/:title/feed/:format/?' => sub {
     $format="RSS";
   }
   my $rhash = _stuff_tagged($tag,1);
+	my %rhashresults = $rhash->{results};
   my @results;
-  for my $key (reverse sort keys $rhash->{results}) {
+  for my $key (reverse sort keys %rhashresults) {
     my $issued = $rhash->{results}{$key}->can('created_at')
       ? $rhash->{results}{$key}->created_at
       : $rhash->{results}{$key}->updated

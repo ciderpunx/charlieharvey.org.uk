@@ -266,6 +266,7 @@ get '/monk_feed/:monk/?' => sub {
   my $ref = XMLin($data);
   my $user = $ref->{INFO}->{foruser};
 
+	my %ents = $ref->{NODE};
   my $feed = create_feed( 
     format      => 'RSS', #Feed format (RSS or Atom) 
     title        => "charlieharvey.org.uk: Perlmonks user RSS feed for $user",
@@ -284,7 +285,7 @@ get '/monk_feed/:monk/?' => sub {
         author  => '<![CDATA[' . $user . ']]>',
         summary => '<![CDATA[' . $ref->{NODE}{$_}{content} . ']]>',
         # issued  => $ref->{NODE}{$_}{lastedit},
-    }, keys $ref->{NODE} ], #makes collection of feed entries
+    }, keys %ents ], #makes collection of feed entries
   );
   return $feed;
 };
@@ -407,6 +408,27 @@ get '/writings.pl' => sub {
 };
 
 
+get '/contact/?' => sub {
+    my $remote_host = "";
+    $remote_host = request->header('x-forwarded-for');
+    unless($remote_host) {
+      $remote_host = request->remote_host;
+    }
+    if($remote_host) {
+      $remote_host =~ s{, 127\.0\.0\.1$}{};
+    }
+    my $logstring = "$remote_host," . request->referer . ", " . request->user_agent . "\n";
+    open my $out, '>>', '/var/log/contactspammers.log' or die('cannot open spammer log');
+    print $out $logstring;
+    close $out;
+    send_error("Spammers not appreciated", 403);
+    exit;
+};
+
+post '/contact/?' => sub {
+  redirect uri_for '/contact'
+};
+
 get '/contact_charlie/?' => sub {
     my $remote_host = "";
     $remote_host = request->header('x-forwarded-for');
@@ -454,8 +476,21 @@ post '/contact_charlie' => sub {
   }
   my $sender = params->{bobitsk};
   my $body   = params->{body};
+
+  my $hrefs = () = $body =~ m{http}gi;
+  if($hrefs>2) {
+    sleep 5;
+    push @errors,"You look like a spammer";
+  }
+  unless (length $body > 70) {
+    sleep 5;
+    push @errors, "You look like a spammer";
+  }
+
   $body     .= "\nReferer: " . request->referer;
   $body     .= "\nUA:      " . request->user_agent;
+  $body     .= "\nBdy len: " . length $body;
+
   if($remote_host) {
     $body     .= "\nRemote Host: $remote_host";
   }
@@ -469,6 +504,7 @@ post '/contact_charlie' => sub {
     , 'ramonelliot\d+@gmail.com'
     , 'ivanballard.*@gmail.com'
     , 'stellafair\d+@gmail.com'
+    , 'michaelfields3590@gmail.com'
   );
 
   unless ($body) {
@@ -558,6 +594,7 @@ sub _spammy_user_agent {
   my $ua = shift;
   my @dodgy_uas = (
     'Edition Campaign 34',
+    'Kinza',
   );
   if(grep {$ua =~ /$_/gi} @dodgy_uas) {
     return 1;
@@ -577,6 +614,7 @@ sub _body_contains_spam_phrases {
     '\sadvertis',
     '\scoupon',
     '\sSent from my iPhone\s',
+    '\sapartament\s',
   );
   if(grep {$body =~ /$_/gi} @phrases) {
     return 1;
