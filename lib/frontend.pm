@@ -487,13 +487,7 @@ post '/contact_charlie' => sub {
     push @errors, "You look like a spammer";
   }
 
-  $body     .= "\nReferer: " . request->referer;
-  $body     .= "\nUA:      " . request->user_agent;
-  $body     .= "\nBdy len: " . length $body;
 
-  if($remote_host) {
-    $body     .= "\nRemote Host: $remote_host";
-  }
 
   $sender    =~ s/%40/@/;
   $body      =~ s/\+/ /gs;
@@ -540,6 +534,12 @@ post '/contact_charlie' => sub {
     };
   }
   else {
+    if($remote_host) {
+      $body     .= "\nRemote Host: $remote_host";
+    }
+    $body     .= "\nReferer: " . request->referer;
+    $body     .= "\nUA:      " . request->user_agent;
+    $body     .= "\nBdy len: " . length $body;
     _email_charlie($sender,$body);
     template 'contact_success', { 
       active_nav => 'About',
@@ -583,7 +583,7 @@ sub _verify_hcaptcha {
 
   if($response->is_success) {
     my $json = decode_json($response->content);
-    if($json->success eq 'true') {
+    if($json->{success} eq 'true') {
       return 1;
     }
   }
