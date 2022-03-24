@@ -615,6 +615,12 @@ sub _body_contains_spam_phrases {
     '\scoupon',
     '\sSent from my iPhone\s',
     '\sapartament\s',
+		'\sporn\s',
+		'\sbacklinks\s',
+		'\sloans\s',
+		'\scialis\s',
+		'\samoxicillin\s',
+		'\sviagra\s',
   );
   if(grep {$body =~ /$_/gi} @phrases) {
     return 1;
