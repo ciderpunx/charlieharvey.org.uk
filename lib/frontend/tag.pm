@@ -107,6 +107,7 @@ get '/:title/feed/:format/?' => sub {
 	my %rhashresults = $rhash->{results};
   my @results;
   for my $key (reverse sort keys %rhashresults) {
+    next unless $rhash->{results}{$key};
     my $issued = $rhash->{results}{$key}->can('created_at')
       ? $rhash->{results}{$key}->created_at
       : $rhash->{results}{$key}->updated

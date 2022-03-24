@@ -37,6 +37,7 @@ get '/api/all/?' => sub {
 ##
 
 sub _tweets {
+  return [];
   my $url   = "http://ox4.org/~charlie/tweets.xml";
   my $limit = 5;
   my @items;
