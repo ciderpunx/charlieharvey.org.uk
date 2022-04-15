@@ -13,6 +13,10 @@
   <label class="required" for="body">Your message: </label>
   <textarea placeholder="Your message" required name="body" rows="10" cols="65" id="body">[% body %]</textarea>
   <br /> <br />
+  <label class="required" for="dumb-captcha-response">Anti-spam question (Google or DDG the answer if you don't know)<br />[% dumb_captcha_question %]: </label>
+  <input required placeholder="Your answer" type="text" name="dumb-captcha-response" />
+  <input type="hidden" name="dumb-captcha-question" value="[% dumb_captcha_question_id %]" />
+  <br /> <br />
   <div class="h-captcha" data-sitekey="f30849c6-5f48-4088-9c13-05ff94231086"></div>
   <script src="https://hcaptcha.com/1/api.js" async defer></script>
   <label class="hidden" for='submit'> &nbsp; </label>

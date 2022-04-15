@@ -21,6 +21,8 @@ use frontend::social;
 use frontend::tag;
 use frontend::writing;
 
+require "dumbcaptcha.pl";
+
 our $VERSION = '0.3';
 
 prefix undef;
@@ -266,7 +268,7 @@ get '/monk_feed/:monk/?' => sub {
   my $ref = XMLin($data);
   my $user = $ref->{INFO}->{foruser};
 
-	my %ents = $ref->{NODE};
+  my %ents = $ref->{NODE};
   my $feed = create_feed( 
     format      => 'RSS', #Feed format (RSS or Atom) 
     title        => "charlieharvey.org.uk: Perlmonks user RSS feed for $user",
@@ -438,6 +440,9 @@ get '/contact_charlie/?' => sub {
     if($remote_host) {
       $remote_host =~ s{, 127\.0\.0\.1$}{};
     }
+    my $captchas = captchas();
+    my $dumb_captcha_question_id = int(rand @$captchas);
+
     template 'contact', {
       active_nav => 'About',
       title => "Contact me",
@@ -445,6 +450,8 @@ get '/contact_charlie/?' => sub {
       referer => request->referer,
       useragent => request->user_agent,
       remote_host => $remote_host,
+      dumb_captcha_question_id => $dumb_captcha_question_id,
+      dumb_captcha_question => $captchas->[$dumb_captcha_question_id][0],
     };
 };
 
@@ -464,6 +471,12 @@ post '/contact_charlie' => sub {
   if(_verify_hcaptcha($token)) {
     sleep 5;
     push @errors,"Failed to complete CAPTCHA";
+  }
+  my $dumb_captcha_ans = params->{'dumb-captcha-response'};
+  my $dumb_captcha_ques = params->{'dumb-captcha-question'};
+  unless(_verify_dumb_captcha($dumb_captcha_ans, $dumb_captcha_ques)) {
+    sleep 5;
+    push @errors,"Failed to complete dumb CAPTCHA";
   }
 
   my $remote_host = "";
@@ -486,7 +499,6 @@ post '/contact_charlie' => sub {
     sleep 5;
     push @errors, "You look like a spammer";
   }
-
 
 
   $sender    =~ s/%40/@/;
@@ -522,6 +534,8 @@ post '/contact_charlie' => sub {
   }
 
   if(@errors) {
+    my $captchas = captchas();
+    my $new_dumb_captcha_question_id = int (rand @$captchas);
     template 'contact', {
       active_nav => 'About',
       title => "Contact me",
@@ -531,6 +545,8 @@ post '/contact_charlie' => sub {
       referer => request->referer,
       useragent => request->user_agent,
       remote_host => request->remote_host,
+      dumb_captcha_question_id => $new_dumb_captcha_question_id,
+      dumb_captcha_question => $captchas->[$new_dumb_captcha_question_id][0],
     };
   }
   else {
@@ -590,6 +606,16 @@ sub _verify_hcaptcha {
   return 0;
 }
 
+sub _verify_dumb_captcha {
+  my ($answer, $question_id) = (shift, shift);
+  my $captchas = captchas();
+  my $correct_answer = $captchas->[$question_id][1];
+  if(uc $answer eq uc $correct_answer) {
+    return 1;
+  }
+  return 0;
+}
+
 sub _spammy_user_agent {
   my $ua = shift;
   my @dodgy_uas = (
@@ -607,6 +633,8 @@ sub _body_contains_spam_phrases {
   my @phrases = (
     'content on your site',
     '\sseo\s',
+    '\sseo',
+    'seo\s',
     'cams',
     '\svape\s',
     '\sfeedback\s*?form',
@@ -615,12 +643,20 @@ sub _body_contains_spam_phrases {
     '\scoupon',
     '\sSent from my iPhone\s',
     '\sapartament\s',
-		'\sporn\s',
-		'\sbacklinks\s',
-		'\sloans\s',
-		'\scialis\s',
-		'\samoxicillin\s',
-		'\sviagra\s',
+    '\sporn\s',
+    '\sbacklinks\s',
+    '\sloans\s',
+    'cialis',
+    '\samoxicillin\s',
+    '\sviagra\s',
+    '\scidofovir\s',
+    '\scasino\s',
+    '\srolex\s',
+    '\ssavior\s',
+    'xevil',
+		'https://telegra.ph/',
+		'<img src',
+		'/sukranian/s',
   );
   if(grep {$body =~ /$_/gi} @phrases) {
     return 1;
