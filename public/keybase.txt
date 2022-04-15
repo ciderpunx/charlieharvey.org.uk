@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/ciderpunx
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://charlieharvey.org.uk
+  * I am ciderpunx (https://keybase.io/ciderpunx) on keybase.
+  * I have a public key with fingerprint 992E E813 45E6 A007 DFCB  1FD1 FCAD 32A5 196A A973
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01014a4a7d9746df3095f645e4797703bc8365cd83b3d95a8197f9361e81b752fbf90a",
+      "fingerprint": "992ee81345e6a007dfcb1fd1fcad32a5196aa973",
+      "host": "keybase.io",
+      "key_id": "fcad32a5196aa973",
+      "kid": "01014a4a7d9746df3095f645e4797703bc8365cd83b3d95a8197f9361e81b752fbf90a",
+      "uid": "43a472e9ce64be6b65d3fd9038204c19",
+      "username": "ciderpunx"
+    },
+    "service": {
+      "hostname": "charlieharvey.org.uk",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1618988912,
+  "expire_in": 157680000,
+  "prev": "ee2af42c52d0ff525b5b1ad62bf0638428d147ac903546457a577173be6496d0",
+  "seqno": 2,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUmtQVGUY5i6srqAWDAVDHGEaJ1zO/bIqKLplOWmQklCC5/IdOCzs2c4eNi6D
+wdQ44w3ZJphECn+IiQwEGSLSUGSCDDMYyKziFOBaBGkqYYSS0DlM/Otn34/vm++d
+533e53nmrTD6ehm8/25E68Jz6h3efZOc1/73rxUVQ5wsFELmYsgKFh+QKwCHmmmV
+BMgMwQiM4CzOUgJD4aQgYjBDiCROAJxiKArGOJ7GSIIXaIzDBIZgaYShRAYjEUAj
+HEWgIicyMAvFQaJkywKKXZFsqkbLMCjQEJhGRLIwTAkizyGigIg8K2AoSyAMybIM
+hWmN2bJD79DEcawDmCRZq2mfzEV5/4H/n3XnL9LhGItTKGB4QOIcIDmSEDBRYGCM
+RmGcRxgd6ACKjc0DGpqXBM1qvq0AKomDtLJT4oGerG5lCZLNKrkS0G4nKDTJSpYp
+36qR2BVZlXk5V0Nkq6rdYdYZ1EK73vIe4DL/JcvkJJugBap1OIHikGQbZEY0JK9K
+OjtCIjRD0wyCxkGgwC4pIFPSEQRF0rB29DnACbFmCACUFXGUJ1ABFkUCJTiCQ1iB
+RDkRJjEaR2kBwSmW15wSuBYfxRIUhVCYlgHOkAIM6f7etcmQWRulslmaTIeUZWPV
+fAVAJYZDPpifl7fBKzI02u+EaWKNZfzUstG+qIGlJfT30TfQyxAUslTZVho8DwUO
+wbYj3+Z03q87ZnGu4EM8gW3ISir0wdBswezYiut/nmTmb9UZFppHoDOtBt/u+vqm
+2N3xVZ7YoaQfY1Ly9yyk2T9JDX0ckeJMC3/G3fhCx4Brtau3Z4Z8u8v6ZkO25UpY
+7Id3Xm1O6Hjp54HAsr2b15ruJwQ0PzL63+yJSI0e7K/4uCV92Fi2cj7vo5Tyy6pS
+89up3G+UsuIQaSL9yFT5puNrRyYaxy9aAmXzavfsrgxuYe8biKHDEvPksbVx+/Zf
+lsufcl3DG9WES/su9tZyruC7TZ/53RjjH/Zs2xk+dwU0TIfNbRJ71x27uju+0Ooy
+ZqCnSzuaQ9PaM5i3pv+4nfJiSU373V8rt8afV43+98IykK7Urugo99SeA+f4GvxG
+mTiY7HM9ckcR4oqY2Ek1XVhvC8K/m2uZWr7qUBLyitrLR3WCwy3PPtcXcHTcRLcd
+vPf1sidJwZFfpD+Kv7Bv7Gz/wzzIGrOlunvU72zn+eRW00zNjnnH93/13VFr44p8
+3c3Zlz311aerJ8Jm+255nj5/4HaVvyvATf+0YbK1ePD402nYk1i4av+w8fPX29fN
+GIe2XHpQ9cFN7+6vYg3lKLPrncmDtWXTia+t+f1cXFBOW+KXozn9rSfmPGJN+taK
+l4+SyT7QtcEzm72zhk9y7qDSjQ0bKiv9C0YCr9aP/dBeRKyXzf8A
+=+tdy
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ciderpunx
+
+==================================================================
